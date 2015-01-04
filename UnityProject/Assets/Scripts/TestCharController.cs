@@ -8,7 +8,7 @@ public class TestCharController : MonoBehaviour {
 
 	bool grounded = false;
 	public Transform groundCheck;
-	float groundRadius = 0.2f;
+	float groundRadius = 0.1f;
 	public LayerMask whatIsGround;
 	
 	// Use this for initialization
@@ -29,5 +29,6 @@ public class TestCharController : MonoBehaviour {
 		float move = Input.GetAxis ("Horizontal");
 
 		rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
+		Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Platforms"), !grounded);
 	}
 }

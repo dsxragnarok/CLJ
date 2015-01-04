@@ -9,7 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 453562}
   - 212: {fileID: 21253562}
-  - 61: {fileID: 6153562}
+  - 114: {fileID: 11434886}
+  - 68: {fileID: 6811982}
   m_Layer: 9
   m_Name: CloudPlatform00
   m_TagString: Untagged
@@ -24,13 +25,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.33974218, y: 1.67705703, z: 0}
+  m_LocalPosition: {x: -.504999995, y: -1.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!61 &6153562
-BoxCollider2D:
+--- !u!68 &6811982
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -38,8 +39,21 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 2.10808182, y: .712093353}
-  m_Center: {x: -.00991010666, y: 0}
+  m_Points:
+  - {x: -1.04833329, y: 0}
+  - {x: 1.04833329, y: 0}
+--- !u!114 &11434886
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b89ea5706dc26943b7870ab410e218b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
 --- !u!212 &21253562
 SpriteRenderer:
   m_ObjectHideFlags: 1
