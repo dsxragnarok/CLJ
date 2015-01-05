@@ -3,6 +3,7 @@
 --- !u!78 &1
 TagManager:
   tags:
+  - CloudGroup
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -15,10 +16,10 @@ TagManager:
   User Layer 8: Background
   User Layer 9: Platforms
   User Layer 10: Player
-  User Layer 11: Foreground
+  User Layer 11: Enemies
   User Layer 12: 
   User Layer 13: 
-  User Layer 14: 
+  User Layer 14: Foreground
   User Layer 15: 
   User Layer 16: 
   User Layer 17: 
