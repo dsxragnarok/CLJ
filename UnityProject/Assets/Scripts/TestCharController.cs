@@ -3,7 +3,7 @@ using System.Collections;
 
 public class TestCharController : MonoBehaviour {
 
-	public float maxSpeed = 10f;
+	public float moveSpeed = 10f;
 	public float jumpForce = 300f;
 
 	bool grounded = false;
@@ -28,7 +28,7 @@ public class TestCharController : MonoBehaviour {
 
 		float move = Input.GetAxis ("Horizontal");
 
-		rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
+		rigidbody2D.velocity = new Vector2 (move * moveSpeed, rigidbody2D.velocity.y);
 		Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Platforms"), !grounded);
 	}
 }
