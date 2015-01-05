@@ -239,6 +239,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: jumpForces.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 447716, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
       propertyPath: m_LocalPosition.x
       value: -.0199999996
@@ -270,6 +274,66 @@ Prefab:
     - target: {fileID: 447716, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: jumpMin
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: jumpMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: jumpForce
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: jumpForceTakeoff
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: jumpForceMaintain
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: jumpForcePhase1
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: jumpForcePhase2
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: jumpForcePhase3
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: jumpForcePhase4
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: jumpForcePhase5
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: jumpForces.Array.data[0]
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: jumpForces.Array.data[1]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: jumpForces.Array.data[2]
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: jumpForces.Array.data[3]
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: jumpForces.Array.data[4]
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
@@ -429,7 +493,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 10
-  jumpForce: 300
+  jumpForces:
+  - 200
+  - 100
+  - 50
+  - 25
+  - 25
+  jumpMin: .5
+  jumpMax: 1
   groundCheck: {fileID: 1920917442}
   whatIsGround:
     serializedVersion: 2
