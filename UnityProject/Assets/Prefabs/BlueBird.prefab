@@ -12,6 +12,7 @@ GameObject:
   - 58: {fileID: 5826722}
   - 68: {fileID: 6826722}
   - 114: {fileID: 11426722}
+  - 50: {fileID: 5096174}
   m_Layer: 11
   m_Name: BlueBird
   m_TagString: Untagged
@@ -31,6 +32,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5096174
+Rigidbody2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126722}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!58 &5826722
 CircleCollider2D:
   m_ObjectHideFlags: 1

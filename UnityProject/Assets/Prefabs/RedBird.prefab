@@ -12,6 +12,7 @@ GameObject:
   - 58: {fileID: 5889904}
   - 68: {fileID: 6889904}
   - 114: {fileID: 11489904}
+  - 50: {fileID: 5049496}
   m_Layer: 11
   m_Name: RedBird
   m_TagString: Untagged
@@ -31,6 +32,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5049496
+Rigidbody2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189904}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!58 &5889904
 CircleCollider2D:
   m_ObjectHideFlags: 1

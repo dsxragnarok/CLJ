@@ -11,12 +11,17 @@ public class BirdController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		moveSpeed = Random.Range (minSpeed, maxSpeed);
+		rigidbody2D.velocity = new Vector2 (-1.0f * moveSpeed, rigidbody2D.velocity.y);
+		Physics2D.IgnoreLayerCollision (gameObject.layer, LayerMask.NameToLayer ("Platforms"), true);
+		Physics2D.IgnoreLayerCollision (gameObject.layer, LayerMask.NameToLayer ("Enemies"), true);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		Vector3 pos = transform.position;
-		pos.x = pos.x - moveSpeed * Time.fixedDeltaTime;
-		transform.position = pos;
+
+	}
+
+	void FixedUpdate () {
+
 	}
 }
