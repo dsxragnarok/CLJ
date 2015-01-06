@@ -1103,7 +1103,7 @@ MonoBehaviour:
   minY: -1
   maxY: 1
   initialDelay: 1
-  spawnInterval: 4
+  spawnInterval: 4.5
   spawnList:
   - {fileID: 113992, guid: 228035222e0c1dc49a5fe9df76d2a54f, type: 2}
   - {fileID: 152410, guid: 28508c71c7b5de34e8639a85f5f194da, type: 2}
