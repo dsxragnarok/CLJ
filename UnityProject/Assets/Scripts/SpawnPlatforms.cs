@@ -3,11 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class SpawnPlatforms : MonoBehaviour {
+	GameObject _platformContainer;
+
 	public float minY = -15.0f;
 	public float maxY = 15.0f;
 	public float initialDelay = 0.3f;	// the initial delay in seconds
 	public float spawnInterval = 2.0f;	// number of seconds between spawns
-	public List<GameObject> spawnList;
+	public List<GameObject> spawnList;	
+
+	void Awake () {
+		_platformContainer = GameObject.FindGameObjectWithTag("PlatformContainer");
+	}
+	
 	// Use this for initialization
 	void Start () {
 		InvokeRepeating("GeneratePlatform", initialDelay, spawnInterval);
@@ -25,6 +32,8 @@ public class SpawnPlatforms : MonoBehaviour {
 		pos.y = pos.y + Random.Range (minY, maxY);
 		//Debug.Log ("spawn cloud at y position = " + pos.y);
 		Quaternion rot = this.transform.rotation;
-		GameObject.Instantiate(spawnList[rindex], pos, rot);
+		GameObject obj = (GameObject)GameObject.Instantiate(spawnList[rindex], pos, rot);
+		if (_platformContainer)
+			obj.transform.parent = _platformContainer.transform;
 	}
 }

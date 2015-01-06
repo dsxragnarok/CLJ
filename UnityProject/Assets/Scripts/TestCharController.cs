@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class TestCharController : MonoBehaviour {
 
-	public float maxSpeed = 3f;
+	public float maxSpeed = 1f;
 
 	// Jump Variables
 	private int jumpPhase;			// 0=no jump 1=1st jump 2=2nd jump
@@ -43,11 +43,14 @@ public class TestCharController : MonoBehaviour {
 		if (grounded && jumpForceIndex > 0)
 			jumpPhase = 0;
 
+		float move = 0.0f;
 		// Return to home x-position, needs rework
 		if (rigidbody2D.position.x < xRest - 0.1f)
-			rigidbody2D.AddForce (new Vector2(maxSpeed, 0.0f) * rigidbody2D.mass);
+			move = maxSpeed;
 		if (rigidbody2D.position.x > xRest + 0.1f)
-			rigidbody2D.AddForce (new Vector2(-maxSpeed, 0.0f) * rigidbody2D.mass);
+			move = -maxSpeed;
+
+		rigidbody2D.velocity = new Vector2(move, rigidbody2D.velocity.y); 	
 
 		// Ignore platform collisions if we are airborne
 		Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Platforms"), !grounded);

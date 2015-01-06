@@ -28,7 +28,7 @@ GameObject:
   - 68: {fileID: 6879118}
   m_Layer: 9
   m_Name: CloudPlatform01
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,7 @@ GameObject:
   - 114: {fileID: 11479120}
   m_Layer: 9
   m_Name: CloudPlatform02
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,7 +64,7 @@ GameObject:
   - 68: {fileID: 6879122}
   m_Layer: 9
   m_Name: CloudPlatform04
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,7 +82,7 @@ GameObject:
   - 68: {fileID: 6898774}
   m_Layer: 9
   m_Name: CloudPlatform03
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,7 @@ GameObject:
   - 68: {fileID: 6898776}
   m_Layer: 9
   m_Name: CloudPlatform01
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ GameObject:
   - 68: {fileID: 6898778}
   m_Layer: 9
   m_Name: CloudPlatform00
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

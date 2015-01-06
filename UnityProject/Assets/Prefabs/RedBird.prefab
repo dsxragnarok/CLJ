@@ -15,7 +15,7 @@ GameObject:
   - 50: {fileID: 5049496}
   m_Layer: 11
   m_Name: RedBird
-  m_TagString: Untagged
+  m_TagString: Birdie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

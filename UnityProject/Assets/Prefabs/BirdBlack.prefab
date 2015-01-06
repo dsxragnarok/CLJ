@@ -15,7 +15,7 @@ GameObject:
   - 114: {fileID: 11496266}
   m_Layer: 11
   m_Name: BirdBlack
-  m_TagString: Untagged
+  m_TagString: Birdie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

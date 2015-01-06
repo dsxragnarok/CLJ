@@ -4,6 +4,12 @@
 TagManager:
   tags:
   - CloudGroup
+  - PlatformContainer
+  - Gadget
+  - Platform
+  - Birdie
+  - GadgetContainer
+  - BirdContainer
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

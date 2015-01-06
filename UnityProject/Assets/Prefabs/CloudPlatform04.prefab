@@ -13,7 +13,7 @@ GameObject:
   - 68: {fileID: 6838636}
   m_Layer: 9
   m_Name: CloudPlatform04
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
