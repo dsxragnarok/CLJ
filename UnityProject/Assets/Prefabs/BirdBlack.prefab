@@ -86,6 +86,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpeed: 5
   maxSpeed: 20
+  initialSpeed: 5
+  speedVariance: 5
+  initialAcceleration: -5
+  maxAcceleration: -10
+  accelerationIncrement: -2
 --- !u!212 &21250536
 SpriteRenderer:
   m_ObjectHideFlags: 1
