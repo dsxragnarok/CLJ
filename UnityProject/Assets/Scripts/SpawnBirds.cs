@@ -26,10 +26,21 @@ public class SpawnBirds : MonoBehaviour {
 	}
 
 	void GenerateBird () {
+		float spawnY;
+		if (Random.Range (0, 100) > 50) {
+			GameObject[] clouds = GameObject.FindGameObjectsWithTag ("Platform");
+			GameObject cloud = clouds[Random.Range(0,clouds.Length)];
+
+			spawnY = cloud.transform.position.y;
+		} else {
+			spawnY = Random.Range (minY, maxY);
+		}
+
 		int rindex = Random.Range(0, spawnList.Count);
 		Vector3 pos = this.transform.position;
-		pos.y = pos.y + Random.Range (minY, maxY);
-		//Debug.Log ("spawn cloud at y position = " + pos.y);
+		pos.y = spawnY + 0.5f;
+		//pos.y = pos.y + Random.Range (minY, maxY);
+
 		Quaternion rot = this.transform.rotation;
 		GameObject obj = (GameObject)GameObject.Instantiate(spawnList[rindex], pos, rot);
 		if (_birdContainer)
