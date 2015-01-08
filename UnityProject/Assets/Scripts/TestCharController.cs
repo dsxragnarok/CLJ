@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class TestCharController : MonoBehaviour {
 
-	public float maxSpeed = 1f;
+	public float maxSpeed;
 
 	// Jump Variables
 	private int jumpPhase;			// 0=no jump 1=1st jump 2=2nd jump
@@ -13,7 +13,7 @@ public class TestCharController : MonoBehaviour {
 
 	private bool grounded;
 	public Transform groundCheck;
-	private float groundRadius = 0.1f;
+	private float groundRadius;
 	public LayerMask whatIsGround;
 
 	// X rest position
@@ -28,12 +28,15 @@ public class TestCharController : MonoBehaviour {
 		grounded = false;
 		xRest = rigidbody2D.position.x;
 		colliders = GetComponents<Collider2D>();
+		groundRadius = GetComponent<CircleCollider2D>().radius;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		// Perform jump if we are on ground or this is our double jump
-		if ((grounded || jumpPhase <= 1) && Input.GetKeyDown (KeyCode.Space))
+		//if ((grounded || jumpPhase < 2) && Input.GetKeyDown (KeyCode.Space))
+		// Perform jump if we are on ground
+		if (grounded && Input.GetKeyDown (KeyCode.Space))
 		{
 			StopCoroutine(performJump());
 			StartCoroutine(performJump());
@@ -41,7 +44,10 @@ public class TestCharController : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
+		grounded = Physics2D.OverlapArea (groundCheck.position - Vector3.left * groundRadius - Vector3.up * groundRadius, 
+		                                  groundCheck.position + Vector3.left * groundRadius + Vector3.up * groundRadius, 
+		                                  whatIsGround);
+		//grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
 		// Reset jump phase if we are grounded so the person can jump again
 		if (grounded && jumpForceIndex > 0)
 			jumpPhase = 0;
@@ -67,7 +73,7 @@ public class TestCharController : MonoBehaviour {
 			if (p2.x < p1.x || (p2.x == p1.x && p2.y < p1.y))
 				m = p1 - p2;
 			Vector2 n = new Vector2(m.y, -m.x);
-			Vector2 pc = new Vector2(groundCheck.position.x, groundCheck.position.y - groundRadius / 2);
+			Vector2 pc = new Vector2(groundCheck.position.x, groundCheck.position.y);
 			pc = pc - p1;
 
 			bool side = Vector2.Dot (pc, n) > 0.0f; 
