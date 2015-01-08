@@ -954,11 +954,14 @@ MonoBehaviour:
   minY: -4
   maxY: 4
   initialDelay: .5
-  spawnInterval: .5
+  spawnInterval: .25
   spawnList:
   - {fileID: 150536, guid: b446c0aa4cad7844d9d04966ed8e2af5, type: 2}
   - {fileID: 126722, guid: e03b4fa0b6fe179489d5ca32b0d739a6, type: 2}
   - {fileID: 189904, guid: 060e38de3f9c28648b3a06cfd96faa52, type: 2}
+  - {fileID: 150536, guid: b446c0aa4cad7844d9d04966ed8e2af5, type: 2}
+  - {fileID: 126722, guid: e03b4fa0b6fe179489d5ca32b0d739a6, type: 2}
+  - {fileID: 150536, guid: b446c0aa4cad7844d9d04966ed8e2af5, type: 2}
 --- !u!1 &1636319694
 GameObject:
   m_ObjectHideFlags: 0
