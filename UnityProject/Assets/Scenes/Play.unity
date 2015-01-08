@@ -221,9 +221,53 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6147716, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: m_Center.x
+      value: -.000208854675
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147716, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: m_Size.y
+      value: .56008774
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147716, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: m_Center.y
+      value: .0264011025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147716, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: m_Size.x
+      value: .426372051
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847716, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: m_Radius
+      value: .150000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847716, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: m_Center.y
+      value: -.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -.25
+      objectReference: {fileID: 0}
     - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
-      propertyPath: maxSpeed
-      value: 5
+      propertyPath: jumpForces.Array.data[0]
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: jumpForces.Array.data[2]
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: jumpForces.Array.data[3]
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: jumpForces.Array.data[4]
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: jumpForces.Array.data[1]
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
@@ -360,8 +404,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .313301474, y: .444654346}
-  m_Center: {x: -.00168405473, y: .0202082396}
+  m_Size: {x: .426372051, y: .56008774}
+  m_Center: {x: -.000208854675, y: .0264011025}
 --- !u!58 &744100562
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -372,8 +416,8 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Radius: .100000001
-  m_Center: {x: 0, y: -.200000003}
+  m_Radius: .150000006
+  m_Center: {x: 0, y: -.25}
 --- !u!50 &744100563
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -402,13 +446,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67d95eae982138a42aa14e14f2b83fcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 5
+  maxSpeed: 1
   jumpForces:
-  - 200
-  - 100
+  - 150
+  - 150
+  - 75
+  - 75
   - 50
-  - 25
-  - 25
   groundCheck: {fileID: 1920917442}
   whatIsGround:
     serializedVersion: 2
@@ -1304,7 +1348,7 @@ Transform:
   m_PrefabInternal: {fileID: 344125338}
   m_GameObject: {fileID: 1920917441}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.200000003, z: 0}
+  m_LocalPosition: {x: 0, y: -.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 744100560}
