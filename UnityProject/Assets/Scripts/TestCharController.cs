@@ -19,12 +19,15 @@ public class TestCharController : MonoBehaviour {
 	// X rest position
 	private float xRest;
 
+	private Collider2D[] colliders;
+
 	// Use this for initialization
 	void Start () {
 		jumpPhase = 0;
 		jumpForceIndex = 0;
 		grounded = false;
 		xRest = rigidbody2D.position.x;
+		colliders = GetComponents<Collider2D>();
 	}
 	
 	// Update is called once per frame
@@ -44,16 +47,40 @@ public class TestCharController : MonoBehaviour {
 			jumpPhase = 0;
 
 		float move = 0.0f;
-		// Return to home x-position, needs rework
+		// Return to home x-position at a constant velocity
 		if (rigidbody2D.position.x < xRest - 0.1f)
 			move = maxSpeed;
 		if (rigidbody2D.position.x > xRest + 0.1f)
 			move = -maxSpeed;
-
 		rigidbody2D.velocity = new Vector2(move, rigidbody2D.velocity.y); 	
 
 		// Ignore platform collisions if we are airborne
-		Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Platforms"), !grounded);
+		GameObject[] objs = GameObject.FindGameObjectsWithTag("Platform");
+		foreach (GameObject obj in objs)
+		{
+			EdgeCollider2D platform = obj.GetComponent<EdgeCollider2D>();
+
+			// Assumes only two vertices per platform
+			Vector2 p1 = (Vector2)platform.transform.position + (Vector2)(platform.transform.rotation * (Vector3)platform.points[0]);
+			Vector2 p2 = (Vector2)platform.transform.position + (Vector2)(platform.transform.rotation * (Vector3)platform.points[1]);
+			Vector2 m = p2 - p1;
+			if (p2.x < p1.x || (p2.x == p1.x && p2.y < p1.y))
+				m = p1 - p2;
+			Vector2 n = new Vector2(m.y, -m.x);
+			Vector2 pc = new Vector2(groundCheck.position.x, groundCheck.position.y - groundRadius / 2);
+			pc = pc - p1;
+
+			bool side = Vector2.Dot (pc, n) > 0.0f; 
+			// Comment this for efficiency, draws nice lines to tell you
+			// what's is collidable and what's not
+			if (side)
+				Debug.DrawLine (p1, p2, Color.red, 0.0f, false);
+			else
+				Debug.DrawLine (p1, p2, Color.blue, 0.0f, false);
+		
+			foreach (Collider2D col in colliders)
+				Physics2D.IgnoreCollision(col, platform, side);
+		}
 	}
 
 	private IEnumerator performJump()
@@ -63,6 +90,8 @@ public class TestCharController : MonoBehaviour {
 		// As long as the space key is held down, apply jump forces specified in the jumpForces vector.
 		rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0.0f);
 		jumpPhase++;
+		if (!grounded && jumpPhase <= 1)
+			jumpPhase++;
 		jumpForceIndex = 0;
 		for (; jumpForceIndex < jumpForces.Count && Input.GetKey (KeyCode.Space); ++jumpForceIndex)
 		{
