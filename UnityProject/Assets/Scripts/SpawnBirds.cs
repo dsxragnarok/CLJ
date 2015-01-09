@@ -17,6 +17,7 @@ public class SpawnBirds : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		// TODO: change the spawnInterval based on score -- possibly will require using invoke instead of invokerepeating
 		InvokeRepeating("GenerateBird", initialDelay, spawnInterval);
 	}
 	
@@ -27,14 +28,14 @@ public class SpawnBirds : MonoBehaviour {
 
 	void GenerateBird () {
 		float spawnY;
-		if (Random.Range (0, 100) > 50) {
+		//if (Random.Range (0, 100) > 50) {
 			GameObject[] clouds = GameObject.FindGameObjectsWithTag ("Platform");
 			GameObject cloud = clouds[Random.Range(0,clouds.Length)];
 
 			spawnY = cloud.transform.position.y;
-		} else {
-			spawnY = Random.Range (minY, maxY);
-		}
+		//} else {
+		//	spawnY = Random.Range (minY, maxY);
+		//}
 
 		int rindex = Random.Range(0, spawnList.Count);
 		Vector3 pos = this.transform.position;

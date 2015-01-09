@@ -102,7 +102,7 @@ Transform:
   - {fileID: 1531724086}
   - {fileID: 2030708380}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &220251365
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +219,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 447716, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6147716, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
       propertyPath: m_Center.x
@@ -301,7 +301,47 @@ Transform:
   m_Children:
   - {fileID: 681476603}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
+--- !u!1 &571835881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 571835883}
+  - 114: {fileID: 571835882}
+  m_Layer: 0
+  m_Name: GameMaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &571835882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 571835881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f407674ad281f944bbd2916cefb268a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScore: 0
+--- !u!4 &571835883
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 571835881}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.0399999991, y: 5.65999985, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!1 &681476602
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,7 +433,7 @@ Transform:
   m_Children:
   - {fileID: 1920917442}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!61 &744100561
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -446,7 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67d95eae982138a42aa14e14f2b83fcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 1
+  maxSpeed: 5
   jumpForces:
   - 150
   - 150
@@ -847,7 +887,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &1350859597
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,7 +971,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1 &1531724084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,7 +1042,7 @@ MonoBehaviour:
   minY: -4
   maxY: 4
   initialDelay: .5
-  spawnInterval: .25
+  spawnInterval: .5
   spawnList:
   - {fileID: 150536, guid: b446c0aa4cad7844d9d04966ed8e2af5, type: 2}
   - {fileID: 126722, guid: e03b4fa0b6fe179489d5ca32b0d739a6, type: 2}
@@ -1337,7 +1377,7 @@ GameObject:
   m_Layer: 10
   m_Name: GroundCheck
   m_TagString: Untagged
-  m_Icon: {fileID: -1003283189, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -1203168336, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
