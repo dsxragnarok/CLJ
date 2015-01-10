@@ -61,7 +61,7 @@ public class TestCharController : MonoBehaviour {
 		rigidbody2D.velocity = new Vector2(move, rigidbody2D.velocity.y); 	
 
 		// Ignore platform collisions if we are airborne
-		GameObject[] objs = GameObject.FindGameObjectsWithTag("CloudGroup");
+		GameObject[] objs = GameObject.FindGameObjectsWithTag("Platform");
 		foreach (GameObject obj in objs)
 		{
 			EdgeCollider2D[] platforms = obj.GetComponents<EdgeCollider2D>();

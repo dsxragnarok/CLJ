@@ -13,7 +13,7 @@ GameObject:
   - 68: {fileID: 6812024}
   - 68: {fileID: 6812026}
   - 114: {fileID: 11419378}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: CloudGroup06
   m_TagString: CloudGroup
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ GameObject:
   - 212: {fileID: 21232576}
   - 114: {fileID: 11432576}
   - 68: {fileID: 6832576}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: CloudPlatform00
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   - 212: {fileID: 21232578}
   - 114: {fileID: 11432578}
   - 68: {fileID: 6832578}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: CloudPlatform01
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   - 212: {fileID: 21232580}
   - 68: {fileID: 6832580}
   - 114: {fileID: 11432580}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: CloudPlatform02
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   - 212: {fileID: 21232582}
   - 114: {fileID: 11432582}
   - 68: {fileID: 6832582}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: CloudPlatform00
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - 212: {fileID: 21232584}
   - 68: {fileID: 6832584}
   - 114: {fileID: 11432584}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: CloudPlatform02
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - 212: {fileID: 21232586}
   - 68: {fileID: 6832586}
   - 114: {fileID: 11432586}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: CloudPlatform02
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - 212: {fileID: 21232588}
   - 114: {fileID: 11432588}
   - 68: {fileID: 6832588}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: CloudPlatform00
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - 212: {fileID: 21232590}
   - 68: {fileID: 6832590}
   - 114: {fileID: 11432590}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: CloudPlatform02
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - 212: {fileID: 21232592}
   - 114: {fileID: 11432592}
   - 68: {fileID: 6832592}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: CloudPlatform01
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ EdgeCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132574}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
@@ -329,7 +329,7 @@ EdgeCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132574}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
@@ -341,7 +341,7 @@ EdgeCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132574}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
@@ -353,7 +353,7 @@ EdgeCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132574}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
@@ -465,15 +465,15 @@ EdgeCollider2D:
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
-  - {x: -1.15999997, y: 0}
-  - {x: 1.15999997, y: 0}
+  - {x: -.898938417, y: 0}
+  - {x: .922671795, y: 0}
 --- !u!114 &11419378
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132574}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64dede6c05524944e89e0c03e0724db9, type: 3}
   m_Name: 

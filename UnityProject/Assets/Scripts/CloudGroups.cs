@@ -15,8 +15,8 @@ public class CloudGroups : Entity {
 	}
 
 	void FixedUpdate() {
-		Vector3 pos = transform.position;
-		pos.x = pos.x - moveSpeed * Time.fixedDeltaTime;
-		transform.position = pos;
+		//Vector3 pos = transform.position;
+		//pos.x = pos.x - moveSpeed * Time.fixedDeltaTime;
+		//transform.position = pos;
 	}
 }

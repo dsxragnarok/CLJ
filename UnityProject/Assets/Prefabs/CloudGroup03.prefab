@@ -15,7 +15,7 @@ GameObject:
   - 68: {fileID: 6871118}
   - 68: {fileID: 6871120}
   - 68: {fileID: 6871122}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: CloudGroup03
   m_TagString: CloudGroup
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ GameObject:
   - 212: {fileID: 21219418}
   - 114: {fileID: 11419418}
   - 68: {fileID: 6819418}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: CloudPlatform01
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   - 212: {fileID: 21219420}
   - 114: {fileID: 11419420}
   - 68: {fileID: 6819420}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: CloudPlatform01
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   - 212: {fileID: 21279118}
   - 114: {fileID: 11479118}
   - 68: {fileID: 6879118}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: CloudPlatform01
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - 212: {fileID: 21279120}
   - 68: {fileID: 6879120}
   - 114: {fileID: 11479120}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: CloudPlatform02
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - 212: {fileID: 21279122}
   - 114: {fileID: 11479122}
   - 68: {fileID: 6879122}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: CloudPlatform04
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - 212: {fileID: 21298776}
   - 114: {fileID: 11498776}
   - 68: {fileID: 6898776}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: CloudPlatform01
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - 212: {fileID: 21298778}
   - 114: {fileID: 11498778}
   - 68: {fileID: 6898778}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: CloudPlatform00
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ EdgeCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118004}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
@@ -293,7 +293,7 @@ EdgeCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118004}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
@@ -305,7 +305,7 @@ EdgeCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118004}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
@@ -317,7 +317,7 @@ EdgeCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118004}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
@@ -329,7 +329,7 @@ EdgeCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118004}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
@@ -341,7 +341,7 @@ EdgeCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118004}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
@@ -473,7 +473,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118004}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64dede6c05524944e89e0c03e0724db9, type: 3}
   m_Name: 
