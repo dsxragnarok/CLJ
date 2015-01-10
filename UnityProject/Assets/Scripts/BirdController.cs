@@ -12,6 +12,12 @@ public class BirdController : Entity {
 	public float maxAcceleration;
 	public float accelerationIncrement;
 
+	public enum BirdType { NONE, RED, BLUE, BLACK };
+	public BirdType type;
+
+	public Sprite liveSprite;
+	public Sprite deadSprite;
+
 	float acceleration;
 	float moveSpeed;	// determined by a random number between minSpeed and maxSpeed
 
@@ -42,21 +48,49 @@ public class BirdController : Entity {
 	}
 
 	void FixedUpdate () {
-		acceleration = Mathf.Clamp (acceleration + accelerationIncrement, initialAcceleration, maxAcceleration);
-		//moveSpeed = Mathf.Clamp(moveSpeed + acceleration, minSpeed, maxSpeed);
-		//Debug.Log ("moveSpeed: " + moveSpeed + " _ DeltaTime: " + Time.deltaTime);
-		//rigidbody2D.velocity = new Vector2 (-1.0f * moveSpeed, rigidbody2D.velocity.y);
-		//rigidbody2D.AddForce(new Vector2(acceleration * rigidbody2D.mass, 0.0f)); 
-		rigidbody2D.AddRelativeForce (new Vector2 (acceleration * rigidbody2D.mass, 0.0f));
+		if (gameMaster.Player.IsDead())
+		{
+			rigidbody2D.velocity = Vector2.zero;
+		}
+		if (!dead)
+		{
+			acceleration = Mathf.Clamp (acceleration + accelerationIncrement, initialAcceleration, maxAcceleration);
+			//moveSpeed = Mathf.Clamp(moveSpeed + acceleration, minSpeed, maxSpeed);
+			//Debug.Log ("moveSpeed: " + moveSpeed + " _ DeltaTime: " + Time.deltaTime);
+			//rigidbody2D.velocity = new Vector2 (-1.0f * moveSpeed, rigidbody2D.velocity.y);
+			//rigidbody2D.AddForce(new Vector2(acceleration * rigidbody2D.mass, 0.0f)); 
+			rigidbody2D.AddRelativeForce (new Vector2 (acceleration * rigidbody2D.mass, 0.0f));
+		}
+		else
+		{
+			rigidbody2D.velocity = Vector2.up * -10f;
+			transform.rigidbody2D.transform.Rotate(Vector3.forward * 1080f * Time.fixedDeltaTime);
+		}
+		
+		if (gameMaster.GameBounds.IsOutOfBounds(this.gameObject))
+		{
+			GameObject.Destroy(this.gameObject);
+		}
 	}
 
 	public void OnTriggerEnter2D(Collider2D collider)
 	{
-		if (!dead)
+		if (collider.tag == "Player")
 		{
-			gameMaster.playerScore++;
-			Debug.Log (gameMaster.playerScore.ToString());
+			CharController charController = collider.GetComponent<CharController>();
+			if (!dead)
+			{
+				if (type == BirdType.RED)
+				{
+					gameMaster.playerScore++;
+					Debug.Log ("Score: " + gameMaster.playerScore.ToString());
+				}
+				else if (type == BirdType.BLACK)
+					charController.Die ();
+			}
+			dead = true;
+
+			GetComponent<SpriteRenderer>().sprite = deadSprite;
 		}
-		dead = true;
 	}
 }

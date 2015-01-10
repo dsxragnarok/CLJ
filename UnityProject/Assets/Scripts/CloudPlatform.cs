@@ -11,11 +11,25 @@ public class CloudPlatform : Entity {
 	// Update is called once per frame
 	public override void Update () {
 		base.Update ();
+		if (gameMaster.Player.IsDead ())
+			moveSpeed = 0f;
 	}
 
 	void FixedUpdate () {
+
 		Vector3 pos = transform.position;
 		pos.x = pos.x - moveSpeed * Time.fixedDeltaTime;
 		transform.position = pos;
+		
+		if (gameMaster.GameBounds.IsOutOfBounds(this.gameObject))
+		{
+			GameObject.Destroy(this.gameObject);
+			
+			GameObject[] cloudGroups = GameObject.FindGameObjectsWithTag ("CloudGroup");
+			foreach (GameObject gobj in cloudGroups) {
+				if (gobj.transform.childCount == 0)
+					GameObject.Destroy(gobj);
+			}
+		}
 	}
 }

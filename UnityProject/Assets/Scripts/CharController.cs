@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class TestCharController : MonoBehaviour {
+public class CharController : Entity {
 
 	public float maxSpeed;
 
@@ -21,22 +21,29 @@ public class TestCharController : MonoBehaviour {
 
 	private Collider2D[] colliders;
 
+	private bool dead;
+
 	// Use this for initialization
-	void Start () {
+	public override void Start () {
+		base.Start ();
+
 		jumpPhase = 0;
 		jumpForceIndex = 0;
 		grounded = false;
 		xRest = rigidbody2D.position.x;
 		colliders = GetComponents<Collider2D>();
 		groundRadius = GetComponent<CircleCollider2D>().radius;
+		dead = false;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public override void Update () {
+		base.Update ();
+
 		// Perform jump if we are on ground or this is our double jump
 		//if ((grounded || jumpPhase < 2) && Input.GetKeyDown (KeyCode.Space))
 		// Perform jump if we are on ground
-		if (grounded && Input.GetKeyDown (KeyCode.Space))
+		if (!IsDead() && grounded && Input.GetKeyDown (KeyCode.Space))
 		{
 			StopCoroutine(performJump());
 			StartCoroutine(performJump());
@@ -54,10 +61,13 @@ public class TestCharController : MonoBehaviour {
 
 		float move = 0.0f;
 		// Return to home x-position at a constant velocity
-		if (rigidbody2D.position.x < xRest - 0.1f)
-			move = maxSpeed;
-		if (rigidbody2D.position.x > xRest + 0.1f)
-			move = -maxSpeed;
+		if (IsDead())
+		{
+			if (rigidbody2D.position.x < xRest - 0.1f)
+				move = maxSpeed;
+			if (rigidbody2D.position.x > xRest + 0.1f)
+				move = -maxSpeed;
+		}
 		rigidbody2D.velocity = new Vector2(move, rigidbody2D.velocity.y); 	
 
 		// Ignore platform collisions if we are airborne
@@ -88,8 +98,13 @@ public class TestCharController : MonoBehaviour {
 					Debug.DrawLine (p1, p2, Color.blue, 0.0f, false);
 				
 				foreach (Collider2D col in colliders)
-					Physics2D.IgnoreCollision(col, platform, side);
+					Physics2D.IgnoreCollision(col, platform, side || IsDead());
 			}
+		}
+
+		if (gameMaster.GameBounds.IsOutOfBounds(this.gameObject))
+		{
+			Die();
 		}
 	}
 
@@ -108,5 +123,15 @@ public class TestCharController : MonoBehaviour {
 			rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * rigidbody2D.mass);
 			yield return new WaitForSeconds(0.1f);
 		}
+	}
+
+	public bool IsDead()
+	{
+		return dead;
+	}
+
+	public void Die()
+	{
+		dead = true;
 	}
 }

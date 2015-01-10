@@ -31,6 +31,8 @@ public class SpawnBirds : Entity {
 	}
 
 	void GenerateBird () {
+		if (gameMaster.Player.IsDead ())
+			return;
 		float spawnY;
 		//if (Random.Range (0, 100) > 50) {
 			GameObject[] clouds = GameObject.FindGameObjectsWithTag ("Platform");

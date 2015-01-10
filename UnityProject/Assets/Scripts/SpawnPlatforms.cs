@@ -31,6 +31,8 @@ public class SpawnPlatforms : Entity {
 
 	public void GeneratePlatform()
 	{
+		if (gameMaster.Player.IsDead ())
+			return;
 		int rindex = Random.Range(0, spawnList.Count);
 		Vector3 pos = this.transform.position;
 		pos.y = pos.y + Random.Range (minY, maxY);

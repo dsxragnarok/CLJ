@@ -93,6 +93,9 @@ MonoBehaviour:
   initialAcceleration: -5
   maxAcceleration: -10
   accelerationIncrement: -2
+  type: 2
+  liveSprite: {fileID: 21300000, guid: ead8337ff3bacf741bc1033b433dbef0, type: 3}
+  deadSprite: {fileID: 21300000, guid: 86b3afd54470ba441b9a85e654bb4934, type: 3}
 --- !u!212 &21226722
 SpriteRenderer:
   m_ObjectHideFlags: 1
