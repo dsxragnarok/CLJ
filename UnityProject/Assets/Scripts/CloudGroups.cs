@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CloudPlatform : MonoBehaviour {
+public class CloudGroups : MonoBehaviour {
 	public float moveSpeed = 3.0f;
 	// Use this for initialization
 	void Start () {
-		
+	
 	}
 	
 	// Update is called once per frame
@@ -13,9 +13,9 @@ public class CloudPlatform : MonoBehaviour {
 	
 	}
 
-	void FixedUpdate () {
-		//Vector3 pos = transform.position;
-		//pos.x = pos.x - moveSpeed * Time.fixedDeltaTime;
-		//transform.position = pos;
+	void FixedUpdate() {
+		Vector3 pos = transform.position;
+		pos.x = pos.x - moveSpeed * Time.fixedDeltaTime;
+		transform.position = pos;
 	}
 }

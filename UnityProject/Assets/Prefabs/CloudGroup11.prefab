@@ -8,7 +8,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 474240}
-  m_Layer: 0
+  - 68: {fileID: 6894876}
+  - 68: {fileID: 6894878}
+  - 114: {fileID: 11463248}
+  m_Layer: 9
   m_Name: CloudGroup11
   m_TagString: CloudGroup
   m_Icon: {fileID: 0}
@@ -26,7 +29,7 @@ GameObject:
   - 212: {fileID: 21274242}
   - 114: {fileID: 11474242}
   - 68: {fileID: 6874242}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform03
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -44,7 +47,7 @@ GameObject:
   - 212: {fileID: 21274244}
   - 114: {fileID: 11474244}
   - 68: {fileID: 6874244}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform01
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -62,7 +65,7 @@ GameObject:
   - 212: {fileID: 21274246}
   - 114: {fileID: 11474246}
   - 68: {fileID: 6874246}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform03
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -80,7 +83,7 @@ GameObject:
   - 212: {fileID: 21274248}
   - 114: {fileID: 11474248}
   - 68: {fileID: 6874248}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform03
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -98,7 +101,7 @@ GameObject:
   - 212: {fileID: 21274250}
   - 114: {fileID: 11474250}
   - 68: {fileID: 6874250}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform00
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -116,7 +119,7 @@ GameObject:
   - 212: {fileID: 21274252}
   - 114: {fileID: 11474252}
   - 68: {fileID: 6874252}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform01
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -134,7 +137,7 @@ GameObject:
   - 212: {fileID: 21274254}
   - 114: {fileID: 11474254}
   - 68: {fileID: 6874254}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform04
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -152,7 +155,7 @@ GameObject:
   - 212: {fileID: 21274256}
   - 114: {fileID: 11474256}
   - 68: {fileID: 6874256}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform04
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -170,7 +173,7 @@ GameObject:
   - 212: {fileID: 21274258}
   - 114: {fileID: 11474258}
   - 68: {fileID: 6874258}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform01
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -188,7 +191,7 @@ GameObject:
   - 212: {fileID: 21274260}
   - 114: {fileID: 11474260}
   - 68: {fileID: 6874260}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform03
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -206,7 +209,7 @@ GameObject:
   - 212: {fileID: 21274262}
   - 114: {fileID: 11474262}
   - 68: {fileID: 6874262}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform04
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -500,6 +503,54 @@ EdgeCollider2D:
   m_Points:
   - {x: -.503112555, y: .418792814}
   - {x: .479407221, y: -.323971808}
+--- !u!68 &6894876
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174240}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
+  m_IsTrigger: 0
+  m_Points:
+  - {x: -5.96234751, y: -2.79036307}
+  - {x: -4.27692127, y: -2.18810987}
+  - {x: -3.27035356, y: -2.17832899}
+  - {x: -2.83972383, y: -1.76655948}
+  - {x: -1.69367516, y: -1.23383558}
+  - {x: -.482058823, y: -.704078674}
+  - {x: .0265782326, y: -.545089006}
+  - {x: .970494688, y: -.813143075}
+  - {x: 1.73943353, y: -.928454578}
+  - {x: 2.16286159, y: -1.37925792}
+  - {x: 3.59476662, y: -2.26611304}
+--- !u!68 &6894878
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174240}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
+  m_IsTrigger: 0
+  m_Points:
+  - {x: 2.45947599, y: -2.89183092}
+  - {x: 3.28808475, y: -2.80519366}
+  - {x: 3.97315478, y: -2.46495748}
+  - {x: 5.28240061, y: -2.46643877}
+  - {x: 6.38512993, y: -3.09476638}
+--- !u!114 &11463248
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64dede6c05524944e89e0c03e0724db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
 --- !u!114 &11474242
 MonoBehaviour:
   m_ObjectHideFlags: 1

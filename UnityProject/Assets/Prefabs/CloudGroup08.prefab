@@ -8,7 +8,12 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 452410}
-  m_Layer: 0
+  - 68: {fileID: 6856884}
+  - 68: {fileID: 6856882}
+  - 68: {fileID: 6856880}
+  - 68: {fileID: 6856878}
+  - 114: {fileID: 11427978}
+  m_Layer: 9
   m_Name: CloudGroup08
   m_TagString: CloudGroup
   m_Icon: {fileID: 0}
@@ -26,7 +31,7 @@ GameObject:
   - 212: {fileID: 21252412}
   - 114: {fileID: 11452412}
   - 68: {fileID: 6852412}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform01
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -44,7 +49,7 @@ GameObject:
   - 212: {fileID: 21252414}
   - 68: {fileID: 6852414}
   - 114: {fileID: 11452414}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform02
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -62,7 +67,7 @@ GameObject:
   - 212: {fileID: 21252416}
   - 114: {fileID: 11452416}
   - 68: {fileID: 6852416}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform03
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -80,7 +85,7 @@ GameObject:
   - 212: {fileID: 21252418}
   - 114: {fileID: 11452418}
   - 68: {fileID: 6852418}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform03
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -98,7 +103,7 @@ GameObject:
   - 212: {fileID: 21252420}
   - 114: {fileID: 11452420}
   - 68: {fileID: 6852420}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform04
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -116,7 +121,7 @@ GameObject:
   - 212: {fileID: 21252422}
   - 114: {fileID: 11452422}
   - 68: {fileID: 6852422}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform00
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -134,7 +139,7 @@ GameObject:
   - 212: {fileID: 21252424}
   - 114: {fileID: 11452424}
   - 68: {fileID: 6852424}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform04
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -152,7 +157,7 @@ GameObject:
   - 212: {fileID: 21252426}
   - 114: {fileID: 11452426}
   - 68: {fileID: 6852426}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform04
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -170,7 +175,7 @@ GameObject:
   - 212: {fileID: 21252428}
   - 68: {fileID: 6852428}
   - 114: {fileID: 11452428}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform02
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -188,7 +193,7 @@ GameObject:
   - 212: {fileID: 21252430}
   - 114: {fileID: 11452430}
   - 68: {fileID: 6852430}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform00
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -206,7 +211,7 @@ GameObject:
   - 212: {fileID: 21252432}
   - 114: {fileID: 11452432}
   - 68: {fileID: 6852432}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform01
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -224,7 +229,7 @@ GameObject:
   - 212: {fileID: 21252434}
   - 114: {fileID: 11452434}
   - 68: {fileID: 6852434}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform00
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -242,7 +247,7 @@ GameObject:
   - 212: {fileID: 21252436}
   - 68: {fileID: 6852436}
   - 114: {fileID: 11452436}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform02
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -260,7 +265,7 @@ GameObject:
   - 212: {fileID: 21252438}
   - 114: {fileID: 11452438}
   - 68: {fileID: 6852438}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform00
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -629,6 +634,72 @@ EdgeCollider2D:
   m_Points:
   - {x: -1.04833329, y: 0}
   - {x: 1.04833329, y: 0}
+--- !u!68 &6856878
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152410}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
+  m_IsTrigger: 0
+  m_Points:
+  - {x: 1.2587744, y: 2.40140343}
+  - {x: 2.3550272, y: 1.76664937}
+  - {x: 3.56158209, y: 1.85174406}
+  - {x: 5.52265358, y: .490427464}
+--- !u!68 &6856880
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152410}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
+  m_IsTrigger: 0
+  m_Points:
+  - {x: 2.88225842, y: -.388959706}
+  - {x: 4.20104361, y: -.335119247}
+  - {x: 5.53758001, y: .135016352}
+  - {x: 7.31525087, y: .118379019}
+--- !u!68 &6856882
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152410}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
+  m_IsTrigger: 0
+  m_Points:
+  - {x: -1.17645168, y: -1.53892756}
+  - {x: 1.21027422, y: -.761008143}
+--- !u!68 &6856884
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152410}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
+  m_IsTrigger: 0
+  m_Points:
+  - {x: -4.60944414, y: -1.69112921}
+  - {x: -2.00453877, y: -1.72020817}
+  - {x: -1.03728104, y: -2.19718194}
+  - {x: 2.61391139, y: -2.21537924}
+--- !u!114 &11427978
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64dede6c05524944e89e0c03e0724db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
 --- !u!114 &11452412
 MonoBehaviour:
   m_ObjectHideFlags: 1

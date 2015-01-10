@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21242730}
   - 114: {fileID: 11442730}
   - 68: {fileID: 6842730}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform04
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   - 212: {fileID: 21242734}
   - 114: {fileID: 11442734}
   - 68: {fileID: 6842734}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform03
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - 212: {fileID: 21251880}
   - 114: {fileID: 11451880}
   - 68: {fileID: 6851880}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform04
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   - 212: {fileID: 21251882}
   - 114: {fileID: 11451882}
   - 68: {fileID: 6851882}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform04
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   - 212: {fileID: 21251884}
   - 114: {fileID: 11451884}
   - 68: {fileID: 6851884}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform04
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - 212: {fileID: 21251886}
   - 114: {fileID: 11451886}
   - 68: {fileID: 6851886}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform03
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - 212: {fileID: 21251888}
   - 114: {fileID: 11451888}
   - 68: {fileID: 6851888}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform03
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - 212: {fileID: 21251890}
   - 114: {fileID: 11451890}
   - 68: {fileID: 6851890}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform03
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   - 212: {fileID: 21251892}
   - 114: {fileID: 11451892}
   - 68: {fileID: 6851892}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform04
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - 212: {fileID: 21251894}
   - 114: {fileID: 11451894}
   - 68: {fileID: 6851894}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform03
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -188,7 +188,14 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 496172}
-  m_Layer: 0
+  - 68: {fileID: 6869836}
+  - 68: {fileID: 6869834}
+  - 68: {fileID: 6869832}
+  - 68: {fileID: 6869830}
+  - 68: {fileID: 6869828}
+  - 68: {fileID: 6869826}
+  - 114: {fileID: 11478538}
+  m_Layer: 9
   m_Name: CloudGroup05
   m_TagString: CloudGroup
   m_Icon: {fileID: 0}
@@ -206,7 +213,7 @@ GameObject:
   - 212: {fileID: 21296174}
   - 114: {fileID: 11496174}
   - 68: {fileID: 6896174}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform04
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -224,7 +231,7 @@ GameObject:
   - 212: {fileID: 21296176}
   - 114: {fileID: 11496176}
   - 68: {fileID: 6896176}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CloudPlatform03
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -519,6 +526,84 @@ EdgeCollider2D:
   m_Points:
   - {x: -1.00882459, y: -.237052545}
   - {x: .447800219, y: .284463048}
+--- !u!68 &6869826
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196172}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
+  m_IsTrigger: 0
+  m_Points:
+  - {x: -1.27791953, y: .4396936}
+  - {x: .203777671, y: .885571837}
+  - {x: 1.05807257, y: .422782302}
+--- !u!68 &6869828
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196172}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
+  m_IsTrigger: 0
+  m_Points:
+  - {x: -5.75941181, y: -2.40140343}
+  - {x: -4.31104183, y: -1.99293995}
+  - {x: -3.40650821, y: -2.45213723}
+--- !u!68 &6869830
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196172}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
+  m_IsTrigger: 0
+  m_Points:
+  - {x: -1.22718549, y: -3.97415328}
+  - {x: .303497463, y: -3.5524478}
+  - {x: 1.09189522, y: -3.92341971}
+--- !u!68 &6869832
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196172}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
+  m_IsTrigger: 0
+  m_Points:
+  - {x: 2.89916968, y: -2.3844924}
+  - {x: 4.30739164, y: -2.01394749}
+  - {x: 5.25207329, y: -2.50287127}
+--- !u!68 &6869834
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196172}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
+  m_IsTrigger: 0
+  m_Points:
+  - {x: -5.33662987, y: 2.215379}
+  - {x: -3.87276387, y: 2.59218526}
+  - {x: -3.0175488, y: 2.1646452}
+--- !u!68 &6869836
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196172}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
+  m_IsTrigger: 0
+  m_Points:
+  - {x: 2.78079057, y: 2.23229051}
+  - {x: 4.27641344, y: 2.65592313}
+  - {x: 5.20133924, y: 2.14773393}
 --- !u!68 &6896174
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -660,6 +745,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b89ea5706dc26943b7870ab410e218b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+--- !u!114 &11478538
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64dede6c05524944e89e0c03e0724db9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3

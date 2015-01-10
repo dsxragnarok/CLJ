@@ -23,8 +23,10 @@ public class BirdController : MonoBehaviour {
 		acceleration = initialAcceleration;
 		rigidbody2D.velocity = new Vector2 (-1.0f * moveSpeed, rigidbody2D.velocity.y);
 
+		Physics2D.IgnoreLayerCollision (gameObject.layer, LayerMask.NameToLayer ("Background"), true);
 		Physics2D.IgnoreLayerCollision (gameObject.layer, LayerMask.NameToLayer ("Platforms"), true);
 		Physics2D.IgnoreLayerCollision (gameObject.layer, LayerMask.NameToLayer ("Enemies"), true);
+		Physics2D.IgnoreLayerCollision (gameObject.layer, LayerMask.NameToLayer ("Player"), true);
 	}
 	
 	// Update is called once per frame

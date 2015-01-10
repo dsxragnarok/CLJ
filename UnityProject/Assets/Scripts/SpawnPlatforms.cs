@@ -33,6 +33,13 @@ public class SpawnPlatforms : MonoBehaviour {
 		//Debug.Log ("spawn cloud at y position = " + pos.y);
 		Quaternion rot = this.transform.rotation;
 		GameObject obj = (GameObject)GameObject.Instantiate(spawnList[rindex], pos, rot);
+
+		//if (Random.Range (0, 100) > 50) {
+	//		Vector3 localScale = obj.transform.localScale;
+	//		obj.transform.localScale = new Vector3(localScale.x * -1, localScale.y, localScale.z);
+	//	}
+			
+
 		if (_platformContainer)
 			obj.transform.parent = _platformContainer.transform;
 	}

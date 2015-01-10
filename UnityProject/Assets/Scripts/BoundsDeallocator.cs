@@ -24,7 +24,8 @@ public class BoundsDeallocator : MonoBehaviour {
 		Collider2D[] collided = Physics2D.OverlapAreaAll(topLeft, bottomRight);
 
 		foreach (Collider2D collider in collided) {
-			GameObject.Destroy (collider.gameObject);
+			if (collider.tag == "Platform")
+				GameObject.Destroy (collider.gameObject);
 		}
 
 		GameObject[] cloudGroups = GameObject.FindGameObjectsWithTag ("CloudGroup");
