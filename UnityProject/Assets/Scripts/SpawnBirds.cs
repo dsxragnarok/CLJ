@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class SpawnBirds : MonoBehaviour {
+public class SpawnBirds : Entity {
 	GameObject _birdContainer;
 
 	public float minY;
@@ -11,19 +11,23 @@ public class SpawnBirds : MonoBehaviour {
 	public float spawnInterval = 2.0f;	// number of seconds between spawns
 	public List<GameObject> spawnList;
 	
-	void Awake () {
+	public override void Awake () {
+		base.Awake ();
+
 		_birdContainer = GameObject.FindGameObjectWithTag("BirdContainer");
 	}
 
 	// Use this for initialization
-	void Start () {
+	public override void Start () {
+		base.Start ();
+
 		// TODO: change the spawnInterval based on score -- possibly will require using invoke instead of invokerepeating
 		InvokeRepeating("GenerateBird", initialDelay, spawnInterval);
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
+	public override void Update () {
+		base.Update ();
 	}
 
 	void GenerateBird () {

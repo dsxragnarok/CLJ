@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class SpawnPlatforms : MonoBehaviour {
+public class SpawnPlatforms : Entity {
 	GameObject _platformContainer;
 
 	public float minY = -15.0f;
@@ -11,18 +11,22 @@ public class SpawnPlatforms : MonoBehaviour {
 	public float spawnInterval = 2.0f;	// number of seconds between spawns
 	public List<GameObject> spawnList;	
 
-	void Awake () {
+	public override void Awake () {
+		base.Awake ();
+
 		_platformContainer = GameObject.FindGameObjectWithTag("PlatformContainer");
 	}
 	
 	// Use this for initialization
-	void Start () {
+	public override void Start () {
+		base.Start ();
+
 		InvokeRepeating("GeneratePlatform", initialDelay, spawnInterval);
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	public override void Update () {
+		base.Update ();
 	}
 
 	public void GeneratePlatform()

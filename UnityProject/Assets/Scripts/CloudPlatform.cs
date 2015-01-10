@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CloudPlatform : MonoBehaviour {
+public class CloudPlatform : Entity {
 	public float moveSpeed = 3.0f;
 	// Use this for initialization
-	void Start () {
-		
+	public override void Start () {
+		base.Start ();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	public override void Update () {
+		base.Update ();
 	}
 
 	void FixedUpdate () {

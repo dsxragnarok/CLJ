@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BoundsDeallocator : MonoBehaviour {
+public class BoundsDeallocator : Entity {
 	float width = 1.0f;
 	float height = 20.0f;
 
@@ -9,15 +9,17 @@ public class BoundsDeallocator : MonoBehaviour {
 	Vector2 topLeft;
 	Vector2 bottomRight;
 	// Use this for initialization
-	void Start () {
+	public override void Start () {
+		base.Start ();
+
 		pos = new Vector2(transform.position.x, transform.position.y);
 		topLeft = pos + new Vector2(-width, height) / 2.0f;
 		bottomRight = pos + new Vector2(width, -height) / 2.0f;
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	public override void Update () {
+		base.Update ();
 	}
 	
 	void FixedUpdate () {
