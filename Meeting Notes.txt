@@ -1,0 +1,48 @@
+=========================================
+
+NOTES:
+January 10, 2015
+Design Scenes
+	- Reduce Resolution (5:4 or 5:3)
+
+Tailor Jumps
+
+Display Points
+
+Sound Effects : Bird Collision, Player Lose, Points, Jumps
+
+Music
+
+Main menu system
+
+Tailor Bird Spawns
+
+Faster Bird Spawns 
+
+Faster Birds based on time / score
+
+More Bird spawns based on time / score
+
+Character Concept and Animation sheet (player)
+
+Recolor Birds
+
+Correct resolution for each Bird type collision
+
+========================
+Tasks Due Next Week:	January 17, 2015
+	CALVIN
+		Tune Jumps
+		maybe Music
+
+	MINH
+		recolor birds
+		redo background color
+		character animation
+
+	KEVIN
+		redesign scenes / cloud formations
+		less changes to die more long-running clouds
+		search for sound effects
+
+========================
