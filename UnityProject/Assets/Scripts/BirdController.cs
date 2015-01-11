@@ -64,7 +64,7 @@ public class BirdController : Entity {
 		else
 		{
 			rigidbody2D.velocity = Vector2.up * -10f;
-			transform.rigidbody2D.transform.Rotate(Vector3.forward * 1080f * Time.fixedDeltaTime);
+			transform.rigidbody2D.transform.Rotate(Vector3.forward * -90f * Time.fixedDeltaTime);
 		}
 		
 		if (gameMaster.GameBounds.IsOutOfBounds(this.gameObject))
@@ -86,7 +86,9 @@ public class BirdController : Entity {
 					Debug.Log ("Score: " + gameMaster.playerScore.ToString());
 				}
 				else if (type == BirdType.BLACK)
+				{
 					charController.Die ();
+				}
 			}
 			dead = true;
 

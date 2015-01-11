@@ -18,6 +18,7 @@ public class CharController : Entity {
 
 	// X rest position
 	private float xRest;
+	private float dragSave;
 
 	private Collider2D[] colliders;
 
@@ -31,6 +32,7 @@ public class CharController : Entity {
 		jumpForceIndex = 0;
 		grounded = false;
 		xRest = rigidbody2D.position.x;
+		dragSave = rigidbody2D.drag;
 		colliders = GetComponents<Collider2D>();
 		groundRadius = GetComponent<CircleCollider2D>().radius;
 		dead = false;
@@ -51,17 +53,19 @@ public class CharController : Entity {
 	}
 
 	void FixedUpdate () {
+		/*
 		grounded = Physics2D.OverlapArea (groundCheck.position - Vector3.left * groundRadius - Vector3.up * groundRadius, 
 		                                  groundCheck.position + Vector3.left * groundRadius + Vector3.up * groundRadius, 
 		                                  whatIsGround);
-		//grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
+		                                  */
+		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius * 2, whatIsGround);
 		// Reset jump phase if we are grounded so the person can jump again
 		if (grounded && jumpForceIndex > 0)
 			jumpPhase = 0;
 
 		float move = 0.0f;
 		// Return to home x-position at a constant velocity
-		if (IsDead())
+		if (!IsDead())
 		{
 			if (rigidbody2D.position.x < xRest - 0.1f)
 				move = maxSpeed;
@@ -79,7 +83,6 @@ public class CharController : Entity {
 			foreach (EdgeCollider2D platform in platforms)
 			{
 				// Assumes only two vertices per platform
-				// TODO: this assumption is false with the new changes to the clouds
 				Vector2 p1 = (Vector2)platform.transform.position + (Vector2)(platform.transform.rotation * (Vector3)platform.points[0]);
 				Vector2 p2 = (Vector2)platform.transform.position + (Vector2)(platform.transform.rotation * (Vector3)platform.points[1]);
 				Vector2 m = p2 - p1;
@@ -106,6 +109,8 @@ public class CharController : Entity {
 		{
 			Die();
 		}
+
+		rigidbody2D.drag = rigidbody2D.velocity.y > 0f ? dragSave : 0f;
 	}
 
 	private IEnumerator performJump()

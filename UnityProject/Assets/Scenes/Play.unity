@@ -172,23 +172,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
       propertyPath: jumpForces.Array.data[0]
-      value: 150
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
       propertyPath: jumpForces.Array.data[2]
-      value: 75
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
       propertyPath: jumpForces.Array.data[3]
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
-      propertyPath: jumpForces.Array.data[4]
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: jumpForces.Array.data[4]
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
       propertyPath: jumpForces.Array.data[1]
-      value: 150
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5047716, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: m_LinearDrag
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
@@ -553,7 +557,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 344125338}
   m_GameObject: {fileID: 744100558}
   m_Mass: 10
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: .0500000007
   m_GravityScale: 1
   m_FixedAngle: 1
@@ -575,11 +579,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 5
   jumpForces:
-  - 150
-  - 150
-  - 75
-  - 75
+  - 400
+  - 200
+  - 100
   - 50
+  - 25
   groundCheck: {fileID: 1920917442}
   whatIsGround:
     serializedVersion: 2
@@ -1189,10 +1193,10 @@ MonoBehaviour:
   initialDelay: .5
   spawnInterval: .5
   spawnList:
-  - {fileID: 150536, guid: b446c0aa4cad7844d9d04966ed8e2af5, type: 2}
+  - {fileID: 126722, guid: e03b4fa0b6fe179489d5ca32b0d739a6, type: 2}
   - {fileID: 126722, guid: e03b4fa0b6fe179489d5ca32b0d739a6, type: 2}
   - {fileID: 189904, guid: 060e38de3f9c28648b3a06cfd96faa52, type: 2}
-  - {fileID: 150536, guid: b446c0aa4cad7844d9d04966ed8e2af5, type: 2}
+  - {fileID: 189904, guid: 060e38de3f9c28648b3a06cfd96faa52, type: 2}
   - {fileID: 126722, guid: e03b4fa0b6fe179489d5ca32b0d739a6, type: 2}
   - {fileID: 150536, guid: b446c0aa4cad7844d9d04966ed8e2af5, type: 2}
 --- !u!1 &1648506862
