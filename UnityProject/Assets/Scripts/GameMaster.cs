@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// TODO: maybe we'll use this.. not sure yet.
-
 public class GameMaster : MonoBehaviour {
 	private CharController player;
 	private BoundsDeallocator gameBounds;

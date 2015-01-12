@@ -42,7 +42,8 @@ Tasks Due Next Week:	January 17, 2015
 
 	KEVIN
 		redesign scenes / cloud formations
-		less changes to die more long-running clouds
+		less chances to die more long-running clouds
 		search for sound effects
+		look into GUI
 
 ========================
