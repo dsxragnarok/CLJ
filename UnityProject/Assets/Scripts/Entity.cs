@@ -3,7 +3,7 @@ using System.Collections;
 
 // Basic class which inherits MonoBehavior and has access
 // to the Game Master.
-public class Entity : MonoBehaviour {
+public abstract class Entity : MonoBehaviour {
 	protected GameMaster gameMaster;
 
 	public virtual void Awake () {
