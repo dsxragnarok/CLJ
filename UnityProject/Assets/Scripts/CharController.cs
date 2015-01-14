@@ -24,6 +24,8 @@ public class CharController : Entity {
 
 	private bool dead;
 
+	private float groundForce = -100f;
+
 	// Use this for initialization
 	public override void Start () {
 		base.Start ();
@@ -53,15 +55,17 @@ public class CharController : Entity {
 	}
 
 	void FixedUpdate () {
-		/*
-		grounded = Physics2D.OverlapArea (groundCheck.position - Vector3.left * groundRadius - Vector3.up * groundRadius, 
-		                                  groundCheck.position + Vector3.left * groundRadius + Vector3.up * groundRadius, 
-		                                  whatIsGround);
-		                                  */
-		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius * 2, whatIsGround);
+		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius * 2f, whatIsGround);
 		// Reset jump phase if we are grounded so the person can jump again
-		if (grounded && jumpForceIndex > 0)
-			jumpPhase = 0;
+		if (grounded) 
+		{
+			if (jumpForceIndex > 0)
+				jumpPhase = 0;
+			else
+				// Apply a further downward force to stick player onto ground.
+				// Helps avoid walking right off ramps and bouncing off.
+				rigidbody2D.AddForce (Vector2.up * groundForce);
+		}
 
 		float move = 0.0f;
 		// Return to home x-position at a constant velocity
@@ -123,11 +127,13 @@ public class CharController : Entity {
 		if (!grounded && jumpPhase <= 1)
 			jumpPhase++;
 		jumpForceIndex = 0;
-		for (; jumpForceIndex < jumpForces.Count && Input.GetKey (KeyCode.Space); ++jumpForceIndex)
+		while  (jumpForceIndex < jumpForces.Count && Input.GetKey (KeyCode.Space))
 		{
 			rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * rigidbody2D.mass);
+			++jumpForceIndex;
 			yield return new WaitForSeconds(0.1f);
 		}
+		jumpForceIndex = 0; // Reset to 0 again to flag jump is over
 	}
 
 	public bool IsDead()

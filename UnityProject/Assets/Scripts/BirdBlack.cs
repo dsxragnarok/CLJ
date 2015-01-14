@@ -39,6 +39,7 @@ public class BirdBlack : BirdController {
 				CharController charController = collider.GetComponent<CharController> ();
 				charController.Die ();	
 				collected = true;
+				Debug.Log ("Game Over");
 			}
 		}
 	}
