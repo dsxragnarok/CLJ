@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class BirdRed : BirdController {
-	
+	public ParticleSystem collectEffectPrefab;
+
 	public override BirdType Type
 	{
 		get { return BirdType.RED; }
@@ -36,9 +37,13 @@ public class BirdRed : BirdController {
 			if (!collected)
 			{
 				gameMaster.playerScore++;
+				ParticleSystem collectEffectInstance = (ParticleSystem)GameObject.Instantiate(collectEffectPrefab, this.transform.position, this.transform.rotation);
+				collectEffectInstance.transform.parent = this.transform;
+				renderer.enabled = false;
 				collected = true;
+
 				Debug.Log ("Score: " + gameMaster.playerScore.ToString());
-				GameObject.Destroy (this.gameObject);
+				GameObject.Destroy (this.gameObject, 2.0f);
 			}
 		}
 
