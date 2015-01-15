@@ -2,12 +2,14 @@
 using System.Collections;
 
 public class BoundsDeallocator : Entity {
-	float width = 30.0f;
+	float width = 50.0f;	// it needs to encompass the spawn point or spawned scenes will get cut off
 	float height = 20.0f;
 
 	Vector2 pos;
 	Vector2 topLeft;
 	Vector2 bottomRight;
+
+	bool debugMode = true;
 
 	public float Left
 	{
@@ -41,6 +43,18 @@ public class BoundsDeallocator : Entity {
 	// Update is called once per frame
 	public override void Update () {
 		base.Update ();
+
+		if (debugMode) {
+			Vector3 tl = new Vector3 (Left, Top, 9);
+			Vector3 br = new Vector3 (Right, Bottom, 9);
+			Vector3 tr = new Vector3 (Right, Top, 9);
+			Vector3 bl = new Vector3 (Left, Bottom, 9);
+			
+			Debug.DrawLine (tl, tr, Color.red);
+			Debug.DrawLine (tl, bl, Color.red);
+			Debug.DrawLine (bl, br, Color.red);
+			Debug.DrawLine (tr, br, Color.red);
+		}
 	}
 
 	/*
