@@ -12,6 +12,8 @@ public class BirdRed : BirdController {
 	// Use this for initialization
 	public override void Start () {
 		base.Start ();
+
+		score = 5;
 	}
 	
 	// Update is called once per frame
@@ -36,13 +38,14 @@ public class BirdRed : BirdController {
 		{
 			if (!collected)
 			{
-				gameMaster.playerScore++;
+				gameMaster.updateScore(score);
+				//gameMaster.playerScore++;
 				ParticleSystem collectEffectInstance = (ParticleSystem)GameObject.Instantiate(collectEffectPrefab, this.transform.position, this.transform.rotation);
 				collectEffectInstance.transform.parent = this.transform;
 				renderer.enabled = false;
 				collected = true;
 
-				Debug.Log ("Score: " + gameMaster.playerScore.ToString());
+				//Debug.Log ("Score: " + gameMaster.playerScore.ToString());
 				GameObject.Destroy (this.gameObject, 2.0f);
 			}
 		}

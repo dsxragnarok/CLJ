@@ -3,18 +3,19 @@ using System.Collections;
 
 public class SoundEffectsManager : Entity {
 
+	// TODO: create dictionary of soundclips
 	public AudioClip jumpClip;
 
 	private AudioSource source;
 
-	void Awake () {
+	public override void Awake () {
 		base.Awake ();
 
 		source = GetComponent<AudioSource> ();
 	}
 
 	// Use this for initialization
-	void Start () {
+	public override void Start () {
 		base.Start ();
 	}
 

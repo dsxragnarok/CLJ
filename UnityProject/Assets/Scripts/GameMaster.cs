@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
+
 
 public class GameMaster : MonoBehaviour {
 	private CharController player;
@@ -37,5 +39,13 @@ public class GameMaster : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public void updateScore (int delta) {
+		playerScore += delta;
+		GameObject scoreObj = GameObject.FindGameObjectWithTag ("Score");
+		Debug.Log (scoreObj);
+		Text t = scoreObj.GetComponent<Text> ();
+		t.text = "Score: " + playerScore;
 	}
 }

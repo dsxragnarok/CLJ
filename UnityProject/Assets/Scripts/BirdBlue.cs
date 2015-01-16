@@ -12,6 +12,8 @@ public class BirdBlue : BirdController {
 	// Use this for initialization
 	public override void Start () {
 		base.Start ();
+
+		score = -5;
 	}
 	
 	// Update is called once per frame

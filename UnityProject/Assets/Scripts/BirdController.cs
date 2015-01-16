@@ -4,6 +4,8 @@ using System.Collections;
 public abstract class BirdController : Entity {
 	public enum BirdType { NONE, RED, BLUE, BLACK };
 
+	public int score;
+
 	public float minSpeed;
 	public float maxSpeed;
 	public float initialSpeed;
