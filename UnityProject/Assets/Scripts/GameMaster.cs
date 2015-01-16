@@ -4,6 +4,7 @@ using System.Collections;
 public class GameMaster : MonoBehaviour {
 	private CharController player;
 	private BoundsDeallocator gameBounds;
+	private SoundEffectsManager sfxManager;
 	public int playerScore = 0;
 
 	public CharController Player
@@ -16,6 +17,11 @@ public class GameMaster : MonoBehaviour {
 		get { return gameBounds; }
 	}
 
+	public SoundEffectsManager SoundEffects
+	{
+		get { return sfxManager; }
+	}
+
 	// Use this for initialization
 	void Start () {
 		GameObject _player = GameObject.FindGameObjectWithTag("Player");
@@ -23,6 +29,9 @@ public class GameMaster : MonoBehaviour {
 		
 		GameObject _gameBounds = GameObject.FindGameObjectWithTag("Bounds");
 		gameBounds = _gameBounds.GetComponent<BoundsDeallocator>();
+
+		GameObject _sfxManager = GameObject.FindGameObjectWithTag ("SoundEffect");
+		sfxManager = _sfxManager.GetComponent<SoundEffectsManager> ();
 	}
 	
 	// Update is called once per frame

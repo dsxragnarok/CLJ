@@ -49,6 +49,7 @@ public class CharController : Entity {
 		// Perform jump if we are on ground
 		if (!IsDead() && grounded && Input.GetKeyDown (KeyCode.Space))
 		{
+			gameMaster.SoundEffects.PlaySoundClip("jump");
 			StopCoroutine(performJump());
 			StartCoroutine(performJump());
 		}
