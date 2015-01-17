@@ -2752,9 +2752,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minY: -.5
   maxY: .5
-  xOffset: -15
+  xOffset: -16
   initialDelay: 0
-  spawnInterval: 11
+  spawnInterval: 10.5
   spawnList:
   - {fileID: 132732, guid: 3078ca2d320ba7142ab5da1b429dabae, type: 2}
 --- !u!4 &1531724086
@@ -2849,6 +2849,10 @@ Prefab:
     - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
       propertyPath: jumpForces.Array.data[3]
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412408, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
+      propertyPath: jumpForces.Array.data[4]
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05c2db9559638394eb2ca98c56bb2e35, type: 2}
