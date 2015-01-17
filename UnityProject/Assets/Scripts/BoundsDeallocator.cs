@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class BoundsDeallocator : Entity {
-	float width = 50.0f;	// it needs to encompass the spawn point or spawned scenes will get cut off
+	float width = 60.0f;	// it needs to encompass the spawn point or spawned scenes will get cut off
 	float height = 20.0f;
 
 	Vector2 pos;
