@@ -8,6 +8,7 @@ public class SpawnPlatforms : Entity {
 	public float minY = -15.0f;
 	public float maxY = 15.0f;
 	public float xOffset = 5;
+	public float sentinalOffset = -14;
 	public float initialDelay = 0.3f;	// the initial delay in seconds
 	public float spawnInterval = 2.0f;	// number of seconds between spawns
 	public List<GameObject> spawnList;	
@@ -58,7 +59,8 @@ public class SpawnPlatforms : Entity {
 		topLeft = pos + new Vector2(0f, height / 2f);
 		bottomRight = pos + new Vector2(width, -height / 2f);
 
-		InvokeRepeating("GeneratePlatform", initialDelay, spawnInterval);
+		//GeneratePlatform ();
+		//InvokeRepeating("GeneratePlatform", initialDelay, spawnInterval);
 	}
 	
 	// Update is called once per frame

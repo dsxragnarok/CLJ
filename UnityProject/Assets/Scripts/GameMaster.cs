@@ -7,6 +7,7 @@ public class GameMaster : MonoBehaviour {
 	private CharController player;
 	private BoundsDeallocator gameBounds;
 	private SoundEffectsManager sfxManager;
+	private SpawnPlatforms platformSpawner;
 	public int playerScore = 0;
 
 	public CharController Player
@@ -24,6 +25,11 @@ public class GameMaster : MonoBehaviour {
 		get { return sfxManager; }
 	}
 
+	public SpawnPlatforms PlatformSpawner
+	{
+		get { return platformSpawner; }
+	}
+
 	// Use this for initialization
 	void Start () {
 		GameObject _player = GameObject.FindGameObjectWithTag("Player");
@@ -31,6 +37,9 @@ public class GameMaster : MonoBehaviour {
 		
 		GameObject _gameBounds = GameObject.FindGameObjectWithTag("Bounds");
 		gameBounds = _gameBounds.GetComponent<BoundsDeallocator>();
+
+		GameObject _spawner = GameObject.FindGameObjectWithTag ("Spawner");
+		platformSpawner = _spawner.GetComponent<SpawnPlatforms> ();
 
 		GameObject _sfxManager = GameObject.FindGameObjectWithTag ("SoundEffect");
 		sfxManager = _sfxManager.GetComponent<SoundEffectsManager> ();

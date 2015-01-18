@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CloudPlatform : Entity {
 	private float moveSpeed = 4.0f;
+	public bool isSentinal = false;
 	// Use this for initialization
 	public override void Start () {
 		base.Start ();
@@ -13,6 +14,15 @@ public class CloudPlatform : Entity {
 		base.Update ();
 		if (gameMaster.Player.IsDead ())
 			moveSpeed = 0f;
+
+
+		// A sentinal cloud determines when to spawn the next
+		// group of clouds. When a sentinal crosses the left
+		// edge of the spawner left edge, we call spawn
+		if (isSentinal && transform.position.x < gameMaster.PlatformSpawner.Left + gameMaster.PlatformSpawner.sentinalOffset) {
+			isSentinal = false;	// once spawned, deactivate this as a sentinal 
+			gameMaster.PlatformSpawner.GeneratePlatform();
+		}
 	}
 
 	void FixedUpdate () {
