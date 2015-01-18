@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class CloudPlatform : Entity {
-	public float moveSpeed = 3.0f;
+	private float moveSpeed = 4.0f;
 	// Use this for initialization
 	public override void Start () {
 		base.Start ();

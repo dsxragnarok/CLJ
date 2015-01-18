@@ -24,7 +24,7 @@ public class CharController : Entity {
 
 	private bool dead;
 
-	private float groundForce = -100f;
+	private float groundForce = -250f;
 
 	// Use this for initialization
 	public override void Start () {
@@ -56,6 +56,7 @@ public class CharController : Entity {
 	}
 
 	void FixedUpdate () {
+
 		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius * 2f, whatIsGround);
 		// Reset jump phase if we are grounded so the person can jump again
 		if (grounded) 
@@ -115,7 +116,7 @@ public class CharController : Entity {
 			Die();
 		}
 
-		rigidbody2D.drag = rigidbody2D.velocity.y > 0f ? dragSave : 0f;
+		//rigidbody2D.drag = rigidbody2D.velocity.y > 0f ? dragSave : 0f;
 	}
 
 	private IEnumerator performJump()
