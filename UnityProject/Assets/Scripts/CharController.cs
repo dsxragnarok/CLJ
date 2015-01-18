@@ -22,9 +22,20 @@ public class CharController : Entity {
 
 	private Collider2D[] colliders;
 
+	private float stunTimer;
 	private bool dead;
 
 	private float groundForce = -250f;
+
+	public void StunIt()
+	{
+		stunTimer = 0.5f;
+	}
+
+	public bool IsStunned
+	{
+		get { return stunTimer > 0.0f; }
+	}
 
 	// Use this for initialization
 	public override void Start () {
@@ -44,6 +55,8 @@ public class CharController : Entity {
 	public override void Update () {
 		base.Update ();
 
+		stunTimer -= Time.deltaTime;
+
 		// Perform jump if we are on ground or this is our double jump
 		//if ((grounded || jumpPhase < 2) && Input.GetKeyDown (KeyCode.Space))
 		// Perform jump if we are on ground
@@ -56,8 +69,10 @@ public class CharController : Entity {
 	}
 
 	void FixedUpdate () {
-
-		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius * 2f, whatIsGround);
+		Collider2D[] lineQualifiers = Physics2D.OverlapAreaAll ((Vector2)transform.position + new Vector2 (-3f, -3f),
+		                                                 (Vector2)transform.position + new Vector2 (3f, 3f),
+		                                                 whatIsGround);
+		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius * 3f, whatIsGround);
 		// Reset jump phase if we are grounded so the person can jump again
 		if (grounded) 
 		{
@@ -71,44 +86,43 @@ public class CharController : Entity {
 
 		float move = 0.0f;
 		// Return to home x-position at a constant velocity
-		if (!IsDead())
-		{
-			if (rigidbody2D.position.x < xRest - 0.1f)
-				move = maxSpeed;
-			if (rigidbody2D.position.x > xRest + 0.1f)
-				move = -maxSpeed;
+		if (stunTimer <= 0.0f && !IsDead ()) {
+						if (rigidbody2D.position.x < xRest - 0.1f)
+								move = 1f;
+						if (rigidbody2D.position.x > xRest + 0.1f)
+								move = -1f;
+		} else {
+			move = -2.0f;
 		}
 		rigidbody2D.velocity = new Vector2(move, rigidbody2D.velocity.y); 	
 
 		// Ignore platform collisions if we are airborne
-		GameObject[] objs = GameObject.FindGameObjectsWithTag("Platform");
-		foreach (GameObject obj in objs)
+		//GameObject[] objs = GameObject.FindGameObjectsWithTag("Platform");
+		//foreach (GameObject obj in objs)
+		foreach (Collider2D obj in lineQualifiers)
 		{
-			EdgeCollider2D[] platforms = obj.GetComponents<EdgeCollider2D>();
+			EdgeCollider2D platform = obj.GetComponent<EdgeCollider2D>();
 
-			foreach (EdgeCollider2D platform in platforms)
-			{
-				// Assumes only two vertices per platform
-				Vector2 p1 = (Vector2)platform.transform.position + (Vector2)(platform.transform.rotation * (Vector3)platform.points[0]);
-				Vector2 p2 = (Vector2)platform.transform.position + (Vector2)(platform.transform.rotation * (Vector3)platform.points[1]);
-				Vector2 m = p2 - p1;
-				if (p2.x < p1.x || (p2.x == p1.x && p2.y < p1.y))
-					m = p1 - p2;
-				Vector2 n = new Vector2(m.y, -m.x);
-				Vector2 pc = new Vector2(groundCheck.position.x, groundCheck.position.y);
-				pc = pc - p1;
+			// Assumes only two vertices per platform
+			Vector2 p1 = (Vector2)platform.transform.position + (Vector2)(platform.transform.rotation * (Vector3)platform.points[0]);
+			Vector2 p2 = (Vector2)platform.transform.position + (Vector2)(platform.transform.rotation * (Vector3)platform.points[1]);
+			Vector2 m = p2 - p1;
+			if (p2.x < p1.x || (p2.x == p1.x && p2.y < p1.y))
+				m = p1 - p2;
+			Vector2 n = new Vector2(m.y, -m.x);
+			Vector2 pc = new Vector2(groundCheck.position.x, groundCheck.position.y);
+			pc = pc - p1;
 				
-				bool side = Vector2.Dot (pc, n) > 0.0f; 
-				// Comment this for efficiency, draws nice lines to tell you
-				// what's is collidable and what's not
-				if (side)
-					Debug.DrawLine (p1, p2, Color.red, 0.0f, false);
-				else
-					Debug.DrawLine (p1, p2, Color.blue, 0.0f, false);
+			bool side = Vector2.Dot (pc, n) > 0.0f; 
+			// Comment this for efficiency, draws nice lines to tell you
+			// what's is collidable and what's not
+			if (side)
+				Debug.DrawLine (p1, p2, Color.red, 0.0f, false);
+			else
+				Debug.DrawLine (p1, p2, Color.blue, 0.0f, false);
 				
-				foreach (Collider2D col in colliders)
-					Physics2D.IgnoreCollision(col, platform, side || IsDead());
-			}
+			foreach (Collider2D col in colliders)
+				Physics2D.IgnoreCollision(col, platform, side || IsDead());
 		}
 
 		if (gameMaster.GameBounds.IsOutOfBounds(this.gameObject))

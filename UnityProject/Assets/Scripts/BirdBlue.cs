@@ -46,7 +46,10 @@ public class BirdBlue : BirdController {
 		{
 			if (!collected) 
 			{
+				CharController charController = collider.GetComponent<CharController> ();
+				charController.StunIt ();	
 				GetComponent<SpriteRenderer>().sprite = deadSprite;
+
 				collected = true;
 			}
 		}

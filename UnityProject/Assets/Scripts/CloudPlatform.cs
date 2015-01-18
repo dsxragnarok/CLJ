@@ -20,7 +20,7 @@ public class CloudPlatform : Entity {
 		Vector3 pos = transform.position;
 		pos.x = pos.x - moveSpeed * Time.fixedDeltaTime;
 		transform.position = pos;
-		
+
 		if (gameMaster.GameBounds.IsOutOfBounds(this.gameObject))
 		{
 			GameObject.Destroy(this.gameObject);
