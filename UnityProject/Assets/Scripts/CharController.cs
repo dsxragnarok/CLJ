@@ -27,6 +27,8 @@ public class CharController : Entity {
 
 	private float groundForce = -250f;
 
+	private Animator animator;
+
 	public void StunIt()
 	{
 		stunTimer = 0.5f;
@@ -49,6 +51,12 @@ public class CharController : Entity {
 		colliders = GetComponents<Collider2D>();
 		groundRadius = GetComponent<CircleCollider2D>().radius;
 		dead = false;
+
+		// flip the animation horizontally to face east
+		animator = GetComponent<Animator> ();
+		Vector3 theScale = transform.localScale;
+		theScale.x *= -1;
+		transform.localScale = theScale;
 	}
 	
 	// Update is called once per frame
@@ -65,6 +73,7 @@ public class CharController : Entity {
 			gameMaster.SoundEffects.PlaySoundClip("jump");
 			StopCoroutine(performJump());
 			StartCoroutine(performJump());
+			animator.SetBool("Grounded", false);
 		}
 	}
 
@@ -73,6 +82,8 @@ public class CharController : Entity {
 		                                                 (Vector2)transform.position + new Vector2 (3f, 3f),
 		                                                 whatIsGround);
 		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius * 3f, whatIsGround);
+		animator.SetBool ("Grounded", grounded);
+
 		// Reset jump phase if we are grounded so the person can jump again
 		if (grounded) 
 		{
@@ -95,6 +106,8 @@ public class CharController : Entity {
 			move = -2.0f;
 		}
 		rigidbody2D.velocity = new Vector2(move, rigidbody2D.velocity.y); 	
+
+		animator.SetFloat ("Speed", Mathf.Abs (move));
 
 		// Ignore platform collisions if we are airborne
 		//GameObject[] objs = GameObject.FindGameObjectsWithTag("Platform");

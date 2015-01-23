@@ -12,6 +12,7 @@ public class CloudPlatform : Entity {
 	// Update is called once per frame
 	public override void Update () {
 		base.Update ();
+		
 		if (gameMaster.Player.IsDead ())
 			moveSpeed = 0f;
 

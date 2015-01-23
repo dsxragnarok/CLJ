@@ -29,6 +29,7 @@ GameObject:
   - 61: {fileID: 6147716}
   - 114: {fileID: 11412408}
   - 82: {fileID: 8255516}
+  - 95: {fileID: 9509106}
   m_Layer: 10
   m_Name: Character
   m_TagString: Player
@@ -156,6 +157,21 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!95 &9509106
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147716}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d02647e32c954e74eb708a744931169c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11412408
 MonoBehaviour:
   m_ObjectHideFlags: 1
