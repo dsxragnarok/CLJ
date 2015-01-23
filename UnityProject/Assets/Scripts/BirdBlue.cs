@@ -51,6 +51,7 @@ public class BirdBlue : BirdController {
 				GetComponent<SpriteRenderer>().sprite = deadSprite;
 
 				collected = true;
+				gameMaster.SoundEffects.PlaySoundClip("thump");
 			}
 		}
 	}

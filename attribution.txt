@@ -4,3 +4,14 @@ Jump sound clip
 	freesound.org
 	https://www.freesound.org/people/soundnimja/sounds/173326/
 
+Desk Thump sound clip
+	74767__jordanthebamf__desk-thump-7.wav
+	jordanthebamf
+	freesound.org
+	https://www.freesound.org/people/jordanthebamf/sounds/74767/
+
+Collect sound clip
+	173321__soundnimja__coin-1.wav
+	soundnimja
+	freesound.org
+	https://www.freesound.org/people/soundnimja/sounds/173321/
