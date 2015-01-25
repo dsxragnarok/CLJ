@@ -10,6 +10,8 @@ public class GameMaster : MonoBehaviour {
 	private SpawnPlatforms platformSpawner;
 	public int playerScore = 0;
 
+	public GameObject gameOverDialog;
+
 	public CharController Player
 	{
 		get { return player; }
@@ -56,5 +58,18 @@ public class GameMaster : MonoBehaviour {
 		Debug.Log (scoreObj);
 		Text t = scoreObj.GetComponent<Text> ();
 		t.text = "Score: " + playerScore;
+	}
+
+	public void showGameOver () {
+		gameOverDialog.SetActive (true);
+	}
+
+	public void restartGame () {
+		Application.LoadLevel (Application.loadedLevel);
+	}
+
+	// Note To Self - this is ignored in the editor and webplayer
+	public void quitGame () {
+		Application.Quit ();
 	}
 }

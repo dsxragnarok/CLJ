@@ -173,5 +173,6 @@ public class CharController : Entity {
 	public void Die()
 	{
 		dead = true;
+		gameMaster.showGameOver ();
 	}
 }
