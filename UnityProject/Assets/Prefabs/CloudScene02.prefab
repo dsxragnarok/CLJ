@@ -802,7 +802,7 @@ GameObject:
   - 4: {fileID: 459060}
   m_Layer: 0
   m_Name: CloudScene02
-  m_TagString: Untagged
+  m_TagString: CloudGroup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
