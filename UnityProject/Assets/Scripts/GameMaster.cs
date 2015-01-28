@@ -35,16 +35,20 @@ public class GameMaster : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		GameObject _player = GameObject.FindGameObjectWithTag("Player");
-		player = _player.GetComponent<CharController>();
+		if (_player != null)
+			player = _player.GetComponent<CharController>();
 		
 		GameObject _gameBounds = GameObject.FindGameObjectWithTag("Bounds");
-		gameBounds = _gameBounds.GetComponent<BoundsDeallocator>();
+		if (_gameBounds != null)
+			gameBounds = _gameBounds.GetComponent<BoundsDeallocator>();
 
 		GameObject _spawner = GameObject.FindGameObjectWithTag ("Spawner");
-		platformSpawner = _spawner.GetComponent<SpawnPlatforms> ();
+		if (_spawner != null)
+			platformSpawner = _spawner.GetComponent<SpawnPlatforms> ();
 
 		GameObject _sfxManager = GameObject.FindGameObjectWithTag ("SoundEffect");
-		sfxManager = _sfxManager.GetComponent<SoundEffectsManager> ();
+		if (_sfxManager != null)
+			sfxManager = _sfxManager.GetComponent<SoundEffectsManager> ();
 	}
 	
 	// Update is called once per frame
@@ -62,6 +66,10 @@ public class GameMaster : MonoBehaviour {
 
 	public void showGameOver () {
 		gameOverDialog.SetActive (true);
+	}
+
+	public void startGame() {
+		Application.LoadLevel ("Play");
 	}
 
 	public void restartGame () {
