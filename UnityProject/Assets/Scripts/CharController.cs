@@ -26,6 +26,7 @@ public class CharController : Entity {
 	private bool dead;
 
 	private float groundForce = -250f;
+	private float edgeColliderBoxCheckLen = 3.0f;
 
 	private Animator animator;
 
@@ -78,8 +79,8 @@ public class CharController : Entity {
 	}
 
 	void FixedUpdate () {
-		Collider2D[] lineQualifiers = Physics2D.OverlapAreaAll ((Vector2)transform.position + new Vector2 (-3f, -3f),
-		                                                 (Vector2)transform.position + new Vector2 (3f, 3f),
+		Collider2D[] lineQualifiers = Physics2D.OverlapAreaAll ((Vector2)transform.position + new Vector2 (-edgeColliderBoxCheckLen, -edgeColliderBoxCheckLen),
+		                                                        (Vector2)transform.position + new Vector2 (edgeColliderBoxCheckLen, edgeColliderBoxCheckLen),
 		                                                 whatIsGround);
 		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius * 3f, whatIsGround);
 		animator.SetBool ("Grounded", grounded);
@@ -95,19 +96,20 @@ public class CharController : Entity {
 				rigidbody2D.AddForce (Vector2.up * groundForce);
 		}
 
-		float move = 0.0f;
+		Vector2 move = Vector2.zero;
 		// Return to home x-position at a constant velocity
 		if (stunTimer <= 0.0f && !IsDead ()) {
 						if (rigidbody2D.position.x < xRest - 0.1f)
-								move = 1f;
+								move.x = 1f;
 						if (rigidbody2D.position.x > xRest + 0.1f)
-								move = -1f;
+								move.x = -1f;
 		} else {
-			move = -2.0f;
+			move.x = -2.0f;
 		}
-		rigidbody2D.velocity = new Vector2(move, rigidbody2D.velocity.y); 	
+		move.y = rigidbody2D.velocity.y;
+		rigidbody2D.velocity = move; 	
 
-		animator.SetFloat ("Speed", Mathf.Abs (move));
+		animator.SetFloat ("Speed", Mathf.Abs (move.magnitude));
 
 		// Ignore platform collisions if we are airborne
 		//GameObject[] objs = GameObject.FindGameObjectsWithTag("Platform");

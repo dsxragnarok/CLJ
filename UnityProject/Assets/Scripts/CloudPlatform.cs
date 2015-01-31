@@ -12,10 +12,9 @@ public class CloudPlatform : Entity {
 	// Update is called once per frame
 	public override void Update () {
 		base.Update ();
-		
+
 		if (gameMaster.Player.IsDead ())
 			moveSpeed = 0f;
-
 
 		// A sentinal cloud determines when to spawn the next
 		// group of clouds. When a sentinal crosses the left

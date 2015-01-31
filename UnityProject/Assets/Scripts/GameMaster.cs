@@ -37,7 +37,7 @@ public class GameMaster : MonoBehaviour {
 		GameObject _player = GameObject.FindGameObjectWithTag("Player");
 		if (_player != null)
 			player = _player.GetComponent<CharController>();
-		
+
 		GameObject _gameBounds = GameObject.FindGameObjectWithTag("Bounds");
 		if (_gameBounds != null)
 			gameBounds = _gameBounds.GetComponent<BoundsDeallocator>();
