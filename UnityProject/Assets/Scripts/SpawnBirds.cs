@@ -44,7 +44,7 @@ public class SpawnBirds : Entity {
 	}
 
 	void GenerateBird () {
-		if (gameMaster.Player.IsDead ())
+		if (gameMaster.Player.IsDead () || !gameMaster.isGameStarted)
 			return;
 
 		float spawnY;

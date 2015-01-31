@@ -26,19 +26,19 @@ public class CloudPlatform : Entity {
 	}
 
 	void FixedUpdate () {
+		if (gameMaster.isGameStarted) {
+			Vector3 pos = transform.position;
+			pos.x = pos.x - moveSpeed * Time.fixedDeltaTime;
+			transform.position = pos;
 
-		Vector3 pos = transform.position;
-		pos.x = pos.x - moveSpeed * Time.fixedDeltaTime;
-		transform.position = pos;
+			if (gameMaster.GameBounds.IsOutOfBounds (this.gameObject)) {
+				GameObject.Destroy (this.gameObject);
 
-		if (gameMaster.GameBounds.IsOutOfBounds(this.gameObject))
-		{
-			GameObject.Destroy(this.gameObject);
-			
-			GameObject[] cloudGroups = GameObject.FindGameObjectsWithTag ("CloudGroup");
-			foreach (GameObject gobj in cloudGroups) {
-				if (gobj.transform.childCount == 0)
-					GameObject.Destroy(gobj);
+				GameObject[] cloudGroups = GameObject.FindGameObjectsWithTag ("CloudGroup");
+				foreach (GameObject gobj in cloudGroups) {
+						if (gobj.transform.childCount == 0)
+								GameObject.Destroy (gobj);
+				}
 			}
 		}
 	}
