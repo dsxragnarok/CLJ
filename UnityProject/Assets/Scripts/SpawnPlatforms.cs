@@ -82,7 +82,7 @@ public class SpawnPlatforms : Entity {
 
 	public void GeneratePlatform()
 	{
-		if (gameMaster.Player.IsDead ())
+		if (gameMaster.Player.IsDead () || !gameMaster.isGameStarted)
 			return;
 		int rindex = Random.Range(0, spawnList.Count);
 		Vector3 pos = this.transform.position;

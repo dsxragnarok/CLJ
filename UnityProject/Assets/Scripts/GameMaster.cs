@@ -11,6 +11,9 @@ public class GameMaster : MonoBehaviour {
 	public int playerScore = 0;
 
 	public GameObject gameOverDialog;
+	public GameObject instructionsDialog;
+
+	public bool isGameStarted = false;
 
 	public CharController Player
 	{
@@ -62,6 +65,10 @@ public class GameMaster : MonoBehaviour {
 		Debug.Log (scoreObj);
 		Text t = scoreObj.GetComponent<Text> ();
 		t.text = "Score: " + playerScore;
+	}
+
+	public void closeInstructions () {
+		instructionsDialog.SetActive (false);
 	}
 
 	public void showGameOver () {

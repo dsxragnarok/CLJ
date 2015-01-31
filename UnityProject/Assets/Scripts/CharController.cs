@@ -63,6 +63,15 @@ public class CharController : Entity {
 	public override void Update () {
 		base.Update ();
 
+		if (!gameMaster.isGameStarted) {
+			if (Input.GetKeyUp (KeyCode.Space)) {
+				gameMaster.closeInstructions();
+				gameMaster.isGameStarted = true;
+			} else {
+				return; 
+			}
+		}
+
 		stunTimer -= Time.deltaTime;
 
 		// Perform jump if we are on ground or this is our double jump
@@ -78,6 +87,9 @@ public class CharController : Entity {
 	}
 
 	void FixedUpdate () {
+		if (!gameMaster.isGameStarted) {
+			return;
+		}
 		Collider2D[] lineQualifiers = Physics2D.OverlapAreaAll ((Vector2)transform.position + new Vector2 (-3f, -3f),
 		                                                 (Vector2)transform.position + new Vector2 (3f, 3f),
 		                                                 whatIsGround);
