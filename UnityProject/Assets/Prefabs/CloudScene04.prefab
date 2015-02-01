@@ -1537,7 +1537,7 @@ EdgeCollider2D:
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
-  - {x: -1.00882459, y: -.237052545}
+  - {x: -1.02123499, y: -.385983706}
   - {x: .447800219, y: .284463048}
 --- !u!68 &6869598
 EdgeCollider2D:
@@ -1549,8 +1549,8 @@ EdgeCollider2D:
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
-  - {x: -.503112555, y: .418792814}
-  - {x: .479407221, y: -.323971808}
+  - {x: -.664455414, y: .282272577}
+  - {x: .429763794, y: -.60942328}
 --- !u!68 &6869600
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -1657,8 +1657,9 @@ EdgeCollider2D:
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
-  - {x: -1.00882459, y: -.237052545}
-  - {x: .447800219, y: .284463048}
+  - {x: -1.0832901, y: -.373572826}
+  - {x: .402088642, y: .0609381199}
+  - {x: .447800159, y: .0486553907}
 --- !u!68 &6869618
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -1681,7 +1682,7 @@ EdgeCollider2D:
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
-  - {x: -1.00882459, y: -.237052545}
+  - {x: -.996413708, y: -.336339831}
   - {x: .447800219, y: .284463048}
 --- !u!68 &6869622
 EdgeCollider2D:
