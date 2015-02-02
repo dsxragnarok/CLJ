@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class CloudGroups : Entity {
-	public float moveSpeed = 3.0f;
+	public List<GameObject> sceneList;
+
 	// Use this for initialization
 	public override void Start () {
 		base.Start ();
@@ -15,8 +16,6 @@ public class CloudGroups : Entity {
 	}
 
 	void FixedUpdate() {
-		//Vector3 pos = transform.position;
-		//pos.x = pos.x - moveSpeed * Time.fixedDeltaTime;
-		//transform.position = pos;
+
 	}
 }

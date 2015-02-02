@@ -80,6 +80,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 477002}
+  - 114: {fileID: 11477918}
   m_Layer: 0
   m_Name: CloudScene09
   m_TagString: CloudGroup
@@ -4419,8 +4420,8 @@ EdgeCollider2D:
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
-  - {x: -1.15999997, y: 0}
-  - {x: 1.15999997, y: 0}
+  - {x: -.636972427, y: -.0165804606}
+  - {x: .790143847, y: .00644264743}
 --- !u!68 &6877160
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -4551,8 +4552,8 @@ EdgeCollider2D:
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
-  - {x: -1.15999997, y: 0}
-  - {x: 1.15999997, y: 0}
+  - {x: -.620715499, y: -.0068981545}
+  - {x: .661214828, y: -.0085058501}
 --- !u!68 &6877182
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -4659,8 +4660,8 @@ EdgeCollider2D:
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
-  - {x: -1.04833329, y: 0}
-  - {x: 1.04833329, y: 0}
+  - {x: -.549088895, y: .00329243485}
+  - {x: .671854675, y: -.00248276372}
 --- !u!68 &6877200
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -6077,6 +6078,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+--- !u!114 &11477918
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64dede6c05524944e89e0c03e0724db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneList:
+  - {fileID: 132732, guid: 3078ca2d320ba7142ab5da1b429dabae, type: 2}
+  - {fileID: 159060, guid: c8456666d37e01e4c9a9b6610bc1db9c, type: 2}
+  - {fileID: 164860, guid: ddb6a8233c9d5204cb1f44a8a585560f, type: 2}
+  - {fileID: 107042, guid: c1d7a93ecd6417849b1f43ab1ad5c8cd, type: 2}
+  - {fileID: 100712, guid: e138b5536b6cc894ba1fc63423146fa3, type: 2}
+  - {fileID: 110348, guid: 14d3396537429a94bb03b6db7a4bcd25, type: 2}
+  - {fileID: 169592, guid: ca0044ea27894c94a82b95e2b89a6383, type: 2}
+  - {fileID: 134770, guid: 12e723ac786425843a38014aacb6eca4, type: 2}
+  - {fileID: 138486, guid: 80288c085f4c122419a203ed054059b8, type: 2}
 --- !u!212 &21230570
 SpriteRenderer:
   m_ObjectHideFlags: 1

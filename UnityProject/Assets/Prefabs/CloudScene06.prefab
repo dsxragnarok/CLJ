@@ -999,6 +999,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400712}
+  - 114: {fileID: 11493702}
   m_Layer: 0
   m_Name: CloudScene06
   m_TagString: CloudGroup
@@ -2958,6 +2959,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+--- !u!114 &11493702
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64dede6c05524944e89e0c03e0724db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneList:
+  - {fileID: 164860, guid: ddb6a8233c9d5204cb1f44a8a585560f, type: 2}
+  - {fileID: 138486, guid: 80288c085f4c122419a203ed054059b8, type: 2}
+  - {fileID: 134770, guid: 12e723ac786425843a38014aacb6eca4, type: 2}
+  - {fileID: 169592, guid: ca0044ea27894c94a82b95e2b89a6383, type: 2}
+  - {fileID: 110348, guid: 14d3396537429a94bb03b6db7a4bcd25, type: 2}
+  - {fileID: 177002, guid: 60a68ba8516c5ea4ebf5713d9c23a31d, type: 2}
+  - {fileID: 107042, guid: c1d7a93ecd6417849b1f43ab1ad5c8cd, type: 2}
 --- !u!212 &21200600
 SpriteRenderer:
   m_ObjectHideFlags: 1

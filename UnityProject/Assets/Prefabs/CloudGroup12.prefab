@@ -500,8 +500,8 @@ EdgeCollider2D:
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
-  - {x: -1.15999997, y: 0}
-  - {x: 1.15999997, y: 0}
+  - {x: -.574004829, y: .0309408437}
+  - {x: .572933435, y: .0318828486}
 --- !u!68 &6878156
 EdgeCollider2D:
   m_ObjectHideFlags: 1
