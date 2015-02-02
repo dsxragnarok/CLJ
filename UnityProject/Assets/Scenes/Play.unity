@@ -2408,9 +2408,11 @@ MonoBehaviour:
   - name: jump
     clip: {fileID: 8300000, guid: 0d5833534d4f5f74980e552323e599b0, type: 3}
   - name: thump
-    clip: {fileID: 8300000, guid: daeeb80a083139041bb889386db7cef2, type: 3}
+    clip: {fileID: 8300000, guid: 3745715af86e2ef41ae7b9268a07cd7b, type: 3}
   - name: coin
     clip: {fileID: 8300000, guid: 493589a8bdcf0ec40a7c475300ef444e, type: 3}
+  - name: thump2
+    clip: {fileID: 8300000, guid: cbf8b7f05bacaa84cba622b5def94dc3, type: 3}
 --- !u!82 &1095436507
 AudioSource:
   m_ObjectHideFlags: 0

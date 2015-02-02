@@ -41,6 +41,7 @@ public class BirdBlack : BirdController {
 				CharController charController = collider.GetComponent<CharController> ();
 				charController.Die ();	
 				collected = true;
+				gameMaster.SoundEffects.PlaySoundClip("thump2");
 				Debug.Log ("Game Over");
 			}
 		}

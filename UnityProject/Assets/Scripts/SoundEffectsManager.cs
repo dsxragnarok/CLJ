@@ -36,10 +36,18 @@ public class SoundEffectsManager : Entity {
 	public void PlaySoundClip(string key, float volume) {
 		if (soundMap.ContainsKey (key)) {
 			source.PlayOneShot(soundMap[key], volume);
+
 		}
 	}
 
 	public void PlaySoundClip(string key) {
 		PlaySoundClip (key, 1.0f);
+	}
+
+	public void PlaySoundClip(string key, float volume, float offset) {
+		if (soundMap.ContainsKey (key)) {
+			audio.time = offset;
+			audio.PlayOneShot(soundMap[key], volume);
+		}
 	}
 }

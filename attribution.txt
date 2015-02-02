@@ -4,12 +4,6 @@
 	freesound.org
 	https://www.freesound.org/people/soundnimja/sounds/173326/
 
-Desk Thump sound clip
-	74767__jordanthebamf__desk-thump-7.wav
-	jordanthebamf
-	freesound.org
-	https://www.freesound.org/people/jordanthebamf/sounds/74767/
-
 Collect sound clip
 	173321__soundnimja__coin-1.wav
 	soundnimja
@@ -21,8 +15,19 @@ UI pack Kenney Vleugels (www.kenney.nl)
        License (CC0)
        http://creativecommons.org/publicdomain/zero/1.0/
 
+RPG Sounds Kenney Vleugels (www.kenney.nl)
+	License (CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
 Background Image
 	background0.png
 	greggman
 	Zeyu Ren 任泽宇
 	http://opengameart.org/content/backgrounds-for-2d-platformers
+
+========================================================================
+Desk Thump sound clip	[NOT USED]
+	74767__jordanthebamf__desk-thump-7.wav
+	jordanthebamf
+	freesound.org
+	https://www.freesound.org/people/jordanthebamf/sounds/74767/
