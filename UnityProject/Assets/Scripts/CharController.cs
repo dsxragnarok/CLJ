@@ -36,6 +36,7 @@ public class CharController : Entity {
 		stunTimer = length;
 		stunLevel = level;
 		rigidbody2D.AddForce (Vector2.right * -5000.0f * level);
+		animator.SetBool ("Stunned", true);
 	}
 
 	public bool IsStunned
@@ -103,6 +104,7 @@ public class CharController : Entity {
 		// Reset jump phase if we are grounded so the person can jump again
 		if (grounded) 
 		{
+			animator.SetBool ("Stunned", rigidbody2D.velocity.y <= 0.0f);
 			if (jumpForceIndex > 0)
 				jumpPhase = 0;
 			else
@@ -114,16 +116,15 @@ public class CharController : Entity {
 		Vector2 move = rigidbody2D.velocity;
 		// Return to home x-position at a constant velocity
 		if (stunTimer <= 0.0f && !IsDead ()) {
-						if (rigidbody2D.position.x < xRest - 0.1f)
-								move.x = 1f;
-						else if (rigidbody2D.position.x > xRest + 0.1f)
-								move.x = -1f;
-						else
-								move.x = 0f;	// zero out velocity at rest so ground force doesn't take its toll
+			if (rigidbody2D.position.x < xRest - 0.1f)
+				move.x = 1f;
+			else if (rigidbody2D.position.x > xRest + 0.1f)
+				move.x = -1f;
+			else
+				move.x = 0f;	// zero out velocity at rest so ground force doesn't take its toll
 		} 
-		//else {
-		//	move.x = -2.0f * stunLevel;
-		//}
+		else {
+		}
 		rigidbody2D.velocity = move; 	
 
 		animator.SetFloat ("Speed", Mathf.Abs (move.magnitude));

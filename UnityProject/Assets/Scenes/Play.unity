@@ -2088,7 +2088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundClips:
   - name: jump
-    clip: {fileID: 8300000, guid: 0d5833534d4f5f74980e552323e599b0, type: 3}
+    clip: {fileID: 8300000, guid: 011e28e331cf843249b29c26bc9b4243, type: 3}
   - name: thump
     clip: {fileID: 8300000, guid: 3745715af86e2ef41ae7b9268a07cd7b, type: 3}
   - name: coin
@@ -2759,7 +2759,7 @@ AudioSource:
   m_GameObject: {fileID: 1350859597}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 93b00eb24860b4857b71048d15478685, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2c8fb4ad412374252b5dbba1275215f6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
