@@ -735,6 +735,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 464860}
+  - 114: {fileID: 11413050}
   m_Layer: 0
   m_Name: CloudScene08
   m_TagString: Untagged
@@ -1031,7 +1032,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.16000009, y: .0500000007, z: 0}
+  m_LocalPosition: {x: 2.16000009, y: -.0370000005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 464838}
@@ -1067,7 +1068,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.949999988, y: .119999997, z: 0}
+  m_LocalPosition: {x: -.949999988, y: .0209999997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 464838}
@@ -1091,7 +1092,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.67000008, y: .0900000036, z: 0}
+  m_LocalPosition: {x: -3.67000008, y: .00700000022, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 464838}
@@ -1705,8 +1706,8 @@ EdgeCollider2D:
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
-  - {x: -1.11882496, y: 0}
-  - {x: .74939388, y: -.0119171329}
+  - {x: -1.12440395, y: -.139477015}
+  - {x: .727077484, y: -.140235901}
 --- !u!68 &6864848
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -1743,6 +1744,27 @@ EdgeCollider2D:
   m_Points:
   - {x: -1.15999997, y: 0}
   - {x: 1.15999997, y: 0}
+--- !u!114 &11413050
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64dede6c05524944e89e0c03e0724db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneList:
+  - {fileID: 132732, guid: 3078ca2d320ba7142ab5da1b429dabae, type: 2}
+  - {fileID: 159060, guid: c8456666d37e01e4c9a9b6610bc1db9c, type: 2}
+  - {fileID: 134770, guid: 12e723ac786425843a38014aacb6eca4, type: 2}
+  - {fileID: 169592, guid: ca0044ea27894c94a82b95e2b89a6383, type: 2}
+  - {fileID: 110348, guid: 14d3396537429a94bb03b6db7a4bcd25, type: 2}
+  - {fileID: 100712, guid: e138b5536b6cc894ba1fc63423146fa3, type: 2}
+  - {fileID: 107042, guid: c1d7a93ecd6417849b1f43ab1ad5c8cd, type: 2}
+  - {fileID: 138486, guid: 80288c085f4c122419a203ed054059b8, type: 2}
+  - {fileID: 177002, guid: 60a68ba8516c5ea4ebf5713d9c23a31d, type: 2}
 --- !u!114 &11464698
 MonoBehaviour:
   m_ObjectHideFlags: 1

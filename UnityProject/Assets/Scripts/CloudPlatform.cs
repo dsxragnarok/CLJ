@@ -21,7 +21,8 @@ public class CloudPlatform : Entity {
 		// edge of the spawner left edge, we call spawn
 		if (isSentinal && transform.position.x < gameMaster.PlatformSpawner.Left + gameMaster.PlatformSpawner.sentinalOffset) {
 			isSentinal = false;	// once spawned, deactivate this as a sentinal 
-			gameMaster.PlatformSpawner.GeneratePlatform();
+			CloudGroups cg = this.GetComponentInParent<CloudGroups>();
+			gameMaster.PlatformSpawner.GeneratePlatform(cg.sceneList);
 		}
 	}
 

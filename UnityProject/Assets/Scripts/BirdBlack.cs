@@ -42,9 +42,8 @@ public class BirdBlack : BirdController {
 				//charController.Die ();	
 				charController.StunIt (0.5f, 4);	
 				collected = true;
-				
-				collected = true;
-				gameMaster.SoundEffects.PlaySoundClip("thump");
+				//gameMaster.SoundEffects.PlaySoundClip("thump");
+				gameMaster.SoundEffects.PlaySoundClip("thump2");
 			}
 		}
 	}

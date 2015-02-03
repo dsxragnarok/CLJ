@@ -114,10 +114,12 @@ public class CharController : Entity {
 		Vector2 move = rigidbody2D.velocity;
 		// Return to home x-position at a constant velocity
 		if (stunTimer <= 0.0f && !IsDead ()) {
-						if (rigidbody2D.position.x < xRest - 0.3f)
+						if (rigidbody2D.position.x < xRest - 0.1f)
 								move.x = 1f;
-						if (rigidbody2D.position.x > xRest + 0.3f)
+						else if (rigidbody2D.position.x > xRest + 0.1f)
 								move.x = -1f;
+						else
+								move.x = 0f;	// zero out velocity at rest so ground force doesn't take its toll
 		} 
 		//else {
 		//	move.x = -2.0f * stunLevel;

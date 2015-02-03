@@ -8,6 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 410348}
+  - 114: {fileID: 11429764}
   m_Layer: 0
   m_Name: CloudScene05
   m_TagString: CloudGroup
@@ -1249,7 +1250,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.0999999, y: -2.95000005, z: 0}
+  m_LocalPosition: {x: 3.0999999, y: -2.84200001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 410348}
@@ -1381,7 +1382,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110422}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.9499998, y: 3.03999996, z: 0}
+  m_LocalPosition: {x: 12.9499998, y: 2.93000007, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 410348}
@@ -1601,7 +1602,7 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_Points:
   - {x: -1.15999997, y: 0}
-  - {x: .560381651, y: .109021187}
+  - {x: .651703835, y: .291666508}
 --- !u!68 &6810352
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -1780,8 +1781,8 @@ EdgeCollider2D:
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
-  - {x: -1.04833329, y: 0}
-  - {x: 1.04833329, y: 0}
+  - {x: -.868886113, y: -.0996930599}
+  - {x: .729315996, y: -.139569998}
 --- !u!68 &6810384
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -1817,7 +1818,7 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_Points:
   - {x: -1.15999997, y: 0}
-  - {x: .560381651, y: .109021187}
+  - {x: .59029007, y: .30840683}
 --- !u!68 &6810390
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -1828,7 +1829,7 @@ EdgeCollider2D:
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
-  - {x: -1.00882459, y: -.237052545}
+  - {x: -1.00882435, y: -.355843484}
   - {x: .447800219, y: .284463048}
 --- !u!68 &6810392
 EdgeCollider2D:
@@ -2116,7 +2117,7 @@ EdgeCollider2D:
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
-  - {x: -1.00882459, y: -.237052545}
+  - {x: -1.0088253, y: -.402341306}
   - {x: .447800219, y: .284463048}
 --- !u!68 &6810444
 EdgeCollider2D:
@@ -2164,7 +2165,7 @@ EdgeCollider2D:
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
-  - {x: -1.00882459, y: -.237052545}
+  - {x: -1.04494953, y: -.598299503}
   - {x: .447800219, y: .284463048}
 --- !u!68 &6825456
 EdgeCollider2D:
@@ -2790,6 +2791,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+--- !u!114 &11429764
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64dede6c05524944e89e0c03e0724db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneList:
+  - {fileID: 134770, guid: 12e723ac786425843a38014aacb6eca4, type: 2}
+  - {fileID: 164860, guid: ddb6a8233c9d5204cb1f44a8a585560f, type: 2}
+  - {fileID: 169592, guid: ca0044ea27894c94a82b95e2b89a6383, type: 2}
+  - {fileID: 100712, guid: e138b5536b6cc894ba1fc63423146fa3, type: 2}
+  - {fileID: 107042, guid: c1d7a93ecd6417849b1f43ab1ad5c8cd, type: 2}
+  - {fileID: 138486, guid: 80288c085f4c122419a203ed054059b8, type: 2}
+  - {fileID: 177002, guid: 60a68ba8516c5ea4ebf5713d9c23a31d, type: 2}
 --- !u!212 &21210350
 SpriteRenderer:
   m_ObjectHideFlags: 1

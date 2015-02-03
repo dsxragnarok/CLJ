@@ -8,6 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 469592}
+  - 114: {fileID: 11438272}
   m_Layer: 0
   m_Name: CloudScene04
   m_TagString: CloudGroup
@@ -1537,7 +1538,7 @@ EdgeCollider2D:
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
-  - {x: -1.00882459, y: -.237052545}
+  - {x: -1.02123499, y: -.385983706}
   - {x: .447800219, y: .284463048}
 --- !u!68 &6869598
 EdgeCollider2D:
@@ -1549,8 +1550,8 @@ EdgeCollider2D:
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
-  - {x: -.503112555, y: .418792814}
-  - {x: .479407221, y: -.323971808}
+  - {x: -.664455414, y: .282272577}
+  - {x: .429763794, y: -.60942328}
 --- !u!68 &6869600
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -1657,8 +1658,9 @@ EdgeCollider2D:
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
-  - {x: -1.00882459, y: -.237052545}
-  - {x: .447800219, y: .284463048}
+  - {x: -1.0832901, y: -.373572826}
+  - {x: .402088642, y: .0609381199}
+  - {x: .447800159, y: .0486553907}
 --- !u!68 &6869618
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -1681,7 +1683,7 @@ EdgeCollider2D:
   m_Material: {fileID: 6200000, guid: 55f7abf3dfcebdf478401dd73533a3c1, type: 2}
   m_IsTrigger: 0
   m_Points:
-  - {x: -1.00882459, y: -.237052545}
+  - {x: -.996413708, y: -.336339831}
   - {x: .447800219, y: .284463048}
 --- !u!68 &6869622
 EdgeCollider2D:
@@ -2091,6 +2093,27 @@ EdgeCollider2D:
   m_Points:
   - {x: -1.15999997, y: 0}
   - {x: 1.15999997, y: 0}
+--- !u!114 &11438272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64dede6c05524944e89e0c03e0724db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneList:
+  - {fileID: 132732, guid: 3078ca2d320ba7142ab5da1b429dabae, type: 2}
+  - {fileID: 159060, guid: c8456666d37e01e4c9a9b6610bc1db9c, type: 2}
+  - {fileID: 134770, guid: 12e723ac786425843a38014aacb6eca4, type: 2}
+  - {fileID: 138486, guid: 80288c085f4c122419a203ed054059b8, type: 2}
+  - {fileID: 110348, guid: 14d3396537429a94bb03b6db7a4bcd25, type: 2}
+  - {fileID: 100712, guid: e138b5536b6cc894ba1fc63423146fa3, type: 2}
+  - {fileID: 107042, guid: c1d7a93ecd6417849b1f43ab1ad5c8cd, type: 2}
+  - {fileID: 164860, guid: ddb6a8233c9d5204cb1f44a8a585560f, type: 2}
+  - {fileID: 177002, guid: 60a68ba8516c5ea4ebf5713d9c23a31d, type: 2}
 --- !u!114 &11469594
 MonoBehaviour:
   m_ObjectHideFlags: 1

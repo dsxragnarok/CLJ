@@ -80,18 +80,20 @@ public class SpawnPlatforms : Entity {
 		}
 	}
 
-	public void GeneratePlatform()
+	public void GeneratePlatform(List<GameObject> scenes)
 	{
 		if (gameMaster.Player.IsDead () || !gameMaster.isGameStarted)
 			return;
-		int rindex = Random.Range(0, spawnList.Count);
+		int rindex = Random.Range (0, scenes.Count);//Random.Range(0, spawnList.Count);
 		Vector3 pos = this.transform.position;
 		//pos.x = pos.x + xOffset;
 		pos.y = pos.y + Random.Range (minY, maxY);
 		pos.x = pos.x + xOffset;
 		//Debug.Log ("spawn cloud at y position = " + pos.y);
 		Quaternion rot = this.transform.rotation;
-		GameObject obj = (GameObject)GameObject.Instantiate(spawnList[rindex], pos, rot);
+		GameObject obj = GameObject.Instantiate(scenes[rindex], pos, rot) as GameObject;
+		Debug.Log (scenes [rindex].name);
+		//GameObject obj = (GameObject)GameObject.Instantiate(spawnList[rindex], pos, rot);
 
 		//if (Random.Range (0, 100) > 50) {
 	//		Vector3 localScale = obj.transform.localScale;
