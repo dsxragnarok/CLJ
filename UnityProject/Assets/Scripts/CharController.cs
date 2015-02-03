@@ -23,6 +23,7 @@ public class CharController : Entity {
 	private Collider2D[] colliders;
 
 	private float stunTimer;
+	private int stunLevel;
 	private bool dead;
 
 	private float groundForce = -250f;
@@ -30,14 +31,16 @@ public class CharController : Entity {
 
 	private Animator animator;
 
-	public void StunIt()
+	public void StunIt(float length, int level)
 	{
-		stunTimer = 0.5f;
+		stunTimer = length;
+		stunLevel = level;
+		rigidbody2D.AddForce (Vector2.right * -5000.0f * level);
 	}
 
 	public bool IsStunned
 	{
-		get { return stunTimer > 0.0f; }
+		get { return stunTimer > 0.0f && stunLevel > 0; }
 	}
 
 	// Use this for initialization
@@ -108,17 +111,17 @@ public class CharController : Entity {
 				rigidbody2D.AddForce (Vector2.up * groundForce);
 		}
 
-		Vector2 move = Vector2.zero;
+		Vector2 move = rigidbody2D.velocity;
 		// Return to home x-position at a constant velocity
 		if (stunTimer <= 0.0f && !IsDead ()) {
-						if (rigidbody2D.position.x < xRest - 0.1f)
+						if (rigidbody2D.position.x < xRest - 0.3f)
 								move.x = 1f;
-						if (rigidbody2D.position.x > xRest + 0.1f)
+						if (rigidbody2D.position.x > xRest + 0.3f)
 								move.x = -1f;
-		} else {
-			move.x = -2.0f;
-		}
-		move.y = rigidbody2D.velocity.y;
+		} 
+		//else {
+		//	move.x = -2.0f * stunLevel;
+		//}
 		rigidbody2D.velocity = move; 	
 
 		animator.SetFloat ("Speed", Mathf.Abs (move.magnitude));

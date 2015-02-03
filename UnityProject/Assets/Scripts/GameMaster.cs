@@ -62,7 +62,6 @@ public class GameMaster : MonoBehaviour {
 	public void updateScore (int delta) {
 		playerScore += delta;
 		GameObject scoreObj = GameObject.FindGameObjectWithTag ("Score");
-		Debug.Log (scoreObj);
 		Text t = scoreObj.GetComponent<Text> ();
 		t.text = "Score: " + playerScore;
 	}

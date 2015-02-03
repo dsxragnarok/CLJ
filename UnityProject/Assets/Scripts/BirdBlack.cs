@@ -39,9 +39,12 @@ public class BirdBlack : BirdController {
 			if (!collected)
 			{
 				CharController charController = collider.GetComponent<CharController> ();
-				charController.Die ();	
+				//charController.Die ();	
+				charController.StunIt (0.5f, 4);	
 				collected = true;
-				Debug.Log ("Game Over");
+				
+				collected = true;
+				gameMaster.SoundEffects.PlaySoundClip("thump");
 			}
 		}
 	}
