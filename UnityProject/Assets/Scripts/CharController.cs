@@ -36,6 +36,8 @@ public class CharController : Entity {
 		stunTimer = length;
 		stunLevel = level;
 		rigidbody2D.AddForce (Vector2.right * -5000.0f * level);
+		if (stunLevel >= 4)
+			rigidbody2D.AddForce (Vector2.up * 2000.0f * level);
 		animator.SetBool ("Stunned", true);
 	}
 
@@ -124,6 +126,8 @@ public class CharController : Entity {
 				move.x = 0f;	// zero out velocity at rest so ground force doesn't take its toll
 		} 
 		else {
+			if (move.x > 0f)
+				move.x = 0f;
 		}
 		rigidbody2D.velocity = move; 	
 

@@ -58,4 +58,5 @@ public abstract class BirdController : Entity {
 	public virtual void OnTriggerEnter2D(Collider2D collider)
 	{
 	}
+
 }
