@@ -41,9 +41,13 @@ public class CharController : Entity {
 		animator.SetBool ("Stunned", true);
 	}
 
-	public bool IsStunned
-	{
+	public bool IsStunned {
 		get { return stunTimer > 0.0f && stunLevel > 0; }
+	}
+
+	// Returns home position: the x location the player drifts to
+	public float XRest {
+		get { return xRest; }
 	}
 
 	// Use this for initialization
@@ -153,10 +157,12 @@ public class CharController : Entity {
 			bool side = Vector2.Dot (pc, n) > 0.0f; 
 			// Comment this for efficiency, draws nice lines to tell you
 			// what's is collidable and what's not
+			/*
 			if (side)
 				Debug.DrawLine (p1, p2, Color.red, 0.0f, false);
 			else
 				Debug.DrawLine (p1, p2, Color.blue, 0.0f, false);
+				*/
 				
 			foreach (Collider2D col in colliders)
 				Physics2D.IgnoreCollision(col, platform, side || IsDead());
