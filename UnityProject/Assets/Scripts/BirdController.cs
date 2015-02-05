@@ -6,42 +6,39 @@ public abstract class BirdController : Entity {
 
 	public int score;
 
-	protected float initialPosition;
-	private float predictedPosition;
-
-	public float moveSpeed;
-	public float speedVariance;
-
+	[HideInInspector]
+	public float initialPosition;
+	protected float predictedPosition;
+	public float initialVelocity;
 	public float initialAcceleration;
-
 	protected float acceleration;
-	protected float initialVelocity;	// determined by a random number between minSpeed and maxSpeed
 
 	protected bool collected;
 
 
 	public abstract BirdType Type {
-				get;
+		get;
+	}
+
+	public float PredictedPosition {
+		get { return predictedPosition; }
 	}
 	
-	const float CLOUD_SPEED = 4f;
+	private float cloudSpeed;
 	private float cnter = 0f;
 
 	// Use this for initialization
 	public override void Start () {
 		base.Start ();
 
-		initialPosition = transform.position.x;
-
-		//moveSpeed = Random.Range (minSpeed, maxSpeed);
-		initialVelocity = -moveSpeed + Random.Range (-speedVariance, speedVariance);
-
 		//moveSpeed = minSpeed;
-		acceleration = initialAcceleration;
 		rigidbody2D.velocity = new Vector2 (initialVelocity, rigidbody2D.velocity.y);
 		collected = false;
 
-		predictedPosition = predictXmeet (CLOUD_SPEED, gameMaster.Player.XRest);
+		//cloudSpeed = 4f;
+		//initialPosition = transform.position.x;
+		//predictedPosition = predictXmeet (gameMaster.Player.XRest, cloudSpeed);
+		//gameMaster.BirdSpawner.PositionBird(this);
 	}
 
 
@@ -54,7 +51,7 @@ public abstract class BirdController : Entity {
 	}
 
 	public virtual void FixedUpdate () {
-		cnter += CLOUD_SPEED * Time.fixedDeltaTime;
+		cnter += cloudSpeed * Time.fixedDeltaTime;
 		if (gameMaster.GameBounds.IsOutOfBounds(this.gameObject))
 		{
 			GameObject.Destroy(this.gameObject);
@@ -65,10 +62,10 @@ public abstract class BirdController : Entity {
 	{
 	}
 
-	public float predictXmeet(float objSpd, float objX)
+	public float predictXmeet(float objX, float objSpd)
 	{
 		float xi = initialPosition;
-		float vi = initialVelocity + CLOUD_SPEED;
+		float vi = initialVelocity + objSpd;
 		float ai = initialAcceleration;
 
 		//Debug.Log(xi);
@@ -76,6 +73,7 @@ public abstract class BirdController : Entity {
 		//Debug.Log(ai);
 		//Debug.Log(objSpd);
 		//Debug.Log(objX);
+		// Formula
 		//0.5 ai * t^2 + vi * t + xi = objX + objSpd * t;
 		//0.5 ai * t^2 + vi * t - objSpd * t = objX - xi;
 		//0.5 ai * t^2 + (vi - objSpd) * t + xi - objX = 0
@@ -95,10 +93,10 @@ public abstract class BirdController : Entity {
 			if (t < 0f) t = (-b - sqrtdet) / (2f * a);
 		}
 
-		Debug.Log (t);
+		//Debug.Log (t);
 
-		float xprime = objX + objSpd * t;
-
-		return xprime;
+		cloudSpeed = objSpd;
+		predictedPosition = objX + objSpd * t;
+		return predictedPosition;
 	}
 }

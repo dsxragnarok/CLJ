@@ -30,7 +30,7 @@ public class BirdBlue : BirdController {
 			//Debug.Log ("moveSpeed: " + moveSpeed + " _ DeltaTime: " + Time.deltaTime);
 			//rigidbody2D.velocity = new Vector2 (-1.0f * moveSpeed, rigidbody2D.velocity.y);
 			//rigidbody2D.AddForce(new Vector2(acceleration * rigidbody2D.mass, 0.0f)); 
-			rigidbody2D.AddRelativeForce (new Vector2 (acceleration * rigidbody2D.mass, 0.0f));
+			rigidbody2D.AddRelativeForce (new Vector2 (initialAcceleration * rigidbody2D.mass, 0.0f));
 		}
 		else
 		{

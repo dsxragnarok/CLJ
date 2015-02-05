@@ -8,6 +8,7 @@ public class GameMaster : MonoBehaviour {
 	private BoundsDeallocator gameBounds;
 	private SoundEffectsManager sfxManager;
 	private SpawnPlatforms platformSpawner;
+	private SpawnBirds birdSpawner;
 	public int playerScore = 0;
 
 	public GameObject gameOverDialog;
@@ -34,6 +35,11 @@ public class GameMaster : MonoBehaviour {
 	{
 		get { return platformSpawner; }
 	}
+	
+	public SpawnBirds BirdSpawner
+	{
+		get { return birdSpawner; }
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -47,7 +53,10 @@ public class GameMaster : MonoBehaviour {
 
 		GameObject _spawner = GameObject.FindGameObjectWithTag ("Spawner");
 		if (_spawner != null)
+		{
 			platformSpawner = _spawner.GetComponent<SpawnPlatforms> ();
+			birdSpawner = _spawner.GetComponent<SpawnBirds>(); 
+		}
 
 		GameObject _sfxManager = GameObject.FindGameObjectWithTag ("SoundEffect");
 		if (_sfxManager != null)
