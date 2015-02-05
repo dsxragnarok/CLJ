@@ -86,13 +86,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54be2adceb79b4b31b51870784d07fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 5
-  maxSpeed: 20
-  initialSpeed: 5
+  score: 0
+  moveSpeed: 5
   speedVariance: 5
   initialAcceleration: -5
-  maxAcceleration: -10
-  accelerationIncrement: -2
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!212 &21289904

@@ -9,17 +9,13 @@ public abstract class BirdController : Entity {
 	protected float initialPosition;
 	private float predictedPosition;
 
-	public float minSpeed;
-	public float maxSpeed;
-	public float initialSpeed;
+	public float moveSpeed;
 	public float speedVariance;
 
 	public float initialAcceleration;
-	public float maxAcceleration;
-	public float accelerationIncrement;
 
 	protected float acceleration;
-	protected float moveSpeed;	// determined by a random number between minSpeed and maxSpeed
+	protected float initialVelocity;	// determined by a random number between minSpeed and maxSpeed
 
 	protected bool collected;
 
@@ -27,49 +23,37 @@ public abstract class BirdController : Entity {
 	public abstract BirdType Type {
 				get;
 	}
+	
+	const float CLOUD_SPEED = 4f;
+	private float cnter = 0f;
 
 	// Use this for initialization
 	public override void Start () {
 		base.Start ();
 
-		// Remove later, for debugging predictions
-		maxAcceleration = 0.0f;
-		accelerationIncrement = 0.0f;
-		maxSpeed = 1000000.0f;
-		minSpeed = 0.0f;
-
 		initialPosition = transform.position.x;
 
 		//moveSpeed = Random.Range (minSpeed, maxSpeed);
-		moveSpeed = initialSpeed + Random.Range (0, speedVariance);
+		initialVelocity = -moveSpeed + Random.Range (-speedVariance, speedVariance);
+
 		//moveSpeed = minSpeed;
 		acceleration = initialAcceleration;
-		rigidbody2D.velocity = new Vector2 (-1.0f * moveSpeed, rigidbody2D.velocity.y);
+		rigidbody2D.velocity = new Vector2 (initialVelocity, rigidbody2D.velocity.y);
 		collected = false;
 
 		predictedPosition = predictXmeet (CLOUD_SPEED, gameMaster.Player.XRest);
 	}
 
-	const float CLOUD_SPEED = 4f;
-	private float cnter = 0f;
 
 	// Update is called once per frame
 	public override void Update () {
 		base.Update ();
-		Debug.Log (predictedPosition - cnter);
 		Debug.DrawLine (new Vector3 (initialPosition - cnter, this.transform.position.y, this.transform.position.z),
 		                new Vector3 (predictedPosition - cnter, this.transform.position.y, this.transform.position.z),
 		                predictedPosition - cnter > 0f ? Color.blue : Color.red);
 	}
 
 	public virtual void FixedUpdate () {
-		/*
-		if (gameMaster.Player.IsDead())
-		{
-			rigidbody2D.velocity = Vector2.zero;
-		}
-		*/
-		
 		cnter += CLOUD_SPEED * Time.fixedDeltaTime;
 		if (gameMaster.GameBounds.IsOutOfBounds(this.gameObject))
 		{
@@ -84,9 +68,14 @@ public abstract class BirdController : Entity {
 	public float predictXmeet(float objSpd, float objX)
 	{
 		float xi = initialPosition;
-		float vi = -initialSpeed;
+		float vi = initialVelocity + CLOUD_SPEED;
 		float ai = initialAcceleration;
 
+		//Debug.Log(xi);
+		//Debug.Log(vi);
+		//Debug.Log(ai);
+		//Debug.Log(objSpd);
+		//Debug.Log(objX);
 		//0.5 ai * t^2 + vi * t + xi = objX + objSpd * t;
 		//0.5 ai * t^2 + vi * t - objSpd * t = objX - xi;
 		//0.5 ai * t^2 + (vi - objSpd) * t + xi - objX = 0
@@ -105,6 +94,8 @@ public abstract class BirdController : Entity {
 
 			if (t < 0f) t = (-b - sqrtdet) / (2f * a);
 		}
+
+		Debug.Log (t);
 
 		float xprime = objX + objSpd * t;
 
