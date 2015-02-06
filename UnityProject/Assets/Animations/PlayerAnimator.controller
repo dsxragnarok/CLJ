@@ -26,6 +26,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+  - m_Name: Die
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base Layer
@@ -78,6 +84,26 @@ Transition:
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
+--- !u!1101 &110152810
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 0}
+  m_DstState: {fileID: 110261766}
+  m_TransitionDuration: .100000001
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Die
+    m_EventTreshold: 0
+    m_ExitTime: .899999976
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
 --- !u!1101 &110160882
 Transition:
   serializedVersion: 2
@@ -109,7 +135,22 @@ State:
   m_Motions:
   - {fileID: 7400000, guid: bf2872081f4534d44a3dea9de62863a5, type: 2}
   m_ParentStateMachine: {fileID: 110745014}
-  m_Position: {x: -72, y: 48, z: 0}
+  m_Position: {x: -96, y: 72, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110261766
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: PlayerDie
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: e6a2410db90884944afc76c7d5180bea, type: 2}
+  m_ParentStateMachine: {fileID: 110745014}
+  m_Position: {x: -48, y: -24, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -139,15 +180,20 @@ StateMachine:
   m_States:
   - {fileID: 110277636}
   - {fileID: 110252352}
+  - {fileID: 110261766}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
+    data:
+      first: {fileID: 110261766}
+      second: []
     data:
       first: {fileID: 0}
       second:
       - {fileID: 110160882}
       - {fileID: 110130210}
       - {fileID: 110125138}
+      - {fileID: 110152810}
     data:
       first: {fileID: 110277636}
       second: []

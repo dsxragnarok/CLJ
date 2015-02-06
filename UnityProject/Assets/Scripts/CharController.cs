@@ -65,9 +65,9 @@ public class CharController : Entity {
 
 		// flip the animation horizontally to face east
 		animator = GetComponent<Animator> ();
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
+		//Vector3 theScale = transform.localScale;
+		//theScale.x *= -1;
+		//transform.localScale = theScale;
 	}
 	
 	// Update is called once per frame
@@ -203,6 +203,7 @@ public class CharController : Entity {
 	public void Die()
 	{
 		dead = true;
+		animator.SetBool ("Die", true);
 		gameMaster.showGameOver ();
 	}
 }
