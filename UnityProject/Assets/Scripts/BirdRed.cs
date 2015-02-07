@@ -13,7 +13,7 @@ public class BirdRed : BirdController {
 	public override void Start () {
 		base.Start ();
 
-		score = 5;
+		score = 50;
 	}
 	
 	// Update is called once per frame

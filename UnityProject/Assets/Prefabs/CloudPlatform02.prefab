@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21244978}
   - 68: {fileID: 6844978}
   - 114: {fileID: 11444978}
+  - 114: {fileID: 11426542}
   m_Layer: 9
   m_Name: CloudPlatform02
   m_TagString: Platform
@@ -42,6 +43,18 @@ EdgeCollider2D:
   m_Points:
   - {x: -1.11882496, y: 0}
   - {x: .74939388, y: -.0119171329}
+--- !u!114 &11426542
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b6eaa69c71b7943abc938964e7a9ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsets: []
 --- !u!114 &11444978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -53,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b89ea5706dc26943b7870ab410e218b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  isSentinal: 0
 --- !u!212 &21244978
 SpriteRenderer:
   m_ObjectHideFlags: 1
