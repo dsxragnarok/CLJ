@@ -11,6 +11,7 @@ public class SpawnBirds : Entity {
 	public float initialDelay = 0.3f;	// the initial delay in seconds
 	public float spawnInterval = 2.0f;	// number of seconds between spawns
 
+	// A definition of a spawn type and the amount (more means more often)
 	[Serializable]
 	public struct SpawnCriteria
 	{
@@ -19,11 +20,12 @@ public class SpawnBirds : Entity {
 	}
 	public List<SpawnCriteria> spawnListCriterias;
 	private int totalAmount;
-	
+
+	// Moving window that looks for all cloud platforms for potential spawn destinations
 	private float edgeColliderBoxCheckWidth = 6f;
 	private float edgeColliderBoxCheckHeight = 20.0f;
-
-	private Collider2D[] lineQualifiers;
+	// Cloud platforms found and updated are here
+	private Collider2D[] lineQualifiers;		
 
 	public override void Awake () {
 		base.Awake ();
@@ -62,29 +64,39 @@ public class SpawnBirds : Entity {
 	void GenerateBird () {
 		if (gameMaster.Player.IsDead () || !gameMaster.isGameStarted)
 			return;
-		
+
+		// The target meeting location between home position and bird
 		float targetDest;
 
 		Vector3 pos = this.transform.position;
-		if (lineQualifiers.Length > 0)
-		{
-			int idx = UnityEngine.Random.Range (0, lineQualifiers.Length);
-			targetDest = lineQualifiers[idx].transform.position.x;
-			pos.y = lineQualifiers[idx].transform.position.y;
+		if (lineQualifiers.Length <= 0) {
+			return;
 		}
-		else
-		{
-			targetDest = gameMaster.Player.transform.position.x;
-			pos.y = gameMaster.Player.transform.position.y;
-		}
-		pos.y = pos.y + UnityEngine.Random.Range (0.5f, 2.0f);
 
+		// Obtain a random cloud
+		int idxPlatform = UnityEngine.Random.Range (0, lineQualifiers.Length);
+		SpawnOffset spawnOffsetter = lineQualifiers[idxPlatform].GetComponent<SpawnOffset> ();
+
+		// Obtain locations where we can spawn birds fairly
+		targetDest = lineQualifiers[idxPlatform].transform.position.x;		
+		pos.y = lineQualifiers[idxPlatform].transform.position.y;
+		if (spawnOffsetter) 
+		{
+			Vector2 offset = spawnOffsetter.getRandomOffset ();
+
+			targetDest = targetDest + offset.x;
+			pos.y = pos.y + offset.y;
+		}
+
+		// Predict when home position reaches the point we want bird and home to meet
 		float targetPos = pos.x;
 		float cloudSpeed = 4f;
-		float t = 1.0f;
+		float t = (targetDest - gameMaster.Player.XRest) / cloudSpeed;
+		// Obtain desired bird velocity to achieve the above prediction
 		float targetAcc = -5f;
-		float targetVel = (targetDest - targetPos) / t + cloudSpeed - 0.5f * targetAcc * t;
+		float targetVel = (targetDest - targetPos) / t - cloudSpeed - 0.5f * targetAcc * t;
 
+		// Instantiate bird with parameters
 		Quaternion rot = this.transform.rotation;
 		GameObject obj = (GameObject)GameObject.Instantiate(getRandomSpawnType (), pos, rot);
 		if (_birdContainer)
@@ -94,46 +106,9 @@ public class SpawnBirds : Entity {
 		birdie.initialAcceleration = -5f;
 		birdie.initialVelocity = targetVel;
 		birdie.predictXmeet(gameMaster.Player.XRest, cloudSpeed);
-
-		/*
-		float spawnY;
-		//if (Random.Range (0, 100) > 50) {
-			GameObject[] clouds = GameObject.FindGameObjectsWithTag ("Platform");
-			GameObject cloud = clouds[UnityEngine.Random.Range(0,clouds.Length)];
-
-			spawnY = cloud.transform.position.y;
-		//} else {
-		//	spawnY = Random.Range (minY, maxY);
-		//}
-
-		Vector3 pos = this.transform.position;
-		pos.y = spawnY + 0.5f;
-		//pos.y = pos.y + Random.Range (minY, maxY);
-		*/
-
 	}
 
-	public void PositionBird(BirdController birdie)
-	{
-		Vector3 pos = this.transform.position;
-		pos.x = birdie.PredictedPosition;
-		lineQualifiers = Physics2D.OverlapAreaAll ((Vector2)pos + new Vector2 (-edgeColliderBoxCheckWidth, -edgeColliderBoxCheckHeight),
-		                                                        (Vector2)pos + new Vector2 (edgeColliderBoxCheckWidth, edgeColliderBoxCheckHeight),
-		                                                        gameMaster.Player.whatIsGround);
-		pos.x = this.transform.position.x;
-		if (lineQualifiers.Length > 0)
-		{
-			int idx = UnityEngine.Random.Range (0, lineQualifiers.Length);
-			pos.y = lineQualifiers[idx].transform.position.y;
-		}
-		else
-		{
-			pos.y = gameMaster.Player.transform.position.y;
-		}
-		pos.y = pos.y + UnityEngine.Random.Range (0.5f, 2.0f);
-		birdie.transform.position = pos;
-	}
-
+	// Returns random bird type based on the spawn criterias
 	private GameObject getRandomSpawnType()
 	{
 		int rvalue = UnityEngine.Random.Range (0, totalAmount);

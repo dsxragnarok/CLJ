@@ -28,7 +28,6 @@ GameObject:
   - 58: {fileID: 5847716}
   - 61: {fileID: 6147716}
   - 114: {fileID: 11412408}
-  - 82: {fileID: 8255516}
   - 95: {fileID: 9509106}
   m_Layer: 10
   m_Name: Character
@@ -44,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.25, z: 0}
+  m_LocalPosition: {x: .0820000023, y: -.397000015, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 447716}
@@ -56,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 4.44999981, z: 0}
+  m_LocalPosition: {x: -1.82000005, y: 3.64199996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 412408}
@@ -86,8 +85,8 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Radius: .150000006
-  m_Center: {x: 0, y: -.25}
+  m_Radius: .202570915
+  m_Center: {x: .0900000036, y: -.310000002}
 --- !u!61 &6147716
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -97,8 +96,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .426372051, y: .56008774}
-  m_Center: {x: -.000208854675, y: .0264011025}
+  m_Size: {x: .386378676, y: .741695404}
+  m_Center: {x: .0881643295, y: .117204905}
 --- !u!82 &8255516
 AudioSource:
   m_ObjectHideFlags: 1
@@ -183,17 +182,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67d95eae982138a42aa14e14f2b83fcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 0
+  gameMaster: {fileID: 0}
+  maxSpeed: 1
+  jumpPhase: 0
+  jumpForceIndex: 0
   jumpForces:
+  - 800
   - 400
-  - 250
-  - 125
-  - 75
+  - 200
+  - 100
   - 50
+  grounded: 0
   groundCheck: {fileID: 412408}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 512
+  groundRadius: 0
+  whatIsGround: {}
+  xRest: 0
+  dragSave: 0
+  colliders: []
+  stunTimer: 0
+  stunLevel: 0
+  dead: 0
+  groundForce: -250
+  edgeColliderBoxCheckLen: 3
+  animator: {fileID: 0}
 --- !u!212 &21247716
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -214,7 +225,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300036, guid: 83461d28b2beab448b3d9caaf7862c6e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e5092a428ef539d459d8131f50a56541, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

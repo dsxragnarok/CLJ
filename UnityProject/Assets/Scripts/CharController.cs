@@ -11,6 +11,7 @@ public class CharController : Entity {
 	private int jumpForceIndex;		
 	public List<float> jumpForces;
 
+	// Ground usage variables
 	private bool grounded;
 	public Transform groundCheck;
 	private float groundRadius;
@@ -18,19 +19,25 @@ public class CharController : Entity {
 
 	// X rest position
 	private float xRest;
-	private float dragSave;
 
 	private Collider2D[] colliders;
 
+	// Status effects related to the player
 	private float stunTimer;
 	private int stunLevel;
 	private bool dead;
 
+	// Force applied to plant player on ground (useful for ramps and prevent bounce)
 	private float groundForce = -250f;
+
+	// A check around the player for nearby platforms. This is to prevent checking many
+	// platforms whether the player is above or below each one individually.
 	private float edgeColliderBoxCheckLen = 3.0f;
 
 	private Animator animator;
 
+	// Apply a stun timer. Based on the level (i.e. strength),
+	// Apply a knockback force to the character
 	public void StunIt(float length, int level)
 	{
 		stunTimer = length;
@@ -41,6 +48,7 @@ public class CharController : Entity {
 		animator.SetBool ("Stunned", true);
 	}
 
+	// Returns whether the player is stunned,
 	public bool IsStunned {
 		get { return stunTimer > 0.0f && stunLevel > 0; }
 	}
@@ -58,7 +66,6 @@ public class CharController : Entity {
 		jumpForceIndex = 0;
 		grounded = false;
 		xRest = rigidbody2D.position.x;
-		dragSave = rigidbody2D.drag;
 		colliders = GetComponents<Collider2D>();
 		groundRadius = GetComponent<CircleCollider2D>().radius;
 		dead = false;
@@ -101,6 +108,8 @@ public class CharController : Entity {
 		if (!gameMaster.isGameStarted) {
 			return;
 		}
+
+		// Check all nearby lines
 		Collider2D[] lineQualifiers = Physics2D.OverlapAreaAll ((Vector2)transform.position + new Vector2 (-edgeColliderBoxCheckLen, -edgeColliderBoxCheckLen),
 		                                                        (Vector2)transform.position + new Vector2 (edgeColliderBoxCheckLen, edgeColliderBoxCheckLen),
 		                                                 whatIsGround);
@@ -123,9 +132,9 @@ public class CharController : Entity {
 		// Return to home x-position at a constant velocity
 		if (stunTimer <= 0.0f && !IsDead ()) {
 			if (rigidbody2D.position.x < xRest - 0.1f)
-				move.x = 1f;
+				move.x = maxSpeed;
 			else if (rigidbody2D.position.x > xRest + 0.1f)
-				move.x = -1f;
+				move.x = -maxSpeed;
 			else
 				move.x = 0f;	// zero out velocity at rest so ground force doesn't take its toll
 		} 
@@ -172,10 +181,12 @@ public class CharController : Entity {
 		{
 			Die();
 		}
-
-		//rigidbody2D.drag = rigidbody2D.velocity.y > 0f ? dragSave : 0f;
 	}
 
+	// Performs a jump first resetting the player's y-velocity to zero.
+	// It then goes through multiple phases as long as the Jump key is held down.
+	// Starting at phase 0, it applies a force specified at phase 0,
+	// It then continues to phase 1, 2, 3, ect. until there are no more phases.
 	private IEnumerator performJump()
 	{
 		// Update our jumpPhase.
