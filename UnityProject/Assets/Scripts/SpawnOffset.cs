@@ -16,25 +16,6 @@ public class SpawnOffset : MonoBehaviour {
 
 	void Start ()
 	{
-		// Find number of groups
-		int numGroups = 0;
-		foreach (CircleOffset off in offsets) {
-			numGroups = System.Math.Max(numGroups, off.group+1);
-		}
-
-		// Choose a *Safe* path by group
-		int gid = -1;
-		if (numGroups > 0)
-			gid = UnityEngine.Random.Range (0, numGroups);
-
-		// Remove all groups associated to the safe path so
-		// spawns do not appear there
-		List<CircleOffset> pruned = new List<CircleOffset> ();
-		foreach (CircleOffset off in offsets) {
-			if (off.group != gid || off.group == -1)
-				pruned.Add (off);
-		}
-		offsets = pruned;
 	}
 
 	void Update ()
@@ -82,5 +63,36 @@ public class SpawnOffset : MonoBehaviour {
 			return Vector2.zero; 
 		CircleOffset off = offsets [UnityEngine.Random.Range (0, offsets.Count)];
 		return off.offset + UnityEngine.Random.insideUnitCircle * off.radius;
+	}
+
+	public int NumGroups
+	{
+		get {
+			// Find number of groups
+			int numGroups = 0;
+			foreach (CircleOffset off in offsets) {
+				numGroups = System.Math.Max(numGroups, off.group+1);
+			}
+			return numGroups;
+		}
+	}
+
+	public void Prune(int gid)
+	{	
+		/*
+		// Choose a *Safe* path by group
+		int gid = -1;
+		if (numGroups > 0)
+			gid = UnityEngine.Random.Range (0, NumGroups);
+		*/
+		
+		// Remove all groups associated to the safe path so
+		// spawns do not appear there
+		List<CircleOffset> pruned = new List<CircleOffset> ();
+		foreach (CircleOffset off in offsets) {
+			if (off.group != gid || off.group == -1)
+				pruned.Add (off);
+		}
+		offsets = pruned;
 	}
 }

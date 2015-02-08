@@ -34,11 +34,6 @@ public abstract class BirdController : Entity {
 		//moveSpeed = minSpeed;
 		rigidbody2D.velocity = new Vector2 (initialVelocity, rigidbody2D.velocity.y);
 		collected = false;
-
-		//cloudSpeed = 4f;
-		//initialPosition = transform.position.x;
-		//predictedPosition = predictXmeet (gameMaster.Player.XRest, cloudSpeed);
-		//gameMaster.BirdSpawner.PositionBird(this);
 	}
 
 

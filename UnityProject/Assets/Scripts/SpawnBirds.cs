@@ -90,7 +90,7 @@ public class SpawnBirds : Entity {
 
 		// Predict when home position reaches the point we want bird and home to meet
 		float targetPos = pos.x;
-		float cloudSpeed = 4f;
+		float cloudSpeed = 4.5f;
 		float t = (targetDest - gameMaster.Player.XRest) / cloudSpeed;
 		// Obtain desired bird velocity to achieve the above prediction
 		float targetAcc = -5f;
