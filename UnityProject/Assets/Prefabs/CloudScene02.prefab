@@ -1668,7 +1668,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 159014}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: .0879917741, w: .996121228}
   m_LocalPosition: {x: 7.5999999, y: .469999999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3497,9 +3497,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 0
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 1
 --- !u!114 &11441740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3515,9 +3512,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 0
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 1
 --- !u!114 &11441742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3683,9 +3677,6 @@ MonoBehaviour:
   - offset: {x: 0, y: 3.5}
     radius: .25
     group: 0
-  - offset: {x: 0, y: 4.5}
-    radius: .25
-    group: 1
 --- !u!114 &11441760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3701,9 +3692,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 1
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 0
 --- !u!114 &11441762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3737,9 +3725,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 1
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 0
 --- !u!114 &11441766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3755,9 +3740,6 @@ MonoBehaviour:
   - offset: {x: .5, y: .5}
     radius: .25
     group: 0
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 1
 --- !u!114 &11441768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3833,9 +3815,6 @@ MonoBehaviour:
   - offset: {x: 0, y: 3.5}
     radius: .25
     group: 1
-  - offset: {x: 0, y: 4.5}
-    radius: .25
-    group: 0
 --- !u!114 &11441776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3890,9 +3869,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 0
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 1
 --- !u!114 &11441782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3908,9 +3884,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 0
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 1
 --- !u!114 &11441784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4019,9 +3992,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 1
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 0
 --- !u!114 &11441796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4037,9 +4007,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 1
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 0
 --- !u!114 &11441798
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4055,9 +4022,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 0
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 1
 --- !u!114 &11441800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4073,9 +4037,6 @@ MonoBehaviour:
   - offset: {x: 1, y: 0}
     radius: .25
     group: 0
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 1
 --- !u!114 &11458972
 MonoBehaviour:
   m_ObjectHideFlags: 1

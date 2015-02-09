@@ -8,21 +8,21 @@ public class SpawnBirds : Entity {
 
 	public float minY;
 	public float maxY;
-	public float initialDelay = 0.3f;	// the initial delay in seconds
-	public float spawnInterval = 2.0f;	// number of seconds between spawns
+	public float initialDelay = 0.5f;	// the initial delay in seconds
+	public float spawnInterval = 3.0f;	// number of seconds between spawns
 
 	// A definition of a spawn type and the amount (more means more often)
 	[Serializable]
-	public struct SpawnCriteria
+	public class SpawnCriteria
 	{
-		public GameObject obj;
+		public BirdController obj;
 		public int amount;
 	}
 	public List<SpawnCriteria> spawnListCriterias;
 	private int totalAmount;
 
 	// Moving window that looks for all cloud platforms for potential spawn destinations
-	private float edgeColliderBoxCheckWidth = 6f;
+	private float edgeColliderBoxCheckWidth = 5f;
 	private float edgeColliderBoxCheckHeight = 20.0f;
 	// Cloud platforms found and updated are here
 	private Collider2D[] lineQualifiers;		
@@ -41,8 +41,7 @@ public class SpawnBirds : Entity {
 	public override void Start () {
 		base.Start ();
 
-		// TODO: change the spawnInterval based on score -- possibly will require using invoke instead of invokerepeating
-		InvokeRepeating("GenerateBird", initialDelay, spawnInterval);
+		Invoke("PerformSpawn", initialDelay);
 	}
 	
 	// Update is called once per frame
@@ -61,6 +60,12 @@ public class SpawnBirds : Entity {
 		                                           gameMaster.Player.whatIsGround);
 	}
 
+	void PerformSpawn() {
+		// Keep spawning birds using the spawn interval
+		GenerateBird();
+		Invoke("PerformSpawn", spawnInterval);
+	}
+
 	void GenerateBird () {
 		if (gameMaster.Player.IsDead () || !gameMaster.isGameStarted)
 			return;
@@ -73,6 +78,8 @@ public class SpawnBirds : Entity {
 			return;
 		}
 
+		BirdController spawnPrefab = getRandomSpawnType ();
+
 		// Obtain a random cloud
 		int idxPlatform = UnityEngine.Random.Range (0, lineQualifiers.Length);
 		SpawnOffset spawnOffsetter = lineQualifiers[idxPlatform].GetComponent<SpawnOffset> ();
@@ -80,12 +87,20 @@ public class SpawnBirds : Entity {
 		// Obtain locations where we can spawn birds fairly
 		targetDest = lineQualifiers[idxPlatform].transform.position.x;		
 		pos.y = lineQualifiers[idxPlatform].transform.position.y;
-		if (spawnOffsetter) 
+		if (spawnOffsetter && spawnPrefab.Type != BirdController.BirdType.RED) 
 		{
+			// Spawn danger birds using offsets
 			Vector2 offset = spawnOffsetter.getRandomOffset ();
 
 			targetDest = targetDest + offset.x;
 			pos.y = pos.y + offset.y;
+		}
+		else
+		{
+			// Let Red birds spawn a little more freely randomly taking a cloud and
+			// putting them there
+			targetDest = targetDest + UnityEngine.Random.Range (-0.5f, 0.5f);
+			pos.y = pos.y + UnityEngine.Random.Range (0.5f, 2.0f);
 		}
 
 		// Predict when home position reaches the point we want bird and home to meet
@@ -98,7 +113,7 @@ public class SpawnBirds : Entity {
 
 		// Instantiate bird with parameters
 		Quaternion rot = this.transform.rotation;
-		GameObject obj = (GameObject)GameObject.Instantiate(getRandomSpawnType (), pos, rot);
+		BirdController obj = (BirdController)GameObject.Instantiate(spawnPrefab, pos, rot);
 		if (_birdContainer)
 			obj.transform.parent = _birdContainer.transform;
 		BirdController birdie = obj.GetComponent<BirdController>();
@@ -109,7 +124,7 @@ public class SpawnBirds : Entity {
 	}
 
 	// Returns random bird type based on the spawn criterias
-	private GameObject getRandomSpawnType()
+	private BirdController getRandomSpawnType()
 	{
 		int rvalue = UnityEngine.Random.Range (0, totalAmount);
 		int check = 0;
@@ -117,6 +132,16 @@ public class SpawnBirds : Entity {
 		{
 			check += spawnListCriterias[i].amount;
 			if (rvalue < check) return spawnListCriterias[i].obj;
+		}
+		return null;
+	}
+	
+	public SpawnCriteria FindSpawnCriteria(BirdController.BirdType type)
+	{
+		foreach (SpawnCriteria criteria in spawnListCriterias)
+		{
+			if (criteria.obj.Type == type)
+				return criteria;
 		}
 		return null;
 	}

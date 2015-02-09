@@ -40,9 +40,10 @@ public abstract class BirdController : Entity {
 	// Update is called once per frame
 	public override void Update () {
 		base.Update ();
-		Debug.DrawLine (new Vector3 (initialPosition - cnter, this.transform.position.y, this.transform.position.z),
-		                new Vector3 (predictedPosition - cnter, this.transform.position.y, this.transform.position.z),
-		                predictedPosition - cnter > 0f ? Color.blue : Color.red);
+		// Draw predicted line bird would meet with player if player was at home x-position
+		//Debug.DrawLine (new Vector3 (initialPosition - cnter, this.transform.position.y, this.transform.position.z),
+		//                new Vector3 (predictedPosition - cnter, this.transform.position.y, this.transform.position.z),
+		//                predictedPosition - cnter > 0f ? Color.blue : Color.red);
 	}
 
 	public virtual void FixedUpdate () {

@@ -2453,9 +2453,6 @@ MonoBehaviour:
   - offset: {x: 0, y: 3.5}
     radius: .25
     group: 0
-  - offset: {x: 0, y: 5}
-    radius: .25
-    group: 1
 --- !u!114 &11444152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2561,9 +2558,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 1
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 0
 --- !u!114 &11444164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2579,9 +2573,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 1
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 0
 --- !u!114 &11444166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2597,9 +2588,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 1
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 0
 --- !u!114 &11444168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2615,9 +2603,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 0
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 1
 --- !u!114 &11444170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2630,12 +2615,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offsets:
-  - offset: {x: .5, y: 2}
+  - offset: {x: .5, y: 1.5}
     radius: .25
     group: 0
-  - offset: {x: -.25, y: 2.25}
-    radius: .25
-    group: 1
 --- !u!114 &11444172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2708,7 +2690,7 @@ MonoBehaviour:
   - offset: {x: 1, y: 1.5}
     radius: .25
     group: 0
-  - offset: {x: .5, y: 3.5}
+  - offset: {x: .5, y: 3.25}
     radius: .25
     group: 0
 --- !u!114 &11444180
@@ -2726,9 +2708,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 0
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 1
 --- !u!114 &11444182
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2744,9 +2723,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 1
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 0
 --- !u!114 &11444184
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2762,9 +2738,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 0
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 1
 --- !u!114 &11444186
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2780,9 +2753,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 0
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 1
 --- !u!114 &11444188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2798,9 +2768,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 1
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 0
 --- !u!114 &11444190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2816,9 +2783,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 1
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 0
 --- !u!114 &11444192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2834,9 +2798,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 0
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 1
 --- !u!114 &11444194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2852,9 +2813,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 0
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 1
 --- !u!114 &11444196
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2870,9 +2828,6 @@ MonoBehaviour:
   - offset: {x: .25, y: .5}
     radius: .25
     group: 1
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 0
 --- !u!114 &11444198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2888,9 +2843,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 1
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 0
 --- !u!114 &11444200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2906,9 +2858,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 0
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 1
 --- !u!114 &11444202
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2966,9 +2915,6 @@ MonoBehaviour:
   - offset: {x: 0, y: 3}
     radius: .25
     group: 0
-  - offset: {x: 0, y: 4.5}
-    radius: .25
-    group: 1
 --- !u!114 &11444208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3002,9 +2948,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 0
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 1
 --- !u!114 &11444212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3020,9 +2963,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 1
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 0
 --- !u!114 &11444214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3038,9 +2978,6 @@ MonoBehaviour:
   - offset: {x: 0, y: .5}
     radius: .25
     group: 1
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 0
 --- !u!114 &11469594
 MonoBehaviour:
   m_ObjectHideFlags: 1

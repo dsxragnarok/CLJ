@@ -2480,12 +2480,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offsets:
-  - offset: {x: 0, y: .5}
+  - offset: {x: 1, y: 0}
     radius: .25
     group: 0
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 1
 --- !u!114 &11420116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2499,9 +2496,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offsets:
   - offset: {x: 0, y: .5}
-    radius: .25
-    group: 0
-  - offset: {x: 0, y: 2}
     radius: .25
     group: 1
 --- !u!114 &11420118

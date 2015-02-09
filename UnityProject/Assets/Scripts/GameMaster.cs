@@ -9,6 +9,7 @@ public class GameMaster : MonoBehaviour {
 	private SoundEffectsManager sfxManager;
 	private SpawnPlatforms platformSpawner;
 	private SpawnBirds birdSpawner;
+	private DifficultyProgress difficultyManager;
 	public int playerScore = 0;
 
 	public GameObject gameOverDialog;
@@ -41,6 +42,11 @@ public class GameMaster : MonoBehaviour {
 		get { return birdSpawner; }
 	}
 
+	public DifficultyProgress DifficultyManager
+	{
+		get { return difficultyManager; }
+	}
+
 	// Use this for initialization
 	void Start () {
 		GameObject _player = GameObject.FindGameObjectWithTag("Player");
@@ -56,6 +62,7 @@ public class GameMaster : MonoBehaviour {
 		{
 			platformSpawner = _spawner.GetComponent<SpawnPlatforms> ();
 			birdSpawner = _spawner.GetComponent<SpawnBirds>(); 
+			difficultyManager = _spawner.GetComponent<DifficultyProgress>();
 		}
 
 		GameObject _sfxManager = GameObject.FindGameObjectWithTag ("SoundEffect");

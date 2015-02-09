@@ -3138,10 +3138,10 @@ MonoBehaviour:
   offsets:
   - offset: {x: 0, y: .5}
     radius: .25
-    group: 1
+    group: 0
   - offset: {x: 0, y: 2}
     radius: .25
-    group: 0
+    group: 1
 --- !u!114 &11478212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3333,10 +3333,10 @@ MonoBehaviour:
   offsets:
   - offset: {x: 0, y: .5}
     radius: .25
-    group: 0
+    group: 1
   - offset: {x: 0, y: 2}
     radius: .25
-    group: 1
+    group: 0
 --- !u!114 &11478234
 MonoBehaviour:
   m_ObjectHideFlags: 1

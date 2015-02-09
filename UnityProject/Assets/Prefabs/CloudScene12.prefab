@@ -8179,7 +8179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offsets:
-  - offset: {x: .5, y: 3}
+  - offset: {x: .5, y: 1}
     radius: .25
     group: -1
 --- !u!114 &11454512

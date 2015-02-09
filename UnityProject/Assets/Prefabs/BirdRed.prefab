@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11489904}
   - 50: {fileID: 5049496}
   m_Layer: 11
-  m_Name: RedBird
+  m_Name: BirdRed
   m_TagString: Birdie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,8 +87,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  moveSpeed: 5
-  speedVariance: 5
+  initialPosition: 0
+  initialVelocity: 0
   initialAcceleration: -5
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}

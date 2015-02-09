@@ -25,6 +25,7 @@ public class SpawnOffset : MonoBehaviour {
 	// Display the spawn object location for readability
 	void OnDrawGizmos()
 	{
+		/*
 		foreach (CircleOffset off in offsets) {
 			Color col = Color.white;
 			// Color the offset based on its group, otherwise assign default
@@ -55,6 +56,7 @@ public class SpawnOffset : MonoBehaviour {
 			Gizmos.color = col;
 			Gizmos.DrawWireSphere(transform.position + new Vector3(off.offset.x, off.offset.y, 0f), off.radius);
 		}
+		*/
 	}
 
 	// Retrieve a random offset, and within that offset a random location in a defined circle

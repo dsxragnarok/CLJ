@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11426722}
   - 50: {fileID: 5096174}
   m_Layer: 11
-  m_Name: BlueBird
+  m_Name: BirdBlue
   m_TagString: Birdie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,8 +87,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  moveSpeed: 5
-  speedVariance: 5
+  initialPosition: 0
+  initialVelocity: 0
   initialAcceleration: -5
   deadSprite: {fileID: 21300000, guid: 86b3afd54470ba441b9a85e654bb4934, type: 3}
 --- !u!212 &21226722

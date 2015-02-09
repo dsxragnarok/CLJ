@@ -103,5 +103,9 @@ public class SpawnPlatforms : Entity {
 
 		if (_platformContainer)
 			obj.transform.parent = _platformContainer.transform;
+
+		if (gameMaster.DifficultyManager)
+			gameMaster.DifficultyManager.LevelUp();
 	}
+
 }
