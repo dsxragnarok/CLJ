@@ -81,6 +81,8 @@ public class CharController : Entity {
 	public override void Update () {
 		base.Update ();
 
+#if UNITY_STANDALONE || UNITY_WEBPLAYER
+
 		if (!gameMaster.isGameStarted) {
 			if (Input.GetKeyUp (KeyCode.Space)) {
 				gameMaster.closeInstructions();
@@ -89,12 +91,26 @@ public class CharController : Entity {
 				return; 
 			}
 		}
+#elif UNITY_ANDROID
+		if (Input.touchCount > 0) {
+			Touch touch = Input.touches[0];
+			if (!gameMaster.isGameStarted) {
+				if (touch.phase == TouchPhase.Began) {
+					gameMaster.closeInstructions();
+					gameMaster.isGameStarted = true;
+				} else {
+					return; 
+				}
+			}
+		}
+#endif
 
 		stunTimer -= Time.deltaTime;
 
 		// Perform jump if we are on ground or this is our double jump
 		//if ((grounded || jumpPhase < 2) && Input.GetKeyDown (KeyCode.Space))
 		// Perform jump if we are on ground
+#if UNITY_STANDALONE || UNITY_WEBPLAYER
 		if (!IsDead() && grounded && Input.GetKeyDown (KeyCode.Space))
 		{
 			gameMaster.SoundEffects.PlaySoundClip("jump");
@@ -102,6 +118,19 @@ public class CharController : Entity {
 			StartCoroutine(performJump());
 			animator.SetBool("Grounded", false);
 		}
+#elif UNITY_ANDROID
+		if (Input.touchCount > 0) {
+			Touch touch = Input.touches[0];
+
+			if (!IsDead() && grounded && touch.phase == TouchPhase.Began)
+			{
+				gameMaster.SoundEffects.PlaySoundClip("jump");
+				StopCoroutine(performJump());
+				StartCoroutine(performJump());
+				animator.SetBool("Grounded", false);
+			}
+		}
+#endif
 	}
 
 	void FixedUpdate () {
@@ -197,12 +226,28 @@ public class CharController : Entity {
 		if (!grounded && jumpPhase <= 1)
 			jumpPhase++;
 		jumpForceIndex = 0;
+
+#if UNITY_STANDALONE || UNITY_WEBPLAYER
+
 		while  (jumpForceIndex < jumpForces.Count && Input.GetKey (KeyCode.Space))
 		{
 			rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * rigidbody2D.mass);
 			++jumpForceIndex;
 			yield return new WaitForSeconds(0.1f);
 		}
+
+#elif UNITY_ANDROID
+		if (Input.touchCount > 0) {
+			Touch touch = Input.touches[0];
+
+			while  (jumpForceIndex < jumpForces.Count && touch.phase == TouchPhase.Began)
+			{
+				rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * rigidbody2D.mass);
+				++jumpForceIndex;
+				yield return new WaitForSeconds(0.1f);
+			}
+		}
+#endif
 		jumpForceIndex = 0; // Reset to 0 again to flag jump is over
 	}
 
