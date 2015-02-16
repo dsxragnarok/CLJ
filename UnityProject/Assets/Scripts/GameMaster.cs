@@ -79,7 +79,7 @@ public class GameMaster : MonoBehaviour {
 		playerScore += delta;
 		GameObject scoreObj = GameObject.FindGameObjectWithTag ("Score");
 		Text t = scoreObj.GetComponent<Text> ();
-		t.text = "Score: " + playerScore;
+		t.text = playerScore.ToString();
 	}
 
 	public void closeInstructions () {
