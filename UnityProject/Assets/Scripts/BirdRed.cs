@@ -43,7 +43,7 @@ public class BirdRed : BirdController {
 				collectEffectInstance.transform.parent = this.transform;
 				renderer.enabled = false;
 				collected = true;
-				gameMaster.SoundEffects.PlaySoundClip("coin");
+				gameMaster.SoundEffects.PlaySoundClip("coin", 0.5f);
 
 				//Debug.Log ("Score: " + gameMaster.playerScore.ToString());
 				GameObject.Destroy (this.gameObject, 2.0f);
