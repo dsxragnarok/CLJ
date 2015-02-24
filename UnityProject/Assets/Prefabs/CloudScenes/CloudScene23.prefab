@@ -907,6 +907,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 463444}
+  - 114: {fileID: 11462086}
   m_Layer: 0
   m_Name: CloudScene23
   m_TagString: CloudGroup
@@ -981,7 +982,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.5103073, y: -.400089979, z: 0}
+  m_LocalPosition: {x: 19.5100002, y: -.949999988, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 463444}
@@ -1480,7 +1481,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.1000004, y: -.419999987, z: 0}
+  m_LocalPosition: {x: 18.1000004, y: -.970000029, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 463444}
@@ -2256,6 +2257,28 @@ MonoBehaviour:
   score: 10
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
+--- !u!114 &11462086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64dede6c05524944e89e0c03e0724db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneList:
+  - {fileID: 138486, guid: 80288c085f4c122419a203ed054059b8, type: 2}
+  - {fileID: 177002, guid: 60a68ba8516c5ea4ebf5713d9c23a31d, type: 2}
+  - {fileID: 168884, guid: 8b888ff5eff25a143b4dc5d2735dca3e, type: 2}
+  - {fileID: 165888, guid: 3776bc41f5d60db42be3c80faa60cb29, type: 2}
+  - {fileID: 159938, guid: da886971dd31742438ee34e69e51f45e, type: 2}
+  - {fileID: 194982, guid: 7a895263c39fed3428fe05d51da991f1, type: 2}
+  - {fileID: 117284, guid: 4509fd24417a7ee48937a443837205b2, type: 2}
+  - {fileID: 172436, guid: 7714e015eb80ea44287fe2859dd4996b, type: 2}
+  - {fileID: 168376, guid: 8b59fcdc11568a445aa79ab1cbfdfc69, type: 2}
+  - {fileID: 114534, guid: 3e9f2dde1d2b6464da56fad82fb5284f, type: 2}
 --- !u!114 &11463314
 MonoBehaviour:
   m_ObjectHideFlags: 1
