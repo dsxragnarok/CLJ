@@ -32,9 +32,7 @@ public class SpawnBirds : Entity {
 
 		_birdContainer = GameObject.FindGameObjectWithTag("BirdContainer");
 
-		totalAmount = 0;
-		for (int i = 0; i < spawnListCriterias.Count; ++i)
-			totalAmount += spawnListCriterias [i].amount;
+		UpdateCriteriaTotalAmount();
 	}
 
 	// Use this for initialization
@@ -144,5 +142,12 @@ public class SpawnBirds : Entity {
 				return criteria;
 		}
 		return null;
+	}
+
+	public void UpdateCriteriaTotalAmount()
+	{
+		totalAmount = 0;
+		for (int i = 0; i < spawnListCriterias.Count; ++i)
+			totalAmount += spawnListCriterias [i].amount;
 	}
 }

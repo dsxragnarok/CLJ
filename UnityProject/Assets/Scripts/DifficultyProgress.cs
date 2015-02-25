@@ -52,21 +52,27 @@ public class DifficultyProgress : Entity {
 				gameMaster.BirdSpawner.spawnInterval = UnityEngine.Mathf.Max (gameMaster.BirdSpawner.spawnInterval, 0.01f);
 
 				// Modify spawn chances if set in this level change criteria
-				if (modifyBlueAmount > 0)
+				bool modifiedAmount = false;
+				if (System.Math.Abs (modifyBlueAmount) > 0)
 				{
+					modifiedAmount = true;
 					SpawnBirds.SpawnCriteria criteria = gameMaster.BirdSpawner.FindSpawnCriteria(BirdController.BirdType.BLUE);
 					if (criteria != null) criteria.amount += modifyBlueAmount;
 				}
-				if (modifyRedAmount > 0)
+				if (System.Math.Abs (modifyRedAmount) > 0)
 				{
+					modifiedAmount = true;
 					SpawnBirds.SpawnCriteria criteria = gameMaster.BirdSpawner.FindSpawnCriteria(BirdController.BirdType.RED);
 					if (criteria != null) criteria.amount += modifyRedAmount;
 				}
-				if (modifyBlackAmount > 0)
+				if (System.Math.Abs (modifyBlackAmount) > 0)
 				{
+					modifiedAmount = true;
 					SpawnBirds.SpawnCriteria criteria = gameMaster.BirdSpawner.FindSpawnCriteria(BirdController.BirdType.BLACK);
 					if (criteria != null) criteria.amount += modifyBlackAmount;
 				}
+				if (modifiedAmount)
+					gameMaster.BirdSpawner.UpdateCriteriaTotalAmount();
 			}
 
 			// Remove the current level requirement since we just applied its changes

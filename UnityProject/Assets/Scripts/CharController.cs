@@ -185,23 +185,29 @@ public class CharController : Entity {
 			// Assumes only two vertices per platform
 			Vector2 p1 = (Vector2)platform.transform.position + (Vector2)(platform.transform.rotation * (Vector3)platform.points[0]);
 			Vector2 p2 = (Vector2)platform.transform.position + (Vector2)(platform.transform.rotation * (Vector3)platform.points[1]);
-			Vector2 m = p2 - p1;
-			if (p2.x < p1.x || (p2.x == p1.x && p2.y < p1.y))
-				m = p1 - p2;
-			Vector2 n = new Vector2(m.y, -m.x);
-			Vector2 pc = new Vector2(groundCheck.position.x, groundCheck.position.y);
-			pc = pc - p1;
-				
-			bool side = Vector2.Dot (pc, n) > 0.0f; 
-			// Comment this for efficiency, draws nice lines to tell you
-			// what's is collidable and what's not
-			/*
-			if (side)
-				Debug.DrawLine (p1, p2, Color.red, 0.0f, false);
+
+			Vector2 delta = p2 - p1;
+			bool side = false;
+			if (System.Math.Abs (delta.y) >= 4 * System.Math.Abs (delta.x)) 
+				side = true;	// Near vertical lines are auto pathable
 			else
-				Debug.DrawLine (p1, p2, Color.blue, 0.0f, false);
-				*/
-				
+			{
+				Vector2 m = p2 - p1;
+				if (p2.x < p1.x || (p2.x == p1.x && p2.y < p1.y))
+					m = p1 - p2;
+				Vector2 n = new Vector2(m.y, -m.x);
+				Vector2 pc = new Vector2(groundCheck.position.x, groundCheck.position.y);
+				pc = pc - p1;
+					
+				side = Vector2.Dot (pc, n) > 0.0f; 
+				// Comment this for efficiency, draws nice lines to tell you
+				// what's is collidable and what's not
+				if (side)
+					Debug.DrawLine (p1, p2, Color.red, 0.0f, false);
+				else
+					Debug.DrawLine (p1, p2, Color.blue, 0.0f, false);
+					
+			}
 			foreach (Collider2D col in colliders)
 				Physics2D.IgnoreCollision(col, platform, side || IsDead());
 		}
