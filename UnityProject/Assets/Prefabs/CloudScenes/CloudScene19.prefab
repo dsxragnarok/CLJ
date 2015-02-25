@@ -1440,7 +1440,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172440}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.80423784, y: -1.15985775, z: 0}
+  m_LocalPosition: {x: 5.80000019, y: -1.88999999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 472438}
@@ -2705,20 +2705,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneList:
-  - {fileID: 172456, guid: 96dca91222bfbbf4db6077fcd18be4fa, type: 2}
+  - {fileID: 159938, guid: da886971dd31742438ee34e69e51f45e, type: 2}
   - {fileID: 194982, guid: 7a895263c39fed3428fe05d51da991f1, type: 2}
   - {fileID: 117284, guid: 4509fd24417a7ee48937a443837205b2, type: 2}
-  - {fileID: 126134, guid: 49ad04c5eb77b224284b236df1e99746, type: 2}
+  - {fileID: 114534, guid: 3e9f2dde1d2b6464da56fad82fb5284f, type: 2}
   - {fileID: 168884, guid: 8b888ff5eff25a143b4dc5d2735dca3e, type: 2}
-  - {fileID: 186510, guid: f101ad275940da4498fed28738d8bda0, type: 2}
+  - {fileID: 165888, guid: 3776bc41f5d60db42be3c80faa60cb29, type: 2}
   - {fileID: 138486, guid: 80288c085f4c122419a203ed054059b8, type: 2}
   - {fileID: 177002, guid: 60a68ba8516c5ea4ebf5713d9c23a31d, type: 2}
   - {fileID: 168376, guid: 8b59fcdc11568a445aa79ab1cbfdfc69, type: 2}
-  - {fileID: 169552, guid: e45f6ddf638c3a242badc2896101dcf3, type: 2}
-  - {fileID: 165888, guid: 3776bc41f5d60db42be3c80faa60cb29, type: 2}
-  - {fileID: 159938, guid: da886971dd31742438ee34e69e51f45e, type: 2}
   - {fileID: 163444, guid: 9a411e2c1d2d47a4bbf0421322a35b16, type: 2}
-  - {fileID: 114534, guid: 3e9f2dde1d2b6464da56fad82fb5284f, type: 2}
 --- !u!114 &11472362
 MonoBehaviour:
   m_ObjectHideFlags: 1
