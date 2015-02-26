@@ -122,12 +122,30 @@ public class CharController : Entity {
 		if (Input.touchCount > 0) {
 			Touch touch = Input.touches[0];
 
+			Debug.Log(touch.phase);
 			if (!IsDead() && grounded && touch.phase == TouchPhase.Began)
 			{
 				gameMaster.SoundEffects.PlaySoundClip("jump");
-				StopCoroutine(performJump());
-				StartCoroutine(performJump());
+				//StopCoroutine(performJump());
+				//StartCoroutine(performJump());
+				rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0.0f);
+				jumpPhase++;
+				if (!grounded && jumpPhase <= 1)
+					jumpPhase++;
+				jumpForceIndex = 0;
 				animator.SetBool("Grounded", false);
+			}
+			else if (!IsDead() && touch.phase == TouchPhase.Stationary)
+			{
+				if (jumpForceIndex < jumpForces.Count)
+				{
+					rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * rigidbody2D.mass);
+					++jumpForceIndex;
+				}
+			}
+			if (!IsDead() && touch.phase == TouchPhase.Ended)
+			{
+				jumpForceIndex = 0;
 			}
 		}
 #endif
@@ -233,27 +251,13 @@ public class CharController : Entity {
 			jumpPhase++;
 		jumpForceIndex = 0;
 
-#if UNITY_STANDALONE || UNITY_WEBPLAYER
-
 		while  (jumpForceIndex < jumpForces.Count && Input.GetKey (KeyCode.Space))
 		{
 			rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * rigidbody2D.mass);
 			++jumpForceIndex;
 			yield return new WaitForSeconds(0.1f);
 		}
-
-#elif UNITY_ANDROID
-		if (Input.touchCount > 0) {
-			Touch touch = Input.touches[0];
-
-			while  (jumpForceIndex < jumpForces.Count && touch.phase == TouchPhase.Began)
-			{
-				rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * rigidbody2D.mass);
-				++jumpForceIndex;
-				yield return new WaitForSeconds(0.1f);
-			}
-		}
-#endif
+		
 		jumpForceIndex = 0; // Reset to 0 again to flag jump is over
 	}
 
