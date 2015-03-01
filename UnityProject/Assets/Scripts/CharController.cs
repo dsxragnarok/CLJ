@@ -36,6 +36,8 @@ public class CharController : Entity {
 
 	private Animator animator;
 
+	private float touchElapsedTime = 0.0f;
+
 	// Apply a stun timer. Based on the level (i.e. strength),
 	// Apply a knockback force to the character
 	public void StunIt(float length, int level)
@@ -75,6 +77,14 @@ public class CharController : Entity {
 		//Vector3 theScale = transform.localScale;
 		//theScale.x *= -1;
 		//transform.localScale = theScale;
+
+#if UNITY_ANDROID
+		// set up different jump forces for touch controls
+		/*for (var i = 0; i < jumpForces.Count; i += 1)
+		{
+			jumpForces[i] *= 0.75f;
+		}*/
+#endif
 	}
 	
 	// Update is called once per frame
@@ -122,30 +132,47 @@ public class CharController : Entity {
 		if (Input.touchCount > 0) {
 			Touch touch = Input.touches[0];
 
-			Debug.Log(touch.phase);
-			if (!IsDead() && grounded && touch.phase == TouchPhase.Began)
+			//Debug.Log(touch.phase);
+			/*	FOR FLAPPY BIRD STYLE CONTROL
+			if (!IsDead() && touch.phase == TouchPhase.Began)
 			{
 				gameMaster.SoundEffects.PlaySoundClip("jump");
-				//StopCoroutine(performJump());
-				//StartCoroutine(performJump());
 				rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0.0f);
-				jumpPhase++;
-				if (!grounded && jumpPhase <= 1)
-					jumpPhase++;
-				jumpForceIndex = 0;
+				rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[0]) * rigidbody2D.mass);
 				animator.SetBool("Grounded", false);
 			}
-			else if (!IsDead() && touch.phase == TouchPhase.Stationary)
+			*/
+
+			// NOTE: this seems to work for touch -- however, there's an issue
+			// where the player has infinite jump in midair.
+			if (!IsDead ())
 			{
-				if (jumpForceIndex < jumpForces.Count)
+				if (grounded && touch.phase == TouchPhase.Began)
 				{
-					rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * rigidbody2D.mass);
-					++jumpForceIndex;
+					gameMaster.SoundEffects.PlaySoundClip("jump");
+					rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0.0f);
+					jumpForceIndex = 0;
+					touchElapsedTime = 0.0f;
+					animator.SetBool("Grounded", false);
+					rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex] * rigidbody2D.mass));
+					jumpForceIndex++;
 				}
-			}
-			if (!IsDead() && touch.phase == TouchPhase.Ended)
-			{
-				jumpForceIndex = 0;
+				else if (touch.phase == TouchPhase.Stationary)
+				{
+					touchElapsedTime += Time.deltaTime;
+					if (touchElapsedTime >= 0.1f && jumpForceIndex < jumpForces.Count)
+					{
+						rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex] * rigidbody2D.mass));
+						touchElapsedTime = 0.0f;
+						jumpForceIndex++;
+					}
+
+				}
+				else if (touch.phase == TouchPhase.Ended)
+				{
+					touchElapsedTime = 0.0f;
+					jumpForceIndex = 0;
+				}
 			}
 		}
 #endif

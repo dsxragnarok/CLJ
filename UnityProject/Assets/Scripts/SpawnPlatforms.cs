@@ -92,7 +92,7 @@ public class SpawnPlatforms : Entity {
 		//Debug.Log ("spawn cloud at y position = " + pos.y);
 		Quaternion rot = this.transform.rotation;
 		GameObject obj = GameObject.Instantiate(scenes[rindex], pos, rot) as GameObject;
-		Debug.Log (scenes [rindex].name);
+		//Debug.Log (scenes [rindex].name);
 		//GameObject obj = (GameObject)GameObject.Instantiate(spawnList[rindex], pos, rot);
 
 		//if (Random.Range (0, 100) > 50) {
