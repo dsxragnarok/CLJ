@@ -37,8 +37,6 @@ public class CharController : Entity {
 
 	private Animator animator;
 
-	private float touchElapsedTime = 0.0f;
-
 	// Apply a stun timer. Based on the level (i.e. strength),
 	// Apply a knockback force to the character
 	public void StunIt(float length, int level)
@@ -77,15 +75,7 @@ public class CharController : Entity {
 		animator = GetComponent<Animator> ();
 		//Vector3 theScale = transform.localScale;
 		//theScale.x *= -1;
-		//transform.localScale = theScale;
-
-#if UNITY_ANDROID
-		// set up different jump forces for touch controls
-		/*for (var i = 0; i < jumpForces.Count; i += 1)
-		{
-			jumpForces[i] *= 0.75f;
-		}*/
-#endif
+		//transform.localScale = theScale;		
 	}
 	
 	// Update is called once per frame
@@ -145,35 +135,15 @@ public class CharController : Entity {
 			}
 			*/
 
-			// NOTE: this seems to work for touch -- however, there's an issue
-			// where the player has infinite jump in midair.
 			if (!IsDead ())
 			{
 				if (grounded && touch.phase == TouchPhase.Began)
 				{
-					gameMaster.SoundEffects.PlaySoundClip("jump");
-					rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0.0f);
-					jumpForceIndex = 0;
-					touchElapsedTime = 0.0f;
-					animator.SetBool("Grounded", false);
-					rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex] * rigidbody2D.mass));
-					jumpForceIndex++;
+					initJump();
 				}
-				else if (touch.phase == TouchPhase.Stationary)
+				else if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
 				{
-					touchElapsedTime += Time.deltaTime;
-					if (touchElapsedTime >= 0.1f && jumpForceIndex < jumpForces.Count)
-					{
-						rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex] * rigidbody2D.mass));
-						touchElapsedTime = 0.0f;
-						jumpForceIndex++;
-					}
-
-				}
-				else if (touch.phase == TouchPhase.Ended)
-				{
-					touchElapsedTime = 0.0f;
-					jumpForceIndex = 0;
+					updateJump();
 				}
 			}
 		}
@@ -297,6 +267,21 @@ public class CharController : Entity {
 			jumpTimer = jumpTimer - 0.1f;
 
 			++jumpForceIndex;
+
+#if UNITY_ANDROID
+			Touch touch = Input.GetTouch(0);
+			if (jumpForceIndex < jumpForces.Count && (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved))
+			{
+				Debug.Log (jumpForceIndex);
+				rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * rigidbody2D.mass);
+			}
+			else
+			{
+				jumpForceIndex = 0;
+			}
+
+#elif UNITY_WEBPLAYER || UNITY_STANDALONE
+
 			if (jumpForceIndex < jumpForces.Count && Input.GetKey (KeyCode.Space))
 			{
 				Debug.Log (jumpForceIndex);
@@ -306,6 +291,7 @@ public class CharController : Entity {
 			{
 				jumpForceIndex = 0;
 			}
+#endif
 		}
 	}
 
