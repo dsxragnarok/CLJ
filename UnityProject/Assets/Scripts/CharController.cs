@@ -9,6 +9,7 @@ public class CharController : Entity {
 	// Jump Variables
 	private int jumpPhase;			// 0=no jump 1=1st jump 2=2nd jump
 	private int jumpForceIndex;		
+	private float jumpTimer;
 	public List<float> jumpForces;
 
 	// Ground usage variables
@@ -114,7 +115,6 @@ public class CharController : Entity {
 			}
 		}
 #endif
-
 		stunTimer -= Time.deltaTime;
 
 		// Perform jump if we are on ground or this is our double jump
@@ -124,10 +124,12 @@ public class CharController : Entity {
 		if (!IsDead() && grounded && Input.GetKeyDown (KeyCode.Space))
 		{
 			gameMaster.SoundEffects.PlaySoundClip("jump");
-			StopCoroutine(performJump());
-			StartCoroutine(performJump());
+			//StopCoroutine(performJump());
+			//StartCoroutine(performJump());
+			initJump();
 			animator.SetBool("Grounded", false);
 		}
+		updateJump();
 #elif UNITY_ANDROID
 		if (Input.touchCount > 0) {
 			Touch touch = Input.touches[0];
@@ -260,6 +262,50 @@ public class CharController : Entity {
 		if (gameMaster.GameBounds.IsOutOfBounds(this.gameObject))
 		{
 			Die();
+		}
+	}
+	
+	// Initialization of the coroutine part of performJump()
+	private void initJump()
+	{
+		// Reset our y-velocity to 0 to perform our jump.
+		rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0.0f);
+		jumpPhase++;
+		if (!grounded && jumpPhase <= 1)
+			jumpPhase++;
+		jumpForceIndex = 0;
+
+		// Initial Jump
+		rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * rigidbody2D.mass);
+		++jumpForceIndex;
+
+		jumpTimer = 0.0f;
+	}
+
+	// While loop of the coroutine part of performJump()
+	private void updateJump()
+	{
+		// If we are not jumping, do not continue
+		if (jumpForceIndex <= 0)
+			return;
+		
+		// Update our jumpPhase.
+		// As long as the space key is held down, apply jump forces specified in the jumpForces vector.
+		jumpTimer = jumpTimer + Time.deltaTime;
+		if (jumpTimer >= 0.1f)
+		{
+			jumpTimer = jumpTimer - 0.1f;
+
+			++jumpForceIndex;
+			if (jumpForceIndex < jumpForces.Count && Input.GetKey (KeyCode.Space))
+			{
+				Debug.Log (jumpForceIndex);
+				rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * rigidbody2D.mass);
+			}
+			else
+			{
+				jumpForceIndex = 0;
+			}
 		}
 	}
 
