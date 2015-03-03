@@ -8,7 +8,6 @@ PlayerSettings:
   defaultScreenOrientation: 4
   targetDevice: 2
   targetGlesGraphics: 1
-  targetIOSGraphics: -1
   targetResolution: 0
   accelerometerFrequency: 60
   companyName: MKCP
@@ -73,7 +72,6 @@ PlayerSettings:
   metroEnableLowLatencyPresentationAPI: 0
   productGUID: 229586fb69f4faa4c9b29212d7de9027
   iPhoneBundleVersion: 0.2
-  iPhoneShortBundleVersion: 1.0
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 9
   AndroidPreferredInstallLocation: 1
@@ -103,18 +101,9 @@ PlayerSettings:
   iPadHighResPortraitSplashScreen: {fileID: 0}
   iPadLandscapeSplashScreen: {fileID: 0}
   iPadHighResLandscapeSplashScreen: {fileID: 0}
-  iOSLaunchScreenType: 0
-  iOSLaunchScreenPortrait: {fileID: 0}
-  iOSLaunchScreenLandscape: {fileID: 0}
-  iOSLaunchScreenBackgroundColor:
-    serializedVersion: 2
-    rgba: 4287465576
-  iOSLaunchScreenFillPct: 100
-  iOSLaunchScreenSize: 100
-  iOSLaunchScreenCustomXibPath: 
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
-  AndroidKeystoreName: C:/Users/Calvin/Desktop/Android/clj.keystore
+  AndroidKeystoreName: D:/Projects/UnityProjects/CLJ/UnityProject/Build/android/clj.keystore
   AndroidKeyaliasName: cloud jumper
   resolutionDialogBanner: {fileID: 0}
   m_BuildTargetIcons:
