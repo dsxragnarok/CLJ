@@ -29,7 +29,7 @@ public class CharController : Entity {
 	private bool dead;
 
 	// Force applied to plant player on ground (useful for ramps and prevent bounce)
-	private float groundForce = -250f;
+	private float groundForce = -300f;
 
 	// A check around the player for nearby platforms. This is to prevent checking many
 	// platforms whether the player is above or below each one individually.
@@ -46,7 +46,7 @@ public class CharController : Entity {
 		rigidbody2D.AddForce (Vector2.right * -5000.0f * level);
 		if (stunLevel >= 4)
 			rigidbody2D.AddForce (Vector2.up * 2000.0f * level);
-		animator.SetBool ("Stunned", true);
+		jumpPhase = 2;
 	}
 
 	// Returns whether the player is stunned,
@@ -76,6 +76,8 @@ public class CharController : Entity {
 		//Vector3 theScale = transform.localScale;
 		//theScale.x *= -1;
 		//transform.localScale = theScale;		
+
+		Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("NotPlatforms"));
 	}
 	
 	// Update is called once per frame
@@ -107,17 +109,14 @@ public class CharController : Entity {
 #endif
 		stunTimer -= Time.deltaTime;
 
-		// Perform jump if we are on ground or this is our double jump
-		//if ((grounded || jumpPhase < 2) && Input.GetKeyDown (KeyCode.Space))
 		// Perform jump if we are on ground
 #if UNITY_STANDALONE || UNITY_WEBPLAYER
-		if (!IsDead() && grounded && Input.GetKeyDown (KeyCode.Space))
+		if (!IsDead() && (grounded || jumpPhase < 2) && Input.GetKeyDown (KeyCode.Space))
 		{
 			gameMaster.SoundEffects.PlaySoundClip("jump");
 			//StopCoroutine(performJump());
 			//StartCoroutine(performJump());
 			initJump();
-			animator.SetBool("Grounded", false);
 		}
 		updateJump();
 #elif UNITY_ANDROID
@@ -159,21 +158,19 @@ public class CharController : Entity {
 		Collider2D[] lineQualifiers = Physics2D.OverlapAreaAll ((Vector2)transform.position + new Vector2 (-edgeColliderBoxCheckLen, -edgeColliderBoxCheckLen),
 		                                                        (Vector2)transform.position + new Vector2 (edgeColliderBoxCheckLen, edgeColliderBoxCheckLen),
 		                                                 whatIsGround);
-		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius * 3f, whatIsGround);
+		grounded = Physics2D.OverlapCircle (groundCheck.position, 2 * groundRadius, whatIsGround) && jumpForceIndex <= 0;
 		animator.SetBool ("Grounded", grounded);
 
 		// Reset jump phase if we are grounded so the person can jump again
 		if (grounded) 
 		{
-			animator.SetBool ("Stunned", rigidbody2D.velocity.y <= 0.0f);
-			if (jumpForceIndex > 0)
-				jumpPhase = 0;
-			else
-				// Apply a further downward force to stick player onto ground.
-				// Helps avoid walking right off ramps and bouncing off.
-				rigidbody2D.AddForce (Vector2.up * groundForce);
+			jumpPhase = 0;
+			// Apply a further downward force to stick player onto ground.
+			// Helps avoid walking right off ramps and bouncing off.
+			rigidbody2D.AddForce (Vector2.up * groundForce);
 		}
-
+		animator.SetBool ("Wailing", jumpPhase >= 2);
+		
 		Vector2 move = rigidbody2D.velocity;
 		// Return to home x-position at a constant velocity
 		if (stunTimer <= 0.0f && !IsDead ()) {
@@ -203,28 +200,21 @@ public class CharController : Entity {
 			Vector2 p1 = (Vector2)platform.transform.position + (Vector2)(platform.transform.rotation * (Vector3)platform.points[0]);
 			Vector2 p2 = (Vector2)platform.transform.position + (Vector2)(platform.transform.rotation * (Vector3)platform.points[1]);
 
-			Vector2 delta = p2 - p1;
-			bool side = false;
-			if (System.Math.Abs (delta.y) >= 4 * System.Math.Abs (delta.x)) 
-				side = true;	// Near vertical lines are auto pathable
+			Vector2 m = p2 - p1;
+			if (p2.x < p1.x || (p2.x == p1.x && p2.y < p1.y))
+				m = p1 - p2;
+			Vector2 n = new Vector2(m.y, -m.x);
+			Vector2 pc = new Vector2(groundCheck.position.x, groundCheck.position.y);
+			pc = pc - p1;
+					
+			bool side = Vector2.Dot (pc, n) > 0.0f; 
+			// Comment this for efficiency, draws nice lines to tell you
+			// what's is collidable and what's not
+			if (side)
+				Debug.DrawLine (p1, p2, Color.red, 0.0f, false);
 			else
-			{
-				Vector2 m = p2 - p1;
-				if (p2.x < p1.x || (p2.x == p1.x && p2.y < p1.y))
-					m = p1 - p2;
-				Vector2 n = new Vector2(m.y, -m.x);
-				Vector2 pc = new Vector2(groundCheck.position.x, groundCheck.position.y);
-				pc = pc - p1;
-					
-				side = Vector2.Dot (pc, n) > 0.0f; 
-				// Comment this for efficiency, draws nice lines to tell you
-				// what's is collidable and what's not
-				if (side)
-					Debug.DrawLine (p1, p2, Color.red, 0.0f, false);
-				else
-					Debug.DrawLine (p1, p2, Color.blue, 0.0f, false);
-					
-			}
+				Debug.DrawLine (p1, p2, Color.blue, 0.0f, false);
+				
 			foreach (Collider2D col in colliders)
 				Physics2D.IgnoreCollision(col, platform, side || IsDead());
 		}
@@ -272,7 +262,6 @@ public class CharController : Entity {
 			Touch touch = Input.GetTouch(0);
 			if (jumpForceIndex < jumpForces.Count && (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved))
 			{
-				Debug.Log (jumpForceIndex);
 				rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * rigidbody2D.mass);
 			}
 			else
@@ -284,7 +273,6 @@ public class CharController : Entity {
 
 			if (jumpForceIndex < jumpForces.Count && Input.GetKey (KeyCode.Space))
 			{
-				Debug.Log (jumpForceIndex);
 				rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * rigidbody2D.mass);
 			}
 			else

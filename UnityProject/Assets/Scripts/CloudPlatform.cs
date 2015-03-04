@@ -4,9 +4,22 @@ using System.Collections;
 public class CloudPlatform : Entity {
 	private float moveSpeed = 4.5f;
 	public bool isSentinal = false;
+
 	// Use this for initialization
 	public override void Start () {
 		base.Start ();
+		
+		EdgeCollider2D platform = GetComponent<EdgeCollider2D>();
+		
+		// Assumes only two vertices per platform
+		// If the cloud platform happens to be very vertical, change its layer name to "NotPlatforms"
+		Vector2 p1 = (Vector2)platform.transform.position + (Vector2)(platform.transform.rotation * (Vector3)platform.points[0]);
+		Vector2 p2 = (Vector2)platform.transform.position + (Vector2)(platform.transform.rotation * (Vector3)platform.points[1]);
+		Vector2 delta = p2 - p1;
+		if (System.Math.Abs (delta.y) >= 4 * System.Math.Abs (delta.x)) 
+		{
+			gameObject.layer = LayerMask.NameToLayer ("NotPlatforms");
+		}
 	}
 	
 	// Update is called once per frame
