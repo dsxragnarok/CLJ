@@ -94,7 +94,7 @@ public class CharController : Entity {
 				return; 
 			}
 		}
-#elif UNITY_ANDROID
+#elif UNITY_ANDROID || UNITY_IOS
 		if (Input.touchCount > 0) {
 			Touch touch = Input.touches[0];
 			if (!gameMaster.isGameStarted) {
@@ -118,8 +118,7 @@ public class CharController : Entity {
 			//StartCoroutine(performJump());
 			initJump();
 		}
-		updateJump();
-#elif UNITY_ANDROID
+#elif UNITY_ANDROID || UNITY_IOS
 		if (Input.touchCount > 0) {
 			Touch touch = Input.touches[0];
 
@@ -136,13 +135,10 @@ public class CharController : Entity {
 
 			if (!IsDead ())
 			{
-				if (grounded && touch.phase == TouchPhase.Began)
+				if ((grounded || jumpPhase < 2) && touch.phase == TouchPhase.Began)
 				{
+					gameMaster.SoundEffects.PlaySoundClip("jump");
 					initJump();
-				}
-				else if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
-				{
-					updateJump();
 				}
 			}
 		}
@@ -153,6 +149,8 @@ public class CharController : Entity {
 		if (!gameMaster.isGameStarted) {
 			return;
 		}
+		
+		updateJump();
 
 		// Check all nearby lines
 		Collider2D[] lineQualifiers = Physics2D.OverlapAreaAll ((Vector2)transform.position + new Vector2 (-edgeColliderBoxCheckLen, -edgeColliderBoxCheckLen),
@@ -251,24 +249,29 @@ public class CharController : Entity {
 		
 		// Update our jumpPhase.
 		// As long as the space key is held down, apply jump forces specified in the jumpForces vector.
-		jumpTimer = jumpTimer + Time.deltaTime;
+		jumpTimer = jumpTimer + Time.fixedDeltaTime;
 		if (jumpTimer >= 0.1f)
 		{
 			jumpTimer = jumpTimer - 0.1f;
 
 			++jumpForceIndex;
 
-#if UNITY_ANDROID
-			Touch touch = Input.GetTouch(0);
-			if (jumpForceIndex < jumpForces.Count && (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved))
-			{
-				rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * rigidbody2D.mass);
+#if UNITY_ANDROID || UNITY_IOS
+			if (Input.touchCount > 0) {
+				Touch touch = Input.GetTouch(0);
+				if (jumpForceIndex < jumpForces.Count && (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved))
+				{
+					rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * rigidbody2D.mass);
+				}
+				else
+				{
+					jumpForceIndex = 0;
+				}
 			}
 			else
 			{
 				jumpForceIndex = 0;
 			}
-
 #elif UNITY_WEBPLAYER || UNITY_STANDALONE
 
 			if (jumpForceIndex < jumpForces.Count && Input.GetKey (KeyCode.Space))
