@@ -19,6 +19,7 @@ TagManager:
   - Spawner
   - Star
   - Sun
+  - WorldCanvas
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -29,11 +30,11 @@ TagManager:
   Builtin Layer 6: 
   Builtin Layer 7: 
   User Layer 8: Background
-  User Layer 9: Platforms
+  User Layer 9: ActivePlatforms
   User Layer 10: Player
   User Layer 11: Enemies
   User Layer 12: NotPlatforms
-  User Layer 13: 
+  User Layer 13: InactivePlatforms
   User Layer 14: Foreground
   User Layer 15: 
   User Layer 16: 

@@ -55,7 +55,7 @@ public class SpawnBirds : Entity {
 		pos.x = midx;
 		lineQualifiers = Physics2D.OverlapAreaAll ((Vector2)pos + new Vector2 (-edgeColliderBoxCheckWidth, -edgeColliderBoxCheckHeight) / 2f,
 		                                           (Vector2)pos + new Vector2 (edgeColliderBoxCheckWidth, edgeColliderBoxCheckHeight) / 2f,
-		                                           gameMaster.Player.whatIsGround);
+		                                           gameMaster.Player.activePlatforms);
 	}
 
 	void PerformSpawn() {
@@ -85,7 +85,7 @@ public class SpawnBirds : Entity {
 		// Obtain locations where we can spawn birds fairly
 		targetDest = lineQualifiers[idxPlatform].transform.position.x;		
 		pos.y = lineQualifiers[idxPlatform].transform.position.y;
-		if (spawnOffsetter && spawnPrefab.Type != BirdController.BirdType.RED) 
+		if (spawnOffsetter != null && spawnOffsetter.hasOffset()) 
 		{
 			// Spawn danger birds using offsets
 			Vector2 offset = spawnOffsetter.getRandomOffset ();
@@ -95,8 +95,7 @@ public class SpawnBirds : Entity {
 		}
 		else
 		{
-			// Let Red birds spawn a little more freely randomly taking a cloud and
-			// putting them there
+			// Spawn with a little bit of y offset
 			targetDest = targetDest + UnityEngine.Random.Range (-0.5f, 0.5f);
 			pos.y = pos.y + UnityEngine.Random.Range (0.5f, 2.0f);
 		}

@@ -59,9 +59,14 @@ public class SpawnOffset : MonoBehaviour {
 		*/
 	}
 
+	public bool hasOffset()
+	{
+		return offsets.Count > 0;
+	}
+
 	// Retrieve a random offset, and within that offset a random location in a defined circle
 	public Vector2 getRandomOffset() {
-		if (offsets.Count <= 0)
+		if (hasOffset())
 			return Vector2.zero; 
 		CircleOffset off = offsets [UnityEngine.Random.Range (0, offsets.Count)];
 		return off.offset + UnityEngine.Random.insideUnitCircle * off.radius;

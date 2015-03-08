@@ -16,7 +16,8 @@ public class CharController : Entity {
 	private bool grounded;
 	public Transform groundCheck;
 	private float groundRadius;
-	public LayerMask whatIsGround;
+	public LayerMask activePlatforms;
+	public LayerMask inactivePlatforms;
 
 	// X rest position
 	private float xRest;
@@ -76,7 +77,8 @@ public class CharController : Entity {
 		//Vector3 theScale = transform.localScale;
 		//theScale.x *= -1;
 		//transform.localScale = theScale;		
-
+		
+		Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("InactivePlatforms"));
 		Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("NotPlatforms"));
 	}
 	
@@ -152,11 +154,10 @@ public class CharController : Entity {
 		
 		updateJump();
 
-		// Check all nearby lines
-		Collider2D[] lineQualifiers = Physics2D.OverlapAreaAll ((Vector2)transform.position + new Vector2 (-edgeColliderBoxCheckLen, -edgeColliderBoxCheckLen),
-		                                                        (Vector2)transform.position + new Vector2 (edgeColliderBoxCheckLen, edgeColliderBoxCheckLen),
-		                                                 whatIsGround);
-		grounded = Physics2D.OverlapCircle (groundCheck.position, 2 * groundRadius, whatIsGround) && jumpForceIndex <= 0;
+		setActiveInactivePlatform(activePlatforms);
+		setActiveInactivePlatform(inactivePlatforms);
+
+		grounded = Physics2D.OverlapCircle (groundCheck.position, 2 * groundRadius, activePlatforms) && jumpForceIndex <= 0;
 		animator.SetBool ("Grounded", grounded);
 
 		// Reset jump phase if we are grounded so the person can jump again
@@ -187,24 +188,36 @@ public class CharController : Entity {
 
 		animator.SetFloat ("Speed", Mathf.Abs (move.magnitude));
 
+		if (gameMaster.GameBounds.IsOutOfBounds(this.gameObject))
+		{
+			Die();
+		}
+	}
+
+	private void setActiveInactivePlatform(LayerMask whatIsGround)
+	{		
+		// Check all nearby lines
+		Collider2D[] lineQualifiers = Physics2D.OverlapAreaAll ((Vector2)transform.position + new Vector2 (-edgeColliderBoxCheckLen, -edgeColliderBoxCheckLen),
+		             			                                (Vector2)transform.position + new Vector2 (edgeColliderBoxCheckLen, edgeColliderBoxCheckLen),
+		                                           				whatIsGround);
 		// Ignore platform collisions if we are airborne
 		//GameObject[] objs = GameObject.FindGameObjectsWithTag("Platform");
 		//foreach (GameObject obj in objs)
 		foreach (Collider2D obj in lineQualifiers)
 		{
 			EdgeCollider2D platform = obj.GetComponent<EdgeCollider2D>();
-
+			
 			// Assumes only two vertices per platform
 			Vector2 p1 = (Vector2)platform.transform.position + (Vector2)(platform.transform.rotation * (Vector3)platform.points[0]);
 			Vector2 p2 = (Vector2)platform.transform.position + (Vector2)(platform.transform.rotation * (Vector3)platform.points[1]);
-
+			
 			Vector2 m = p2 - p1;
 			if (p2.x < p1.x || (p2.x == p1.x && p2.y < p1.y))
 				m = p1 - p2;
 			Vector2 n = new Vector2(m.y, -m.x);
 			Vector2 pc = new Vector2(groundCheck.position.x, groundCheck.position.y);
 			pc = pc - p1;
-					
+			
 			bool side = Vector2.Dot (pc, n) > 0.0f; 
 			// Comment this for efficiency, draws nice lines to tell you
 			// what's is collidable and what's not
@@ -212,17 +225,15 @@ public class CharController : Entity {
 				Debug.DrawLine (p1, p2, Color.red, 0.0f, false);
 			else
 				Debug.DrawLine (p1, p2, Color.blue, 0.0f, false);
-				
-			foreach (Collider2D col in colliders)
-				Physics2D.IgnoreCollision(col, platform, side || IsDead());
+
+			platform.gameObject.layer = side || IsDead() ? LayerMask.NameToLayer("InactivePlatforms") : LayerMask.NameToLayer("ActivePlatforms");
+			//foreach (Collider2D col in colliders) 
+			//	Physics2D.IgnoreCollision(col, platform, side || IsDead());
 		}
 
-		if (gameMaster.GameBounds.IsOutOfBounds(this.gameObject))
-		{
-			Die();
-		}
+
 	}
-	
+
 	// Initialization of the coroutine part of performJump()
 	private void initJump()
 	{
