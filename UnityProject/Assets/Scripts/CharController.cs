@@ -157,7 +157,7 @@ public class CharController : Entity {
 		setActiveInactivePlatform(activePlatforms);
 		setActiveInactivePlatform(inactivePlatforms);
 
-		grounded = Physics2D.OverlapCircle (groundCheck.position, 2 * groundRadius, activePlatforms) && jumpForceIndex <= 0;
+		grounded = Physics2D.OverlapCircle (groundCheck.position, 1.5f * groundRadius, activePlatforms) && jumpForceIndex <= 0;
 		animator.SetBool ("Grounded", grounded);
 
 		// Reset jump phase if we are grounded so the person can jump again
