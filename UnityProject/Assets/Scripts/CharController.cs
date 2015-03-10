@@ -22,7 +22,7 @@ public class CharController : Entity {
 	// X rest position
 	private float xRest;
 
-	private Collider2D[] colliders;
+	//private Collider2D[] colliders;
 
 	// Status effects related to the player
 	private float stunTimer;
@@ -44,15 +44,15 @@ public class CharController : Entity {
 	{
 		stunTimer = length;
 		stunLevel = level;
-		rigidbody2D.AddForce (Vector2.right * -5000.0f * level);
+		rigidbody2D.AddForce (Vector2.right * -3000.0f * level);
 		if (stunLevel >= 4)
-			rigidbody2D.AddForce (Vector2.up * 2000.0f * level);
+			rigidbody2D.AddForce (Vector2.up * 1000.0f * level);
 		jumpPhase = 2;
 	}
 
 	// Returns whether the player is stunned,
 	public bool IsStunned {
-		get { return stunTimer > 0.0f && stunLevel > 0; }
+		get { return stunTimer > 0.0f || stunLevel > 0; }
 	}
 
 	// Returns home position: the x location the player drifts to
@@ -68,7 +68,7 @@ public class CharController : Entity {
 		jumpForceIndex = 0;
 		grounded = false;
 		xRest = rigidbody2D.position.x;
-		colliders = GetComponents<Collider2D>();
+		//colliders = GetComponents<Collider2D>();
 		groundRadius = GetComponent<CircleCollider2D>().radius;
 		dead = false;
 
@@ -163,6 +163,7 @@ public class CharController : Entity {
 		// Reset jump phase if we are grounded so the person can jump again
 		if (grounded) 
 		{
+			stunLevel = 0;
 			jumpPhase = 0;
 			// Apply a further downward force to stick player onto ground.
 			// Helps avoid walking right off ramps and bouncing off.
@@ -172,7 +173,7 @@ public class CharController : Entity {
 		
 		Vector2 move = rigidbody2D.velocity;
 		// Return to home x-position at a constant velocity
-		if (stunTimer <= 0.0f && !IsDead ()) {
+		if (!IsStunned && !IsDead ()) {
 			if (rigidbody2D.position.x < xRest - 0.1f)
 				move.x = maxSpeed;
 			else if (rigidbody2D.position.x > xRest + 0.1f)

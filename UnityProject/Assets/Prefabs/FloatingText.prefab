@@ -55,6 +55,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de77cd51601e7b545a195dbf3938ba65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startColor: {r: 1, g: .643137276, b: 0, a: 1}
+  endColor: {r: 1, g: 1, b: .498039216, a: 0}
 --- !u!222 &22207358
 CanvasRenderer:
   m_ObjectHideFlags: 1

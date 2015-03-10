@@ -71,6 +71,11 @@ public class GameMaster : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		// iOS framerate is vsynced and will always be 15, 30, or 60 FPS. Without setting
+		// the targetFrameRate, it'll be at 30. Setting this to 50 will make iOS FPS 60.
+		// TODO: Might want to adjust forces and such to have it all be at 60 FPS later.
+		Application.targetFrameRate = 50;
+
 		GameObject _player = GameObject.FindGameObjectWithTag("Player");
 		if (_player != null)
 			player = _player.GetComponent<CharController>();

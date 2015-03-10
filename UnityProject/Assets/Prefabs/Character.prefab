@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.82000005, y: 3.64199996, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 412408}
@@ -179,32 +179,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 147716}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67d95eae982138a42aa14e14f2b83fcb, type: 3}
+  m_Script: {fileID: 11500000, guid: 976196cd8fa4c744f8a64f9291cd4a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMaster: {fileID: 0}
   maxSpeed: 1
-  jumpPhase: 0
-  jumpForceIndex: 0
   jumpForces:
-  - 800
   - 400
   - 200
+  - 200
   - 100
-  - 50
-  grounded: 0
+  - 100
   groundCheck: {fileID: 412408}
-  groundRadius: 0
-  whatIsGround: {}
-  xRest: 0
-  dragSave: 0
-  colliders: []
-  stunTimer: 0
-  stunLevel: 0
-  dead: 0
-  groundForce: -250
-  edgeColliderBoxCheckLen: 3
-  animator: {fileID: 0}
+  activePlatforms:
+    serializedVersion: 2
+    m_Bits: 512
+  inactivePlatforms:
+    serializedVersion: 2
+    m_Bits: 8192
 --- !u!212 &21247716
 SpriteRenderer:
   m_ObjectHideFlags: 1
