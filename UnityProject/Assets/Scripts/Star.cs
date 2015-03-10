@@ -38,7 +38,7 @@ public class Star : Entity {
 				gameMaster.collectedStars += 1;
 				int value = gameMaster.scoreMultiplier * (gameMaster.collectedBirds + 1);
 				gameMaster.updateScore(value);
-				gameMaster.generateFloatingTextAt(this.transform.position, value.ToString());
+				gameMaster.generateFloatingTextAt(gameMaster.Player.transform.position, value.ToString());
 				ParticleSystem collectEffectInstance = (ParticleSystem)GameObject.Instantiate(collectEffectPrefab, this.transform.position, this.transform.rotation);
 				collectEffectInstance.transform.parent = this.transform;
 				renderer.enabled = false;

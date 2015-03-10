@@ -4,6 +4,7 @@ using System.Collections;
 public class CloudPlatform : Entity {
 	private float moveSpeed = 4.5f;
 	public bool isSentinal = false;
+	public bool activeTarget = true;
 
 	// Use this for initialization
 	public override void Start () {
@@ -54,6 +55,9 @@ public class CloudPlatform : Entity {
 								GameObject.Destroy (gobj);
 				}
 			}
+
+			if (activeTarget && gameMaster.BirdSpawner != null)
+				gameMaster.BirdSpawner.CheckInsert(this);
 		}
 	}
 }

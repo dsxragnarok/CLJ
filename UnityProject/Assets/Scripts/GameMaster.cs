@@ -121,8 +121,9 @@ public class GameMaster : MonoBehaviour {
 	{
 		GameObject ftInstance = (GameObject)GameObject.Instantiate(floatingTextPrefab);
 		ftInstance.transform.SetParent(hudCanvas.transform);
-		Vector3 worldOffset = new Vector3(0.5f, 0.5f, 0f);
-		ftInstance.transform.position = mainCamera.WorldToScreenPoint(pos + worldOffset);
+		//Vector3 worldOffset = new Vector3(0.5f, 0.5f, 0f);
+		//ftInstance.transform.position = mainCamera.WorldToScreenPoint(pos + worldOffset);
+		ftInstance.GetComponent<FloatingText>().BindToTarget(Player.gameObject);
 		ftInstance.GetComponent<Text>().text = value;
 	}
 

@@ -22,10 +22,34 @@ public class SpawnBirds : Entity {
 	private int totalAmount;
 
 	// Moving window that looks for all cloud platforms for potential spawn destinations
-	private float edgeColliderBoxCheckWidth = 5f;
-	private float edgeColliderBoxCheckHeight = 20.0f;
 	// Cloud platforms found and updated are here
-	private Collider2D[] lineQualifiers;		
+	private List<CloudPlatform> targetPlatforms;
+	private float exitLine;		// x-location on the left side when the cloud leaves the candidate list
+	private float enterLine;	// x-location on the right when the cloud enters the candidate list
+
+	// Every fixed frame, we check to see which clouds in the list are still in the candidate region.
+	// Any cloud that passes the exit line is not added into the list anymore (and its active flag is set to false).
+	// Turning off the active flag ensures it won't be added again.
+	public void CheckRemove()
+	{
+		List<CloudPlatform> ret = new List<CloudPlatform>();
+		foreach (CloudPlatform platform in targetPlatforms)
+		{
+			if (platform.transform.position.x > exitLine)
+				ret.Add (platform);
+			else
+				platform.activeTarget = false;
+		}
+		targetPlatforms = ret;
+	}
+
+	// CloudPlatforms may offer to register themselves into the candidate list, and if they exceed the enter line, 
+	// they are added to the candidate list.
+	public void CheckInsert(CloudPlatform platform)
+	{
+		if (platform.transform.position.x <= enterLine)
+			targetPlatforms.Add (platform);
+	}
 
 	public override void Awake () {
 		base.Awake ();
@@ -39,6 +63,11 @@ public class SpawnBirds : Entity {
 	public override void Start () {
 		base.Start ();
 
+		float offsetx = 2.5f;
+		targetPlatforms = new List<CloudPlatform>();
+		float midx = (gameMaster.Player.XRest + this.transform.position.x) / 2f;
+		exitLine = midx - offsetx;
+		enterLine = midx + offsetx;
 		Invoke("PerformSpawn", initialDelay);
 	}
 	
@@ -48,14 +77,7 @@ public class SpawnBirds : Entity {
 	}
 
 	public void FixedUpdate() {
-		base.Update ();
-
-		float midx = (gameMaster.Player.XRest + this.transform.position.x) / 2f;
-		Vector3 pos = this.transform.position;
-		pos.x = midx;
-		lineQualifiers = Physics2D.OverlapAreaAll ((Vector2)pos + new Vector2 (-edgeColliderBoxCheckWidth, -edgeColliderBoxCheckHeight) / 2f,
-		                                           (Vector2)pos + new Vector2 (edgeColliderBoxCheckWidth, edgeColliderBoxCheckHeight) / 2f,
-		                                           gameMaster.Player.activePlatforms);
+		CheckRemove();
 	}
 
 	void PerformSpawn() {
@@ -72,19 +94,19 @@ public class SpawnBirds : Entity {
 		float targetDest;
 
 		Vector3 pos = this.transform.position;
-		if (lineQualifiers.Length <= 0) {
+		if (targetPlatforms.Count <= 0) {
 			return;
 		}
 
 		BirdController spawnPrefab = getRandomSpawnType ();
 
 		// Obtain a random cloud
-		int idxPlatform = UnityEngine.Random.Range (0, lineQualifiers.Length);
-		SpawnOffset spawnOffsetter = lineQualifiers[idxPlatform].GetComponent<SpawnOffset> ();
+		int idxPlatform = UnityEngine.Random.Range (0, targetPlatforms.Count);
+		SpawnOffset spawnOffsetter = targetPlatforms[idxPlatform].GetComponent<SpawnOffset> ();
 
 		// Obtain locations where we can spawn birds fairly
-		targetDest = lineQualifiers[idxPlatform].transform.position.x;		
-		pos.y = lineQualifiers[idxPlatform].transform.position.y;
+		targetDest = targetPlatforms[idxPlatform].transform.position.x;		
+		pos.y = targetPlatforms[idxPlatform].transform.position.y;
 		if (spawnOffsetter != null && spawnOffsetter.hasOffset()) 
 		{
 			// Spawn danger birds using offsets
@@ -96,8 +118,8 @@ public class SpawnBirds : Entity {
 		else
 		{
 			// Spawn with a little bit of y offset
-			targetDest = targetDest + UnityEngine.Random.Range (-0.5f, 0.5f);
-			pos.y = pos.y + UnityEngine.Random.Range (0.5f, 2.0f);
+			targetDest = targetDest + UnityEngine.Random.Range (-1.0f, 1.0f);
+			pos.y = pos.y + UnityEngine.Random.Range (0.5f, 3.0f);
 		}
 
 		// Predict when home position reaches the point we want bird and home to meet

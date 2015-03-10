@@ -725,7 +725,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19168181df643894f823d78bf6a3b71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 10
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11417268
@@ -739,13 +738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b6eaa69c71b7943abc938964e7a9ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsets:
-  - offset: {x: 0, y: .5}
-    radius: .25
-    group: 1
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 0
+  offsets: []
 --- !u!114 &11417270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -758,6 +751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11417272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -769,13 +763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b6eaa69c71b7943abc938964e7a9ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsets:
-  - offset: {x: 0, y: .5}
-    radius: .25
-    group: 0
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 1
+  offsets: []
 --- !u!114 &11417274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -788,6 +776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11417276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -799,10 +788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b6eaa69c71b7943abc938964e7a9ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsets:
-  - offset: {x: 0, y: .5}
-    radius: .25
-    group: 1
+  offsets: []
 --- !u!114 &11417278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -815,6 +801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11417280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -826,13 +813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b6eaa69c71b7943abc938964e7a9ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsets:
-  - offset: {x: 0, y: .5}
-    radius: .25
-    group: 0
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 1
+  offsets: []
 --- !u!114 &11417282
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -845,6 +826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11417284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -856,13 +838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b6eaa69c71b7943abc938964e7a9ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsets:
-  - offset: {x: 0, y: .5}
-    radius: .25
-    group: 0
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 1
+  offsets: []
 --- !u!114 &11417286
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -875,6 +851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11417288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -886,13 +863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b6eaa69c71b7943abc938964e7a9ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsets:
-  - offset: {x: 1.5, y: 0}
-    radius: .25
-    group: 1
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 0
+  offsets: []
 --- !u!114 &11417290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -905,6 +876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11417292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -916,7 +888,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19168181df643894f823d78bf6a3b71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 10
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11417294
@@ -962,13 +933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b6eaa69c71b7943abc938964e7a9ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsets:
-  - offset: {x: .5, y: .5}
-    radius: .25
-    group: 0
-  - offset: {x: 0, y: 1.75}
-    radius: .25
-    group: 1
+  offsets: []
 --- !u!114 &11417298
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -981,6 +946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 1
+  activeTarget: 1
 --- !u!114 &11417300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -992,13 +958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b6eaa69c71b7943abc938964e7a9ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsets:
-  - offset: {x: 0, y: .5}
-    radius: .25
-    group: 1
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 0
+  offsets: []
 --- !u!114 &11417302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1011,6 +971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11417304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1022,7 +983,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19168181df643894f823d78bf6a3b71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 10
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11417306
@@ -1036,13 +996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b6eaa69c71b7943abc938964e7a9ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsets:
-  - offset: {x: 0, y: .5}
-    radius: .25
-    group: 0
-  - offset: {x: 0, y: 2}
-    radius: .25
-    group: 1
+  offsets: []
 --- !u!114 &11417308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1055,6 +1009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11417310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1066,7 +1021,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19168181df643894f823d78bf6a3b71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 10
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11417312
@@ -1080,7 +1034,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19168181df643894f823d78bf6a3b71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 10
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!212 &21217286

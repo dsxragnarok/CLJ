@@ -38,7 +38,7 @@ public class BirdRed : BirdController {
 				gameMaster.collectedBirds += 1;
 				int value = gameMaster.scoreMultiplier * gameMaster.collectedStars;
 				gameMaster.updateScore(value);
-				gameMaster.generateFloatingTextAt(this.transform.position, value.ToString());
+				gameMaster.generateFloatingTextAt(gameMaster.Player.transform.position, value.ToString());
 				//gameMaster.playerScore++;
 				ParticleSystem collectEffectInstance = (ParticleSystem)GameObject.Instantiate(collectEffectPrefab, this.transform.position, this.transform.rotation);
 				collectEffectInstance.transform.parent = this.transform;

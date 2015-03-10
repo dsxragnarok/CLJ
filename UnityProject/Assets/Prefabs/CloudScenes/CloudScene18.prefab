@@ -236,6 +236,7 @@ GameObject:
   - 212: {fileID: 21268376}
   - 114: {fileID: 11468380}
   - 68: {fileID: 6868376}
+  - 114: {fileID: 11400818}
   m_Layer: 9
   m_Name: CloudPlatform04
   m_TagString: Platform
@@ -254,6 +255,7 @@ GameObject:
   - 212: {fileID: 21268378}
   - 114: {fileID: 11468382}
   - 68: {fileID: 6868378}
+  - 114: {fileID: 11400810}
   m_Layer: 9
   m_Name: CloudPlatform01
   m_TagString: Platform
@@ -272,6 +274,7 @@ GameObject:
   - 212: {fileID: 21268380}
   - 114: {fileID: 11468384}
   - 68: {fileID: 6868380}
+  - 114: {fileID: 11400812}
   m_Layer: 9
   m_Name: CloudPlatform04
   m_TagString: Platform
@@ -290,6 +293,7 @@ GameObject:
   - 212: {fileID: 21268382}
   - 68: {fileID: 6868382}
   - 114: {fileID: 11468386}
+  - 114: {fileID: 11400814}
   m_Layer: 9
   m_Name: CloudPlatform02
   m_TagString: Platform
@@ -308,6 +312,7 @@ GameObject:
   - 212: {fileID: 21268384}
   - 114: {fileID: 11468388}
   - 68: {fileID: 6868384}
+  - 114: {fileID: 11400820}
   m_Layer: 9
   m_Name: CloudPlatform00
   m_TagString: Platform
@@ -326,6 +331,7 @@ GameObject:
   - 212: {fileID: 21268386}
   - 114: {fileID: 11468390}
   - 68: {fileID: 6868386}
+  - 114: {fileID: 11400816}
   m_Layer: 9
   m_Name: CloudPlatform00
   m_TagString: Platform
@@ -344,6 +350,7 @@ GameObject:
   - 212: {fileID: 21268388}
   - 114: {fileID: 11468392}
   - 68: {fileID: 6868388}
+  - 114: {fileID: 11400822}
   m_Layer: 9
   m_Name: CloudPlatform01
   m_TagString: Platform
@@ -1523,6 +1530,90 @@ EdgeCollider2D:
   m_Points:
   - {x: -1.04833329, y: 0}
   - {x: 1.04833329, y: 0}
+--- !u!114 &11400810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b6eaa69c71b7943abc938964e7a9ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsets: []
+--- !u!114 &11400812
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b6eaa69c71b7943abc938964e7a9ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsets: []
+--- !u!114 &11400814
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b6eaa69c71b7943abc938964e7a9ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsets: []
+--- !u!114 &11400816
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b6eaa69c71b7943abc938964e7a9ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsets: []
+--- !u!114 &11400818
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b6eaa69c71b7943abc938964e7a9ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsets: []
+--- !u!114 &11400820
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b6eaa69c71b7943abc938964e7a9ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsets: []
+--- !u!114 &11400822
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b6eaa69c71b7943abc938964e7a9ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsets: []
 --- !u!114 &11406830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1557,7 +1648,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19168181df643894f823d78bf6a3b71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 10
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11441800
@@ -1571,7 +1661,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19168181df643894f823d78bf6a3b71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 10
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11441802
@@ -1585,7 +1674,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19168181df643894f823d78bf6a3b71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 10
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11441804
@@ -1599,7 +1687,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19168181df643894f823d78bf6a3b71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 10
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11441806
@@ -1613,7 +1700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19168181df643894f823d78bf6a3b71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 10
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11441808
@@ -1627,7 +1713,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19168181df643894f823d78bf6a3b71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 10
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11441810
@@ -1641,7 +1726,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19168181df643894f823d78bf6a3b71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 10
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11441812
@@ -1655,7 +1739,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19168181df643894f823d78bf6a3b71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 10
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11441814
@@ -1669,7 +1752,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19168181df643894f823d78bf6a3b71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 10
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11468372
@@ -1696,6 +1778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11468376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1720,6 +1803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11468380
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1732,6 +1816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 1
+  activeTarget: 1
 --- !u!114 &11468382
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1744,6 +1829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11468384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1756,6 +1842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11468386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1768,6 +1855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11468388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1780,6 +1868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11468390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1792,6 +1881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11468392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1804,6 +1894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11468394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1828,6 +1919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11468398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1852,6 +1944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11468402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1876,6 +1969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11468406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1900,6 +1994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11468410
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1924,6 +2019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11468414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1948,6 +2044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11468418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1972,6 +2069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11468422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1996,6 +2094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11468426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2020,6 +2119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11468430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2044,6 +2144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11468434
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2068,6 +2169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!114 &11468438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2092,6 +2194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSentinal: 0
+  activeTarget: 1
 --- !u!212 &21241798
 SpriteRenderer:
   m_ObjectHideFlags: 1

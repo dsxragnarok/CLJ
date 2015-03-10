@@ -221,10 +221,10 @@ public class CharController : Entity {
 			bool side = Vector2.Dot (pc, n) > 0.0f; 
 			// Comment this for efficiency, draws nice lines to tell you
 			// what's is collidable and what's not
-			if (side)
-				Debug.DrawLine (p1, p2, Color.red, 0.0f, false);
-			else
-				Debug.DrawLine (p1, p2, Color.blue, 0.0f, false);
+			//if (side)
+			//	Debug.DrawLine (p1, p2, Color.red, 0.0f, false);
+			//else
+			//	Debug.DrawLine (p1, p2, Color.blue, 0.0f, false);
 
 			platform.gameObject.layer = side || IsDead() ? LayerMask.NameToLayer("InactivePlatforms") : LayerMask.NameToLayer("ActivePlatforms");
 			//foreach (Collider2D col in colliders) 
