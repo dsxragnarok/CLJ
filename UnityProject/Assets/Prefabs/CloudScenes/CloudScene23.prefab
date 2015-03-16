@@ -946,6 +946,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &181278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 481278}
+  - 114: {fileID: 11481278}
+  m_Layer: 0
+  m_Name: CheckPoint
+  m_TagString: CheckPoint
+  m_Icon: {fileID: 266726316, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &433912
 Transform:
   m_ObjectHideFlags: 1
@@ -1606,8 +1622,21 @@ Transform:
   - {fileID: 433916}
   - {fileID: 433918}
   - {fileID: 433920}
+  - {fileID: 481278}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &481278
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181278}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.5, y: .0399999991, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 463444}
+  m_RootOrder: 19
 --- !u!50 &5033912
 Rigidbody2D:
   m_ObjectHideFlags: 1
@@ -3310,6 +3339,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+--- !u!114 &11481278
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 026465957324b7040bc86593dde07ddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreBonus: 200
 --- !u!212 &21233912
 SpriteRenderer:
   m_ObjectHideFlags: 1

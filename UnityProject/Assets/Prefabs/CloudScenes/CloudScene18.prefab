@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &110380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 410380}
+  - 114: {fileID: 11410380}
+  m_Layer: 0
+  m_Name: CheckPoint
+  m_TagString: CheckPoint
+  m_Icon: {fileID: 266726316, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &141798
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,6 +632,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &410380
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110380}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.7799997, y: -.289999992, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 468376}
+  m_RootOrder: 13
 --- !u!4 &441798
 Transform:
   m_ObjectHideFlags: 1
@@ -771,6 +799,7 @@ Transform:
   - {fileID: 441810}
   - {fileID: 441812}
   - {fileID: 441814}
+  - {fileID: 410380}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &468378
@@ -1637,6 +1666,18 @@ MonoBehaviour:
   - {fileID: 114534, guid: 3e9f2dde1d2b6464da56fad82fb5284f, type: 2}
   - {fileID: 165888, guid: 3776bc41f5d60db42be3c80faa60cb29, type: 2}
   - {fileID: 159938, guid: da886971dd31742438ee34e69e51f45e, type: 2}
+--- !u!114 &11410380
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 026465957324b7040bc86593dde07ddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreBonus: 200
 --- !u!114 &11441798
 MonoBehaviour:
   m_ObjectHideFlags: 1

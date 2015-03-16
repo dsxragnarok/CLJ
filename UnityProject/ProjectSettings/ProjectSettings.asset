@@ -72,7 +72,7 @@ PlayerSettings:
   metroEnableLowLatencyPresentationAPI: 0
   productGUID: 229586fb69f4faa4c9b29212d7de9027
   iPhoneBundleVersion: 0.2
-  AndroidBundleVersionCode: 1
+  AndroidBundleVersionCode: 2
   AndroidMinSdkVersion: 9
   AndroidPreferredInstallLocation: 1
   aotOptions: 
