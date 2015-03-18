@@ -6,6 +6,11 @@ public class CloudPlatform : Entity {
 	public bool isSentinal = false;
 	public bool activeTarget = true;
 
+	public bool isCheckPoint = false;
+	public bool collected = false;
+
+	private int checkPointBonus = 200;
+
 	// Use this for initialization
 	public override void Start () {
 		base.Start ();
@@ -59,5 +64,20 @@ public class CloudPlatform : Entity {
 			if (activeTarget && gameMaster.BirdSpawner != null)
 				gameMaster.BirdSpawner.CheckInsert(this);
 		}
+	}
+
+	void OnCollisionEnter2D (Collision2D collider) {
+		if (isCheckPoint && !collected && collider.gameObject.tag == "Player") {
+			ActivateCheckPoint();
+		}
+	}
+
+	void ActivateCheckPoint () {
+		SpriteRenderer rend = this.GetComponent<SpriteRenderer>();
+		rend.color = new Color(255,255,255);
+		collected = true;
+		gameMaster.updateScore (checkPointBonus);
+		gameMaster.generateFloatingTextAt(gameMaster.Player.transform.position, "Check Point!\n"+checkPointBonus.ToString());
+		//GameObject.Destroy (this.gameObject, 2.0f);
 	}
 }

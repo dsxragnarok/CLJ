@@ -2958,6 +2958,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2971,6 +2973,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2984,6 +2988,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2997,6 +3003,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469606
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3010,6 +3018,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3023,6 +3033,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3036,6 +3048,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3049,6 +3063,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3062,6 +3078,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469622
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3075,6 +3093,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3088,6 +3108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3101,6 +3123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3114,6 +3138,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3127,6 +3153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469636
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3140,6 +3168,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3153,6 +3183,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3166,6 +3198,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3179,6 +3213,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469646
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3192,6 +3228,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3205,6 +3243,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3218,6 +3258,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3231,6 +3273,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3244,6 +3288,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469666
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3257,6 +3303,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469668
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3270,6 +3318,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3283,6 +3333,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3296,6 +3348,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3309,6 +3363,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3322,6 +3378,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469680
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3335,6 +3393,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3348,6 +3408,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11469688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3361,6 +3423,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 1
   activeTarget: 1
+  isCheckPoint: 1
+  collected: 0
 --- !u!114 &11479154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4406,7 +4470,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: 9ea67dc52858c3248b84ec04784654dd, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .360294104, g: .360294104, b: .360294104, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

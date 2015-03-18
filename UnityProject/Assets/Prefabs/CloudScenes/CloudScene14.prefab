@@ -877,6 +877,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11466672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -998,6 +1000,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 1
+  collected: 0
 --- !u!114 &11468866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1011,6 +1015,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 1
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11468868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1024,6 +1030,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11468870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1037,6 +1045,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11468872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1050,6 +1060,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11468874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1063,6 +1075,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11468876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1076,6 +1090,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11468878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1089,6 +1105,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSentinal: 0
   activeTarget: 1
+  isCheckPoint: 0
+  collected: 0
 --- !u!114 &11478308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1282,7 +1300,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: 9ea67dc52858c3248b84ec04784654dd, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .360294104, g: .360294104, b: .360294104, a: 1}
 --- !u!212 &21268866
 SpriteRenderer:
   m_ObjectHideFlags: 1

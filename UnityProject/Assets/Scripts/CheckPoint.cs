@@ -21,10 +21,10 @@ public class CheckPoint : Entity {
 		base.Update ();
 		if (gameMaster.Player.IsDead ())
 			moveSpeed = 0f;
-		
+		/*
 		if (!collected && player.position.x >= myTransform.position.x) {
 			ActivateCheckPoint();
-		}
+		}*/
 	}
 
 	void FixedUpdate () {
