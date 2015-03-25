@@ -40,6 +40,7 @@ public class CheckPoint : Entity {
 	}
 
 	void ActivateCheckPoint () {
+		gameMaster.PlayerData.totalCheckpointsCollected += 1;
 		collected = true;
 		gameMaster.updateScore (scoreBonus);
 		gameMaster.generateFloatingTextAt(gameMaster.Player.transform.position, "Check Point!\n"+scoreBonus.ToString());

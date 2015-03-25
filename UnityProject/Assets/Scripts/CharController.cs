@@ -37,6 +37,7 @@ public class CharController : Entity {
 	private float edgeColliderBoxCheckLen = 3.0f;
 
 	private Animator animator;
+	private Rigidbody2D rigidbody2D;
 
 	// Apply a stun timer. Based on the level (i.e. strength),
 	// Apply a knockback force to the character
@@ -67,7 +68,7 @@ public class CharController : Entity {
 		jumpPhase = 0;
 		jumpForceIndex = 0;
 		grounded = false;
-		xRest = rigidbody2D.position.x;
+		xRest = GetComponent<Rigidbody2D>().position.x;
 		//colliders = GetComponents<Collider2D>();
 		groundRadius = GetComponent<CircleCollider2D>().radius;
 		dead = false;
@@ -77,6 +78,7 @@ public class CharController : Entity {
 		//Vector3 theScale = transform.localScale;
 		//theScale.x *= -1;
 		//transform.localScale = theScale;		
+		rigidbody2D = GetComponent<Rigidbody2D> ();
 		
 		Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("InactivePlatforms"));
 		Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("NotPlatforms"));
@@ -151,7 +153,7 @@ public class CharController : Entity {
 		if (!gameMaster.isGameStarted) {
 			return;
 		}
-		
+
 		updateJump();
 
 		setActiveInactivePlatform(activePlatforms);
@@ -167,7 +169,7 @@ public class CharController : Entity {
 			jumpPhase = 0;
 			// Apply a further downward force to stick player onto ground.
 			// Helps avoid walking right off ramps and bouncing off.
-			rigidbody2D.AddForce (Vector2.up * groundForce);
+			GetComponent<Rigidbody2D>().AddForce (Vector2.up * groundForce);
 		}
 		animator.SetBool ("Wailing", jumpPhase >= 2);
 		
@@ -239,14 +241,14 @@ public class CharController : Entity {
 	private void initJump()
 	{
 		// Reset our y-velocity to 0 to perform our jump.
-		rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0.0f);
+		rigidbody2D.velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0.0f);
 		jumpPhase++;
 		if (!grounded && jumpPhase <= 1)
 			jumpPhase++;
 		jumpForceIndex = 0;
 
 		// Initial Jump
-		rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * rigidbody2D.mass);
+		rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * GetComponent<Rigidbody2D>().mass);
 		++jumpForceIndex;
 
 		jumpTimer = 0.0f;
@@ -288,7 +290,7 @@ public class CharController : Entity {
 
 			if (jumpForceIndex < jumpForces.Count && Input.GetKey (KeyCode.Space))
 			{
-				rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * rigidbody2D.mass);
+				rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * GetComponent<Rigidbody2D>().mass);
 			}
 			else
 			{
@@ -307,7 +309,7 @@ public class CharController : Entity {
 		// Update our jumpPhase.
 		// Reset our y-velocity to 0 to perform our jump.
 		// As long as the space key is held down, apply jump forces specified in the jumpForces vector.
-		rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0.0f);
+		rigidbody2D.velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0.0f);
 		jumpPhase++;
 		if (!grounded && jumpPhase <= 1)
 			jumpPhase++;
@@ -315,7 +317,7 @@ public class CharController : Entity {
 
 		while  (jumpForceIndex < jumpForces.Count && Input.GetKey (KeyCode.Space))
 		{
-			rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * rigidbody2D.mass);
+			rigidbody2D.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * GetComponent<Rigidbody2D>().mass);
 			++jumpForceIndex;
 			yield return new WaitForSeconds(0.1f);
 		}

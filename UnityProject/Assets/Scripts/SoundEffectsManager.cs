@@ -46,8 +46,8 @@ public class SoundEffectsManager : Entity {
 
 	public void PlaySoundClip(string key, float volume, float offset) {
 		if (soundMap.ContainsKey (key)) {
-			audio.time = offset;
-			audio.PlayOneShot(soundMap[key], volume);
+			GetComponent<AudioSource>().time = offset;
+			GetComponent<AudioSource>().PlayOneShot(soundMap[key], volume);
 		}
 	}
 }

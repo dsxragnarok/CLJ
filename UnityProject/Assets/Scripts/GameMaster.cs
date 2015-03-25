@@ -4,12 +4,14 @@ using System.Collections;
 
 
 public class GameMaster : MonoBehaviour {
+	private PlayerStats playerData;
 	private CharController player;
 	private BoundsDeallocator gameBounds;
 	private SoundEffectsManager sfxManager;
 	private SpawnPlatforms platformSpawner;
 	private SpawnBirds birdSpawner;
 	private DifficultyProgress difficultyManager;
+	private ScoreDisplay scoreDisplayManager;
 	private Canvas hudCanvas;
 	private Canvas worldCanvas;
 	private Camera mainCamera;
@@ -23,6 +25,11 @@ public class GameMaster : MonoBehaviour {
 	public GameObject floatingTextPrefab;
 
 	public bool isGameStarted = false;
+
+	public PlayerStats PlayerData
+	{
+		get { return playerData; }
+	}
 
 	public CharController Player
 	{
@@ -54,6 +61,11 @@ public class GameMaster : MonoBehaviour {
 		get { return difficultyManager; }
 	}
 
+	public ScoreDisplay ScoreDisplayManager
+	{
+		get { return scoreDisplayManager; }
+	}
+
 	public Camera MainCamera
 	{
 		get { return mainCamera; }
@@ -75,6 +87,18 @@ public class GameMaster : MonoBehaviour {
 		// the targetFrameRate, it'll be at 30. Setting this to 50 will make iOS FPS 60.
 		// TODO: Might want to adjust forces and such to have it all be at 60 FPS later.
 		Application.targetFrameRate = 50;
+		
+		GameObject _playerData = GameObject.FindGameObjectWithTag("PlayerData");
+		if (_playerData != null) {
+			playerData = _playerData.GetComponent<PlayerStats> ();
+		} else {
+			// Create a Player Data instance if it does not exist yet
+			GameObject instance = new GameObject();
+			instance.name = "PlayerData";
+			instance.tag = "PlayerData";
+			instance.AddComponent<PlayerStats>();
+			playerData = instance.GetComponent<PlayerStats>();
+		}
 
 		GameObject _player = GameObject.FindGameObjectWithTag("Player");
 		if (_player != null)
@@ -90,6 +114,11 @@ public class GameMaster : MonoBehaviour {
 			platformSpawner = _spawner.GetComponent<SpawnPlatforms> ();
 			birdSpawner = _spawner.GetComponent<SpawnBirds>(); 
 			difficultyManager = _spawner.GetComponent<DifficultyProgress>();
+		}
+
+		GameObject _scoreDisplayManager = GameObject.FindGameObjectWithTag ("Score");
+		{
+			scoreDisplayManager = _scoreDisplayManager.GetComponent<ScoreDisplay>();
 		}
 
 		GameObject _sfxManager = GameObject.FindGameObjectWithTag ("SoundEffect");
@@ -117,9 +146,13 @@ public class GameMaster : MonoBehaviour {
 	public void updateScore (int value) {
 		score += value;
 
-		GameObject scoreObj = GameObject.FindGameObjectWithTag ("Score");
-		Text t = scoreObj.GetComponent<Text> ();
-		t.text = score.ToString();
+		scoreDisplayManager.TextDisplay.text = score.ToString();
+		scoreDisplayManager.TriggerScale();
+		if (score > playerData.highScore) {
+			playerData.highScore = score;
+			scoreDisplayManager.activeGlow = true;
+			scoreDisplayManager.TextDisplay.color = Color.yellow;
+		}
 	}
 
 	public void generateFloatingTextAt(Vector3 pos, string value)
