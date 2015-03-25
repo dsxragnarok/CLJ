@@ -32,7 +32,7 @@ public abstract class BirdController : Entity {
 		base.Start ();
 
 		//moveSpeed = minSpeed;
-		rigidbody2D.velocity = new Vector2 (initialVelocity, rigidbody2D.velocity.y);
+		GetComponent<Rigidbody2D>().velocity = new Vector2 (initialVelocity, GetComponent<Rigidbody2D>().velocity.y);
 		collected = false;
 	}
 

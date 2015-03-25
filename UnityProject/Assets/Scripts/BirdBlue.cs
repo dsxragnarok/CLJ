@@ -30,12 +30,12 @@ public class BirdBlue : BirdController {
 			//Debug.Log ("moveSpeed: " + moveSpeed + " _ DeltaTime: " + Time.deltaTime);
 			//rigidbody2D.velocity = new Vector2 (-1.0f * moveSpeed, rigidbody2D.velocity.y);
 			//rigidbody2D.AddForce(new Vector2(acceleration * rigidbody2D.mass, 0.0f)); 
-			rigidbody2D.AddRelativeForce (new Vector2 (initialAcceleration * rigidbody2D.mass, 0.0f));
+			GetComponent<Rigidbody2D>().AddRelativeForce (new Vector2 (initialAcceleration * GetComponent<Rigidbody2D>().mass, 0.0f));
 		}
 		else
 		{
-			rigidbody2D.velocity = Vector2.up * -10f;
-			transform.rigidbody2D.transform.Rotate(Vector3.forward * -90f * Time.fixedDeltaTime);
+			GetComponent<Rigidbody2D>().velocity = Vector2.up * -10f;
+			transform.GetComponent<Rigidbody2D>().transform.Rotate(Vector3.forward * -90f * Time.fixedDeltaTime);
 		}
 	}
 
@@ -45,6 +45,8 @@ public class BirdBlue : BirdController {
 		{
 			if (!collected) 
 			{
+				gameMaster.PlayerData.totalBlueBirdsCollected += 1;
+
 				CharController charController = collider.GetComponent<CharController> ();
 				charController.StunIt (0.5f, 1);	
 				GetComponent<SpriteRenderer>().sprite = deadSprite;

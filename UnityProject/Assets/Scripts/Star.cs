@@ -36,12 +36,13 @@ public class Star : Entity {
 			if (!collected)
 			{
 				gameMaster.collectedStars += 1;
+				gameMaster.PlayerData.totalStarsCollected += 1;
 				int value = gameMaster.scoreMultiplier * (gameMaster.collectedBirds + 1);
 				gameMaster.updateScore(value);
 				gameMaster.generateFloatingTextAt(gameMaster.Player.transform.position, value.ToString());
 				ParticleSystem collectEffectInstance = (ParticleSystem)GameObject.Instantiate(collectEffectPrefab, this.transform.position, this.transform.rotation);
 				collectEffectInstance.transform.parent = this.transform;
-				renderer.enabled = false;
+				GetComponent<Renderer>().enabled = false;
 				collected = true;
 				gameMaster.SoundEffects.PlaySoundClip("coin", 0.5f);
 				

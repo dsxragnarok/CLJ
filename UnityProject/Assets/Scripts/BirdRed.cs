@@ -26,7 +26,7 @@ public class BirdRed : BirdController {
 		//Debug.Log ("moveSpeed: " + moveSpeed + " _ DeltaTime: " + Time.deltaTime);
 		//rigidbody2D.velocity = new Vector2 (-1.0f * moveSpeed, rigidbody2D.velocity.y);
 		//rigidbody2D.AddForce(new Vector2(acceleration * rigidbody2D.mass, 0.0f)); 
-		rigidbody2D.AddRelativeForce (new Vector2 (initialAcceleration * rigidbody2D.mass, 0.0f));
+		GetComponent<Rigidbody2D>().AddRelativeForce (new Vector2 (initialAcceleration * GetComponent<Rigidbody2D>().mass, 0.0f));
 	}
 
 	public override void OnTriggerEnter2D(Collider2D collider) {
@@ -36,13 +36,15 @@ public class BirdRed : BirdController {
 			if (!collected)
 			{
 				gameMaster.collectedBirds += 1;
+				gameMaster.PlayerData.totalRedBirdsCollected += 1;
+
 				int value = gameMaster.scoreMultiplier * gameMaster.collectedStars;
 				gameMaster.updateScore(value);
 				gameMaster.generateFloatingTextAt(gameMaster.Player.transform.position, value.ToString());
 				//gameMaster.playerScore++;
 				ParticleSystem collectEffectInstance = (ParticleSystem)GameObject.Instantiate(collectEffectPrefab, this.transform.position, this.transform.rotation);
 				collectEffectInstance.transform.parent = this.transform;
-				renderer.enabled = false;
+				GetComponent<Renderer>().enabled = false;
 				collected = true;
 				gameMaster.SoundEffects.PlaySoundClip("coin", 0.5f);
 
