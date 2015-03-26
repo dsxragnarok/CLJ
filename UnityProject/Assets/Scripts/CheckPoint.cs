@@ -43,7 +43,7 @@ public class CheckPoint : Entity {
 		gameMaster.PlayerData.totalCheckpointsCollected += 1;
 		collected = true;
 		gameMaster.updateScore (scoreBonus);
-		gameMaster.generateFloatingTextAt(gameMaster.Player.transform.position, "Check Point!\n"+scoreBonus.ToString());
+		gameMaster.generateFloatingTextAt(gameMaster.Player.transform.position, scoreBonus.ToString());
 		GameObject.Destroy (this.gameObject, 2.0f);
 	}
 }

@@ -77,7 +77,7 @@ public class CloudPlatform : Entity {
 		rend.color = new Color(255,255,255);
 		collected = true;
 		gameMaster.updateScore (checkPointBonus);
-		gameMaster.generateFloatingTextAt(gameMaster.Player.transform.position, "Check Point!\n"+checkPointBonus.ToString());
+		gameMaster.generateFloatingTextAt(gameMaster.Player.transform.position, checkPointBonus.ToString());
 		//GameObject.Destroy (this.gameObject, 2.0f);
 	}
 }

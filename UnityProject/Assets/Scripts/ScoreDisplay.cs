@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class ScoreDisplay : MonoBehaviour {
+public class ScoreDisplay : Entity {
 	private Text textDisplay;
 	private Outline outlineEffect;
 

@@ -87,60 +87,18 @@ public class GameMaster : MonoBehaviour {
 		// the targetFrameRate, it'll be at 30. Setting this to 50 will make iOS FPS 60.
 		// TODO: Might want to adjust forces and such to have it all be at 60 FPS later.
 		Application.targetFrameRate = 50;
-		
-		GameObject _playerData = GameObject.FindGameObjectWithTag("PlayerData");
-		if (_playerData != null) {
-			playerData = _playerData.GetComponent<PlayerStats> ();
-		} else {
-			// Create a Player Data instance if it does not exist yet
-			GameObject instance = new GameObject();
-			instance.name = "PlayerData";
-			instance.tag = "PlayerData";
-			instance.AddComponent<PlayerStats>();
-			playerData = instance.GetComponent<PlayerStats>();
-		}
 
-		GameObject _player = GameObject.FindGameObjectWithTag("Player");
-		if (_player != null)
-			player = _player.GetComponent<CharController>();
-
-		GameObject _gameBounds = GameObject.FindGameObjectWithTag("Bounds");
-		if (_gameBounds != null)
-			gameBounds = _gameBounds.GetComponent<BoundsDeallocator>();
-
-		GameObject _spawner = GameObject.FindGameObjectWithTag ("Spawner");
-		if (_spawner != null)
-		{
-			platformSpawner = _spawner.GetComponent<SpawnPlatforms> ();
-			birdSpawner = _spawner.GetComponent<SpawnBirds>(); 
-			difficultyManager = _spawner.GetComponent<DifficultyProgress>();
-		}
-
-		GameObject _scoreDisplayManager = GameObject.FindGameObjectWithTag ("Score");
-		{
-			scoreDisplayManager = _scoreDisplayManager.GetComponent<ScoreDisplay>();
-		}
-
-		GameObject _sfxManager = GameObject.FindGameObjectWithTag ("SoundEffect");
-		if (_sfxManager != null)
-			sfxManager = _sfxManager.GetComponent<SoundEffectsManager> ();
-
-		GameObject _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-		if (_mainCamera != null)
-			mainCamera = _mainCamera.GetComponent<Camera>();
-		
-		GameObject _hudCanvas = GameObject.FindGameObjectWithTag("HUD");
-		if (_hudCanvas != null)
-			hudCanvas = _hudCanvas.GetComponent<Canvas>();
-		
-		GameObject _worldCanvas = GameObject.FindGameObjectWithTag("WorldCanvas");
-		if (_worldCanvas != null)
-			worldCanvas = _worldCanvas.GetComponent<Canvas>();
+		linkObjects ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+#if UNITY_WEBPLAYER || UNITY_STANDALONE
+		if (Input.GetKeyDown (KeyCode.P)) {
+			Debug.Log ("Screenshot Taken");
+			Application.CaptureScreenshot ("Screenshot.png");
+		}
+#endif
 	}
 
 	public void updateScore (int value) {
@@ -175,6 +133,7 @@ public class GameMaster : MonoBehaviour {
 
 	public void startGame() {
 		Application.LoadLevel ("Play");
+		linkObjects ();
 	}
 
 	public void restartGame () {
@@ -184,5 +143,55 @@ public class GameMaster : MonoBehaviour {
 	// Note To Self - this is ignored in the editor and webplayer
 	public void quitGame () {
 		Application.Quit ();
+	}
+
+	public void linkObjects() {
+		GameObject _playerData = GameObject.FindGameObjectWithTag("PlayerData");
+		if (_playerData != null) {
+			playerData = _playerData.GetComponent<PlayerStats> ();
+		} else {
+			// Create a Player Data instance if it does not exist yet
+			GameObject instance = new GameObject();
+			instance.name = "PlayerData";
+			instance.tag = "PlayerData";
+			instance.AddComponent<PlayerStats>();
+			playerData = instance.GetComponent<PlayerStats>();
+		}
+		
+		GameObject _player = GameObject.FindGameObjectWithTag("Player");
+		if (_player != null)
+			player = _player.GetComponent<CharController>();
+		
+		GameObject _gameBounds = GameObject.FindGameObjectWithTag("Bounds");
+		if (_gameBounds != null)
+			gameBounds = _gameBounds.GetComponent<BoundsDeallocator>();
+		
+		GameObject _spawner = GameObject.FindGameObjectWithTag ("Spawner");
+		if (_spawner != null)
+		{
+			platformSpawner = _spawner.GetComponent<SpawnPlatforms> ();
+			birdSpawner = _spawner.GetComponent<SpawnBirds>(); 
+			difficultyManager = _spawner.GetComponent<DifficultyProgress>();
+		}
+		
+		GameObject _scoreDisplayManager = GameObject.FindGameObjectWithTag ("Score");
+		if (_scoreDisplayManager != null)
+			scoreDisplayManager = _scoreDisplayManager.GetComponent<ScoreDisplay>();
+		
+		GameObject _sfxManager = GameObject.FindGameObjectWithTag ("SoundEffect");
+		if (_sfxManager != null)
+			sfxManager = _sfxManager.GetComponent<SoundEffectsManager> ();
+		
+		GameObject _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+		if (_mainCamera != null)
+			mainCamera = _mainCamera.GetComponent<Camera>();
+		
+		GameObject _hudCanvas = GameObject.FindGameObjectWithTag("HUD");
+		if (_hudCanvas != null)
+			hudCanvas = _hudCanvas.GetComponent<Canvas>();
+		
+		GameObject _worldCanvas = GameObject.FindGameObjectWithTag("WorldCanvas");
+		if (_worldCanvas != null)
+			worldCanvas = _worldCanvas.GetComponent<Canvas>();
 	}
 }
