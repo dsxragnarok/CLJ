@@ -22,6 +22,7 @@ public class GameMaster : MonoBehaviour {
 
 	public GameObject gameOverDialog;
 	public GameObject instructionsDialog;
+	public GameObject creditsDialog;
 	public GameObject floatingTextPrefab;
 
 	public bool isGameStarted = false;
@@ -121,6 +122,14 @@ public class GameMaster : MonoBehaviour {
 		//ftInstance.transform.position = mainCamera.WorldToScreenPoint(pos + worldOffset);
 		ftInstance.GetComponent<FloatingText>().BindToTarget(Player.gameObject);
 		ftInstance.GetComponent<Text>().text = value;
+	}
+
+	public void showCredits () {
+		creditsDialog.SetActive (true);
+	}
+
+	public void closeCredits () {
+		creditsDialog.SetActive (false);
 	}
 
 	public void closeInstructions () {
