@@ -25,6 +25,12 @@ Background Image
 	Zeyu Ren 任泽宇
 	http://opengameart.org/content/backgrounds-for-2d-platformers
 
+Blades font
+	bladeslt.ttf
+
+	http://www.fontfiles.com/Fonts/Detailed/102.html
+	
+
 ========================================================================
 Desk Thump sound clip	[NOT USED]
 	74767__jordanthebamf__desk-thump-7.wav
