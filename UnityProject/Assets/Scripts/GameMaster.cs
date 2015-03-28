@@ -18,7 +18,8 @@ public class GameMaster : MonoBehaviour {
 	public int collectedStars = 0;
 	public int collectedBirds = 0;
 	public int score = 0;
-	public int scoreMultiplier = 10;
+	public int scoreMultiplier = 1;
+	public bool isHighScore = false;
 
 	public GameObject gameOverDialog;
 	public GameObject instructionsDialog;
@@ -110,6 +111,7 @@ public class GameMaster : MonoBehaviour {
 			playerData.highScore = score;
 			scoreDisplayManager.activeGlow = true;
 			scoreDisplayManager.TextDisplay.color = Color.yellow;
+			isHighScore = true;
 		}
 	}
 
@@ -129,6 +131,10 @@ public class GameMaster : MonoBehaviour {
 
 	public void showGameOver () {
 		gameOverDialog.SetActive (true);
+		if (isHighScore) {
+			playerData.ReportHighScore ();
+			isHighScore = false;		// prevent dat spam
+		}
 	}
 
 	public void startGame() {

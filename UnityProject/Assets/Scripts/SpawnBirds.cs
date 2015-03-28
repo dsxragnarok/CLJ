@@ -91,9 +91,8 @@ public class SpawnBirds : Entity {
 			return;
 
 		// The target meeting location between home position and bird
-		float targetDest;
+		Vector2 targetDest;
 
-		Vector3 pos = this.transform.position;
 		if (targetPlatforms.Count <= 0) {
 			return;
 		}
@@ -105,41 +104,44 @@ public class SpawnBirds : Entity {
 		SpawnOffset spawnOffsetter = targetPlatforms[idxPlatform].GetComponent<SpawnOffset> ();
 
 		// Obtain locations where we can spawn birds fairly
-		targetDest = targetPlatforms[idxPlatform].transform.position.x;		
-		pos.y = targetPlatforms[idxPlatform].transform.position.y;
+		targetDest = targetPlatforms[idxPlatform].transform.position;	
 		if (spawnOffsetter != null && spawnOffsetter.hasOffset()) 
 		{
 			// Spawn danger birds using offsets
 			Vector2 offset = spawnOffsetter.getRandomOffset ();
 
-			targetDest = targetDest + offset.x;
-			pos.y = pos.y + offset.y;
+			targetDest = targetDest + offset;
 		}
 		else
 		{
 			// Spawn with a little bit of y offset
-			targetDest = targetDest + UnityEngine.Random.Range (-1.0f, 1.0f);
-			pos.y = pos.y + UnityEngine.Random.Range (0.5f, 3.0f);
+			targetDest = targetDest + new Vector2(UnityEngine.Random.Range(-1.0f, 1.0f), UnityEngine.Random.Range (0.5f, 3.0f));
 		}
 
 		// Predict when home position reaches the point we want bird and home to meet
-		float targetPos = pos.x;
+		//Vector2 targetPos = new Vector2(this.transform.position.x, this.transform.position.y - 5.0f);
 		float cloudSpeed = 4.5f;
-		float t = (targetDest - gameMaster.Player.XRest) / cloudSpeed;
-		// Obtain desired bird velocity to achieve the above prediction
-		float targetAcc = -5f;
-		float targetVel = (targetDest - targetPos) / t - cloudSpeed - 0.5f * targetAcc * t;
+		//float t = (targetDest.x - gameMaster.Player.XRest) / cloudSpeed;
+		//Obtain desired bird velocity to achieve the above prediction
+		//Vector2 targetAcc = new Vector2(-5.0f, 0.0f);
+		//Vector2 targetVel = (targetDest - targetPos) / t - new Vector2(cloudSpeed, 0.0f) - targetAcc * t * 0.5f;
+
+		// Predict home position using desired velocity and acceleration and time
+		Vector2 targetAcc = new Vector2(-5.0f, 0.0f);
+		Vector2 targetVel = new Vector2(UnityEngine.Random.Range (-4.0f, -8.0f), UnityEngine.Random.Range (4.0f, 6.0f));
+		float t = 2.0f;
+		Vector2 targetPos = targetDest - (targetVel + new Vector2(cloudSpeed, 0.0f)) * t - targetAcc * t * t * 0.5f;
+
 
 		// Instantiate bird with parameters
 		Quaternion rot = this.transform.rotation;
-		BirdController obj = (BirdController)GameObject.Instantiate(spawnPrefab, pos, rot);
+		BirdController obj = (BirdController)GameObject.Instantiate(spawnPrefab, targetPos, rot);
 		if (_birdContainer)
 			obj.transform.parent = _birdContainer.transform;
 		BirdController birdie = obj.GetComponent<BirdController>();
-		birdie.initialPosition = birdie.transform.position.x;
-		birdie.initialAcceleration = -5f;
+		birdie.initialPosition = targetPos;
+		birdie.initialAcceleration = targetAcc;
 		birdie.initialVelocity = targetVel;
-		birdie.predictXmeet(gameMaster.Player.XRest, cloudSpeed);
 	}
 
 	// Returns random bird type based on the spawn criterias

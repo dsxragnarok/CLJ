@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+using UnityEngine.SocialPlatforms;
+
 // Contains information about the player and persists between plays.
 // Reads and write these to hard disk as well so opening the game again
 // will preserve these stats.
@@ -19,11 +21,47 @@ public class PlayerStats : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		// Authenticate and register a ProcessAuthentication callback
+		// This call needs to be made before we can proceed to other calls in the Social API
+		Social.localUser.Authenticate (ProcessAuthentication);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	// This function gets called when Authenticate completes
+	// Note that if the operation is successful, Social.localUser will contain data from the server. 
+	public void ProcessAuthentication (bool success) {
+		if (success) {
+			Debug.Log ("Authenticated, checking achievements");
+			
+			// Request loaded achievements, and register a callback for processing them
+			Social.LoadAchievements (ProcessLoadedAchievements);
+		} else {
+			Debug.Log ("Failed to authenticate");
+		}
+	}
+	
+	// This function gets called when the LoadAchievement call completes
+	public void ProcessLoadedAchievements (IAchievement[] achievements) {
+		if (achievements.Length == 0)
+			Debug.Log ("Error: no achievements found");
+		else
+			Debug.Log ("Got " + achievements.Length + " achievements");
+	}
+
+	public void ReportHighScore ()
+	{
+#if UNITY_IOS
+		// cloudislandscores is the leaderboard set up in iTunes Connect, might not exist on android version
+		Social.ReportScore (highScore, "cloudislandscores", (bool result) => {
+			if (result)
+				Debug.Log ("Successfully reported achievement progress");
+			else
+				Debug.Log ("Failed to report achievement");
+		});
+#endif
 	}
 }

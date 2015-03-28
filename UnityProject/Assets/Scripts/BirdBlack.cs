@@ -25,9 +25,9 @@ public class BirdBlack : BirdController {
 
 		//moveSpeed = Mathf.Clamp(moveSpeed + acceleration, minSpeed, maxSpeed);
 		//Debug.Log ("moveSpeed: " + moveSpeed + " _ DeltaTime: " + Time.deltaTime);
-		//rigidbody2D.velocity = new Vector2 (-1.0f * moveSpeed, rigidbody2D.velocity.y);
-		//rigidbody2D.AddForce(new Vector2(acceleration * rigidbody2D.mass, 0.0f)); 
-		GetComponent<Rigidbody2D>().AddRelativeForce (new Vector2 (initialAcceleration * GetComponent<Rigidbody2D>().mass, 0.0f));
+		//unitRigidbody.velocity = new Vector2 (-1.0f * moveSpeed, unitRigidbody.velocity.y);
+		//unitRigidbody.AddForce(new Vector2(acceleration * unitRigidbody.mass, 0.0f)); 
+		unitRigidbody.AddRelativeForce (initialAcceleration *  unitRigidbody.mass);
 	}
 
 	public override void OnTriggerEnter2D(Collider2D collider)

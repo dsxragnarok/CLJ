@@ -20,7 +20,8 @@ public class ScoreDisplay : Entity {
 	}
 
 	// Use this for initialization
-	void Start () {
+	public override void Start () {
+		base.Start ();
 		textDisplay = GetComponent<Text> ();
 		outlineEffect = GetComponent<Outline> ();
 		timerScale = 0.0f;
@@ -28,7 +29,8 @@ public class ScoreDisplay : Entity {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public override void Update () {
+		base.Update ();
 		if (activeGlow) {
 			timerGlow += Time.deltaTime;
 			if (timerGlow >= 2.0f)

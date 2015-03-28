@@ -87,4 +87,12 @@ public class BoundsDeallocator : Entity {
 			obj.transform.position.y > topLeft.y ||
 			obj.transform.position.y < bottomRight.y;
 	}
+
+	public bool IsOutOfBounds(GameObject obj, bool checkTop, bool checkBottom, bool checkLeft, bool checkRight)
+	{
+		return (obj.transform.position.x < topLeft.x && checkLeft) ||
+			(obj.transform.position.x > bottomRight.x && checkRight) ||
+				(obj.transform.position.y > topLeft.y && checkTop) ||
+				(obj.transform.position.y < bottomRight.y && checkBottom);
+	}
 }
