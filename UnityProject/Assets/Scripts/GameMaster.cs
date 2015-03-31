@@ -18,6 +18,8 @@ public class GameMaster : MonoBehaviour {
 	private Camera mainCamera;
 	public int collectedStars = 0;
 	public int collectedBirds = 0;
+	public int collectedCheckpoints = 0;
+	public int checkpointsPassed = 0;
 	public int score = 0;
 	public int scoreMultiplier = 1;
 	public bool isHighScore = false;
