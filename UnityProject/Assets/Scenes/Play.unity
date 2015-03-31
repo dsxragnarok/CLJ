@@ -2034,6 +2034,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectedStars: 0
   collectedBirds: 0
+  collectedCheckpoints: 0
+  checkpointsPassed: 0
   score: 0
   scoreMultiplier: 10
   isHighScore: 0
@@ -4627,7 +4629,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1402981479
 RectTransform:
   m_ObjectHideFlags: 0
