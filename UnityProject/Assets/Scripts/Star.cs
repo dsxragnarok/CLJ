@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class Star : Entity {
-	private float moveSpeed = 4.0f;
+	const float MOVE_SPEED = 4.0f;
+	private float moveSpeed = MOVE_SPEED;
 	private bool collected = false;
 	public ParticleSystem collectEffectPrefab;
 
@@ -58,5 +59,7 @@ public class Star : Entity {
 		Star starPrefab = entPrefab.GetComponent<Star>();
 		this.GetComponent<Renderer>().enabled = starPrefab.GetComponent<Renderer>().enabled;
 		this.collected = false;
+
+		moveSpeed = MOVE_SPEED;
 	}
 }

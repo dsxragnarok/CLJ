@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class CloudPlatform : Entity {
-	private float moveSpeed = 4.5f;
+	const float MOVE_SPEED = 4.5f;
+	private float moveSpeed = MOVE_SPEED;
 	public bool isSentinal = false;
 	public bool activeTarget = true;
 
@@ -106,5 +107,7 @@ public class CloudPlatform : Entity {
 		{
 			gameObject.layer = LayerMask.NameToLayer ("NotPlatforms");
 		}
+		
+		moveSpeed = MOVE_SPEED; 
 	}
 }
