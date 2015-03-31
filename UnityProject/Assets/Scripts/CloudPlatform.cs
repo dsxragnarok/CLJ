@@ -9,7 +9,7 @@ public class CloudPlatform : Entity {
 	public bool isCheckPoint = false;
 	public bool collected = false;
 
-	private int checkPointBonus = 200;
+	private int checkPointBonus = 100;
 
 	// Use this for initialization
 	public override void Start () {
@@ -76,8 +76,13 @@ public class CloudPlatform : Entity {
 		SpriteRenderer rend = this.GetComponent<SpriteRenderer>();
 		rend.color = new Color(255,255,255);
 		collected = true;
-		gameMaster.updateScore (checkPointBonus);
-		gameMaster.generateFloatingTextAt(gameMaster.Player.transform.position, checkPointBonus.ToString());
+
+		gameMaster.PlayerData.totalCheckpointsCollected += 1;
+
+		//int totalCheckPoints = gameMaster.PlayerData.totalCheckpointsCollected;
+		int totalCheckPointBonus = checkPointBonus * gameMaster.checkpointsPassed;
+		gameMaster.updateScore (totalCheckPointBonus);
+		gameMaster.generateFloatingTextAt(gameMaster.Player.transform.position, totalCheckPointBonus.ToString());
 		//GameObject.Destroy (this.gameObject, 2.0f);
 	}
 }

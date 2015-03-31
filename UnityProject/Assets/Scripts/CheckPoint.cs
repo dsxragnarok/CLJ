@@ -21,6 +21,11 @@ public class CheckPoint : Entity {
 		base.Update ();
 		if (gameMaster.Player.IsDead ())
 			moveSpeed = 0f;
+
+		if (!collected && player.position.x >= myTransform.position.x) {
+			collected = true;
+			gameMaster.checkpointsPassed += 1;
+		}
 		/*
 		if (!collected && player.position.x >= myTransform.position.x) {
 			ActivateCheckPoint();
@@ -39,6 +44,7 @@ public class CheckPoint : Entity {
 		}
 	}
 
+	/*
 	void ActivateCheckPoint () {
 		gameMaster.PlayerData.totalCheckpointsCollected += 1;
 		collected = true;
@@ -46,4 +52,5 @@ public class CheckPoint : Entity {
 		gameMaster.generateFloatingTextAt(gameMaster.Player.transform.position, scoreBonus.ToString());
 		GameObject.Destroy (this.gameObject, 2.0f);
 	}
+	*/
 }
