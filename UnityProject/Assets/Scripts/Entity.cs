@@ -3,13 +3,15 @@ using System.Collections;
 
 // Basic class which inherits MonoBehavior and has access
 // to the Game Master.
+//
+// Note: It is important cloud scene 01 are overriden with -1 IDs to
+// prevent users from overloading the instance manager.
 public abstract class Entity : MonoBehaviour {
-	public int entityID = -1;
+	public int entityID = -1;	// Keys less than 0 will be ignored by the instancing manager
 	protected GameMaster gameMaster;
 
 	public virtual void Awake () {
-		GameObject _gameMaster = GameObject.FindGameObjectWithTag("GameEngine");
-		gameMaster = _gameMaster.GetComponent<GameMaster>();
+		Link();
 	}
 
 	// Use this for initialization
@@ -27,5 +29,11 @@ public abstract class Entity : MonoBehaviour {
 	// We also need to discover which prefab values are needed to be set in this function.
 	public virtual void SetToEntity(Entity entPrefab)
 	{
+	}
+
+	public void Link()
+	{
+		GameObject _gameMaster = GameObject.FindGameObjectWithTag("GameEngine");
+		gameMaster = _gameMaster.GetComponent<GameMaster>();
 	}
 }

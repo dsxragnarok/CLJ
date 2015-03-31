@@ -4,20 +4,19 @@ using System.Collections.Generic;
 
 // Efficiently caches game objects for re-use.
 // It uses the Entity base object which contains the ID as the key
-public class InstanceManager : Entity {
+public class InstanceManager : MonoBehaviour {
 
 	// A decent way to hash into all available game objects based on their entity ID
 	private Dictionary<int, Queue<Entity>> objectCache;
 
-	public override void Awake () {
-		base.Awake ();
+	public void Awake () {
+		GameObject.DontDestroyOnLoad (this.gameObject);
 
 		objectCache = new Dictionary<int, Queue<Entity>>();
 	}
 
 	// Use this for initialization
-	public override void Start () {
-		base.Start ();
+	public void Start () {
 
 		// Grab all active and inactive entities and store them in the cache
 		Entity[] initialStorage = GetComponentsInChildren<Entity>(true);
@@ -29,8 +28,7 @@ public class InstanceManager : Entity {
 	}
 	
 	// Update is called once per frame
-	public override void Update () {
-		base.Update ();
+	public void Update () {
 	}
 
 	// Retrieves an object of the same type, if one does not exist,
@@ -39,6 +37,7 @@ public class InstanceManager : Entity {
 	{
 		Entity ret = null;
 		int key = ent.entityID;
+		if (key < 0) return ret;
 		if (objectCache.ContainsKey(key))
 		{
 			Queue<Entity> objQueue = objectCache[key];
@@ -72,6 +71,7 @@ public class InstanceManager : Entity {
 	public void RecycleObject(Entity ent)
 	{
 		int key = ent.entityID;
+		if (key < 0) return;
 		if (objectCache.ContainsKey(key))
 		{
 			// List for object type does exist, add it to this list
@@ -88,6 +88,17 @@ public class InstanceManager : Entity {
 			ent.gameObject.SetActive(false);
 			ent.transform.parent = this.transform;
 			objectCache.Add (key, objQueue);
+		}
+	}
+
+	public void UpdateCachedObjectLinks()
+	{
+		// Grab all active and inactive entities and store them in the cache
+		Entity[] initialStorage = GetComponentsInChildren<Entity>(true);
+		foreach (Entity ent in initialStorage)
+		{
+			if (ent.gameObject != this.gameObject)
+				ent.Link();
 		}
 	}
 }

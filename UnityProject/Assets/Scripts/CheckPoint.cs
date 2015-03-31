@@ -2,10 +2,10 @@
 using System.Collections;
 
 public class CheckPoint : Entity {
-	Transform player;
 	Transform myTransform;
 
-	float moveSpeed = 4.5f;
+	const float MOVE_SPEED = 4.5f;
+	protected float moveSpeed = MOVE_SPEED;
 	bool collected = false;
 	public int scoreBonus = 200;
 
@@ -13,7 +13,6 @@ public class CheckPoint : Entity {
 	public override void Start () {
 		base.Start ();
 		myTransform = this.transform;
-		player = GameObject.FindGameObjectWithTag ("Player").transform;
 	}
 	
 	// Update is called once per frame
@@ -22,7 +21,7 @@ public class CheckPoint : Entity {
 		if (gameMaster.Player.IsDead ())
 			moveSpeed = 0f;
 
-		if (!collected && player.position.x >= myTransform.position.x) {
+		if (!collected && gameMaster.Player.transform.position.x >= myTransform.position.x) {
 			collected = true;
 			gameMaster.checkpointsPassed += 1;
 		}
@@ -51,13 +50,15 @@ public class CheckPoint : Entity {
 		gameMaster.updateScore (scoreBonus);
 		gameMaster.generateFloatingTextAt(gameMaster.Player.transform.position, scoreBonus.ToString());
 	}
-	
+	*/
+
 	public override void SetToEntity(Entity entPrefab)
 	{
 		base.SetToEntity (entPrefab);
 		CheckPoint checkPointPrefab = entPrefab.GetComponent<CheckPoint>();
 		this.collected = false;
 		this.scoreBonus = checkPointPrefab.scoreBonus;
+
+		moveSpeed = MOVE_SPEED;
 	}
-	*/
 }

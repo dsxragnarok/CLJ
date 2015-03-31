@@ -156,11 +156,27 @@ public class GameMaster : MonoBehaviour {
 
 	public void startGame() {
 		Application.LoadLevel ("Play");
-		linkObjects ();
+		linkObjects (); // Doesn't matter, just call it to feel safe
 	}
 
 	public void restartGame () {
+		// For restarts, grab all Entities in the scene and put them in the instancing manager for re-use
+		// The containers below are all existing recyclable entities.
+		GameObject _platformContainer = GameObject.FindGameObjectWithTag("PlatformContainer");
+		if (_platformContainer != null) {
+			Entity[] entities = _platformContainer.GetComponentsInChildren<Entity>();
+			foreach (Entity ent in entities)
+				instancingManager.RecycleObject(ent);
+		}
+		GameObject _birdContainer = GameObject.FindGameObjectWithTag("BirdContainer");
+		if (_birdContainer != null) {
+			Entity[] entities = _birdContainer.GetComponentsInChildren<Entity>();
+			foreach (Entity ent in entities)
+				instancingManager.RecycleObject(ent);
+		}
+
 		Application.LoadLevel (Application.loadedLevel);
+		linkObjects (); // Doesn't matter, just call it to feel safe
 	}
 
 	// Note To Self - this is ignored in the editor and webplayer
@@ -177,8 +193,7 @@ public class GameMaster : MonoBehaviour {
 			GameObject instance = new GameObject();
 			instance.name = "PlayerData";
 			instance.tag = "PlayerData";
-			instance.AddComponent<PlayerStats>();
-			playerData = instance.GetComponent<PlayerStats>();
+			playerData = instance.AddComponent<PlayerStats>();
 		}
 		
 		GameObject _player = GameObject.FindGameObjectWithTag("Player");
@@ -203,7 +218,16 @@ public class GameMaster : MonoBehaviour {
 		
 		GameObject _instancingManager = GameObject.FindGameObjectWithTag ("InstancingManager");
 		if (_instancingManager != null)
+		{
 			instancingManager = _instancingManager.GetComponent<InstanceManager> ();
+			instancingManager.UpdateCachedObjectLinks();
+		}
+		else {
+			GameObject instance = new GameObject();
+			instance.name = "InstancingManager";
+			instance.tag = "InstancingManager";
+			instancingManager = instance.AddComponent<InstanceManager>();
+		}
 
 		GameObject _scoreDisplayManager = GameObject.FindGameObjectWithTag ("Score");
 		if (_scoreDisplayManager != null)
