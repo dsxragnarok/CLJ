@@ -14,7 +14,7 @@ public class CloudPlatform : Entity {
 	// Use this for initialization
 	public override void Start () {
 		base.Start ();
-		
+			
 		EdgeCollider2D platform = GetComponent<EdgeCollider2D>();
 		
 		// Assumes only two vertices per platform
@@ -52,13 +52,7 @@ public class CloudPlatform : Entity {
 			transform.position = pos;
 
 			if (gameMaster.GameBounds.IsOutOfBounds (this.gameObject)) {
-				GameObject.Destroy (this.gameObject);
-
-				GameObject[] cloudGroups = GameObject.FindGameObjectsWithTag ("CloudGroup");
-				foreach (GameObject gobj in cloudGroups) {
-						if (gobj.transform.childCount == 0)
-								GameObject.Destroy (gobj);
-				}
+				gameMaster.InstancingManager.RecycleObject(this); // This removes itself as child but is 2 slow
 			}
 
 			if (activeTarget && gameMaster.BirdSpawner != null)
@@ -79,5 +73,33 @@ public class CloudPlatform : Entity {
 		gameMaster.updateScore (checkPointBonus);
 		gameMaster.generateFloatingTextAt(gameMaster.Player.transform.position, checkPointBonus.ToString());
 		//GameObject.Destroy (this.gameObject, 2.0f);
+	}
+	
+	public override void SetToEntity(Entity entPrefab)
+	{
+		base.SetToEntity (entPrefab);
+
+		// Set a lot of attributes to be like the prefab
+		CloudPlatform cloudPlatformPrefab = entPrefab.GetComponent<CloudPlatform>();
+		this.isSentinal = cloudPlatformPrefab.isSentinal;
+		this.activeTarget = cloudPlatformPrefab.activeTarget;
+		this.isCheckPoint = cloudPlatformPrefab.isCheckPoint;
+		this.collected = cloudPlatformPrefab.collected;
+		this.gameObject.layer = cloudPlatformPrefab.gameObject.layer;
+		this.GetComponent<SpriteRenderer>().color = cloudPlatformPrefab.GetComponent<SpriteRenderer>().color;
+
+		// Match the edge collider in case that is different
+		EdgeCollider2D platformPrefab = cloudPlatformPrefab.GetComponent<EdgeCollider2D>();
+		EdgeCollider2D platform = GetComponent<EdgeCollider2D>();
+		platform.points = (Vector2[])platformPrefab.points.Clone ();
+
+		// Check to see if it is a vertical cloud as it is done in Start()
+		Vector2 p1 = (Vector2)platform.transform.position + (Vector2)(platform.transform.rotation * (Vector3)platform.points[0]);
+		Vector2 p2 = (Vector2)platform.transform.position + (Vector2)(platform.transform.rotation * (Vector3)platform.points[1]);
+		Vector2 delta = p2 - p1;
+		if (System.Math.Abs (delta.y) >= 4 * System.Math.Abs (delta.x)) 
+		{
+			gameObject.layer = LayerMask.NameToLayer ("NotPlatforms");
+		}
 	}
 }

@@ -91,15 +91,32 @@ public class SpawnPlatforms : Entity {
 		pos.x = pos.x + xOffset;
 		//Debug.Log ("spawn cloud at y position = " + pos.y);
 		Quaternion rot = this.transform.rotation;
-		GameObject obj = GameObject.Instantiate(scenes[rindex], pos, rot) as GameObject;
-		//Debug.Log (scenes [rindex].name);
-		//GameObject obj = (GameObject)GameObject.Instantiate(spawnList[rindex], pos, rot);
 
-		//if (Random.Range (0, 100) > 50) {
-	//		Vector3 localScale = obj.transform.localScale;
-	//		obj.transform.localScale = new Vector3(localScale.x * -1, localScale.y, localScale.z);
-	//	}
-			
+		//GameObject obj = GameObject.Instantiate(scenes[rindex], pos, rot) as GameObject;
+
+		// Construct a new cloud scene container
+		GameObject obj = new GameObject(scenes[rindex].name);
+		CloudGroups cloudGroupsPrefab = scenes[rindex].GetComponent<CloudGroups>();
+		CloudGroups cloudGroupsInstance = obj.AddComponent<CloudGroups>();
+
+		// Using the prefab we want to build, go through each children and grab it from
+		// the instance manager.
+		cloudGroupsInstance.sceneList = new List<GameObject>(cloudGroupsPrefab.sceneList);
+		Entity[] entities = cloudGroupsPrefab.GetComponentsInChildren<Entity>(true);
+		foreach (Entity ent in entities)
+		{
+			if (ent.gameObject != cloudGroupsPrefab.gameObject)
+			{
+				Entity entInstance = gameMaster.InstancingManager.RetrieveObject(ent);
+				if (entInstance != null)
+				{
+					entInstance.transform.parent = obj.transform;
+					entInstance.SetToEntity(ent);
+				}
+			}
+		}
+		obj.transform.position = pos;
+		obj.transform.rotation = rot;
 
 		if (_platformContainer)
 			obj.transform.parent = _platformContainer.transform;

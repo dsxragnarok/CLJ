@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class BirdRed : BirdController {
@@ -44,14 +44,21 @@ public class BirdRed : BirdController {
 				//gameMaster.playerScore++;
 				ParticleSystem collectEffectInstance = (ParticleSystem)GameObject.Instantiate(collectEffectPrefab, this.transform.position, this.transform.rotation);
 				collectEffectInstance.transform.parent = this.transform;
+				GameObject.Destroy (collectEffectInstance.gameObject, 2.0f);
 				GetComponent<Renderer>().enabled = false;
 				collected = true;
 				gameMaster.SoundEffects.PlaySoundClip("coin", 0.5f);
 
 				//Debug.Log ("Score: " + gameMaster.playerScore.ToString());
-				GameObject.Destroy (this.gameObject, 2.0f);
 			}
 		}
 
+	}
+
+	public override void SetToEntity(Entity entPrefab)
+	{
+		base.SetToEntity (entPrefab);
+		BirdRed birdRedPrefab = entPrefab.GetComponent<BirdRed>();
+		this.GetComponent<Renderer>().enabled = birdRedPrefab.GetComponent<Renderer>().enabled;
 	}
 }

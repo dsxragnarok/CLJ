@@ -3,7 +3,7 @@ using System.Collections;
 
 public abstract class BirdController : Entity {
 
-	protected Rigidbody2D unitRigidbody;
+	protected Rigidbody2D unitRigidbody = null;
 
 	public enum BirdType { NONE, RED, BLUE, BLACK };
 
@@ -22,11 +22,15 @@ public abstract class BirdController : Entity {
 		get;
 	}
 
+	public override void Awake () {
+		base.Awake ();
+
+		unitRigidbody = this.GetComponent<Rigidbody2D> ();
+	}
+
 	// Use this for initialization
 	public override void Start () {
 		base.Start ();
-		
-		unitRigidbody = GetComponent<Rigidbody2D> ();
 
 		//moveSpeed = minSpeed;
 		//rigidbody2D.velocity = new Vector2 (initialVelocity, rigidbody2D.velocity.y);
@@ -41,13 +45,25 @@ public abstract class BirdController : Entity {
 	}
 
 	public virtual void FixedUpdate () {
-		if (gameMaster.GameBounds.IsOutOfBounds(this.gameObject, true, false, false, true))
+		// Don't check bottom and right side bounds until bird is collected
+		// This is to potentially prevent spawned birds to immediately be destroyed
+		if (gameMaster.GameBounds.IsOutOfBounds(this.gameObject, true, collected, collected, true))
 		{
-			GameObject.Destroy(this.gameObject);
+			gameMaster.InstancingManager.RecycleObject(this);
 		}
 	}
 
 	public virtual void OnTriggerEnter2D(Collider2D collider)
 	{
+	}
+	
+	public override void SetToEntity(Entity entPrefab)
+	{
+		base.SetToEntity (entPrefab);
+		BirdController birdControllerPrefab = entPrefab.GetComponent<BirdController>();
+		this.score = birdControllerPrefab.score;
+		this.collected = birdControllerPrefab.collected;
+
+		this.unitRigidbody.velocity = initialVelocity;
 	}
 }

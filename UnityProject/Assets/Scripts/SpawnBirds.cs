@@ -101,30 +101,14 @@ public class SpawnBirds : Entity {
 
 		// Obtain a random cloud
 		int idxPlatform = UnityEngine.Random.Range (0, targetPlatforms.Count);
-		SpawnOffset spawnOffsetter = targetPlatforms[idxPlatform].GetComponent<SpawnOffset> ();
 
 		// Obtain locations where we can spawn birds fairly
 		targetDest = targetPlatforms[idxPlatform].transform.position;	
-		if (spawnOffsetter != null && spawnOffsetter.hasOffset()) 
-		{
-			// Spawn danger birds using offsets
-			Vector2 offset = spawnOffsetter.getRandomOffset ();
-
-			targetDest = targetDest + offset;
-		}
-		else
-		{
-			// Spawn with a little bit of y offset
-			targetDest = targetDest + new Vector2(UnityEngine.Random.Range(-1.0f, 1.0f), UnityEngine.Random.Range (0.5f, 3.0f));
-		}
+		// Spawn with a little bit of y offset
+		targetDest = targetDest + new Vector2(UnityEngine.Random.Range(-1.0f, 1.0f), UnityEngine.Random.Range (0.5f, 3.0f));
 
 		// Predict when home position reaches the point we want bird and home to meet
-		//Vector2 targetPos = new Vector2(this.transform.position.x, this.transform.position.y - 5.0f);
 		float cloudSpeed = 4.5f;
-		//float t = (targetDest.x - gameMaster.Player.XRest) / cloudSpeed;
-		//Obtain desired bird velocity to achieve the above prediction
-		//Vector2 targetAcc = new Vector2(-5.0f, 0.0f);
-		//Vector2 targetVel = (targetDest - targetPos) / t - new Vector2(cloudSpeed, 0.0f) - targetAcc * t * 0.5f;
 
 		// Predict home position using desired velocity and acceleration and time
 		Vector2 targetAcc = new Vector2(-5.0f, 0.0f);
@@ -135,13 +119,21 @@ public class SpawnBirds : Entity {
 
 		// Instantiate bird with parameters
 		Quaternion rot = this.transform.rotation;
-		BirdController obj = (BirdController)GameObject.Instantiate(spawnPrefab, targetPos, rot);
-		if (_birdContainer)
-			obj.transform.parent = _birdContainer.transform;
-		BirdController birdie = obj.GetComponent<BirdController>();
-		birdie.initialPosition = targetPos;
-		birdie.initialAcceleration = targetAcc;
-		birdie.initialVelocity = targetVel;
+		//BirdController obj = (BirdController)GameObject.Instantiate(spawnPrefab, targetPos, rot);
+		BirdController obj = gameMaster.InstancingManager.RetrieveObject(spawnPrefab).GetComponent<BirdController>();
+		obj.transform.position = targetPos;
+		obj.transform.rotation = rot;
+		obj.SetToEntity(spawnPrefab);
+		if (obj != null)
+		{
+			if (_birdContainer)
+				obj.transform.parent = _birdContainer.transform;
+
+			BirdController birdie = obj.GetComponent<BirdController>();
+			birdie.initialPosition = targetPos;
+			birdie.initialAcceleration = targetAcc;
+			birdie.initialVelocity = targetVel;
+		}
 	}
 
 	// Returns random bird type based on the spawn criterias

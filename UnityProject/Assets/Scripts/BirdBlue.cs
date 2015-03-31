@@ -56,4 +56,12 @@ public class BirdBlue : BirdController {
 			}
 		}
 	}
+	
+	public override void SetToEntity(Entity entPrefab)
+	{
+		base.SetToEntity (entPrefab);
+		BirdBlue birdBluePrefab = entPrefab.GetComponent<BirdBlue>();
+		this.deadSprite = birdBluePrefab.deadSprite;
+		this.GetComponent<SpriteRenderer>().sprite = birdBluePrefab.GetComponent<SpriteRenderer>().sprite;
+	}
 }

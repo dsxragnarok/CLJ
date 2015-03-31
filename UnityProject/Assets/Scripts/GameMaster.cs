@@ -12,6 +12,7 @@ public class GameMaster : MonoBehaviour {
 	private SpawnBirds birdSpawner;
 	private DifficultyProgress difficultyManager;
 	private ScoreDisplay scoreDisplayManager;
+	private InstanceManager instancingManager;
 	private Canvas hudCanvas;
 	private Canvas worldCanvas;
 	private Camera mainCamera;
@@ -66,6 +67,11 @@ public class GameMaster : MonoBehaviour {
 	public ScoreDisplay ScoreDisplayManager
 	{
 		get { return scoreDisplayManager; }
+	}
+	
+	public InstanceManager InstancingManager
+	{
+		get { return instancingManager; }
 	}
 
 	public Camera MainCamera
@@ -181,14 +187,22 @@ public class GameMaster : MonoBehaviour {
 		if (_gameBounds != null)
 			gameBounds = _gameBounds.GetComponent<BoundsDeallocator>();
 		
-		GameObject _spawner = GameObject.FindGameObjectWithTag ("Spawner");
-		if (_spawner != null)
-		{
-			platformSpawner = _spawner.GetComponent<SpawnPlatforms> ();
-			birdSpawner = _spawner.GetComponent<SpawnBirds>(); 
-			difficultyManager = _spawner.GetComponent<DifficultyProgress>();
-		}
+		GameObject _platformSpawner = GameObject.FindGameObjectWithTag ("CloudSceneSpawner");
+		if (_platformSpawner != null)
+			platformSpawner = _platformSpawner.GetComponent<SpawnPlatforms> ();
 		
+		GameObject _birdSpawner = GameObject.FindGameObjectWithTag ("BirdSpawner");
+		if (_birdSpawner != null)
+			birdSpawner = _birdSpawner.GetComponent<SpawnBirds> ();
+		
+		GameObject _difficultyManager = GameObject.FindGameObjectWithTag ("DifficultyManager");
+		if (_difficultyManager != null)
+			difficultyManager = _difficultyManager.GetComponent<DifficultyProgress> ();
+		
+		GameObject _instancingManager = GameObject.FindGameObjectWithTag ("InstancingManager");
+		if (_instancingManager != null)
+			instancingManager = _instancingManager.GetComponent<InstanceManager> ();
+
 		GameObject _scoreDisplayManager = GameObject.FindGameObjectWithTag ("Score");
 		if (_scoreDisplayManager != null)
 			scoreDisplayManager = _scoreDisplayManager.GetComponent<ScoreDisplay>();

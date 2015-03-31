@@ -17,12 +17,15 @@ TagManager:
   - SoundEffect
   - Score
   - HUD
-  - Spawner
+  - CloudSceneSpawner
   - Star
   - Sun
   - WorldCanvas
   - CheckPoint
   - PlayerData
+  - BirdSpawner
+  - DifficultyManager
+  - InstancingManager
   layers:
   - Default
   - TransparentFX

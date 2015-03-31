@@ -56,8 +56,10 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -.0399999991, y: .00999999978}
+  serializedVersion: 2
   m_Radius: .24494642
-  m_Center: {x: -.0399999991, y: .00999999978}
 --- !u!68 &6889904
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -67,6 +69,8 @@ EdgeCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
   m_Points:
   - {x: -.289461255, y: -.0656009316}
   - {x: -.441096961, y: -.0171832591}
@@ -86,10 +90,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54be2adceb79b4b31b51870784d07fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entityID: 8
   score: 0
-  initialPosition: 0
-  initialVelocity: 0
-  initialAcceleration: -5
+  initialPosition: {x: 0, y: 0}
+  initialVelocity: {x: 0, y: 0}
+  initialAcceleration: {x: 0, y: 0}
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!212 &21289904
@@ -101,15 +106,19 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 30
   m_Sprite: {fileID: 21300000, guid: c8d6a20b850fbb34d96f78480f43c2b7, type: 3}
@@ -125,4 +134,3 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 189904}
   m_IsPrefabParent: 1
-  m_IsExploded: 1

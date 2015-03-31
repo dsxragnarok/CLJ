@@ -24,7 +24,7 @@ public class Star : Entity {
 			transform.position = pos;
 			
 			if (gameMaster.GameBounds.IsOutOfBounds (this.gameObject)) {
-				GameObject.Destroy (this.gameObject);
+				gameMaster.InstancingManager.RecycleObject(this);
 			}
 		}
 	}
@@ -42,14 +42,21 @@ public class Star : Entity {
 				gameMaster.generateFloatingTextAt(gameMaster.Player.transform.position, value.ToString());
 				ParticleSystem collectEffectInstance = (ParticleSystem)GameObject.Instantiate(collectEffectPrefab, this.transform.position, this.transform.rotation);
 				collectEffectInstance.transform.parent = this.transform;
+				GameObject.Destroy (collectEffectInstance.gameObject, 2.0f);
 				GetComponent<Renderer>().enabled = false;
 				collected = true;
 				gameMaster.SoundEffects.PlaySoundClip("coin", 0.5f);
 				
 				//Debug.Log ("Score: " + gameMaster.playerScore.ToString());
-				GameObject.Destroy (this.gameObject, 2.0f);
 			}
-		}
-		
+		}	
+	}
+	
+	public override void SetToEntity(Entity entPrefab)
+	{
+		base.SetToEntity (entPrefab);
+		Star starPrefab = entPrefab.GetComponent<Star>();
+		this.GetComponent<Renderer>().enabled = starPrefab.GetComponent<Renderer>().enabled;
+		this.collected = false;
 	}
 }

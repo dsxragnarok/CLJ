@@ -34,7 +34,7 @@ public class CheckPoint : Entity {
 			transform.position = pos;
 			
 			if (gameMaster.GameBounds.IsOutOfBounds (this.gameObject)) {
-				GameObject.Destroy (this.gameObject);
+				gameMaster.InstancingManager.RecycleObject (this);
 			}
 		}
 	}
@@ -44,6 +44,13 @@ public class CheckPoint : Entity {
 		collected = true;
 		gameMaster.updateScore (scoreBonus);
 		gameMaster.generateFloatingTextAt(gameMaster.Player.transform.position, scoreBonus.ToString());
-		GameObject.Destroy (this.gameObject, 2.0f);
+	}
+	
+	public override void SetToEntity(Entity entPrefab)
+	{
+		base.SetToEntity (entPrefab);
+		CheckPoint checkPointPrefab = entPrefab.GetComponent<CheckPoint>();
+		this.collected = false;
+		this.scoreBonus = checkPointPrefab.scoreBonus;
 	}
 }
