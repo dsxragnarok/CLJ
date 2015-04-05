@@ -2164,7 +2164,7 @@ GameObject:
   - 114: {fileID: 1837566433}
   m_Layer: 0
   m_Name: GameMaster
-  m_TagString: Untagged
+  m_TagString: GameEngine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2187,6 +2187,7 @@ MonoBehaviour:
   score: 0
   scoreMultiplier: 10
   isHighScore: 0
+  isPaused: 0
   gameOverDialog: {fileID: 0}
   instructionsDialog: {fileID: 0}
   creditsDialog: {fileID: 302096499}

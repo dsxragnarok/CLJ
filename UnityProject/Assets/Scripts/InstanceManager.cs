@@ -97,8 +97,8 @@ public class InstanceManager : MonoBehaviour {
 		Entity[] initialStorage = GetComponentsInChildren<Entity>(true);
 		foreach (Entity ent in initialStorage)
 		{
-			if (ent.gameObject != this.gameObject)
-				ent.Link();
+			// Re-link to the new Game Master
+			ent.Link();
 		}
 	}
 }
