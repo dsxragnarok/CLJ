@@ -31,6 +31,7 @@ public abstract class Entity : MonoBehaviour {
 	{
 	}
 
+	// Link to the Game Master
 	public void Link()
 	{
 		GameObject _gameMaster = GameObject.FindGameObjectWithTag("GameEngine");

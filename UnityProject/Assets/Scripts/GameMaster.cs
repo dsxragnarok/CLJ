@@ -153,6 +153,7 @@ public class GameMaster : MonoBehaviour {
 
 	public void showGameOver () {
 		gameOverDialog.SetActive (true);
+		playerData.SaveStatistics ();
 		if (isHighScore) {
 			playerData.ReportHighScore ();
 			isHighScore = false;		// prevent dat spam

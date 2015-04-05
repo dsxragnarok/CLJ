@@ -23,6 +23,8 @@ public class PlayerStats : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		LoadStatistics ();
+
 #if UNITY_ANDROID
 		PlayGamesPlatform.Activate ();
 #endif
@@ -34,6 +36,26 @@ public class PlayerStats : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	// Save and Load statistics using Player Prefs
+	public void SaveStatistics()
+	{
+		PlayerPrefs.SetInt ("highScore", highScore);
+		PlayerPrefs.SetInt ("totalStarsCollected", totalStarsCollected);
+		PlayerPrefs.SetInt ("totalRedBirdsCollected", totalRedBirdsCollected);
+		PlayerPrefs.SetInt ("totalBlueBirdsCollected", totalBlueBirdsCollected);
+		PlayerPrefs.SetInt ("totalBlackBirdsCollected", totalBlackBirdsCollected);
+		PlayerPrefs.SetInt ("totalCheckpointsCollected", totalCheckpointsCollected);
+	}
+	public void LoadStatistics()
+	{
+		highScore = PlayerPrefs.GetInt ("highScore", 0);
+		totalStarsCollected = PlayerPrefs.GetInt ("totalStarsCollected", 0);
+		totalRedBirdsCollected = PlayerPrefs.GetInt ("totalRedBirdsCollected", 0);
+		totalBlueBirdsCollected = PlayerPrefs.GetInt ("totalBlueBirdsCollected", 0);
+		totalBlackBirdsCollected = PlayerPrefs.GetInt ("totalBlackBirdsCollected", 0);
+		totalCheckpointsCollected = PlayerPrefs.GetInt ("totalCheckpointsCollected", 0);
 	}
 
 	// This function gets called when Authenticate completes
