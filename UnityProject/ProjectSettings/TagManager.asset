@@ -26,6 +26,9 @@ TagManager:
   - BirdSpawner
   - DifficultyManager
   - InstancingManager
+  - PauseButton
+  - SoundButton
+  - DebugPanel
   layers:
   - Default
   - TransparentFX

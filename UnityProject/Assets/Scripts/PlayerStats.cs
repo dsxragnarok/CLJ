@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
+using GooglePlayGames;
+using GooglePlayGames.BasicApi;
 using UnityEngine.SocialPlatforms;
 
 // Contains information about the player and persists between plays.
@@ -21,6 +24,9 @@ public class PlayerStats : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+#if UNITY_ANDROID
+		PlayGamesPlatform.Activate ();
+#endif
 		// Authenticate and register a ProcessAuthentication callback
 		// This call needs to be made before we can proceed to other calls in the Social API
 		Social.localUser.Authenticate (ProcessAuthentication);
@@ -36,7 +42,6 @@ public class PlayerStats : MonoBehaviour {
 	public void ProcessAuthentication (bool success) {
 		if (success) {
 			Debug.Log ("Authenticated, checking achievements");
-			
 			// Request loaded achievements, and register a callback for processing them
 			Social.LoadAchievements (ProcessLoadedAchievements);
 		} else {
@@ -61,6 +66,17 @@ public class PlayerStats : MonoBehaviour {
 				Debug.Log ("Successfully reported achievement progress");
 			else
 				Debug.Log ("Failed to report achievement");
+		});
+#elif UNITY_ANDROID
+		// CgkI68X_t_kNEAIQAQ is the leaderboard set up in Google Play Games Services, for android version
+		Social.ReportScore (highScore, "CgkI68X_t_kNEAIQAQ", (bool success) => {
+			if (success) {
+				Debug.Log ("Successfully reported leaderboard score");
+			} else {
+				Debug.Log ("Failed to report leaderboard score");
+			}
+
+			PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkI68X_t_kNEAIQAQ");
 		});
 #endif
 	}
