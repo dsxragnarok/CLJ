@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// This game object can be collected the player for a bit of points.
 public class Star : Entity {
 	const float MOVE_SPEED = 4.0f;
 	private float moveSpeed = MOVE_SPEED;

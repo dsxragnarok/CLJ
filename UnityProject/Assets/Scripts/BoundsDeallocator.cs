@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// With described top, left, bottom, and right boundaries, it provides functions to check if an object
+// goes out of bounds. 
+// NOTE: it does not deallocate any objects itself anymore, but still provides the useful functions so
+// objects can check themselves whether they are out of bounds or not.
 public class BoundsDeallocator : Entity {
 	float width = 60.0f;	// it needs to encompass the spawn point or spawned scenes will get cut off
 	float height = 20.0f;
 
+	// Boundary rectangle description
 	Vector2 pos;
 	Vector2 topLeft;
 	Vector2 bottomRight;
@@ -58,6 +63,8 @@ public class BoundsDeallocator : Entity {
 	}
 
 	/*
+	// This function is obsolete, the bounds deallocator does not deallocate objects anymore.
+	// Secondly, it is inefficient using colliders.
 	void FixedUpdate () {
 		Collider2D[] collided = Physics2D.OverlapAreaAll(topLeft, bottomRight);
 
@@ -87,7 +94,7 @@ public class BoundsDeallocator : Entity {
 			obj.transform.position.y > topLeft.y ||
 			obj.transform.position.y < bottomRight.y;
 	}
-
+	// Use this function if only specific sides of the bounds should be checked.
 	public bool IsOutOfBounds(GameObject obj, bool checkTop, bool checkBottom, bool checkLeft, bool checkRight)
 	{
 		return (obj.transform.position.x < topLeft.x && checkLeft) ||

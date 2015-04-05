@@ -10,6 +10,7 @@ using UnityEngine.SocialPlatforms;
 // will preserve these stats.
 public class PlayerStats : MonoBehaviour {
 
+	// The variables below are the COLLECTIVE values across all games the player has played.
 	public int highScore = 0;
 	public int totalStarsCollected = 0;
 	public int totalRedBirdsCollected = 0;
@@ -19,6 +20,7 @@ public class PlayerStats : MonoBehaviour {
 
 	void Awake () {
 		GameObject.DontDestroyOnLoad (this.gameObject);
+		PlayerPrefs.DeleteAll (); // Resets Player Stats, for debugging, you can uncomment it
 	}
 
 	// Use this for initialization

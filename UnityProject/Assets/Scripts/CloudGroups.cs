@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+// Container for a list of game objects in a cloud scene
 public class CloudGroups : Entity {
 	public List<GameObject> sceneList;
 

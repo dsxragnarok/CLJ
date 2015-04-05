@@ -2,14 +2,16 @@
 using UnityEngine.UI;
 using System.Collections;
 
+// This object can be attached to a UI Text to have interesting animated properties. 
+// It positions itself at the desired position and arcs upward in a circular motion as well as scaling to disappear
 public class FloatingText : Entity {
-	private float life = 1.00f;
+	private float life = 1.00f;		// Timer of floating text
 
-	private Vector3 initialPos;
-	private GameObject bind = null;
+	private Vector3 initialPos;		// Initial position to perform animation
+	private GameObject bind = null;	// Can also be set to follow a game object
 
-	public Color startColor;
-	public Color endColor;
+	public Color startColor;		// Start Color of floating text in animation
+	public Color endColor;			// Ending Color lerped from start
 
 	// Use this for initialization
 	public override void Start () {

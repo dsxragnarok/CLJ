@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// The YELLOW birds are birds that like to knock you out in one blow.
 public class BirdBlack : BirdController {
 	
 	public override BirdType Type

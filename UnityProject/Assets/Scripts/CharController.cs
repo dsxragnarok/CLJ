@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
+// This is the Player Avatar and contains all logic involved with how the user interfaces
+// with the Player. It contains Jump, Physics, and Avatar behavior.
 public class CharController : Entity {
 
 	public float maxSpeed;
@@ -197,6 +199,9 @@ public class CharController : Entity {
 		}
 	}
 
+	// Sets which platforms should be active and inactive towards the player. It takes only the important ones which are
+	// near the player. A platform is considered inactive if the player comes from the bottom (bottom-left) side. This
+	// allows it so the player can jump up onto platforms.
 	private void setActiveInactivePlatform(LayerMask whatIsGround)
 	{		
 		// Check all nearby lines

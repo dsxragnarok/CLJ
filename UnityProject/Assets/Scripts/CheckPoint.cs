@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// At certain locations which if the player runs into it will receive a score bonus.
 public class CheckPoint : Entity {
 	Transform myTransform;
 
