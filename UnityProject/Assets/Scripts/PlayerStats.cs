@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
 
 using GooglePlayGames;
@@ -75,9 +74,13 @@ public class PlayerStats : MonoBehaviour {
 			} else {
 				Debug.Log ("Failed to report leaderboard score");
 			}
-
-			PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkI68X_t_kNEAIQAQ");
+			//Social.ShowLeaderboardUI();
+			//PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkI68X_t_kNEAIQAQ");
 		});
 #endif
+	}
+
+	public void DisplayLeaderboard () {
+		Social.ShowLeaderboardUI ();
 	}
 }

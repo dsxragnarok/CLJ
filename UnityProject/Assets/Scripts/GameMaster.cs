@@ -135,6 +135,10 @@ public class GameMaster : MonoBehaviour {
 		ftInstance.GetComponent<Text>().text = value;
 	}
 
+	public void showLeaderboard () {
+		playerData.DisplayLeaderboard ();
+	}
+
 	public void showCredits () {
 		creditsDialog.SetActive (true);
 	}
