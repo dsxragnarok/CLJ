@@ -20,7 +20,7 @@ public class PlayerStats : MonoBehaviour {
 
 	void Awake () {
 		GameObject.DontDestroyOnLoad (this.gameObject);
-		PlayerPrefs.DeleteAll (); // Resets Player Stats, for debugging, you can uncomment it
+		//PlayerPrefs.DeleteAll (); // Resets Player Stats, for debugging, you can uncomment it
 	}
 
 	// Use this for initialization
