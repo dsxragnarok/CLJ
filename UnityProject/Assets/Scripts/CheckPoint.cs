@@ -18,6 +18,9 @@ public class CheckPoint : Entity {
 	// Update is called once per frame
 	public override void Update () {
 		base.Update ();
+		if (!gameMaster.isGameStarted)
+			return;
+
 		if (gameMaster.Player.IsDead ())
 			moveSpeed = 0f;
 

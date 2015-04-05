@@ -23,6 +23,7 @@ public class GameMaster : MonoBehaviour {
 	public int score = 0;
 	public int scoreMultiplier = 1;
 	public bool isHighScore = false;
+	public bool isPaused = false;
 
 	public GameObject gameOverDialog;
 	public GameObject instructionsDialog;
@@ -151,6 +152,16 @@ public class GameMaster : MonoBehaviour {
 		if (isHighScore) {
 			playerData.ReportHighScore ();
 			isHighScore = false;		// prevent dat spam
+		}
+	}
+
+	public void togglePause () {
+		isPaused = !isPaused;
+
+		if (isPaused) {
+			player.GetComponent<Rigidbody2D>().gravityScale = 0;
+		} else {
+			player.GetComponent<Rigidbody2D>().gravityScale = 1;
 		}
 	}
 
