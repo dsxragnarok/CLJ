@@ -2,26 +2,30 @@
 using UnityEngine.UI;
 using System.Collections;
 
-
+// This important object is the central manager across all necessary objects in the scene.
+// It holds all managers and important entities.
+// Any game object with the Entity attribute can refer to any of these managers and objects
+// using the Game Master
 public class GameMaster : MonoBehaviour {
-	private PlayerStats playerData;
-	private CharController player;
-	private BoundsDeallocator gameBounds;
-	private SoundEffectsManager sfxManager;
-	private SpawnPlatforms platformSpawner;
-	private SpawnBirds birdSpawner;
-	private DifficultyProgress difficultyManager;
-	private ScoreDisplay scoreDisplayManager;
-	private InstanceManager instancingManager;
-	private Canvas hudCanvas;
+	private PlayerStats playerData;				// Player data and statistics
+	private CharController player;				// Player Avatar in the scene
+	private BoundsDeallocator gameBounds;		// Bounds of the game usually to check when an entity is outside
+	private SoundEffectsManager sfxManager;			// Sound Effects Manager
+	private SpawnPlatforms platformSpawner;			// Cloud Spawner Manager
+	private SpawnBirds birdSpawner;					// Bird Spawning Manager
+	private DifficultyProgress difficultyManager;	// Difficulty Manager
+	private ScoreDisplay scoreDisplayManager;		// Score Display in Game
+	private InstanceManager instancingManager;		// Instancing Manager of Common Entity Objects
+	private Canvas hudCanvas;						
 	private Canvas worldCanvas;
 	private Camera mainCamera;
-	public int collectedStars = 0;
-	public int collectedBirds = 0;
-	public int collectedCheckpoints = 0;
-	public int checkpointsPassed = 0;
-	public int score = 0;
-	public int scoreMultiplier = 1;
+	public int collectedStars = 0;				// Current Game collected stars
+	public int collectedBirds = 0;				// Current Game collected birds
+	public int collectedCheckpoints = 0;		// Current Game collected checkpoints
+	public int checkpointsPassed = 0;			
+	public int score = 0;						// Current Score
+	public int scoreMultiplier = 1;				// Score Multiplier Bonus
+	public bool isSaved = false;
 	public bool isHighScore = false;
 	public bool isPaused = false;
 
@@ -152,10 +156,22 @@ public class GameMaster : MonoBehaviour {
 	}
 
 	public void showGameOver () {
-		gameOverDialog.SetActive (true);
-		if (isHighScore) {
-			playerData.ReportHighScore ();
-			isHighScore = false;		// prevent dat spam
+		if (!isSaved)
+		{
+			gameOverDialog.SetActive (true);
+			// Set the Comment Text object to be active if the user earned a high score
+			Text[] texts = gameOverDialog.GetComponentsInChildren<Text> ();
+			foreach (Text text in texts) {
+				if (text.name == "CommentText")
+					text.gameObject.SetActive (isHighScore);
+			}
+			// Save player data and if there is a high score, report the high score to
+			// a social platform.
+			playerData.SaveStatistics ();
+			if (isHighScore) {
+				playerData.ReportHighScore ();
+			}
+			isSaved = true; // Prevent Dat Spam
 		}
 	}
 

@@ -10,6 +10,7 @@ using UnityEngine.SocialPlatforms;
 // will preserve these stats.
 public class PlayerStats : MonoBehaviour {
 
+	// The variables below are the COLLECTIVE values across all games the player has played.
 	public int highScore = 0;
 	public int totalStarsCollected = 0;
 	public int totalRedBirdsCollected = 0;
@@ -19,10 +20,13 @@ public class PlayerStats : MonoBehaviour {
 
 	void Awake () {
 		GameObject.DontDestroyOnLoad (this.gameObject);
+		//PlayerPrefs.DeleteAll (); // Resets Player Stats, for debugging, you can uncomment it
 	}
 
 	// Use this for initialization
 	void Start () {
+		LoadStatistics ();
+
 #if UNITY_ANDROID
 		PlayGamesPlatform.Activate ();
 #endif
@@ -34,6 +38,26 @@ public class PlayerStats : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	// Save and Load statistics using Player Prefs
+	public void SaveStatistics()
+	{
+		PlayerPrefs.SetInt ("highScore", highScore);
+		PlayerPrefs.SetInt ("totalStarsCollected", totalStarsCollected);
+		PlayerPrefs.SetInt ("totalRedBirdsCollected", totalRedBirdsCollected);
+		PlayerPrefs.SetInt ("totalBlueBirdsCollected", totalBlueBirdsCollected);
+		PlayerPrefs.SetInt ("totalBlackBirdsCollected", totalBlackBirdsCollected);
+		PlayerPrefs.SetInt ("totalCheckpointsCollected", totalCheckpointsCollected);
+	}
+	public void LoadStatistics()
+	{
+		highScore = PlayerPrefs.GetInt ("highScore", 0);
+		totalStarsCollected = PlayerPrefs.GetInt ("totalStarsCollected", 0);
+		totalRedBirdsCollected = PlayerPrefs.GetInt ("totalRedBirdsCollected", 0);
+		totalBlueBirdsCollected = PlayerPrefs.GetInt ("totalBlueBirdsCollected", 0);
+		totalBlackBirdsCollected = PlayerPrefs.GetInt ("totalBlackBirdsCollected", 0);
+		totalCheckpointsCollected = PlayerPrefs.GetInt ("totalCheckpointsCollected", 0);
 	}
 
 	// This function gets called when Authenticate completes

@@ -3,6 +3,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+// Manages how birds are spawned. It currently takes a list of active clouds (approaching the player)
+// and measures a proper trajectory so that it'll be somewhere reachable by the time the cloud gets to the player.
 public class SpawnBirds : Entity {
 	GameObject _birdContainer;
 

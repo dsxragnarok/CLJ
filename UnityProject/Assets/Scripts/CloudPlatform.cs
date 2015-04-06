@@ -1,16 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// This important object contains movement logic for clouds and other important flags involved with
+// instancing managers and such for efficiency.
 public class CloudPlatform : Entity {
 	const float MOVE_SPEED = 4.5f;
 	private float moveSpeed = MOVE_SPEED;
-	public bool isSentinal = false;
-	public bool activeTarget = true;
+	public bool isSentinal = false;			// The cloud flagged with this in a cloud scene tells when a new scene should be made
+	public bool activeTarget = true;		// Used to determine whether it is approaching the player so a bird can choose to schedule its way to this cloud 
 
-	public bool isCheckPoint = false;
-	public bool collected = false;
+	public bool isCheckPoint = false;		// Used to tell whether this cloud is a checkpoint for a point bonus when the player collides with it
+	public bool collected = false;			// Used to tell whether the player has ran into this cloud
 
-	private int checkPointBonus = 100;
+	private int checkPointBonus = 50;
 
 	// Use this for initialization
 	public override void Start () {

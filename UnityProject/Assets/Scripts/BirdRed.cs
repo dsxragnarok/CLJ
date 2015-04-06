@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+// The red birds are special birds that evaporate into thin air when they touch you.
 public class BirdRed : BirdController {
 	public ParticleSystem collectEffectPrefab;
 

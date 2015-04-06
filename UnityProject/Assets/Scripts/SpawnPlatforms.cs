@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
+// Manages how clouds are generated. It takes a list of scenes and waits for a trigger by a cloud flagged as a
+// sentinel to generate the next cloud scene.
 public class SpawnPlatforms : Entity {
 	GameObject _platformContainer;
 

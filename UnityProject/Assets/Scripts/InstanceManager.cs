@@ -91,14 +91,17 @@ public class InstanceManager : MonoBehaviour {
 		}
 	}
 
+
+	// When the Game Master is re-allocated, we need reset the links for all entities so
+	// it references the correct Game Master
 	public void UpdateCachedObjectLinks()
 	{
 		// Grab all active and inactive entities and store them in the cache
 		Entity[] initialStorage = GetComponentsInChildren<Entity>(true);
 		foreach (Entity ent in initialStorage)
 		{
-			if (ent.gameObject != this.gameObject)
-				ent.Link();
+			// Re-link to the new Game Master
+			ent.Link();
 		}
 	}
 }

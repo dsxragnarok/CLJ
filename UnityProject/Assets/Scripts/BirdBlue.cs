@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// The blue birds are the birds which like to knock you back softly.
 public class BirdBlue : BirdController {
 	public Sprite deadSprite;
 

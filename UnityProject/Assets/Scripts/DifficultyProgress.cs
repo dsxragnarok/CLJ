@@ -3,6 +3,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+// Difficulty manager where the designer can add in level changing criteria as cloud scenes pass by.
+// Level/Difficulty changes can be done by changing the spawn cooldown, number of blue to red to black.
 public class DifficultyProgress : Entity {
 
 	// Object containing level upgrade parameters
