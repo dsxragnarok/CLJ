@@ -670,10 +670,10 @@ RectTransform:
   - {fileID: 548548247}
   m_Father: {fileID: 1899949628}
   m_RootOrder: 4
-  m_AnchorMin: {x: .314702213, y: .328000009}
-  m_AnchorMax: {x: .634000003, y: .449000031}
-  m_AnchoredPosition: {x: -2, y: -3}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: .314702213, y: .128614202}
+  m_AnchorMax: {x: .623765945, y: .25}
+  m_AnchoredPosition: {x: 5, y: -1}
+  m_SizeDelta: {x: 14, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &329392129
 MonoBehaviour:
@@ -2329,10 +2329,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1899949628}
   m_RootOrder: 1
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 150}
-  m_SizeDelta: {x: 450, y: 30}
+  m_AnchorMin: {x: .0666945577, y: .5}
+  m_AnchorMax: {x: .929874301, y: .607000053}
+  m_AnchoredPosition: {x: 2, y: -3.5}
+  m_SizeDelta: {x: -602, y: -43}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1699251509
 MonoBehaviour:
@@ -2351,7 +2351,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 20
     m_FontStyle: 3
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 1
@@ -2359,7 +2359,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Congratulations! You earned a new high score!
+  m_Text: "Congratulations! \nYou earned a new high score!"
 --- !u!222 &1699251510
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2474,9 +2474,9 @@ RectTransform:
   - {fileID: 93014367}
   m_Father: {fileID: 1899949628}
   m_RootOrder: 2
-  m_AnchorMin: {x: .314702213, y: .487215906}
-  m_AnchorMax: {x: .634000003, y: .60979408}
-  m_AnchoredPosition: {x: -2, y: -1.5}
+  m_AnchorMin: {x: .314702213, y: .297768533}
+  m_AnchorMax: {x: .634000003, y: .421112657}
+  m_AnchoredPosition: {x: -2, y: 0}
   m_SizeDelta: {x: 0, y: -2}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1872661819
