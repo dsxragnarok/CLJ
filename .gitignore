@@ -27,3 +27,6 @@ sysinfo.txt
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+#Editor Plugins
+UnityVS*
