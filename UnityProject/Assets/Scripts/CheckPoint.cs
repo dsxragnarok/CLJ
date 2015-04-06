@@ -2,6 +2,8 @@
 using System.Collections;
 
 // At certain locations which if the player runs into it will receive a score bonus.
+// Note: this actually only counts check points passed. This should really be moved
+// onto the checkpoint itself maybe.
 public class CheckPoint : Entity {
 	Transform myTransform;
 
