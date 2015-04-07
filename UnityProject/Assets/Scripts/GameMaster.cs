@@ -36,6 +36,7 @@ public class GameMaster : MonoBehaviour {
 
 	public bool isGameStarted = false;
 
+    private int tipIndex = 0;
     private string[] gameplayTips = new string[]
     {
         "You can vary the height of your jump by how long you touch to jump.",
@@ -112,6 +113,9 @@ public class GameMaster : MonoBehaviour {
 		Application.targetFrameRate = 50;
 
 		linkObjects ();
+
+        // initialize tipIndex to a random position
+        tipIndex = Random.Range(0, gameplayTips.Length - 1);
 	}
 	
 	// Update is called once per frame
@@ -175,7 +179,8 @@ public class GameMaster : MonoBehaviour {
 					text.gameObject.SetActive (isHighScore);
                 
                 if (text.name == "TipText" && !isHighScore) {
-                    text.text = gameplayTips[Random.Range(0, gameplayTips.Length - 1)];
+                    int idx = (tipIndex + 1) % gameplayTips.Length;
+                    text.text = gameplayTips[idx];
                     text.gameObject.SetActive (!isHighScore);
                 }
 			}
