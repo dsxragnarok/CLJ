@@ -64,9 +64,9 @@ public class CloudPlatform : Entity {
 	}
 
 	void OnCollisionEnter2D (Collision2D collider) {
-		if (isCheckPoint && !collected && collider.gameObject.tag == "Player") {
-			ActivateCheckPoint();
-		}
+		//if (isCheckPoint && !collected && collider.gameObject.tag == "Player") {
+			//ActivateCheckPoint();
+		//}
 	}
 
 	void ActivateCheckPoint () {

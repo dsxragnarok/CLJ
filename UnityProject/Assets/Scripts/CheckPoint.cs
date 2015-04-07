@@ -10,7 +10,8 @@ public class CheckPoint : Entity {
 	const float MOVE_SPEED = 4.5f;
 	protected float moveSpeed = MOVE_SPEED;
 	bool collected = false;
-	public int scoreBonus = 200;
+    bool passed = false;
+	private int scoreBonus = 50;
 
 	// Use this for initialization
 	public override void Start () {
@@ -27,11 +28,12 @@ public class CheckPoint : Entity {
 		if (gameMaster.Player.IsDead ())
 			moveSpeed = 0f;
 
-		if (!collected && gameMaster.Player.transform.position.x >= myTransform.position.x) {
-			collected = true;
+		if (!passed && gameMaster.Player.transform.position.x >= myTransform.position.x) {
+			passed = true;
 			gameMaster.checkpointsPassed += 1;
 		}
-		/*
+		
+        /*
 		if (!collected && player.position.x >= myTransform.position.x) {
 			ActivateCheckPoint();
 		}*/
@@ -49,21 +51,32 @@ public class CheckPoint : Entity {
 		}
 	}
 
-	/*
+    void OnTriggerEnter2D (Collider2D collider)
+    {
+        if (!collected && collider.gameObject.tag == "Player")
+        {
+            ActivateCheckPoint();
+        }
+    }
+
+	
 	void ActivateCheckPoint () {
-		gameMaster.PlayerData.totalCheckpointsCollected += 1;
-		collected = true;
-		gameMaster.updateScore (scoreBonus);
-		gameMaster.generateFloatingTextAt(gameMaster.Player.transform.position, scoreBonus.ToString());
+        gameMaster.PlayerData.totalCheckpointsCollected += 1;
+        int totalCheckPointBonus = scoreBonus * (gameMaster.checkpointsPassed + 1);
+        //Debug.Log("checkpoints passed [" + gameMaster.checkpointsPassed + "] | scoreBonus [" + scoreBonus + "] | total = [" + totalCheckPointBonus + "]");
+        gameMaster.updateScore(totalCheckPointBonus);
+        gameMaster.generateFloatingTextAt(gameMaster.Player.transform.position, totalCheckPointBonus.ToString());
+        collected = true;
 	}
-	*/
+	
 
 	public override void SetToEntity(Entity entPrefab)
 	{
 		base.SetToEntity (entPrefab);
-		CheckPoint checkPointPrefab = entPrefab.GetComponent<CheckPoint>();
+		//CheckPoint checkPointPrefab = entPrefab.GetComponent<CheckPoint>();
 		this.collected = false;
-		this.scoreBonus = checkPointPrefab.scoreBonus;
+        this.passed = false;
+		//this.scoreBonus = checkPointPrefab.scoreBonus;
 
 		moveSpeed = MOVE_SPEED;
 	}
