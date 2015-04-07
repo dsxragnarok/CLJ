@@ -36,6 +36,14 @@ public class GameMaster : MonoBehaviour {
 
 	public bool isGameStarted = false;
 
+    private string[] gameplayTips = new string[]
+    {
+        "You can vary the height of your jump by how long you touch to jump.",
+        "You can double jump by tapping twice.",
+        "Each RED BIRD permanently increases each star by 10 points.",
+        "Each RAINBOW is worth 50 points more than the previous RAINBOW."
+    };
+
 	public PlayerStats PlayerData
 	{
 		get { return playerData; }
@@ -160,10 +168,16 @@ public class GameMaster : MonoBehaviour {
 		{
 			gameOverDialog.SetActive (true);
 			// Set the Comment Text object to be active if the user earned a high score
+            // Otherwise, set the Tip Text object to be active and display a random gameplay tip
 			Text[] texts = gameOverDialog.GetComponentsInChildren<Text> ();
 			foreach (Text text in texts) {
 				if (text.name == "CommentText")
 					text.gameObject.SetActive (isHighScore);
+                
+                if (text.name == "TipText" && !isHighScore) {
+                    text.text = gameplayTips[Random.Range(0, gameplayTips.Length - 1)];
+                    text.gameObject.SetActive (!isHighScore);
+                }
 			}
 			// Save player data and if there is a high score, report the high score to
 			// a social platform.
