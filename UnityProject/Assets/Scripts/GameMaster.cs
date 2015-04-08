@@ -39,10 +39,10 @@ public class GameMaster : MonoBehaviour {
     private int tipIndex = 0;
     private string[] gameplayTips = new string[]
     {
-        "You can vary the height of your jump by how long you touch to jump.",
+        "You can vary the height of your\njump by how long you touch to jump.",
         "You can double jump by tapping twice.",
-        "Each RED BIRD permanently increases each star by 10 points.",
-        "Each RAINBOW is worth 50 points more than the previous RAINBOW."
+        "Each RED BIRD permanently increases the\n worth of each STAR by 10.",
+        "Each RAINBOW is worth 50 more\n than the previous RAINBOW."
     };
 
 	public PlayerStats PlayerData
