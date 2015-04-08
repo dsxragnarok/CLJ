@@ -93,7 +93,7 @@ public class CharController : Entity {
 #if UNITY_STANDALONE || UNITY_WEBPLAYER
 
 		if (!gameMaster.isGameStarted) {
-			if (Input.GetKeyUp (KeyCode.Space)) {
+			if (Input.GetKeyUp (KeyCode.Space) || Input.GetMouseButtonUp(0)) {
 				gameMaster.closeInstructions();
 				gameMaster.isGameStarted = true;
 			} else {
@@ -117,7 +117,9 @@ public class CharController : Entity {
 
 		// Perform jump if we are on ground
 #if UNITY_STANDALONE || UNITY_WEBPLAYER
-		if (!IsDead() && (grounded || jumpPhase < 2) && Input.GetKeyDown (KeyCode.Space))
+		if (!IsDead() && (grounded || jumpPhase < 2) && 
+		    (Input.GetKeyDown (KeyCode.Space) || Input.GetMouseButtonDown(0))
+		 )
 		{
 			gameMaster.SoundEffects.PlaySoundClip("jump");
 			//StopCoroutine(performJump());
@@ -293,7 +295,7 @@ public class CharController : Entity {
 			}
 #elif UNITY_WEBPLAYER || UNITY_STANDALONE
 
-			if (jumpForceIndex < jumpForces.Count && Input.GetKey (KeyCode.Space))
+			if (jumpForceIndex < jumpForces.Count && (Input.GetKey (KeyCode.Space) || Input.GetMouseButton (0)))
 			{
 				unitRigidbody.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * unitRigidbody.mass);
 			}

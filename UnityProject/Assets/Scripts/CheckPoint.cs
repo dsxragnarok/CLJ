@@ -12,6 +12,12 @@ public class CheckPoint : Entity {
 	bool collected = false;
     bool passed = false;
 	private int scoreBonus = 50;
+	
+	Vector3 rotatePoint = Vector3.zero;
+	bool animatePickup = false;
+	float animateTimer = 0.0f;
+
+	public ParticleSystem glowFireEffectPrefab;
 
 	// Use this for initialization
 	public override void Start () {
@@ -32,7 +38,21 @@ public class CheckPoint : Entity {
 			passed = true;
 			gameMaster.checkpointsPassed += 1;
 		}
-		
+
+		rotatePoint += Vector3.left * (moveSpeed * Time.deltaTime);
+		if (animatePickup)
+		{
+			animateTimer += Time.deltaTime;
+			
+			float angularMagnitude = UnityEngine.Mathf.Sin (animateTimer * UnityEngine.Mathf.PI);
+			float scaleMagnitude = UnityEngine.Mathf.Sin (animateTimer * 2.0f * UnityEngine.Mathf.PI);
+			float degrees = -180.0f * angularMagnitude * Time.deltaTime;
+			transform.RotateAround(rotatePoint, Vector3.forward, degrees);
+			transform.localScale = Vector3.one;
+			if (animateTimer < 0.5f)
+				transform.localScale = Vector3.one * (1.0f + scaleMagnitude * 0.5f);
+		}
+
         /*
 		if (!collected && player.position.x >= myTransform.position.x) {
 			ActivateCheckPoint();
@@ -66,7 +86,14 @@ public class CheckPoint : Entity {
         //Debug.Log("checkpoints passed [" + gameMaster.checkpointsPassed + "] | scoreBonus [" + scoreBonus + "] | total = [" + totalCheckPointBonus + "]");
         gameMaster.updateScore(totalCheckPointBonus);
         gameMaster.generateFloatingTextAt(gameMaster.Player.transform.position, totalCheckPointBonus.ToString());
+		
+		ParticleSystem glowFireEffectInstance = (ParticleSystem)GameObject.Instantiate(glowFireEffectPrefab, this.transform.position, this.transform.rotation);
+		glowFireEffectInstance.transform.parent = this.transform.parent;
+		GameObject.Destroy (glowFireEffectInstance.gameObject, 1.5f);
         collected = true;
+		animatePickup = true;
+		animateTimer = 0.0f;
+		rotatePoint = this.transform.position + Vector3.right * 0.5f;
 	}
 	
 
@@ -79,5 +106,9 @@ public class CheckPoint : Entity {
 		//this.scoreBonus = checkPointPrefab.scoreBonus;
 
 		moveSpeed = MOVE_SPEED;
+		
+		rotatePoint = Vector3.zero;
+		animatePickup = false;
+		animateTimer = 0.0f;
 	}
 }

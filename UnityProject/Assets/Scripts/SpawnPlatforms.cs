@@ -119,7 +119,6 @@ public class SpawnPlatforms : Entity {
 		}
 		obj.transform.position = pos;
 		obj.transform.rotation = rot;
-
 		if (_platformContainer)
 			obj.transform.parent = _platformContainer.transform;
 

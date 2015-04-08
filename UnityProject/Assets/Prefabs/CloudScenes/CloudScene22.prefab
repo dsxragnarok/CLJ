@@ -149,7 +149,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 465888}
-  - 114: {fileID: 11442380}
+  - 114: {fileID: 11461424}
   m_Layer: 0
   m_Name: CloudScene22
   m_TagString: CloudGroup
@@ -2631,7 +2631,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 9
---- !u!114 &11442380
+  glowFireEffectPrefab: {fileID: 19811398, guid: db4444008d736434fa08c8f07a8108db,
+    type: 2}
+--- !u!114 &11461424
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

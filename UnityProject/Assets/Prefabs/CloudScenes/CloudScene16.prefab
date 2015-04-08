@@ -1036,6 +1036,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 9
+  glowFireEffectPrefab: {fileID: 19811398, guid: db4444008d736434fa08c8f07a8108db,
+    type: 2}
 --- !u!212 &21217286
 SpriteRenderer:
   m_ObjectHideFlags: 1
