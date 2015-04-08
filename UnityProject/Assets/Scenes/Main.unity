@@ -2369,6 +2369,7 @@ MonoBehaviour:
   checkpointsPassed: 0
   score: 0
   scoreMultiplier: 10
+  isSaved: 0
   isHighScore: 0
   isPaused: 0
   gameOverDialog: {fileID: 0}
