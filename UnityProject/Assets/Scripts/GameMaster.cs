@@ -152,7 +152,7 @@ public class GameMaster : MonoBehaviour {
 	}
 
 	public void showLeaderboard () {
-		playerData.DisplayLeaderboard ();
+		playerData.AttemptDisplayLeaderboard ();
 	}
 
 	public void showCredits () {
@@ -168,7 +168,13 @@ public class GameMaster : MonoBehaviour {
 	}
 
 	public void showGameOver () {
-		if (!isSaved)
+#if UNITY_IOS
+        // In ios, we don't use the Quit button
+        GameObject quitButton = GameObject.FindGameObjectWithTag("QuitButton");
+        quitButton.SetActive(false);
+#endif
+
+        if (!isSaved)
 		{
 			gameOverDialog.SetActive (true);
 			// Set the Comment Text object to be active if the user earned a high score

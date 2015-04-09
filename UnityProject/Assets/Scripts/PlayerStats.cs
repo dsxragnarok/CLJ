@@ -104,7 +104,28 @@ public class PlayerStats : MonoBehaviour {
 #endif
 	}
 
-	public void DisplayLeaderboard () {
-		Social.ShowLeaderboardUI ();
+	public void DisplayLeaderboard (bool success) 
+    {
+        if (success)
+        {
+            Social.ShowLeaderboardUI();
+        }
+        else
+        {
+            // we should probably put up some error message
+            Debug.Log("Authentication failed.");
+        }
 	}
+
+    public void AttemptDisplayLeaderboard ()
+    {
+        if (Social.localUser.authenticated)
+        {
+            Social.ShowLeaderboardUI();
+        }
+        else
+        {
+            Social.localUser.Authenticate(DisplayLeaderboard);
+        }
+    }
 }

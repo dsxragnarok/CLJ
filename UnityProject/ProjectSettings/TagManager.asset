@@ -29,6 +29,7 @@ TagManager:
   - PauseButton
   - SoundButton
   - DebugPanel
+  - QuitButton
   layers:
   - Default
   - TransparentFX
