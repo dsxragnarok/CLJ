@@ -36,6 +36,8 @@ public class GameMaster : MonoBehaviour {
 
 	public bool isGameStarted = false;
 
+    private string versionString = "0.5";
+
     private int tipIndex = 0;
     private string[] gameplayTips = new string[]
     {
@@ -116,6 +118,13 @@ public class GameMaster : MonoBehaviour {
 
         // initialize tipIndex to a random position
         tipIndex = Random.Range(0, gameplayTips.Length - 1);
+
+
+        GameObject versionDisplay = GameObject.FindGameObjectWithTag("VersionString");
+        if (versionDisplay != null)
+        {
+            versionDisplay.GetComponent<Text>().text = versionString;
+        }
 	}
 	
 	// Update is called once per frame
