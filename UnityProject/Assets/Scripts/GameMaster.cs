@@ -119,6 +119,11 @@ public class GameMaster : MonoBehaviour {
         // initialize tipIndex to a random position
         tipIndex = Random.Range(0, gameplayTips.Length - 1);
 
+#if UNITY_IOS
+        // In ios, we don't use the Quit button
+        GameObject quitButton = GameObject.FindGameObjectWithTag("QuitButton");
+        quitButton.SetActive(false);
+#endif
 
         GameObject versionDisplay = GameObject.FindGameObjectWithTag("VersionString");
         if (versionDisplay != null)
@@ -177,11 +182,6 @@ public class GameMaster : MonoBehaviour {
 	}
 
 	public void showGameOver () {
-#if UNITY_IOS
-        // In ios, we don't use the Quit button
-        GameObject quitButton = GameObject.FindGameObjectWithTag("QuitButton");
-        quitButton.SetActive(false);
-#endif
 
         if (!isSaved)
 		{
@@ -223,6 +223,11 @@ public class GameMaster : MonoBehaviour {
 		Application.LoadLevel ("Play");
 		linkObjects (); // Doesn't matter, just call it to feel safe
 	}
+
+    public void mainMenu()
+    {
+        Application.LoadLevel ("Main");
+    }
 
 	public void restartGame () {
 		// For restarts, grab all Entities in the scene and put them in the instancing manager for re-use
