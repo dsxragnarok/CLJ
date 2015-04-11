@@ -33,6 +33,7 @@ public class GameMaster : MonoBehaviour {
 	public GameObject instructionsDialog;
 	public GameObject creditsDialog;
 	public GameObject floatingTextPrefab;
+    public GameObject tgGameOverButton; // for testing purposes - this allows to hide the Game Over panel to take screenshot on death
 
 	public bool isGameStarted = false;
 
@@ -180,6 +181,28 @@ public class GameMaster : MonoBehaviour {
 	public void closeInstructions () {
 		instructionsDialog.SetActive (false);
 	}
+
+    public void showToggleGameOver()
+    {
+        //GameObject tgo = GameObject.FindGameObjectWithTag("ToggleGameOver");
+        tgGameOverButton.SetActive(true);
+    }
+
+    public void hideToggleGameOver()
+    {
+        //GameObject tgo = GameObject.FindGameObjectWithTag("ToggleGameOver");
+        tgGameOverButton.SetActive(false);
+    }
+
+    public void hideGameOver()
+    {
+        gameOverDialog.SetActive(false);
+    }
+
+    public void toggleGameOverScreen()
+    {
+        gameOverDialog.SetActive(!gameOverDialog.activeSelf);
+    }
 
 	public void showGameOver () {
 

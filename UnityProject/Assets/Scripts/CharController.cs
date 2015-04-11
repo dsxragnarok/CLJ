@@ -195,7 +195,7 @@ public class CharController : Entity {
 
 		animator.SetFloat ("Speed", Mathf.Abs (move.magnitude));
 
-		if (gameMaster.GameBounds.IsOutOfBounds(this.gameObject))
+		if (!dead && gameMaster.GameBounds.IsOutOfBounds(this.gameObject))
 		{
 			Die();
 		}
@@ -342,5 +342,6 @@ public class CharController : Entity {
 		dead = true;
 		animator.SetBool ("Die", true);
 		gameMaster.showGameOver ();
+        gameMaster.showToggleGameOver(); // for testing purposes -- delete or comment out for publish
 	}
 }
