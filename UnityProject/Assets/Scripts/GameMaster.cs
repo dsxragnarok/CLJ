@@ -37,6 +37,9 @@ public class GameMaster : MonoBehaviour {
     public GameObject volumeControl;
     public GameObject tgGameOverButton; // for testing purposes - this allows to hide the Game Over panel to take screenshot on death
 
+    public UnityEngine.UI.Image pauseImage;
+    public UnityEngine.UI.Image playImage;
+
 	public bool isGameStarted = false;
 
     private string versionString = "0.5";
@@ -252,11 +255,16 @@ public class GameMaster : MonoBehaviour {
 
 	public void togglePause () {
 		isPaused = !isPaused;
+        Button pauseButton = GameObject.FindGameObjectWithTag("PauseButton").GetComponent<Button>();
 
 		if (isPaused) {
-			player.GetComponent<Rigidbody2D>().gravityScale = 0;
+            //pauseButton.image = playImage;
+            pauseButton.targetGraphic = playImage;
+            Time.timeScale = 0f;
 		} else {
-			player.GetComponent<Rigidbody2D>().gravityScale = 1;
+            //pauseButton.image = pauseImage;            
+            pauseButton.targetGraphic = pauseImage;
+            Time.timeScale = 1.0f;
 		}
 	}
 

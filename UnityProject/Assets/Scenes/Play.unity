@@ -1060,6 +1060,8 @@ MonoBehaviour:
   floatingTextPrefab: {fileID: 107358, guid: 9b9c9c50d59db8a49b00e3565b609fff, type: 2}
   volumeControl: {fileID: 0}
   tgGameOverButton: {fileID: 877727513}
+  pauseImage: {fileID: 0}
+  playImage: {fileID: 0}
   isGameStarted: 0
 --- !u!4 &571835883
 Transform:
@@ -1741,11 +1743,11 @@ GameObject:
   - 114: {fileID: 1234824099}
   m_Layer: 5
   m_Name: PauseButton
-  m_TagString: Untagged
+  m_TagString: PauseButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1234824098
 RectTransform:
   m_ObjectHideFlags: 0
