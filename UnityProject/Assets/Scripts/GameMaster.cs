@@ -124,6 +124,12 @@ public class GameMaster : MonoBehaviour {
 
 		linkObjects ();
 
+        AudioSource musicSource = mainCamera.GetComponent<AudioSource>();
+        if (musicSource != null)
+        {
+            musicSource.volume = Settings.MasterVolume;
+        }
+
         // initialize tipIndex to a random position
         tipIndex = Random.Range(0, gameplayTips.Length - 1);
 

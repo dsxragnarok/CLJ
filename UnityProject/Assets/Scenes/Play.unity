@@ -1058,6 +1058,7 @@ MonoBehaviour:
   instructionsDialog: {fileID: 2120612750}
   creditsDialog: {fileID: 0}
   floatingTextPrefab: {fileID: 107358, guid: 9b9c9c50d59db8a49b00e3565b609fff, type: 2}
+  volumeControl: {fileID: 0}
   tgGameOverButton: {fileID: 877727513}
   isGameStarted: 0
 --- !u!4 &571835883
