@@ -8,6 +8,7 @@ using System.Collections;
 // using the Game Master
 public class GameMaster : MonoBehaviour {
 	private PlayerStats playerData;				// Player data and statistics
+    private GameSettings settings;
 	private CharController player;				// Player Avatar in the scene
 	private BoundsDeallocator gameBounds;		// Bounds of the game usually to check when an entity is outside
 	private SoundEffectsManager sfxManager;			// Sound Effects Manager
@@ -33,6 +34,7 @@ public class GameMaster : MonoBehaviour {
 	public GameObject instructionsDialog;
 	public GameObject creditsDialog;
 	public GameObject floatingTextPrefab;
+    public GameObject volumeControl;
     public GameObject tgGameOverButton; // for testing purposes - this allows to hide the Game Over panel to take screenshot on death
 
 	public bool isGameStarted = false;
@@ -52,6 +54,11 @@ public class GameMaster : MonoBehaviour {
 	{
 		get { return playerData; }
 	}
+
+    public GameSettings Settings
+    {
+        get { return settings; }
+    }
 
 	public CharController Player
 	{
@@ -165,6 +172,12 @@ public class GameMaster : MonoBehaviour {
 		ftInstance.GetComponent<FloatingText>().BindToTarget(Player.gameObject);
 		ftInstance.GetComponent<Text>().text = value;
 	}
+
+    public void adjustVolume ()
+    {
+        Slider volume = volumeControl.GetComponent<Slider>();
+        Settings.AdjustMasterVolume(volume.value);
+    }
 
 	public void showLeaderboard () {
 		playerData.AttemptDisplayLeaderboard ();
@@ -288,7 +301,21 @@ public class GameMaster : MonoBehaviour {
 			instance.tag = "PlayerData";
 			playerData = instance.AddComponent<PlayerStats>();
 		}
-		
+
+        GameObject _gameSettings = GameObject.FindGameObjectWithTag("GameSettings");
+        if (_gameSettings != null)
+        {
+            settings = _gameSettings.GetComponent<GameSettings>();
+        }
+        else
+        {
+            // Create a Game Settings instance if it does not yet exist
+            GameObject instance = new GameObject();
+            instance.name = "GameSettings";
+            instance.tag = "GameSettings";
+            settings = instance.AddComponent<GameSettings>();
+        }
+
 		GameObject _player = GameObject.FindGameObjectWithTag("Player");
 		if (_player != null)
 			player = _player.GetComponent<CharController>();
