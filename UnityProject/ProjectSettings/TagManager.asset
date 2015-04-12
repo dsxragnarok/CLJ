@@ -33,6 +33,7 @@ TagManager:
   - VersionString
   - ToggleGameOver
   - GameSettings
+  - VolumeControl
   layers:
   - Default
   - TransparentFX

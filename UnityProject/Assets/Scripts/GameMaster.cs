@@ -173,10 +173,11 @@ public class GameMaster : MonoBehaviour {
 		ftInstance.GetComponent<Text>().text = value;
 	}
 
-    public void adjustVolume ()
+    public void adjustVolume (float v)
     {
-        Slider volume = volumeControl.GetComponent<Slider>();
-        Settings.AdjustMasterVolume(volume.value);
+        //Slider volume = volumeControl.GetComponent<Slider>();
+        //Debug.Log("Volume value: " + volume.value);
+        Settings.AdjustMasterVolume(v);
     }
 
 	public void showLeaderboard () {
@@ -197,13 +198,11 @@ public class GameMaster : MonoBehaviour {
 
     public void showToggleGameOver()
     {
-        //GameObject tgo = GameObject.FindGameObjectWithTag("ToggleGameOver");
         tgGameOverButton.SetActive(true);
     }
 
     public void hideToggleGameOver()
     {
-        //GameObject tgo = GameObject.FindGameObjectWithTag("ToggleGameOver");
         tgGameOverButton.SetActive(false);
     }
 

@@ -6,7 +6,11 @@ public class GameSettings : MonoBehaviour {
 
     private float masterVolume;
 
-    public float MasterVolume { get; set; }
+    public float MasterVolume 
+    {
+        get { return masterVolume; }
+        set { masterVolume = value; }
+    }
 
     private SoundEffectsManager sfm;
 

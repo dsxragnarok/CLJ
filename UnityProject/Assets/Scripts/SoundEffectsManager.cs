@@ -38,8 +38,8 @@ public class SoundEffectsManager : Entity {
 	// Use this for initialization
 	public override void Start () {
 		base.Start ();
-        masterVolume = 1.0f;
-        //masterVolume = gameMaster.Settings.MasterVolume;
+        //masterVolume = 1.0f;
+        masterVolume = gameMaster.Settings.MasterVolume;
 	}
 
 	public void PlaySoundClip(string key, float volume) {
