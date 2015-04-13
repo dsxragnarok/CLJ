@@ -1061,6 +1061,18 @@ Prefab:
       propertyPath: m_Name
       value: CloudBG 1
       objectReference: {fileID: 0}
+    - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
   m_IsPrefabParent: 0
@@ -1106,6 +1118,7 @@ MonoBehaviour:
   floatingTextPrefab: {fileID: 107358, guid: 9b9c9c50d59db8a49b00e3565b609fff, type: 2}
   volumeControl: {fileID: 0}
   tgGameOverButton: {fileID: 877727513}
+  pauseButton: {fileID: 1234824097}
   pauseImage: {fileID: 21300000, guid: 512030abbf372c443af3dbf58db2dfdb, type: 3}
   playImage: {fileID: 21300000, guid: 6581de69ab8653746ace4c45df2d778c, type: 3}
   isGameStarted: 0
@@ -1167,6 +1180,18 @@ Prefab:
     - target: {fileID: 194934, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
       propertyPath: m_Name
       value: CloudBG 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
@@ -1319,7 +1344,7 @@ GameObject:
   - 114: {fileID: 877727516}
   - 114: {fileID: 877727515}
   m_Layer: 5
-  m_Name: Button
+  m_Name: DebugButton
   m_TagString: ToggleGameOver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1333,14 +1358,14 @@ RectTransform:
   m_GameObject: {fileID: 877727513}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 2077865980}
   m_Father: {fileID: 968043610}
   m_RootOrder: 5
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -85, y: 20}
+  m_AnchoredPosition: {x: -119.900002, y: 23.1000004}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &877727515
@@ -1885,6 +1910,18 @@ Prefab:
       propertyPath: m_Name
       value: CloudBG 2
       objectReference: {fileID: 0}
+    - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
   m_IsPrefabParent: 0
@@ -1914,15 +1951,15 @@ RectTransform:
   m_GameObject: {fileID: 1234824097}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .5, y: .5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 279211976}
   m_Father: {fileID: 968043610}
   m_RootOrder: 3
-  m_AnchorMin: {x: .0210000016, y: .0350000001}
-  m_AnchorMax: {x: .0557607934, y: .0966103077}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 33, y: 37}
+  m_AnchorMin: {x: .0184842795, y: .0507628657}
+  m_AnchorMax: {x: .0930000022, y: .196474284}
+  m_AnchoredPosition: {x: 0, y: .399999619}
+  m_SizeDelta: {x: 1, y: -1}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1234824099
 MonoBehaviour:
@@ -2606,6 +2643,18 @@ Prefab:
       propertyPath: m_Name
       value: CloudBG 3
       objectReference: {fileID: 0}
+    - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
   m_IsPrefabParent: 0
@@ -2755,6 +2804,18 @@ Prefab:
     - target: {fileID: 480704, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}

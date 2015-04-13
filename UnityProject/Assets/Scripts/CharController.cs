@@ -121,6 +121,24 @@ public class CharController : Entity {
 		    (Input.GetKeyDown (KeyCode.Space) || Input.GetMouseButtonDown(0))
 		 )
 		{
+            if (Input.GetMouseButtonDown(0) && isHitPauseButton(Input.mousePosition))
+                return;
+            /*{
+                Vector3 mp = Input.mousePosition;
+                Vector3 pb = gameMaster.pauseButton.transform.position;
+                
+                float halfw = gameMaster.pauseButton.GetComponent<UnityEngine.UI.Image>().rectTransform.rect.width / 2;
+                float halfh = gameMaster.pauseButton.GetComponent<UnityEngine.UI.Image>().rectTransform.rect.height / 2;
+
+                float left = pb.x - halfw;
+                float right = pb.x + halfw;
+                float top = pb.y - halfh;
+                float bottom = pb.y + halfh;
+
+                if (mp.x >= left && mp.x <= right && mp.y >= top && mp.y <= bottom)
+                    return;
+            }*/
+
 			gameMaster.SoundEffects.PlaySoundClip("jump");
 			//StopCoroutine(performJump());
 			//StartCoroutine(performJump());
@@ -145,6 +163,9 @@ public class CharController : Entity {
 			{
 				if ((grounded || jumpPhase < 2) && touch.phase == TouchPhase.Began)
 				{
+                    if (gameMaster.isHitPauseButton(touch.position))
+                        return;
+
 					gameMaster.SoundEffects.PlaySoundClip("jump");
 					initJump();
 				}
