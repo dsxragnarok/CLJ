@@ -50,7 +50,7 @@ public class CharController : Entity {
 		unitRigidbody.AddForce (Vector2.right * -3000.0f * level);
 		if (stunLevel >= 4)
 			unitRigidbody.AddForce (Vector2.up * 1000.0f * level);
-		jumpPhase = 2;
+		//jumpPhase = 2;
 	}
 
 	// Returns whether the player is stunned,

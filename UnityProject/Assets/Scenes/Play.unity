@@ -2805,7 +2805,7 @@ MonoBehaviour:
   entityID: -1
   levelChanges:
   - levelRequirement: 1
-    changeSpawnInterval: -1
+    changeSpawnInterval: -1.5
     modifyBlueAmount: 0
     modifyRedAmount: 0
     modifyBlackAmount: 0
@@ -2815,27 +2815,42 @@ MonoBehaviour:
     modifyRedAmount: 0
     modifyBlackAmount: 0
   - levelRequirement: 4
-    changeSpawnInterval: -.5
+    changeSpawnInterval: -.25
     modifyBlueAmount: -1
     modifyRedAmount: 0
     modifyBlackAmount: 1
   - levelRequirement: 8
-    changeSpawnInterval: -.5
-    modifyBlueAmount: 0
-    modifyRedAmount: 0
-    modifyBlackAmount: 0
-  - levelRequirement: 16
-    changeSpawnInterval: 0
-    modifyBlueAmount: -1
-    modifyRedAmount: 0
-    modifyBlackAmount: 1
-  - levelRequirement: 32
     changeSpawnInterval: -.25
     modifyBlueAmount: 0
     modifyRedAmount: 0
     modifyBlackAmount: 0
-  - levelRequirement: 64
-    changeSpawnInterval: -.150000006
+  - levelRequirement: 16
+    changeSpawnInterval: -.100000001
+    modifyBlueAmount: -1
+    modifyRedAmount: 0
+    modifyBlackAmount: 1
+  - levelRequirement: 25
+    changeSpawnInterval: -.100000001
+    modifyBlueAmount: 0
+    modifyRedAmount: 0
+    modifyBlackAmount: 0
+  - levelRequirement: 36
+    changeSpawnInterval: -.0500000007
+    modifyBlueAmount: 0
+    modifyRedAmount: 0
+    modifyBlackAmount: 0
+  - levelRequirement: 50
+    changeSpawnInterval: -.0500000007
+    modifyBlueAmount: 0
+    modifyRedAmount: 0
+    modifyBlackAmount: 0
+  - levelRequirement: 75
+    changeSpawnInterval: -.0500000007
+    modifyBlueAmount: 0
+    modifyRedAmount: 0
+    modifyBlackAmount: 0
+  - levelRequirement: 100
+    changeSpawnInterval: -.0500000007
     modifyBlueAmount: 0
     modifyRedAmount: 0
     modifyBlackAmount: 0
