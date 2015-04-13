@@ -43,7 +43,7 @@ public class GameMaster : MonoBehaviour {
 
 	public bool isGameStarted = false;
 
-    private string versionString = "0.5";
+    private string versionString = "v 0.6";
 
     private int tipIndex = 0;
     private string[] gameplayTips = new string[]
