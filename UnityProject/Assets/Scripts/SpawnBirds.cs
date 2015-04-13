@@ -107,18 +107,20 @@ public class SpawnBirds : Entity {
 		// Obtain locations where we can spawn birds fairly
 		targetDest = targetPlatforms[idxPlatform].transform.position;	
 		// Spawn with a little bit of y offset
-		targetDest = targetDest + new Vector2(UnityEngine.Random.Range(-1.0f, 1.0f), UnityEngine.Random.Range (0.5f, 3.0f));
+		targetDest = targetDest + new Vector2(UnityEngine.Random.Range(-1.0f, 1.0f), UnityEngine.Random.Range (0.0f, 3.0f));
 
 		// Predict when home position reaches the point we want bird and home to meet
 		float cloudSpeed = 4.5f;
 
+		// x1 + v1 * t = x2 + v2 * t => x2 = x1 + (v1 - v2) * t
 		// Predict home position using desired velocity and acceleration and time
-		Vector2 targetAcc = new Vector2(-5.0f, 0.0f);
-		Vector2 targetVel = new Vector2(UnityEngine.Random.Range (-4.0f, -8.0f), UnityEngine.Random.Range (4.0f, 6.0f));
+		Vector2 targetAcc = new Vector2(UnityEngine.Random.Range (-3.5f, -2.5f), UnityEngine.Random.Range (-2.5f, -1.5f));
+		Vector2 targetVel = new Vector2(UnityEngine.Random.Range (-8.0f, -6.0f), UnityEngine.Random.Range (7.0f, 9.0f));
+		Vector2 targetPos;
+
 		float t = 2.0f;
-		Vector2 targetPos = targetDest - (targetVel + new Vector2(cloudSpeed, 0.0f)) * t - targetAcc * t * t * 0.5f;
-
-
+		targetPos = targetDest + (new Vector2(-cloudSpeed, 0.0f) - targetVel) * t - targetAcc * t * t * 0.5f;
+	
 		// Instantiate bird with parameters
 		Quaternion rot = this.transform.rotation;
 		//BirdController obj = (BirdController)GameObject.Instantiate(spawnPrefab, targetPos, rot);
