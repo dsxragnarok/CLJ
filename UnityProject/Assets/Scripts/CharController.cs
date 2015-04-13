@@ -121,7 +121,7 @@ public class CharController : Entity {
 		    (Input.GetKeyDown (KeyCode.Space) || Input.GetMouseButtonDown(0))
 		 )
 		{
-            if (Input.GetMouseButtonDown(0) && isHitPauseButton(Input.mousePosition))
+            if (Input.GetMouseButtonDown(0) && gameMaster.isHitPauseButton(Input.mousePosition))
                 return;
             /*{
                 Vector3 mp = Input.mousePosition;
