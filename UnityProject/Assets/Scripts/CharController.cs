@@ -90,6 +90,10 @@ public class CharController : Entity {
 	public override void Update () {
 		base.Update ();
 
+		// Do not allow any input controls if game is paused
+		if (gameMaster.isPaused)
+			return;
+
 #if UNITY_STANDALONE || UNITY_WEBPLAYER
 
 		if (!gameMaster.isGameStarted) {

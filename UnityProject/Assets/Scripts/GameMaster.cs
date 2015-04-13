@@ -139,8 +139,8 @@ public class GameMaster : MonoBehaviour {
 
 #if UNITY_IOS
         // In ios, we don't use the Quit button
-        GameObject quitButton = GameObject.FindGameObjectWithTag("QuitButton");
-        quitButton.SetActive(false);
+        //GameObject quitButton = GameObject.FindGameObjectWithTag("QuitButton");
+        //quitButton.SetActive(false);
 #endif
 
         GameObject versionDisplay = GameObject.FindGameObjectWithTag("VersionString");
