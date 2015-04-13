@@ -34,6 +34,7 @@ TagManager:
   - ToggleGameOver
   - GameSettings
   - VolumeControl
+  - CloudBG
   layers:
   - Default
   - TransparentFX
