@@ -8,7 +8,7 @@ public class JumpInstruction : MonoBehaviour {
 		GameObject spaceTextObj = GameObject.Find ("SpaceText");
 		Text spaceText = spaceTextObj.GetComponent<Text>();
 		Debug.Log (spaceText.text);
-		spaceText.text = "Tap to jump\nTouch and hold to jump higher";
+		spaceText.text = "Tap to jump\nTouch and hold to jump higher\nTap twice to double jump";
 #endif
 	}
 }

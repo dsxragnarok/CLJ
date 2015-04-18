@@ -660,7 +660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: c8d6a20b850fbb34d96f78480f43c2b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec3ccd933cecf1444bb5e2f2145ee3b0, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2574,7 +2574,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Press space to jump
 
-    Hold to jump higher'
+    Hold to jump higher
+
+    Space twice to double jump'
 --- !u!222 &1558507135
 CanvasRenderer:
   m_ObjectHideFlags: 0
