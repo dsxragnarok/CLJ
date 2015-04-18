@@ -137,10 +137,10 @@ public class GameMaster : MonoBehaviour {
         // initialize tipIndex to a random position
         tipIndex = Random.Range(0, gameplayTips.Length - 1);
 
-#if UNITY_IOS
+#if UNITY_IOS || UNITY_EDITOR
         // In ios, we don't use the Quit button
-        //GameObject quitButton = GameObject.FindGameObjectWithTag("QuitButton");
-        //quitButton.SetActive(false);
+        GameObject quitButton = GameObject.FindGameObjectWithTag("QuitButton");
+        quitButton.SetActive(false);
 #endif
 
         GameObject versionDisplay = GameObject.FindGameObjectWithTag("VersionString");
@@ -191,7 +191,7 @@ public class GameMaster : MonoBehaviour {
     }
 
 	public void showLeaderboard () {
-		playerData.AttemptDisplayLeaderboard ();
+        playerData.DisplayLeaderboard();//playerData.AttemptDisplayLeaderboard ();
 	}
 
 	public void showCredits () {
@@ -318,6 +318,11 @@ public class GameMaster : MonoBehaviour {
             return true;
 
         return false;
+    }
+
+    public void SocialLogin ()
+    {
+        PlayerData.AttemptAuthentication();
     }
 
 	public void linkObjects() {

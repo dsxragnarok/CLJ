@@ -35,6 +35,8 @@ TagManager:
   - GameSettings
   - VolumeControl
   - CloudBG
+  - LeaderboardButton
+  - LoginButton
   layers:
   - Default
   - TransparentFX

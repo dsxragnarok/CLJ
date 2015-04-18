@@ -32,7 +32,7 @@ public class PlayerStats : MonoBehaviour {
 #endif
 		// Authenticate and register a ProcessAuthentication callback
 		// This call needs to be made before we can proceed to other calls in the Social API
-		Social.localUser.Authenticate (ProcessAuthentication);
+        AttemptAuthentication();
 	}
 	
 	// Update is called once per frame
@@ -60,6 +60,11 @@ public class PlayerStats : MonoBehaviour {
 		totalCheckpointsCollected = PlayerPrefs.GetInt ("totalCheckpointsCollected", 0);
 	}
 
+    public void AttemptAuthentication ()
+    {
+        Social.localUser.Authenticate(ProcessAuthentication);
+    }
+
 	// This function gets called when Authenticate completes
 	// Note that if the operation is successful, Social.localUser will contain data from the server. 
 	public void ProcessAuthentication (bool success) {
@@ -67,6 +72,21 @@ public class PlayerStats : MonoBehaviour {
 			Debug.Log ("Authenticated, checking achievements");
 			// Request loaded achievements, and register a callback for processing them
 			Social.LoadAchievements (ProcessLoadedAchievements);
+
+            // Deactivate the Login Button and activate the Leaderboard Button
+            GameObject hud = GameObject.FindGameObjectWithTag("HUD");
+            UnityEngine.UI.Button[] buttons = hud.GetComponentsInChildren<UnityEngine.UI.Button>(true);
+            foreach (UnityEngine.UI.Button btn in buttons)
+            {
+                if (btn.tag == "LoginButton")
+                {
+                    btn.gameObject.SetActive(false);
+                }
+                if (btn.tag == "LeaderboardButton")
+                {
+                    btn.gameObject.SetActive(true);
+                }
+            }
 		} else {
 			Debug.Log ("Failed to authenticate");
 		}
@@ -104,19 +124,19 @@ public class PlayerStats : MonoBehaviour {
 #endif
 	}
 
-	public void DisplayLeaderboard (bool success) 
+	public void DisplayLeaderboard () 
     {
-        if (success)
-        {
+        //if (success)
+        //{
             Social.ShowLeaderboardUI();
-        }
-        else
-        {
+        //}
+        //else
+        //{
             // we should probably put up some error message
-            Debug.Log("Authentication failed.");
-        }
+         //   Debug.Log("Authentication failed.");
+        //}
 	}
-
+    /*
     public void AttemptDisplayLeaderboard ()
     {
         if (Social.localUser.authenticated)
@@ -127,5 +147,5 @@ public class PlayerStats : MonoBehaviour {
         {
             Social.localUser.Authenticate(DisplayLeaderboard);
         }
-    }
+    }*/
 }
