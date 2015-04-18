@@ -284,6 +284,7 @@ GameObject:
   - 68: {fileID: 6813608}
   - 114: {fileID: 11436788}
   - 50: {fileID: 5031070}
+  - 95: {fileID: 9554996}
   m_Layer: 11
   m_Name: BirdRed
   m_TagString: Birdie
@@ -397,6 +398,7 @@ GameObject:
   - 68: {fileID: 6822048}
   - 114: {fileID: 11492214}
   - 50: {fileID: 5072910}
+  - 95: {fileID: 9576518}
   m_Layer: 11
   m_Name: BirdRed
   m_TagString: Birdie
@@ -678,6 +680,7 @@ GameObject:
   - 68: {fileID: 6865796}
   - 114: {fileID: 11464212}
   - 50: {fileID: 5007058}
+  - 95: {fileID: 9515184}
   m_Layer: 11
   m_Name: BirdRed
   m_TagString: Birdie
@@ -808,6 +811,7 @@ GameObject:
   - 68: {fileID: 6835818}
   - 114: {fileID: 11498882}
   - 50: {fileID: 5072598}
+  - 95: {fileID: 9539400}
   m_Layer: 11
   m_Name: BirdRed
   m_TagString: Birdie
@@ -1272,6 +1276,7 @@ GameObject:
   - 68: {fileID: 6876554}
   - 114: {fileID: 11406634}
   - 50: {fileID: 5093170}
+  - 95: {fileID: 9520268}
   m_Layer: 11
   m_Name: BirdRed
   m_TagString: Birdie
@@ -5551,6 +5556,91 @@ EdgeCollider2D:
   m_Points:
   - {x: -.503112555, y: .418792814}
   - {x: .479407221, y: -.323971808}
+--- !u!95 &9515184
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136344}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 79ed697978a973246a354effa13cbe1f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &9520268
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166162}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 79ed697978a973246a354effa13cbe1f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &9539400
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141826}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 79ed697978a973246a354effa13cbe1f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &9554996
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115300}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 79ed697978a973246a354effa13cbe1f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &9576518
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122344}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 79ed697978a973246a354effa13cbe1f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11401060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6544,7 +6634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b5722e3f426de41b86aa27b546889f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityID: -1
 --- !u!114 &11454670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6953,7 +7042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 9
-  scoreBonus: 200
+  glowFireEffectPrefab: {fileID: 0}
 --- !u!114 &11482594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7235,7 +7324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 9
-  scoreBonus: 200
+  glowFireEffectPrefab: {fileID: 0}
 --- !u!114 &11498882
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8604,7 +8693,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 30
-  m_Sprite: {fileID: 21300000, guid: c8d6a20b850fbb34d96f78480f43c2b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec3ccd933cecf1444bb5e2f2145ee3b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21244830
 SpriteRenderer:
@@ -8630,7 +8719,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 30
-  m_Sprite: {fileID: 21300000, guid: c8d6a20b850fbb34d96f78480f43c2b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec3ccd933cecf1444bb5e2f2145ee3b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21244906
 SpriteRenderer:
@@ -9332,7 +9421,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 30
-  m_Sprite: {fileID: 21300000, guid: c8d6a20b850fbb34d96f78480f43c2b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec3ccd933cecf1444bb5e2f2145ee3b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21270058
 SpriteRenderer:
@@ -9436,7 +9525,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 30
-  m_Sprite: {fileID: 21300000, guid: c8d6a20b850fbb34d96f78480f43c2b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec3ccd933cecf1444bb5e2f2145ee3b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21272532
 SpriteRenderer:
@@ -9748,7 +9837,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 30
-  m_Sprite: {fileID: 21300000, guid: c8d6a20b850fbb34d96f78480f43c2b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec3ccd933cecf1444bb5e2f2145ee3b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21286428
 SpriteRenderer:
