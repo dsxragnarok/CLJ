@@ -1063,15 +1063,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
       propertyPath: m_Color.r
-      value: 1
+      value: .838235259
       objectReference: {fileID: 0}
     - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
       propertyPath: m_Color.g
-      value: 1
+      value: .850562274
       objectReference: {fileID: 0}
     - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
       propertyPath: m_Color.b
-      value: 1
+      value: .850562274
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
@@ -1134,7 +1134,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!4 &608107762
+--- !u!4 &608107762 stripped
 Transform:
   m_PrefabParentObject: {fileID: 432732, guid: 3078ca2d320ba7142ab5da1b429dabae, type: 2}
   m_PrefabInternal: {fileID: 26873132}
@@ -1183,24 +1183,24 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
       propertyPath: m_Color.r
-      value: 1
+      value: .838235259
       objectReference: {fileID: 0}
     - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
       propertyPath: m_Color.g
-      value: 1
+      value: .850562274
       objectReference: {fileID: 0}
     - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
       propertyPath: m_Color.b
-      value: 1
+      value: .850562274
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &701482867
+--- !u!1 &701482867 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 194934, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
   m_PrefabInternal: {fileID: 679663387}
---- !u!4 &701482868
+--- !u!4 &701482868 stripped
 Transform:
   m_PrefabParentObject: {fileID: 480704, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
   m_PrefabInternal: {fileID: 679663387}
@@ -1448,7 +1448,7 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 877727513}
---- !u!1 &949103160
+--- !u!1 &949103160 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 194934, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
   m_PrefabInternal: {fileID: 1727131139}
@@ -1613,11 +1613,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1028237129}
---- !u!1 &1033019438
+--- !u!1 &1033019438 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 194934, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
   m_PrefabInternal: {fileID: 1203115980}
---- !u!4 &1033019439
+--- !u!4 &1033019439 stripped
 Transform:
   m_PrefabParentObject: {fileID: 480704, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
   m_PrefabInternal: {fileID: 1203115980}
@@ -1912,15 +1912,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
       propertyPath: m_Color.r
-      value: 1
+      value: .838235259
       objectReference: {fileID: 0}
     - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
       propertyPath: m_Color.g
-      value: 1
+      value: .850562274
       objectReference: {fileID: 0}
     - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
       propertyPath: m_Color.b
-      value: 1
+      value: .850562274
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
@@ -2592,11 +2592,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b567fb25486b814418ca03a76acd533e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1580245774
+--- !u!1 &1580245774 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 194934, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
   m_PrefabInternal: {fileID: 1622448652}
---- !u!4 &1580245777
+--- !u!4 &1580245777 stripped
 Transform:
   m_PrefabParentObject: {fileID: 480704, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
   m_PrefabInternal: {fileID: 1622448652}
@@ -2645,15 +2645,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
       propertyPath: m_Color.r
-      value: 1
+      value: .838235259
       objectReference: {fileID: 0}
     - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
       propertyPath: m_Color.g
-      value: 1
+      value: .850562274
       objectReference: {fileID: 0}
     - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
       propertyPath: m_Color.b
-      value: 1
+      value: .850562274
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
@@ -2807,20 +2807,20 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
       propertyPath: m_Color.r
-      value: 1
+      value: .838235259
       objectReference: {fileID: 0}
     - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
       propertyPath: m_Color.g
-      value: 1
+      value: .850562274
       objectReference: {fileID: 0}
     - target: {fileID: 21279776, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
       propertyPath: m_Color.b
-      value: 1
+      value: .850562274
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1727131140
+--- !u!4 &1727131140 stripped
 Transform:
   m_PrefabParentObject: {fileID: 480704, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
   m_PrefabInternal: {fileID: 1727131139}
@@ -3307,11 +3307,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: -1
---- !u!1 &2033328638
+--- !u!1 &2033328638 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 194934, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
   m_PrefabInternal: {fileID: 551427706}
---- !u!4 &2033328639
+--- !u!4 &2033328639 stripped
 Transform:
   m_PrefabParentObject: {fileID: 480704, guid: b6a611c1665083d4a8984e18afcabb91, type: 2}
   m_PrefabInternal: {fileID: 551427706}
