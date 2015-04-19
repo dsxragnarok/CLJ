@@ -100,6 +100,7 @@ public class CharController : Entity {
 			if (Input.GetKeyUp (KeyCode.Space) || Input.GetMouseButtonUp(0)) {
 				gameMaster.closeInstructions();
 				gameMaster.isGameStarted = true;
+                gameMaster.startTime = Time.timeSinceLevelLoad;
 			} else {
 				return; 
 			}
@@ -111,6 +112,7 @@ public class CharController : Entity {
 				if (touch.phase == TouchPhase.Began) {
 					gameMaster.closeInstructions();
 					gameMaster.isGameStarted = true;
+                    gameMaster.startTime = Time.timeSinceLevelLoad;
 				} else {
 					return; 
 				}
@@ -367,7 +369,10 @@ public class CharController : Entity {
 		dead = true;
 		animator.SetBool ("Die", true);
         gameMaster.PlayerData.totalDeath += 1;
+        gameMaster.endTime = Time.timeSinceLevelLoad;
 		gameMaster.showGameOver ();
         gameMaster.showToggleGameOver(); // for testing purposes -- delete or comment out for publish
+        //float duration = Time.timeSinceLevelLoad - gameMaster.startTime;
+        //Debug.Log("Game Duration in Seconds: " + duration);
 	}
 }

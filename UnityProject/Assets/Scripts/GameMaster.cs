@@ -43,6 +43,8 @@ public class GameMaster : MonoBehaviour {
     public Sprite playImage;
 
 	public bool isGameStarted = false;
+    public float startTime;             // The time in seconds after the player exits instruction screen
+    public float endTime;               // The time in seconds when the player dies
 
     private string versionString = "v 0.7";
 
@@ -138,29 +140,26 @@ public class GameMaster : MonoBehaviour {
         // initialize tipIndex to a random position
         tipIndex = Random.Range(0, gameplayTips.Length - 1);
 
-        if (playerData.isAuthenticated())
+        // Deactivate the Login Button and activate the Leaderboard Button
+        GameObject hud = GameObject.FindGameObjectWithTag("HUD");
+        UnityEngine.UI.Button[] buttons = hud.GetComponentsInChildren<UnityEngine.UI.Button>(true);
+        foreach (UnityEngine.UI.Button btn in buttons)
         {
-            // Deactivate the Login Button and activate the Leaderboard Button
-            GameObject hud = GameObject.FindGameObjectWithTag("HUD");
-            UnityEngine.UI.Button[] buttons = hud.GetComponentsInChildren<UnityEngine.UI.Button>(true);
-            foreach (UnityEngine.UI.Button btn in buttons)
+            if (playerData.isAuthenticated() && btn.tag == "LoginButton")
             {
-                if (btn.tag == "LoginButton")
-                {
-                    btn.gameObject.SetActive(false);
-                }
-                if (btn.tag == "LeaderboardButton")
-                {
-                    btn.gameObject.SetActive(true);
-                }
+                btn.gameObject.SetActive(false);
             }
-        }
-
+            if (playerData.isAuthenticated() && btn.tag == "LeaderboardButton")
+            {
+                btn.gameObject.SetActive(true);
+            }
 #if UNITY_IOS || UNITY_EDITOR
-        // In ios, we don't use the Quit button
-        GameObject quitButton = GameObject.FindGameObjectWithTag("QuitButton");
-        quitButton.SetActive(false);
+            if (btn.tag == "QuitButton")
+            {
+                btn.gameObject.SetActive(false);
+            }
 #endif
+        }
 
         GameObject versionDisplay = GameObject.FindGameObjectWithTag("VersionString");
         if (versionDisplay != null)
@@ -284,6 +283,7 @@ public class GameMaster : MonoBehaviour {
             playerData.ReportLeaderboard(playerData.totalCheckpointsCollected, "CgkI68X_t_kNEAIQDg");
             playerData.ReportLeaderboard(playerData.totalBlueBirdsCollected, "CgkI68X_t_kNEAIQEA");
             playerData.ReportLeaderboard(playerData.totalBlackBirdsCollected, "CgkI68X_t_kNEAIQEA");
+            playerData.ReportLeaderboard((long)((endTime - startTime) * 1000L), "CgkI68X_t_kNEAIQEg");  // Google Play accepts time in milliseconds
 #elif UNITY_IOS
             playerData.ReportLeaderboard(this.collectedStars, "starspersession");
             playerData.ReportLeaderboard(this.collectedBirds, "balloonspersession");
@@ -296,6 +296,7 @@ public class GameMaster : MonoBehaviour {
             playerData.ReportLeaderboard(playerData.totalCheckpointsCollected, "mostrainbowsalltime");
             playerData.ReportLeaderboard(playerData.totalBlueBirdsCollected, "bluebirdsalltime");
             playerData.ReportLeaderboard(playerData.totalBlackBirdsCollected, "yellowbirdsalltime");
+            playerData.ReportLeaderboard((long)((endTime - startTime), "longestsession");           // Game Center set to the second
 #endif
 
             isSaved = true; // Prevent Dat Spam

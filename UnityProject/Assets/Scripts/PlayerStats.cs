@@ -31,6 +31,7 @@ public class PlayerStats : MonoBehaviour {
     // BlueBirds Per Session:   CgkI68X_t_kNEAIQDw
     // YellowBirds All Time :   CgkI68X_t_kNEAIQEA
     // BlueBirds All Time   :   CgkI68X_t_kNEAIQEA
+    // Longest Session      :   CgkI68X_t_kNEAIQEg
 
 	void Awake () {
 		GameObject.DontDestroyOnLoad (this.gameObject);
@@ -147,6 +148,21 @@ public class PlayerStats : MonoBehaviour {
 	}
 
     public void ReportLeaderboard (int score, string leaderboard)
+    {
+        Social.ReportScore(score, leaderboard, (bool success) =>
+        {
+            if (success)
+            {
+                Debug.Log("Successfully reported leaderboard score");
+            }
+            else
+            {
+                Debug.Log("Failed to report leaderboard score");
+            }
+        });
+    }
+
+    public void ReportLeaderboard(long score, string leaderboard)
     {
         Social.ReportScore(score, leaderboard, (bool success) =>
         {
