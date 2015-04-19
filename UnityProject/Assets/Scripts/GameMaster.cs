@@ -137,6 +137,24 @@ public class GameMaster : MonoBehaviour {
         // initialize tipIndex to a random position
         tipIndex = Random.Range(0, gameplayTips.Length - 1);
 
+        if (playerData.isAuthenticated())
+        {
+            // Deactivate the Login Button and activate the Leaderboard Button
+            GameObject hud = GameObject.FindGameObjectWithTag("HUD");
+            UnityEngine.UI.Button[] buttons = hud.GetComponentsInChildren<UnityEngine.UI.Button>(true);
+            foreach (UnityEngine.UI.Button btn in buttons)
+            {
+                if (btn.tag == "LoginButton")
+                {
+                    btn.gameObject.SetActive(false);
+                }
+                if (btn.tag == "LeaderboardButton")
+                {
+                    btn.gameObject.SetActive(true);
+                }
+            }
+        }
+
 #if UNITY_IOS || UNITY_EDITOR
         // In ios, we don't use the Quit button
         GameObject quitButton = GameObject.FindGameObjectWithTag("QuitButton");
@@ -257,13 +275,17 @@ public class GameMaster : MonoBehaviour {
 	public void togglePause () {
 		isPaused = !isPaused;
         Image pbImage = pauseButton.GetComponent<Image>();
-
+        AudioSource musicSource = mainCamera.GetComponent<AudioSource>();
 		if (isPaused) {
             pbImage.sprite = playImage;
             Time.timeScale = 0f;
+            musicSource.Pause();
+            //musicSource.volume = 0;
 		} else {
             pbImage.sprite = pauseImage;
             Time.timeScale = 1.0f;
+            musicSource.UnPause();
+            //musicSource.volume = Settings.MasterVolume;
 		}
 	}
 

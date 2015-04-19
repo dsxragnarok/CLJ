@@ -40,6 +40,11 @@ public class PlayerStats : MonoBehaviour {
 	
 	}
 
+    public bool isAuthenticated ()
+    {
+        return Social.localUser.authenticated;
+    }
+
 	// Save and Load statistics using Player Prefs
 	public void SaveStatistics()
 	{
