@@ -284,9 +284,21 @@ public class GameMaster : MonoBehaviour {
             playerData.ReportLeaderboard(playerData.totalCheckpointsCollected, "CgkI68X_t_kNEAIQDg");
             playerData.ReportLeaderboard(playerData.totalBlueBirdsCollected, "CgkI68X_t_kNEAIQEA");
             playerData.ReportLeaderboard(playerData.totalBlackBirdsCollected, "CgkI68X_t_kNEAIQEA");
+#elif UNITY_IOS
+            playerData.ReportLeaderboard(this.collectedStars, "starspersession");
+            playerData.ReportLeaderboard(this.collectedBirds, "balloonspersession");
+            playerData.ReportLeaderboard(this.collectedCheckpoints, "rainbowspersession");
+            playerData.ReportLeaderboard(this.collectedBlueBirds, "bluebirdspersession");
+
+            playerData.ReportLeaderboard(playerData.totalDeath, "mostdeaths");
+            playerData.ReportLeaderboard(playerData.totalStarsCollected, "moststarsalltime");
+            playerData.ReportLeaderboard(playerData.totalRedBirdsCollected, "mostballoonsalltime");
+            playerData.ReportLeaderboard(playerData.totalCheckpointsCollected, "mostrainbowsalltime");
+            playerData.ReportLeaderboard(playerData.totalBlueBirdsCollected, "bluebirdsalltime");
+            playerData.ReportLeaderboard(playerData.totalBlackBirdsCollected, "yellowbirdsalltime");
 #endif
 
-			isSaved = true; // Prevent Dat Spam
+            isSaved = true; // Prevent Dat Spam
 		}
 	}
 
