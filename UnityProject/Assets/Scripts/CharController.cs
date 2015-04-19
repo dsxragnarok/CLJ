@@ -366,6 +366,7 @@ public class CharController : Entity {
 	{
 		dead = true;
 		animator.SetBool ("Die", true);
+        gameMaster.PlayerData.totalDeath += 1;
 		gameMaster.showGameOver ();
         gameMaster.showToggleGameOver(); // for testing purposes -- delete or comment out for publish
 	}

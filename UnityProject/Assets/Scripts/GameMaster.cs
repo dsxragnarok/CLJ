@@ -21,7 +21,8 @@ public class GameMaster : MonoBehaviour {
 	private Canvas worldCanvas;
 	private Camera mainCamera;
 	public int collectedStars = 0;				// Current Game collected stars
-	public int collectedBirds = 0;				// Current Game collected birds
+	public int collectedBirds = 0;				// Current Game collected birds (this is red balloon)
+    public int collectedBlueBirds = 0;          // Current Game collected blue birds
 	public int collectedCheckpoints = 0;		// Current Game collected checkpoints
 	public int checkpointsPassed = 0;			
 	public int score = 0;						// Current Score
@@ -268,6 +269,23 @@ public class GameMaster : MonoBehaviour {
 			if (isHighScore) {
 				playerData.ReportHighScore ();
 			}
+
+            // TODO: We need to implement these same leaderboards for the iOS Game Center
+#if UNITY_ANDROID
+            // These are specific to Google Play leaderboards.
+            playerData.ReportLeaderboard(this.collectedStars, "CgkI68X_t_kNEAIQCA");
+            playerData.ReportLeaderboard(this.collectedBirds, "CgkI68X_t_kNEAIQCQ");
+            playerData.ReportLeaderboard(this.collectedCheckpoints, "CgkI68X_t_kNEAIQCg");
+            playerData.ReportLeaderboard(this.collectedBlueBirds, "CgkI68X_t_kNEAIQDw");
+
+            playerData.ReportLeaderboard(playerData.totalDeath, "CgkI68X_t_kNEAIQCw");
+            playerData.ReportLeaderboard(playerData.totalStarsCollected, "CgkI68X_t_kNEAIQDA");
+            playerData.ReportLeaderboard(playerData.totalRedBirdsCollected, "CgkI68X_t_kNEAIQDQ");
+            playerData.ReportLeaderboard(playerData.totalCheckpointsCollected, "CgkI68X_t_kNEAIQDg");
+            playerData.ReportLeaderboard(playerData.totalBlueBirdsCollected, "CgkI68X_t_kNEAIQEA");
+            playerData.ReportLeaderboard(playerData.totalBlackBirdsCollected, "CgkI68X_t_kNEAIQEA");
+#endif
+
 			isSaved = true; // Prevent Dat Spam
 		}
 	}

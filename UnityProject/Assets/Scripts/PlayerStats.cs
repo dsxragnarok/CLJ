@@ -13,10 +13,24 @@ public class PlayerStats : MonoBehaviour {
 	// The variables below are the COLLECTIVE values across all games the player has played.
 	public int highScore = 0;
 	public int totalStarsCollected = 0;
-	public int totalRedBirdsCollected = 0;
+	public int totalRedBirdsCollected = 0;  // Note: this is now red balloon
 	public int totalBlueBirdsCollected = 0;
 	public int totalBlackBirdsCollected = 0;
 	public int totalCheckpointsCollected = 0;
+    public int totalDeath = 0;
+
+    // Google Play Leaderboard ID's
+    // High Score           :   CgkI68X_t_kNEAIQAQ
+    // Stars Per Session    :   CgkI68X_t_kNEAIQCA
+    // Balloons Per Session :   CgkI68X_t_kNEAIQCQ
+    // Rainbows Per Session :   CgkI68X_t_kNEAIQCg
+    // Most Deaths          :   CgkI68X_t_kNEAIQCw
+    // Stars All Time       :   CgkI68X_t_kNEAIQDA
+    // Balloons All Time    :   CgkI68X_t_kNEAIQDQ
+    // Rainbows All Time    :   CgkI68X_t_kNEAIQDg
+    // BlueBirds Per Session:   CgkI68X_t_kNEAIQDw
+    // YellowBirds All Time :   CgkI68X_t_kNEAIQEA
+    // BlueBirds All Time   :   CgkI68X_t_kNEAIQEA
 
 	void Awake () {
 		GameObject.DontDestroyOnLoad (this.gameObject);
@@ -54,6 +68,7 @@ public class PlayerStats : MonoBehaviour {
 		PlayerPrefs.SetInt ("totalBlueBirdsCollected", totalBlueBirdsCollected);
 		PlayerPrefs.SetInt ("totalBlackBirdsCollected", totalBlackBirdsCollected);
 		PlayerPrefs.SetInt ("totalCheckpointsCollected", totalCheckpointsCollected);
+        PlayerPrefs.SetInt ("totalDeaths", totalDeath);
 	}
 	public void LoadStatistics()
 	{
@@ -63,6 +78,7 @@ public class PlayerStats : MonoBehaviour {
 		totalBlueBirdsCollected = PlayerPrefs.GetInt ("totalBlueBirdsCollected", 0);
 		totalBlackBirdsCollected = PlayerPrefs.GetInt ("totalBlackBirdsCollected", 0);
 		totalCheckpointsCollected = PlayerPrefs.GetInt ("totalCheckpointsCollected", 0);
+        totalDeath = PlayerPrefs.GetInt ("totalDeaths");
 	}
 
     public void AttemptAuthentication ()
@@ -92,6 +108,9 @@ public class PlayerStats : MonoBehaviour {
                     btn.gameObject.SetActive(true);
                 }
             }
+            // report high score, the user may have not authenticated before, so send their score now
+            ReportHighScore();
+
 		} else {
 			Debug.Log ("Failed to authenticate");
 		}
@@ -123,34 +142,27 @@ public class PlayerStats : MonoBehaviour {
 			} else {
 				Debug.Log ("Failed to report leaderboard score");
 			}
-			//Social.ShowLeaderboardUI();
-			//PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkI68X_t_kNEAIQAQ");
 		});
 #endif
 	}
 
+    public void ReportLeaderboard (int score, string leaderboard)
+    {
+        Social.ReportScore(score, leaderboard, (bool success) =>
+        {
+            if (success)
+            {
+                Debug.Log("Successfully reported leaderboard score");
+            }
+            else
+            {
+                Debug.Log("Failed to report leaderboard score");
+            }
+        });
+    }
+
 	public void DisplayLeaderboard () 
     {
-        //if (success)
-        //{
-            Social.ShowLeaderboardUI();
-        //}
-        //else
-        //{
-            // we should probably put up some error message
-         //   Debug.Log("Authentication failed.");
-        //}
+        Social.ShowLeaderboardUI();
 	}
-    /*
-    public void AttemptDisplayLeaderboard ()
-    {
-        if (Social.localUser.authenticated)
-        {
-            Social.ShowLeaderboardUI();
-        }
-        else
-        {
-            Social.localUser.Authenticate(DisplayLeaderboard);
-        }
-    }*/
 }

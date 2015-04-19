@@ -46,6 +46,7 @@ public class BirdBlue : BirdController {
 		{
 			if (!collected) 
 			{
+                gameMaster.collectedBlueBirds += 1;
 				gameMaster.PlayerData.totalBlueBirdsCollected += 1;
 
 				CharController charController = collider.GetComponent<CharController> ();
