@@ -127,7 +127,7 @@ public class CharController : Entity {
 		    (Input.GetKeyDown (KeyCode.Space) || Input.GetMouseButtonDown(0))
 		 )
 		{
-            if (Input.GetMouseButtonDown(0) && gameMaster.isHitPauseButton(Input.mousePosition))
+            if (Input.GetMouseButtonDown(0) && (gameMaster.isHitPauseButton(Input.mousePosition) || gameMaster.isHitSoundButton(Input.mousePosition)))
                 return;
             /*{
                 Vector3 mp = Input.mousePosition;
@@ -169,7 +169,7 @@ public class CharController : Entity {
 			{
 				if ((grounded || jumpPhase < 2) && touch.phase == TouchPhase.Began)
 				{
-                    if (gameMaster.isHitPauseButton(touch.position))
+                    if (gameMaster.isHitPauseButton(touch.position) || gameMaster.isHitSoundButton(touch.position))
                         return;
 
 					gameMaster.SoundEffects.PlaySoundClip("jump");

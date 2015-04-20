@@ -3571,6 +3571,7 @@ MonoBehaviour:
   volumeControl: {fileID: 1795420707}
   tgGameOverButton: {fileID: 0}
   pauseButton: {fileID: 0}
+  soundButton: {fileID: 510274523}
   pauseImage: {fileID: 0}
   playImage: {fileID: 0}
   muteImage: {fileID: 21300000, guid: 28f199aab90419544aea6a68e2e94b79, type: 3}

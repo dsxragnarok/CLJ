@@ -38,6 +38,7 @@ public class GameMaster : MonoBehaviour {
     public GameObject volumeControl;
     public GameObject tgGameOverButton; // for testing purposes - this allows to hide the Game Over panel to take screenshot on death
     public GameObject pauseButton;
+    public GameObject soundButton;
 
     public Sprite pauseImage;
     public Sprite playImage;
@@ -442,8 +443,26 @@ public class GameMaster : MonoBehaviour {
     {
         Vector3 pb = pauseButton.transform.position;
 
-        float halfw = pauseButton.GetComponent<UnityEngine.UI.Image>().rectTransform.rect.width / 2;
-        float halfh = pauseButton.GetComponent<UnityEngine.UI.Image>().rectTransform.rect.height / 2;
+        float halfw = pauseButton.GetComponent<Image>().rectTransform.rect.width / 2;
+        float halfh = pauseButton.GetComponent<Image>().rectTransform.rect.height / 2;
+
+        float left = pb.x - halfw;
+        float right = pb.x + halfw;
+        float top = pb.y - halfh;
+        float bottom = pb.y + halfh;
+
+        if (position.x >= left && position.x <= right && position.y >= top && position.y <= bottom)
+            return true;
+
+        return false;
+    }
+
+    public bool isHitSoundButton(Vector3 position)
+    {
+        Vector3 pb = soundButton.transform.position;
+
+        float halfw = soundButton.GetComponent<Image>().rectTransform.rect.width / 2;
+        float halfh = soundButton.GetComponent<Image>().rectTransform.rect.height / 2;
 
         float left = pb.x - halfw;
         float right = pb.x + halfw;
