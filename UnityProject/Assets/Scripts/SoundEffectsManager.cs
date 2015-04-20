@@ -13,7 +13,7 @@ public class SoundEffectsManager : Entity {
 
     private float masterVolume;
 
-    public float MasterVolume { set; get; }
+    public float MasterVolume { set { masterVolume = value; } get { return masterVolume; } }
 
 	[System.Serializable]
 	public struct SoundClip
