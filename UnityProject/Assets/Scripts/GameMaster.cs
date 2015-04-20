@@ -41,6 +41,8 @@ public class GameMaster : MonoBehaviour {
 
     public Sprite pauseImage;
     public Sprite playImage;
+    public Sprite muteImage;
+    public Sprite soundImage;
 
 	public bool isGameStarted = false;
     public float startTime;             // The time in seconds after the player exits instruction screen
@@ -201,11 +203,78 @@ public class GameMaster : MonoBehaviour {
 		ftInstance.GetComponent<Text>().text = value;
 	}
 
+    public void ToggleMute()
+    {
+        GameObject volumeControl = GameObject.FindGameObjectWithTag("VolumeControl");
+        bool muted;
+
+        if (volumeControl == null)
+        {
+            muted = Settings.ToggleMute(true);
+        }
+        else
+        {
+            muted = Settings.ToggleMute(false);
+            
+            if (muted)
+            {
+                volumeControl.GetComponentInChildren<Slider>().value = 0f;
+            }
+            else
+                volumeControl.GetComponentInChildren<Slider>().value = Settings.LastVolume;
+        }
+
+        GameObject hud = GameObject.FindGameObjectWithTag("HUD");
+        Button[] buttons = hud.GetComponentsInChildren<Button>();
+
+        foreach (Button btn in buttons)
+        {
+            if (btn.name == "VolumeButton")
+            {
+                Image sndImage = btn.GetComponent<Image>();
+                if (muted)
+                {
+                    sndImage.sprite = muteImage;
+                }
+                else
+                {
+                    sndImage.sprite = soundImage;
+                }
+                break;
+            }
+        }
+
+        if (SoundEffects != null)
+        {
+            SoundEffects.MasterVolume = Settings.MasterVolume;
+        }
+        AudioSource musicSource = mainCamera.GetComponent<AudioSource>();
+        if (musicSource != null)
+        {
+            musicSource.volume = Settings.MasterVolume;
+        }
+    }
     public void adjustVolume (float v)
     {
         //Slider volume = volumeControl.GetComponent<Slider>();
         //Debug.Log("Volume value: " + volume.value);
         Settings.AdjustMasterVolume(v);
+        Button[] buttons = volumeControl.GetComponentsInChildren<Button>();
+        foreach (Button btn in buttons)
+        {
+            if (btn.name == "VolumeButton")
+            {
+                Image btnImage = btn.GetComponent<Image>();
+                if (v > 0)
+                {
+                    btnImage.sprite = soundImage;
+                }
+                else
+                {
+                    btnImage.sprite = muteImage;
+                }
+            }
+        }
     }
 
 	public void showLeaderboard () {
