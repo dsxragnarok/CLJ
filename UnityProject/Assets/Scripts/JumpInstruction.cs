@@ -4,7 +4,7 @@ using System.Collections;
 
 public class JumpInstruction : MonoBehaviour {
 	void Start () {
-#if UNITY_ANDROID
+#if UNITY_ANDROID || UNITY_IOS
 		GameObject spaceTextObj = GameObject.Find ("SpaceText");
 		Text spaceText = spaceTextObj.GetComponent<Text>();
 		Debug.Log (spaceText.text);
