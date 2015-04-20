@@ -144,8 +144,8 @@ public class GameMaster : MonoBehaviour {
 
         // Deactivate the Login Button and activate the Leaderboard Button
         GameObject hud = GameObject.FindGameObjectWithTag("HUD");
-        UnityEngine.UI.Button[] buttons = hud.GetComponentsInChildren<UnityEngine.UI.Button>(true);
-        foreach (UnityEngine.UI.Button btn in buttons)
+        Button[] buttons = hud.GetComponentsInChildren<Button>(true);
+        foreach (Button btn in buttons)
         {
             if (playerData.isAuthenticated() && btn.tag == "LoginButton")
             {
@@ -155,6 +155,20 @@ public class GameMaster : MonoBehaviour {
             {
                 btn.gameObject.SetActive(true);
             }
+            if (btn.name == "VolumeButton")
+            {
+                Image btnImage = btn.GetComponent<Image>();
+                if (Settings.Muted)
+                {
+                    btnImage.sprite = muteImage;
+                }
+                else
+                {
+                    btnImage.sprite = soundImage;
+                }
+            }
+
+
 #if UNITY_IOS || UNITY_EDITOR
             if (btn.tag == "QuitButton")
             {

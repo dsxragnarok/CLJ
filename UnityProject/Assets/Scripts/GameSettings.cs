@@ -26,8 +26,6 @@ public class GameSettings : MonoBehaviour {
 
     public bool Muted { get { return muted; } }
 
-    private SoundEffectsManager sfm;
-
 	// Use this for initialization
 	void Start () {
         GameObject.DontDestroyOnLoad(this.gameObject);
@@ -45,6 +43,10 @@ public class GameSettings : MonoBehaviour {
     public void AdjustMasterVolume (float n)
     {
         MasterVolume = n;
+        if (n == 0)
+            muted = true;
+        else
+            muted = false;
     }
 
     public bool ToggleMute (bool alterVolume)
