@@ -56,7 +56,7 @@ public class GameMaster : MonoBehaviour {
     {
         "You can vary the height of your\njump by how long you touch to jump.",
         "You can double jump by tapping twice.",
-        "Each RED BIRD permanently increases the\n worth of each STAR by 10.",
+        "Each BALLOON permanently increases the\n worth of each STAR by 10.",
         "Each RAINBOW is worth 50 more\n than the previous RAINBOW."
     };
 
@@ -306,6 +306,8 @@ public class GameMaster : MonoBehaviour {
 
 	public void closeInstructions () {
 		instructionsDialog.SetActive (false);
+        // start game music
+        mainCamera.GetComponent<AudioSource>().Play();
 	}
 
     public void showToggleGameOver()

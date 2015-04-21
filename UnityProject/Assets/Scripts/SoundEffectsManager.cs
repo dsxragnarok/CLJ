@@ -3,10 +3,6 @@ using System.Collections.Generic;
 
 public class SoundEffectsManager : Entity {
 
-	// TODO: create dictionary of soundclips
-	//public AudioClip jumpClip;
-	//public AudioClip thumpClip;
-	//public AudioClip coinClip;
 	public List<SoundClip> soundClips;
 	private Dictionary<string, AudioClip> soundMap = new Dictionary<string, AudioClip>(10);
 	private AudioSource source;
