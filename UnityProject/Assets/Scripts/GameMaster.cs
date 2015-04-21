@@ -49,7 +49,7 @@ public class GameMaster : MonoBehaviour {
     public float startTime;             // The time in seconds after the player exits instruction screen
     public float endTime;               // The time in seconds when the player dies
 
-    private string versionString = "v 0.7";
+    private string versionString = "v 0.8";
 
     private int tipIndex = 0;
     private string[] gameplayTips = new string[]
@@ -367,7 +367,7 @@ public class GameMaster : MonoBehaviour {
             playerData.ReportLeaderboard(playerData.totalStarsCollected, "CgkI68X_t_kNEAIQDA");
             playerData.ReportLeaderboard(playerData.totalRedBirdsCollected, "CgkI68X_t_kNEAIQDQ");
             playerData.ReportLeaderboard(playerData.totalCheckpointsCollected, "CgkI68X_t_kNEAIQDg");
-            playerData.ReportLeaderboard(playerData.totalBlueBirdsCollected, "CgkI68X_t_kNEAIQEA");
+            playerData.ReportLeaderboard(playerData.totalBlueBirdsCollected, "CgkI68X_t_kNEAIQEQ");
             playerData.ReportLeaderboard(playerData.totalBlackBirdsCollected, "CgkI68X_t_kNEAIQEA");
             playerData.ReportLeaderboard((long)((endTime - startTime) * 1000L), "CgkI68X_t_kNEAIQEg");  // Google Play accepts time in milliseconds
 #elif UNITY_IOS

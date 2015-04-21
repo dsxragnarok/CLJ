@@ -81,6 +81,7 @@ public class CheckPoint : Entity {
 
 	
 	void ActivateCheckPoint () {
+        gameMaster.collectedCheckpoints += 1;
         gameMaster.PlayerData.totalCheckpointsCollected += 1;
         int totalCheckPointBonus = scoreBonus * (gameMaster.checkpointsPassed + 1);
         //Debug.Log("checkpoints passed [" + gameMaster.checkpointsPassed + "] | scoreBonus [" + scoreBonus + "] | total = [" + totalCheckPointBonus + "]");
