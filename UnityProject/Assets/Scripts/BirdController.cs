@@ -4,7 +4,7 @@ using System.Collections;
 // Base class for a bird game object. It contains
 // all basic values such as bird rigidbody information and movement logic.
 public abstract class BirdController : Entity {
-
+    public GoogleAnalyticsV3 googleAnalytics;
 	protected Rigidbody2D unitRigidbody = null;
 
 	public enum BirdType { NONE, RED, BLUE, BLACK };

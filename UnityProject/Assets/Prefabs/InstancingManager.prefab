@@ -5733,6 +5733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 5
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11406634
@@ -5747,6 +5748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 8
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   score: 0
   initialPosition: {x: 0, y: 0}
   initialVelocity: {x: 0, y: 0}
@@ -5797,6 +5799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 7
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   score: 0
   initialPosition: {x: 0, y: 0}
   initialVelocity: {x: 0, y: 0}
@@ -5813,6 +5816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 6
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   score: 0
   initialPosition: {x: 0, y: 0}
   initialVelocity: {x: 0, y: 0}
@@ -5846,6 +5850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 5
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11411010
@@ -5860,6 +5865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 5
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11413136
@@ -6098,6 +6104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 6
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   score: 0
   initialPosition: {x: 0, y: 0}
   initialVelocity: {x: 0, y: 0}
@@ -6179,6 +6186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 5
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11429382
@@ -6225,6 +6233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 5
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11430898
@@ -6319,6 +6328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 8
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   score: 0
   initialPosition: {x: 0, y: 0}
   initialVelocity: {x: 0, y: 0}
@@ -6337,6 +6347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 5
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11438102
@@ -6351,6 +6362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 5
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11438442
@@ -6397,6 +6409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 6
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   score: 0
   initialPosition: {x: 0, y: 0}
   initialVelocity: {x: 0, y: 0}
@@ -6414,6 +6427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 6
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   score: 0
   initialPosition: {x: 0, y: 0}
   initialVelocity: {x: 0, y: 0}
@@ -6447,6 +6461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 5
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11442930
@@ -6477,6 +6492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 5
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11444024
@@ -6555,6 +6571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 7
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   score: 0
   initialPosition: {x: 0, y: 0}
   initialVelocity: {x: 0, y: 0}
@@ -6571,6 +6588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 7
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   score: 0
   initialPosition: {x: 0, y: 0}
   initialVelocity: {x: 0, y: 0}
@@ -6662,6 +6680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 7
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   score: 0
   initialPosition: {x: 0, y: 0}
   initialVelocity: {x: 0, y: 0}
@@ -6678,6 +6697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 5
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11457022
@@ -6820,6 +6840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 7
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   score: 0
   initialPosition: {x: 0, y: 0}
   initialVelocity: {x: 0, y: 0}
@@ -6868,6 +6889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 8
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   score: 0
   initialPosition: {x: 0, y: 0}
   initialVelocity: {x: 0, y: 0}
@@ -6918,6 +6940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 5
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11467828
@@ -7028,6 +7051,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 5
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11479100
@@ -7042,6 +7066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 9
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   glowFireEffectPrefab: {fileID: 0}
 --- !u!114 &11482594
 MonoBehaviour:
@@ -7071,6 +7096,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 5
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11483068
@@ -7085,6 +7111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 6
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   score: 0
   initialPosition: {x: 0, y: 0}
   initialVelocity: {x: 0, y: 0}
@@ -7102,6 +7129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 5
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11485960
@@ -7228,6 +7256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 8
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   score: 0
   initialPosition: {x: 0, y: 0}
   initialVelocity: {x: 0, y: 0}
@@ -7278,6 +7307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 5
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!114 &11495214
@@ -7324,6 +7354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 9
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   glowFireEffectPrefab: {fileID: 0}
 --- !u!114 &11498882
 MonoBehaviour:
@@ -7337,6 +7368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 8
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   score: 0
   initialPosition: {x: 0, y: 0}
   initialVelocity: {x: 0, y: 0}

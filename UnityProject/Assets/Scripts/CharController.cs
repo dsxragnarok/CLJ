@@ -5,7 +5,7 @@ using System.Collections.Generic;
 // This is the Player Avatar and contains all logic involved with how the user interfaces
 // with the Player. It contains Jump, Physics, and Avatar behavior.
 public class CharController : Entity {
-
+    public GoogleAnalyticsV3 googleAnalytics;   // Google Analytics for stats tracking
 	public float maxSpeed;
 
 	// Jump Variables
@@ -280,7 +280,7 @@ public class CharController : Entity {
 		if (!grounded && jumpPhase <= 1)
 			jumpPhase++;
 		jumpForceIndex = 0;
-
+        googleAnalytics.LogEvent("PlayerJump", "PlayerJump", "PlayerJump", jumpForceIndex);
 		// Initial Jump
 		unitRigidbody.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * unitRigidbody.mass);
 		++jumpForceIndex;
@@ -301,7 +301,6 @@ public class CharController : Entity {
 		if (jumpTimer >= 0.1f)
 		{
 			jumpTimer = jumpTimer - 0.1f;
-
 			++jumpForceIndex;
 
 #if UNITY_ANDROID || UNITY_IOS
@@ -372,6 +371,7 @@ public class CharController : Entity {
         gameMaster.endTime = Time.timeSinceLevelLoad;
 		gameMaster.showGameOver ();
         gameMaster.showToggleGameOver(); // for testing purposes -- delete or comment out for publish
+        googleAnalytics.LogEvent("PlayerDeath", "PlayerDeath", "PlayerDeath", 1);
         //float duration = Time.timeSinceLevelLoad - gameMaster.startTime;
         //Debug.Log("Game Duration in Seconds: " + duration);
 	}

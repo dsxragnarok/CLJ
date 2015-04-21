@@ -1285,8 +1285,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f407674ad281f944bbd2916cefb268a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   collectedStars: 0
-  collectedBirds: 0
+  collectedBalloons: 0
   collectedBlueBirds: 0
   collectedCheckpoints: 0
   checkpointsPassed: 0

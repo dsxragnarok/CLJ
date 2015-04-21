@@ -36,7 +36,7 @@ public class BirdRed : BirdController {
 		{
 			if (!collected)
 			{
-				gameMaster.collectedBirds += 1;
+				gameMaster.collectedBalloons += 1;
 				gameMaster.PlayerData.totalRedBirdsCollected += 1;
 
 				int value = gameMaster.scoreMultiplier * gameMaster.collectedStars;

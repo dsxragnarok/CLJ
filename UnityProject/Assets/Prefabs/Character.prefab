@@ -199,6 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976196cd8fa4c744f8a64f9291cd4a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entityID: -1
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   maxSpeed: 1
   jumpForces:
   - 400

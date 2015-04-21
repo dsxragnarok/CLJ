@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 7
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   score: 0
   initialPosition: {x: 0, y: 0}
   initialVelocity: {x: 0, y: 0}

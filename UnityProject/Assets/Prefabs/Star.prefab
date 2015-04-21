@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityID: 5
+  googleAnalytics: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
   collectEffectPrefab: {fileID: 19887098, guid: d2029ea989c8643cc947b0c4946e036b,
     type: 2}
 --- !u!212 &21265970

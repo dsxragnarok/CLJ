@@ -7,6 +7,7 @@ using System.Collections;
 // Any game object with the Entity attribute can refer to any of these managers and objects
 // using the Game Master
 public class GameMaster : MonoBehaviour {
+    public GoogleAnalyticsV3 googleAnalytics;   // Google Analytics for stats tracking
 	private PlayerStats playerData;				// Player data and statistics
     private GameSettings settings;
 	private CharController player;				// Player Avatar in the scene
@@ -21,7 +22,7 @@ public class GameMaster : MonoBehaviour {
 	private Canvas worldCanvas;
 	private Camera mainCamera;
 	public int collectedStars = 0;				// Current Game collected stars
-	public int collectedBirds = 0;				// Current Game collected birds (this is red balloon)
+	public int collectedBalloons = 0;				// Current Game collected balloons
     public int collectedBlueBirds = 0;          // Current Game collected blue birds
 	public int collectedCheckpoints = 0;		// Current Game collected checkpoints
 	public int checkpointsPassed = 0;			
@@ -183,6 +184,8 @@ public class GameMaster : MonoBehaviour {
         {
             versionDisplay.GetComponent<Text>().text = versionString;
         }
+
+        googleAnalytics.DispatchHits();
 	}
 	
 	// Update is called once per frame
@@ -353,13 +356,20 @@ public class GameMaster : MonoBehaviour {
 			playerData.SaveStatistics ();
 			if (isHighScore) {
 				playerData.ReportHighScore ();
+                googleAnalytics.LogEvent("HighScore", "Surpassed", "Beat own high score", playerData.highScore);
 			}
 
-            // TODO: We need to implement these same leaderboards for the iOS Game Center
+            // Collect some stats for Google Analytics
+            googleAnalytics.LogEvent("StarsCollected", "StarsThisSession", "Stars", this.collectedStars);
+            googleAnalytics.LogEvent("BalloonsCollected", "BalloonsThisSession", "Balloons", this.collectedBalloons);
+            googleAnalytics.LogEvent("RainbowsCollected", "RainbowsThisSession", "Rainbows", this.collectedCheckpoints);
+            googleAnalytics.LogEvent("CheckpointsPassed", "CheckpointsPassedThisSession", "Checkpoints", this.checkpointsPassed);
+            googleAnalytics.LogEvent("BlueBirdsCollected", "BlueBirdsThisSession", "Bluebirds", this.collectedBlueBirds);
+            googleAnalytics.LogEvent("SessionDuration", "ThisSessionDuration", "Duration", (long)((endTime - startTime) * 1000L));
 #if UNITY_ANDROID
             // These are specific to Google Play leaderboards.
             playerData.ReportLeaderboard(this.collectedStars, "CgkI68X_t_kNEAIQCA");
-            playerData.ReportLeaderboard(this.collectedBirds, "CgkI68X_t_kNEAIQCQ");
+            playerData.ReportLeaderboard(this.collectedBalloons, "CgkI68X_t_kNEAIQCQ");
             playerData.ReportLeaderboard(this.collectedCheckpoints, "CgkI68X_t_kNEAIQCg");
             playerData.ReportLeaderboard(this.collectedBlueBirds, "CgkI68X_t_kNEAIQDw");
 

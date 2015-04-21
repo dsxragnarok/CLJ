@@ -3,6 +3,7 @@ using System.Collections;
 
 // This game object can be collected the player for a bit of points.
 public class Star : Entity {
+    public GoogleAnalyticsV3 googleAnalytics;
 	const float MOVE_SPEED = 4.0f;
 	private float moveSpeed = MOVE_SPEED;
 	private bool collected = false;
@@ -39,7 +40,7 @@ public class Star : Entity {
 			{
 				gameMaster.collectedStars += 1;
 				gameMaster.PlayerData.totalStarsCollected += 1;
-				int value = gameMaster.scoreMultiplier * (gameMaster.collectedBirds + 1);
+				int value = gameMaster.scoreMultiplier * (gameMaster.collectedBalloons + 1);
 				gameMaster.updateScore(value);
 				gameMaster.generateFloatingTextAt(gameMaster.Player.transform.position, value.ToString());
 				ParticleSystem collectEffectInstance = (ParticleSystem)GameObject.Instantiate(collectEffectPrefab, this.transform.position, this.transform.rotation);

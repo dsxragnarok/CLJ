@@ -5,6 +5,7 @@ using System.Collections;
 // Note: this actually only counts check points passed. This should really be moved
 // onto the checkpoint itself maybe.
 public class CheckPoint : Entity {
+    public GoogleAnalyticsV3 googleAnalytics;
 	Transform myTransform;
 
 	const float MOVE_SPEED = 4.5f;
