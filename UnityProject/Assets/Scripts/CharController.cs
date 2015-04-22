@@ -280,7 +280,7 @@ public class CharController : Entity {
 		if (!grounded && jumpPhase <= 1)
 			jumpPhase++;
 		jumpForceIndex = 0;
-        googleAnalytics.LogEvent("PlayerJump", "PlayerJump", "PlayerJump", jumpForceIndex);
+        googleAnalytics.LogEvent("Action", "Player Jump", "Player initiates jump", jumpForceIndex);
 		// Initial Jump
 		unitRigidbody.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * unitRigidbody.mass);
 		++jumpForceIndex;
@@ -309,6 +309,7 @@ public class CharController : Entity {
 				if (jumpForceIndex < jumpForces.Count && (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved))
 				{
 					unitRigidbody.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * unitRigidbody.mass);
+                    googleAnalytics.LogEvent("Action", "Player Jump", "Player touch-hold to jump", jumpForceIndex);
 				}
 				else
 				{
@@ -321,7 +322,7 @@ public class CharController : Entity {
 			}
 #elif UNITY_WEBPLAYER || UNITY_STANDALONE
 
-			if (jumpForceIndex < jumpForces.Count && (Input.GetKey (KeyCode.Space) || Input.GetMouseButton (0)))
+            if (jumpForceIndex < jumpForces.Count && (Input.GetKey (KeyCode.Space) || Input.GetMouseButton (0)))
 			{
 				unitRigidbody.AddForce(new Vector2(0.0f, jumpForces[jumpForceIndex]) * unitRigidbody.mass);
 			}
@@ -369,9 +370,12 @@ public class CharController : Entity {
 		animator.SetBool ("Die", true);
         gameMaster.PlayerData.totalDeath += 1;
         gameMaster.endTime = Time.timeSinceLevelLoad;
-		gameMaster.showGameOver ();
+        gameMaster.showResult();
+        //gameMaster.showGameOver ();
         gameMaster.showToggleGameOver(); // for testing purposes -- delete or comment out for publish
-        googleAnalytics.LogEvent("PlayerDeath", "PlayerDeath", "PlayerDeath", 1);
+#if UNITY_ANDROID || UNITY_IOS
+        googleAnalytics.LogEvent("Death", "Player Death", "Player dies", 1);
+#endif
         //float duration = Time.timeSinceLevelLoad - gameMaster.startTime;
         //Debug.Log("Game Duration in Seconds: " + duration);
 	}
