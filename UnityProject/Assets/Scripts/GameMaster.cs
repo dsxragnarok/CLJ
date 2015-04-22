@@ -382,7 +382,7 @@ public class GameMaster : MonoBehaviour {
             playerData.ReportLeaderboard((long)((endTime - startTime) * 1000L), "CgkI68X_t_kNEAIQEg");  // Google Play accepts time in milliseconds
 #elif UNITY_IOS
             playerData.ReportLeaderboard(this.collectedStars, "starspersession");
-            playerData.ReportLeaderboard(this.collectedBirds, "balloonspersession");
+			playerData.ReportLeaderboard(this.collectedBalloons, "balloonspersession");
             playerData.ReportLeaderboard(this.collectedCheckpoints, "rainbowspersession");
             playerData.ReportLeaderboard(this.collectedBlueBirds, "bluebirdspersession");
 
@@ -392,7 +392,7 @@ public class GameMaster : MonoBehaviour {
             playerData.ReportLeaderboard(playerData.totalCheckpointsCollected, "mostrainbowsalltime");
             playerData.ReportLeaderboard(playerData.totalBlueBirdsCollected, "bluebirdsalltime");
             playerData.ReportLeaderboard(playerData.totalBlackBirdsCollected, "yellowbirdsalltime");
-            playerData.ReportLeaderboard((long)((endTime - startTime), "longestsession");           // Game Center set to the second
+            playerData.ReportLeaderboard((long)(endTime - startTime), "longestsession");           // Game Center set to the second
 #endif
 
             isSaved = true; // Prevent Dat Spam
