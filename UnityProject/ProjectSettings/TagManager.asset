@@ -37,6 +37,7 @@ TagManager:
   - CloudBG
   - LeaderboardButton
   - LoginButton
+  - ResultsScreen
   layers:
   - Default
   - TransparentFX

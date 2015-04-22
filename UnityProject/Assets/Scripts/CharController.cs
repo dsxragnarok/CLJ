@@ -369,9 +369,12 @@ public class CharController : Entity {
 		animator.SetBool ("Die", true);
         gameMaster.PlayerData.totalDeath += 1;
         gameMaster.endTime = Time.timeSinceLevelLoad;
-		gameMaster.showGameOver ();
+        gameMaster.showResult();
+        //gameMaster.showGameOver ();
         gameMaster.showToggleGameOver(); // for testing purposes -- delete or comment out for publish
+#if UNITY_ANDROID || UNITY_IOS
         googleAnalytics.LogEvent("PlayerDeath", "PlayerDeath", "PlayerDeath", 1);
+#endif
         //float duration = Time.timeSinceLevelLoad - gameMaster.startTime;
         //Debug.Log("Game Duration in Seconds: " + duration);
 	}

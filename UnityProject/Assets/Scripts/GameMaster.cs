@@ -32,6 +32,7 @@ public class GameMaster : MonoBehaviour {
 	public bool isHighScore = false;
 	public bool isPaused = false;
 
+    public GameObject resultDialog;
 	public GameObject gameOverDialog;
 	public GameObject instructionsDialog;
 	public GameObject creditsDialog;
@@ -184,8 +185,9 @@ public class GameMaster : MonoBehaviour {
         {
             versionDisplay.GetComponent<Text>().text = versionString;
         }
-
+#if UNITY_ANDROID || UNITY_IOS
         googleAnalytics.DispatchHits();
+#endif
 	}
 	
 	// Update is called once per frame
@@ -334,7 +336,24 @@ public class GameMaster : MonoBehaviour {
     }
 
 	public void showGameOver () {
+        resultDialog.SetActive(false);
+        gameOverDialog.SetActive(true);
+        // Set the Comment Text object to be active if the user earned a high score
+        // Otherwise, set the Tip Text object to be active and display a random gameplay tip
+        Text[] texts = gameOverDialog.GetComponentsInChildren<Text>();
+        foreach (Text text in texts)
+        {
+            if (text.name == "CommentText")
+                text.gameObject.SetActive(isHighScore);
 
+            if (text.name == "TipText" && !isHighScore)
+            {
+                int idx = (tipIndex + 1) % gameplayTips.Length;
+                text.text = gameplayTips[idx];
+                text.gameObject.SetActive(!isHighScore);
+            }
+        }
+        /*
         if (!isSaved)
 		{
 			gameOverDialog.SetActive (true);
@@ -396,8 +415,102 @@ public class GameMaster : MonoBehaviour {
 #endif
 
             isSaved = true; // Prevent Dat Spam
-		}
+		}*/
 	}
+
+    public void showResult()
+    {
+        if (!isSaved)
+        {
+            // Set the Comment Text object to be active if the user earned a high score
+            // Otherwise, set the Tip Text object to be active and display a random gameplay tip
+            Text[] texts = resultDialog.GetComponentsInChildren<Text>(true);
+            foreach (Text text in texts)
+            {
+                if (text.name == "ScoreField")
+                {
+                    text.text = score.ToString();
+                }
+                if (text.name == "StarsField")
+                {
+                    text.text = collectedStars.ToString();
+                }
+
+                if (text.name == "BalloonsField")
+                {
+                    text.text = collectedBalloons.ToString();
+                }
+
+                if (text.name == "RainbowsField")
+                {
+                    text.text = collectedCheckpoints.ToString();
+                }
+
+                if (text.name == "BluebirdsField")
+                {
+                    text.text = collectedBlueBirds.ToString();
+                }
+
+                if (text.name == "DurationField")
+                {
+                    long duration_seconds = (long)(endTime - startTime);
+                    long minutes = duration_seconds / 60;
+                    long seconds = duration_seconds % 60;
+                    text.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+                }                    
+            }
+            // Save player data and if there is a high score, report the high score to
+            // a social platform.
+            playerData.SaveStatistics();
+            if (isHighScore)
+            {
+                playerData.ReportHighScore();
+#if UNITY_ANDROID || UNITY_IOS
+                googleAnalytics.LogEvent("HighScore", "Surpassed", "Beat own high score", playerData.highScore);
+#endif
+            }
+#if UNITY_ANDROID || UNITY_IOS
+            // Collect some stats for Google Analytics
+            googleAnalytics.LogEvent("StarsCollected", "StarsThisSession", "Stars", this.collectedStars);
+            googleAnalytics.LogEvent("BalloonsCollected", "BalloonsThisSession", "Balloons", this.collectedBalloons);
+            googleAnalytics.LogEvent("RainbowsCollected", "RainbowsThisSession", "Rainbows", this.collectedCheckpoints);
+            googleAnalytics.LogEvent("CheckpointsPassed", "CheckpointsPassedThisSession", "Checkpoints", this.checkpointsPassed);
+            googleAnalytics.LogEvent("BlueBirdsCollected", "BlueBirdsThisSession", "Bluebirds", this.collectedBlueBirds);
+            googleAnalytics.LogEvent("SessionDuration", "ThisSessionDuration", "Duration", (long)((endTime - startTime) * 1000L));
+#endif
+#if UNITY_ANDROID
+            // These are specific to Google Play leaderboards.
+            playerData.ReportLeaderboard(this.collectedStars, "CgkI68X_t_kNEAIQCA");
+            playerData.ReportLeaderboard(this.collectedBalloons, "CgkI68X_t_kNEAIQCQ");
+            playerData.ReportLeaderboard(this.collectedCheckpoints, "CgkI68X_t_kNEAIQCg");
+            playerData.ReportLeaderboard(this.collectedBlueBirds, "CgkI68X_t_kNEAIQDw");
+
+            playerData.ReportLeaderboard(playerData.totalDeath, "CgkI68X_t_kNEAIQCw");
+            playerData.ReportLeaderboard(playerData.totalStarsCollected, "CgkI68X_t_kNEAIQDA");
+            playerData.ReportLeaderboard(playerData.totalRedBirdsCollected, "CgkI68X_t_kNEAIQDQ");
+            playerData.ReportLeaderboard(playerData.totalCheckpointsCollected, "CgkI68X_t_kNEAIQDg");
+            playerData.ReportLeaderboard(playerData.totalBlueBirdsCollected, "CgkI68X_t_kNEAIQEQ");
+            playerData.ReportLeaderboard(playerData.totalBlackBirdsCollected, "CgkI68X_t_kNEAIQEA");
+            playerData.ReportLeaderboard((long)((endTime - startTime) * 1000L), "CgkI68X_t_kNEAIQEg");  // Google Play accepts time in milliseconds
+#elif UNITY_IOS
+            playerData.ReportLeaderboard(this.collectedStars, "starspersession");
+			playerData.ReportLeaderboard(this.collectedBalloons, "balloonspersession");
+            playerData.ReportLeaderboard(this.collectedCheckpoints, "rainbowspersession");
+            playerData.ReportLeaderboard(this.collectedBlueBirds, "bluebirdspersession");
+
+            playerData.ReportLeaderboard(playerData.totalDeath, "mostdeaths");
+            playerData.ReportLeaderboard(playerData.totalStarsCollected, "moststarsalltime");
+            playerData.ReportLeaderboard(playerData.totalRedBirdsCollected, "mostballoonsalltime");
+            playerData.ReportLeaderboard(playerData.totalCheckpointsCollected, "mostrainbowsalltime");
+            playerData.ReportLeaderboard(playerData.totalBlueBirdsCollected, "bluebirdsalltime");
+            playerData.ReportLeaderboard(playerData.totalBlackBirdsCollected, "yellowbirdsalltime");
+            playerData.ReportLeaderboard((long)(endTime - startTime), "longestsession");           // Game Center set to the second
+#endif
+
+            isSaved = true; // Prevent Dat Spam
+            resultDialog.SetActive(true);
+        }
+    }
 
 	public void togglePause () {
 		isPaused = !isPaused;
