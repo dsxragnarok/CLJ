@@ -44,7 +44,7 @@ MonoBehaviour:
   otherTrackingCode: 
   productName: Cloud Islands
   bundleIdentifier: com.MKCP.CloudJumper
-  bundleVersion: 0.7
+  bundleVersion: 0.9
   dispatchPeriod: 5
   sampleFrequency: 100
   logLevel: 1

@@ -51,7 +51,7 @@ public class GameMaster : MonoBehaviour {
     public float startTime;             // The time in seconds after the player exits instruction screen
     public float endTime;               // The time in seconds when the player dies
 
-    private string versionString = "v 0.8";
+    private string versionString = "v 0.9";
 
     private int tipIndex = 0;
     private string[] gameplayTips = new string[]
@@ -187,8 +187,16 @@ public class GameMaster : MonoBehaviour {
         }
 #if UNITY_ANDROID || UNITY_IOS
         googleAnalytics.DispatchHits();
+        if (Application.loadedLevelName == "Main")
+        {
+            googleAnalytics.LogScreen("Main Menu Screen");
+        }
+        if (Application.loadedLevelName == "Play")
+        {
+            googleAnalytics.LogScreen("Play Screen");
+        }
 #endif
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -225,6 +233,9 @@ public class GameMaster : MonoBehaviour {
 
     public void ToggleMute()
     {
+#if UNITY_ANDROID || UNITY_IOS
+        googleAnalytics.LogEvent("Button Click", "Mute Toggle", "Player toggles volume via speaker icon", 1);
+#endif
         GameObject volumeControl = GameObject.FindGameObjectWithTag("VolumeControl");
         bool muted;
 
@@ -297,20 +308,38 @@ public class GameMaster : MonoBehaviour {
         }
     }
 
-	public void showLeaderboard () {
+	public void showLeaderboard ()
+    {
+#if UNITY_ANDROID || UNITY_IOS
+        googleAnalytics.LogScreen("Leaderboard Screen");
+        googleAnalytics.LogEvent("Button Click", "Leaderboard", "Player opens leaderboard", 1);
+#endif
         playerData.DisplayLeaderboard();//playerData.AttemptDisplayLeaderboard ();
 	}
 
-	public void showCredits () {
-		creditsDialog.SetActive (true);
+	public void showCredits ()
+    {
+#if UNITY_ANDROID || UNITY_IOS
+        googleAnalytics.LogScreen("Credits Screen");
+        googleAnalytics.LogEvent("Button Click", "Credits", "Player opens the credits", 1);
+#endif
+        creditsDialog.SetActive (true);
 	}
 
-	public void closeCredits () {
-		creditsDialog.SetActive (false);
+	public void closeCredits ()
+    {
+#if UNITY_ANDROID || UNITY_IOS
+        googleAnalytics.LogEvent("Button Click", "Close Credits", "Player closes the credits", 1);
+#endif
+        creditsDialog.SetActive (false);
 	}
 
-	public void closeInstructions () {
-		instructionsDialog.SetActive (false);
+	public void closeInstructions ()
+    {
+#if UNITY_ANDROID || UNITY_IOS
+        googleAnalytics.LogEvent("Game Start", "Initiate Game", "Player tapped to close instructions and start game", 1);
+#endif
+        instructionsDialog.SetActive (false);
         // start game music
         mainCamera.GetComponent<AudioSource>().Play();
 	}
@@ -335,7 +364,12 @@ public class GameMaster : MonoBehaviour {
         gameOverDialog.SetActive(!gameOverDialog.activeSelf);
     }
 
-	public void showGameOver () {
+	public void showGameOver ()
+    {
+        
+#if UNITY_ANDROID || UNITY_IOS
+        googleAnalytics.LogScreen("Game Over");
+#endif
         resultDialog.SetActive(false);
         gameOverDialog.SetActive(true);
         // Set the Comment Text object to be active if the user earned a high score
@@ -466,17 +500,18 @@ public class GameMaster : MonoBehaviour {
             {
                 playerData.ReportHighScore();
 #if UNITY_ANDROID || UNITY_IOS
-                googleAnalytics.LogEvent("HighScore", "Surpassed", "Beat own high score", playerData.highScore);
+                googleAnalytics.LogEvent("High Score", "Personal High Score", "Beat own high score", playerData.highScore);
 #endif
             }
 #if UNITY_ANDROID || UNITY_IOS
+            googleAnalytics.LogScreen("Results Screen");
             // Collect some stats for Google Analytics
-            googleAnalytics.LogEvent("StarsCollected", "StarsThisSession", "Stars", this.collectedStars);
-            googleAnalytics.LogEvent("BalloonsCollected", "BalloonsThisSession", "Balloons", this.collectedBalloons);
-            googleAnalytics.LogEvent("RainbowsCollected", "RainbowsThisSession", "Rainbows", this.collectedCheckpoints);
-            googleAnalytics.LogEvent("CheckpointsPassed", "CheckpointsPassedThisSession", "Checkpoints", this.checkpointsPassed);
-            googleAnalytics.LogEvent("BlueBirdsCollected", "BlueBirdsThisSession", "Bluebirds", this.collectedBlueBirds);
-            googleAnalytics.LogEvent("SessionDuration", "ThisSessionDuration", "Duration", (long)((endTime - startTime) * 1000L));
+            googleAnalytics.LogEvent("Stars Collected", "Stars Per Session", "Stars collected in one session", this.collectedStars);
+            googleAnalytics.LogEvent("Balloons Collected", "Balloons Per Session", "Balloons collected in one session", this.collectedBalloons);
+            googleAnalytics.LogEvent("Rainbows Collected", "Rainbows Per Session", "Rainbows collected in one session", this.collectedCheckpoints);
+            googleAnalytics.LogEvent("Checkpoints Passed", "Checkpoints Passed Per Session", "Checkpoints passed in one session", this.checkpointsPassed);
+            googleAnalytics.LogEvent("Blue Birds Collected", "Blue Birds Per Session", "Blue Birds collided in one session", this.collectedBlueBirds);
+            googleAnalytics.LogEvent("Duration", "Session Duration", "Duration of one game run", (long)((endTime - startTime) * 1000L));
 #endif
 #if UNITY_ANDROID
             // These are specific to Google Play leaderboards.
@@ -517,11 +552,18 @@ public class GameMaster : MonoBehaviour {
         Image pbImage = pauseButton.GetComponent<Image>();
         AudioSource musicSource = mainCamera.GetComponent<AudioSource>();
 		if (isPaused) {
+#if UNITY_ANDROID || UNITY_IOS
+            googleAnalytics.LogEvent("Button Click", "Pause Button", "Player paused the game", 1);
+#endif
             pbImage.sprite = playImage;
             Time.timeScale = 0f;
             musicSource.Pause();
             //musicSource.volume = 0;
-		} else {
+		} else
+        {
+#if UNITY_ANDROID || UNITY_IOS
+            googleAnalytics.LogEvent("Button Click", "Unpause Button", "Player unpaused the game", 1);
+#endif
             pbImage.sprite = pauseImage;
             Time.timeScale = 1.0f;
             musicSource.UnPause();
@@ -529,18 +571,29 @@ public class GameMaster : MonoBehaviour {
 		}
 	}
 
-	public void startGame() {
-		Application.LoadLevel ("Play");
+	public void startGame()
+    {
+#if UNITY_ANDROID || UNITY_IOS
+        googleAnalytics.LogEvent("Button Click", "Play Button", "Player clicked play button", 1);
+#endif
+        Application.LoadLevel ("Play");
 		linkObjects (); // Doesn't matter, just call it to feel safe
 	}
 
     public void mainMenu()
     {
+#if UNITY_ANDROID || UNITY_IOS
+        googleAnalytics.LogEvent("Button Click", "Main Menu Button", "Player clicked the Main Menu button", 1);
+#endif
         Application.LoadLevel ("Main");
     }
 
-	public void restartGame () {
-		// For restarts, grab all Entities in the scene and put them in the instancing manager for re-use
+	public void restartGame ()
+    {
+#if UNITY_ANDROID || UNITY_IOS
+        googleAnalytics.LogEvent("Button Click", "Retry Button", "Player clicked the Retry button", 1);
+#endif
+        // For restarts, grab all Entities in the scene and put them in the instancing manager for re-use
 		// The containers below are all existing recyclable entities.
 		GameObject _platformContainer = GameObject.FindGameObjectWithTag("PlatformContainer");
 		if (_platformContainer != null) {
@@ -560,8 +613,12 @@ public class GameMaster : MonoBehaviour {
 	}
 
 	// Note To Self - this is ignored in the editor and webplayer
-	public void quitGame () {
-		Application.Quit ();
+	public void quitGame ()
+    {
+#if UNITY_ANDROID || UNITY_IOS
+        googleAnalytics.LogEvent("Button Click", "Quit Button", "Player clicked the Quit button", 1);
+#endif
+        Application.Quit ();
 	}
 
     public bool isHitPauseButton (Vector3 position)
@@ -602,6 +659,9 @@ public class GameMaster : MonoBehaviour {
 
     public void SocialLogin ()
     {
+#if UNITY_ANDROID || UNITY_IOS
+        googleAnalytics.LogEvent("Button Click", "Login Button", "Player clicked the Login button", 1);
+#endif
         PlayerData.AttemptAuthentication();
     }
 
