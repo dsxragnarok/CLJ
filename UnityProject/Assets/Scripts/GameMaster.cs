@@ -7,7 +7,8 @@ using System.Collections;
 // Any game object with the Entity attribute can refer to any of these managers and objects
 // using the Game Master
 public class GameMaster : MonoBehaviour {
-    public GoogleAnalyticsV3 googleAnalytics;   // Google Analytics for stats tracking
+	public GoogleAnalyticsV3 googleAnalyticsPrefab;
+    private GoogleAnalyticsV3 googleAnalytics;   // Google Analytics for stats tracking
 	private PlayerStats playerData;				// Player data and statistics
     private GameSettings settings;
 	private CharController player;				// Player Avatar in the scene
@@ -666,6 +667,14 @@ public class GameMaster : MonoBehaviour {
     }
 
 	public void linkObjects() {
+		GameObject _GAv3 = GameObject.FindGameObjectWithTag("GAv3");
+		if (_GAv3 != null) {
+			googleAnalytics = _GAv3.GetComponent<GoogleAnalyticsV3> ();
+		} else {
+			// Create an instance from a provided prefab
+			googleAnalytics = GameObject.Instantiate(googleAnalyticsPrefab);
+		}
+
 		GameObject _playerData = GameObject.FindGameObjectWithTag("PlayerData");
 		if (_playerData != null) {
 			playerData = _playerData.GetComponent<PlayerStats> ();

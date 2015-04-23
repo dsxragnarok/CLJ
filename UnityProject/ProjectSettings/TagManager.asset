@@ -38,6 +38,7 @@ TagManager:
   - LeaderboardButton
   - LoginButton
   - ResultsScreen
+  - GAv3
   layers:
   - Default
   - TransparentFX
