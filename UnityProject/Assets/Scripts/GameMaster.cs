@@ -146,6 +146,13 @@ public class GameMaster : MonoBehaviour {
         // initialize tipIndex to a random position
         tipIndex = Random.Range(0, gameplayTips.Length - 1);
 
+        GameObject volumeControl = GameObject.FindGameObjectWithTag("VolumeControl");
+        if (volumeControl != null)
+        {
+            Slider volumeSlider = volumeControl.GetComponentInChildren<Slider>();
+            volumeSlider.value = settings.MasterVolume;
+        }
+
         // Deactivate the Login Button and activate the Leaderboard Button
         GameObject hud = GameObject.FindGameObjectWithTag("HUD");
         Button[] buttons = hud.GetComponentsInChildren<Button>(true);

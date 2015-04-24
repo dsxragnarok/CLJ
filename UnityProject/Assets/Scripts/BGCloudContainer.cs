@@ -20,6 +20,9 @@ public class BGCloudContainer : Entity {
 
     void FixedUpdate()
     {
+        if (!gameMaster.isGameStarted || gameMaster.isPaused || gameMaster.Player.IsDead())
+            return;
+
         foreach (GameObject cloud in CloudBackgrounds)
         {
             CloudBG cbg = cloud.GetComponent<CloudBG>();
