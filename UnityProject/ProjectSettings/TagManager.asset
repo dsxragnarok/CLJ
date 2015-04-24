@@ -39,6 +39,7 @@ TagManager:
   - LoginButton
   - ResultsScreen
   - GAv3
+  - AdManager
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using GoogleMobileAds.Api;
 
 // This important object is the central manager across all necessary objects in the scene.
 // It holds all managers and important entities.
@@ -22,6 +23,7 @@ public class GameMaster : MonoBehaviour {
 	private Canvas hudCanvas;						
 	private Canvas worldCanvas;
 	private Camera mainCamera;
+    private AdHandler adManager;
 	public int collectedStars = 0;				// Current Game collected stars
 	public int collectedBalloons = 0;				// Current Game collected balloons
     public int collectedBlueBirds = 0;          // Current Game collected blue birds
@@ -128,6 +130,11 @@ public class GameMaster : MonoBehaviour {
 		get { return worldCanvas; }
 	}
 
+    public AdHandler AdManager
+    {
+        get { return adManager; }
+    }
+
 	// Use this for initialization
 	void Start () {
 		// iOS framerate is vsynced and will always be 15, 30, or 60 FPS. Without setting
@@ -202,6 +209,12 @@ public class GameMaster : MonoBehaviour {
         if (Application.loadedLevelName == "Play")
         {
             googleAnalytics.LogScreen("Play Screen");
+        }
+#endif
+#if UNITY_ANDROID
+        if (Application.loadedLevelName == "Main")
+        {
+            adManager.RequestBanner(AdPosition.BottomRight);
         }
 #endif
     }
@@ -374,7 +387,9 @@ public class GameMaster : MonoBehaviour {
 
 	public void showGameOver ()
     {
-        
+#if UNITY_ANDROID
+        adManager.ShowInterstitial();
+#endif
 #if UNITY_ANDROID || UNITY_IOS
         googleAnalytics.LogScreen("Game Over");
 #endif
@@ -535,6 +550,18 @@ public class GameMaster : MonoBehaviour {
             playerData.ReportLeaderboard(playerData.totalBlueBirdsCollected, "CgkI68X_t_kNEAIQEQ");
             playerData.ReportLeaderboard(playerData.totalBlackBirdsCollected, "CgkI68X_t_kNEAIQEA");
             playerData.ReportLeaderboard((long)((endTime - startTime) * 1000L), "CgkI68X_t_kNEAIQEg");  // Google Play accepts time in milliseconds
+
+            // android admob call
+            // we figure out if we should request a banner ad or interstitial based on how many times the player has been dead
+            if (playerData.totalDeath % AdHandler.INTERSTITIAL_FREQUENCY == 0)
+            {
+                adManager.RequestInterstitual();
+            }
+            else
+            {
+                adManager.InterstitialCountDown += 1;
+                adManager.RequestBanner(AdPosition.Top);
+            }
 #elif UNITY_IOS
             playerData.ReportLeaderboard(this.collectedStars, "starspersession");
 			playerData.ReportLeaderboard(this.collectedBalloons, "balloonspersession");
@@ -563,10 +590,13 @@ public class GameMaster : MonoBehaviour {
 #if UNITY_ANDROID || UNITY_IOS
             googleAnalytics.LogEvent("Button Click", "Pause Button", "Player paused the game", 1);
 #endif
+
             pbImage.sprite = playImage;
             Time.timeScale = 0f;
             musicSource.Pause();
-            //musicSource.volume = 0;
+#if UNITY_ANDROID
+            adManager.RequestBanner(AdPosition.Top);
+#endif
 		} else
         {
 #if UNITY_ANDROID || UNITY_IOS
@@ -575,7 +605,10 @@ public class GameMaster : MonoBehaviour {
             pbImage.sprite = pauseImage;
             Time.timeScale = 1.0f;
             musicSource.UnPause();
-            //musicSource.volume = Settings.MasterVolume;
+            
+#if UNITY_ANDROID
+            adManager.DestroyBanner();
+#endif
 		}
 	}
 
@@ -583,6 +616,9 @@ public class GameMaster : MonoBehaviour {
     {
 #if UNITY_ANDROID || UNITY_IOS
         googleAnalytics.LogEvent("Button Click", "Play Button", "Player clicked play button", 1);
+#endif
+#if UNITY_ANDROID
+        adManager.DestroyBanner();
 #endif
         Application.LoadLevel ("Play");
 		linkObjects (); // Doesn't matter, just call it to feel safe
@@ -593,6 +629,9 @@ public class GameMaster : MonoBehaviour {
 #if UNITY_ANDROID || UNITY_IOS
         googleAnalytics.LogEvent("Button Click", "Main Menu Button", "Player clicked the Main Menu button", 1);
 #endif
+#if UNITY_ANDROID
+        adManager.DestroyBanner();
+#endif
         Application.LoadLevel ("Main");
     }
 
@@ -600,6 +639,9 @@ public class GameMaster : MonoBehaviour {
     {
 #if UNITY_ANDROID || UNITY_IOS
         googleAnalytics.LogEvent("Button Click", "Retry Button", "Player clicked the Retry button", 1);
+#endif
+#if UNITY_ANDROID
+        adManager.DestroyBanner();
 #endif
         // For restarts, grab all Entities in the scene and put them in the instancing manager for re-use
 		// The containers below are all existing recyclable entities.
@@ -681,6 +723,19 @@ public class GameMaster : MonoBehaviour {
 			// Create an instance from a provided prefab
 			googleAnalytics = GameObject.Instantiate(googleAnalyticsPrefab);
 		}
+
+        GameObject _adManager = GameObject.FindGameObjectWithTag("AdManager");
+        if (_adManager != null)
+        {
+            adManager = _adManager.GetComponent<AdHandler>();
+        }
+        else
+        {
+            GameObject instance = new GameObject();
+            instance.name = "AdManager";
+            instance.tag = "AdManager";
+            adManager = instance.AddComponent<AdHandler>();
+        }
 
 		GameObject _playerData = GameObject.FindGameObjectWithTag("PlayerData");
 		if (_playerData != null) {
