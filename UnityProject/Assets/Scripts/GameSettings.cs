@@ -26,13 +26,15 @@ public class GameSettings : MonoBehaviour {
 
     public bool Muted { get { return muted; } }
 
+    void Awake()
+    {
+        // initialize volume
+        lastVolume = masterVolume = 1.0f;
+    }
+
 	// Use this for initialization
 	void Start () {
         GameObject.DontDestroyOnLoad(this.gameObject);
-
-        // initialize volume
-        lastVolume = 0f;
-        masterVolume = 1.0f;
 	}
 	
 	// Update is called once per frame
