@@ -4,8 +4,13 @@ using GoogleMobileAds.Api;
 
 public class AdHandler : MonoBehaviour {
 
-    private string ANDROID_PAUSE_BANNER_AD_ID = "ca-app-pub-4745551853234420/8131009194";
-    private string ANDROID_INTERSTITIAL_AD_ID = "ca-app-pub-4745551853234420/5956271992";
+#if UNITY_IOS
+	private string PAUSE_BANNER_AD_ID = "ca-app-pub-4745551853234420/8203231191";
+	private string INTERSTITIAL_AD_ID = "ca-app-pub-4745551853234420/6726497995";
+#else
+    private string PAUSE_BANNER_AD_ID = "ca-app-pub-4745551853234420/8131009194";
+    private string INTERSTITIAL_AD_ID = "ca-app-pub-4745551853234420/5956271992";
+#endif
 
     private BannerView bannerAd;
     private InterstitialAd interstitialAd;
@@ -29,7 +34,7 @@ public class AdHandler : MonoBehaviour {
     public void RequestBanner(AdPosition position)
     {
         interstitialCountDown = 0;
-        bannerAd = new BannerView(ANDROID_PAUSE_BANNER_AD_ID, AdSize.Banner, position);
+        bannerAd = new BannerView(PAUSE_BANNER_AD_ID, AdSize.Banner, position);
 
         AdRequest request = new AdRequest.Builder().Build();
         bannerAd.LoadAd(request);
@@ -46,7 +51,7 @@ public class AdHandler : MonoBehaviour {
 
     public void RequestInterstitual()
     {
-        interstitialAd = new InterstitialAd(ANDROID_INTERSTITIAL_AD_ID);
+        interstitialAd = new InterstitialAd(INTERSTITIAL_AD_ID);
         AdRequest request = new AdRequest.Builder().Build();
         interstitialAd.LoadAd(request);
 
