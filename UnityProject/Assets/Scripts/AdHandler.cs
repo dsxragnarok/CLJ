@@ -34,6 +34,10 @@ public class AdHandler : MonoBehaviour {
     public void RequestBanner(AdPosition position)
     {
         interstitialCountDown = 0;
+        // Make sure the bannerAd isn't already active
+        if (bannerAd != null)
+            return;
+
         bannerAd = new BannerView(PAUSE_BANNER_AD_ID, AdSize.Banner, position);
 
         AdRequest request = new AdRequest.Builder().Build();
@@ -51,6 +55,9 @@ public class AdHandler : MonoBehaviour {
 
     public void RequestInterstitual()
     {
+        if (interstitialAd != null)
+            return;
+
         interstitialAd = new InterstitialAd(INTERSTITIAL_AD_ID);
         AdRequest request = new AdRequest.Builder().Build();
         interstitialAd.LoadAd(request);
