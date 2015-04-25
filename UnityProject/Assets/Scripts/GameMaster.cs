@@ -223,6 +223,13 @@ public class GameMaster : MonoBehaviour {
 			Application.CaptureScreenshot ("Screenshot.png");
 		}
 #endif
+        if (Input.GetKeyDown (KeyCode.Escape))
+        {
+            if (creditsDialog != null && creditsDialog.activeSelf)
+            {
+                closeCredits();
+            }
+        }
 	}
 
 	public void updateScore (int value) {
