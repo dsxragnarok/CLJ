@@ -188,6 +188,7 @@ public class GameMaster : MonoBehaviour {
 
 
 #if UNITY_IOS || UNITY_EDITOR
+            // These platforms don't use a quit button
             if (btn.tag == "QuitButton")
             {
                 btn.gameObject.SetActive(false);
@@ -228,6 +229,11 @@ public class GameMaster : MonoBehaviour {
             if (creditsDialog != null && creditsDialog.activeSelf)
             {
                 closeCredits();
+            }
+            else if ((Application.loadedLevelName == "Main" && !creditsDialog.activeSelf) ||
+                (Application.loadedLevelName == "Play" && (resultDialog.activeSelf || gameOverDialog.activeSelf)))
+            {
+                Application.Quit();
             }
         }
 	}
@@ -584,6 +590,10 @@ public class GameMaster : MonoBehaviour {
     }
 
 	public void togglePause () {
+        // Don't allow pause during game over
+        if (resultDialog.activeSelf || gameOverDialog.activeSelf)
+            return;
+
 		isPaused = !isPaused;
         Image pbImage = pauseButton.GetComponent<Image>();
         AudioSource musicSource = mainCamera.GetComponent<AudioSource>();
