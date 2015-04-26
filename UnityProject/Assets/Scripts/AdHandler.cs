@@ -31,6 +31,26 @@ public class AdHandler : MonoBehaviour {
         interstitialCountDown = INTERSTITIAL_FREQUENCY;
     }
 
+    public void ShowBanner()
+    {
+        if (bannerAd == null)
+        {
+            RequestBanner(AdPosition.Top);
+        }
+        else
+        {
+            bannerAd.Show();
+        }
+    }
+
+    public void HideBanner()
+    {
+        if (bannerAd != null)
+        {
+            bannerAd.Hide();
+        }
+    }
+
     public void RequestBanner(AdPosition position)
     {
         interstitialCountDown = 0;

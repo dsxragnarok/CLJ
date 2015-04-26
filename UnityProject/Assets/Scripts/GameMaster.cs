@@ -543,7 +543,8 @@ public class GameMaster : MonoBehaviour {
             else
             {
                 adManager.InterstitialCountDown += 1;
-                adManager.RequestBanner(AdPosition.Top);
+                adManager.ShowBanner();
+                //adManager.RequestBanner(AdPosition.Top);
             }
 
             googleAnalytics.LogScreen("Results Screen");
@@ -599,7 +600,8 @@ public class GameMaster : MonoBehaviour {
         AudioSource musicSource = mainCamera.GetComponent<AudioSource>();
 		if (isPaused) {
 #if UNITY_ANDROID || UNITY_IOS
-            adManager.RequestBanner(AdPosition.Top);
+            adManager.ShowBanner();
+            //adManager.RequestBanner(AdPosition.Top);
             googleAnalytics.LogEvent("Button Click", "Pause Button", "Player paused the game", 1);
 #endif
 
@@ -610,7 +612,8 @@ public class GameMaster : MonoBehaviour {
         else
         {
 #if UNITY_ANDROID || UNITY_IOS
-            adManager.DestroyBanner();
+            adManager.HideBanner();
+            //adManager.DestroyBanner();
             googleAnalytics.LogEvent("Button Click", "Unpause Button", "Player unpaused the game", 1);
 #endif
             pbImage.sprite = pauseImage;
@@ -622,7 +625,8 @@ public class GameMaster : MonoBehaviour {
 	public void startGame()
     {
 #if UNITY_ANDROID || UNITY_IOS
-        adManager.DestroyBanner();
+        adManager.HideBanner();
+        //adManager.DestroyBanner();
         googleAnalytics.LogEvent("Button Click", "Play Button", "Player clicked play button", 1);
 #endif
         Application.LoadLevel ("Play");
@@ -632,7 +636,8 @@ public class GameMaster : MonoBehaviour {
     public void mainMenu()
     {
 #if UNITY_ANDROID || UNITY_IOS
-        adManager.DestroyBanner();
+        adManager.HideBanner();
+        //adManager.DestroyBanner();
         googleAnalytics.LogEvent("Button Click", "Main Menu Button", "Player clicked the Main Menu button", 1);
 #endif
         Application.LoadLevel ("Main");
@@ -641,7 +646,8 @@ public class GameMaster : MonoBehaviour {
 	public void restartGame ()
     {
 #if UNITY_ANDROID || UNITY_IOS
-        adManager.DestroyBanner();
+        adManager.HideBanner();
+        //adManager.DestroyBanner();
         googleAnalytics.LogEvent("Button Click", "Retry Button", "Player clicked the Retry button", 1);
 #endif
         // For restarts, grab all Entities in the scene and put them in the instancing manager for re-use
