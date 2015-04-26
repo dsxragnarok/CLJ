@@ -205,7 +205,7 @@ public class GameMaster : MonoBehaviour {
         if (Application.loadedLevelName == "Main")
         {
             googleAnalytics.LogScreen("Main Menu Screen");
-            adManager.RequestBanner(AdPosition.BottomRight);
+            //adManager.RequestBanner(AdPosition.BottomRight);  // no ads on Main Menu ~ too much clutter
         }
         if (Application.loadedLevelName == "Play")
         {
