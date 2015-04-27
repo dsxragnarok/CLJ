@@ -372,7 +372,7 @@ public class CharController : Entity {
         gameMaster.endTime = Time.timeSinceLevelLoad;
         gameMaster.showResult();
         //gameMaster.showGameOver ();
-        gameMaster.showToggleGameOver(); // for testing purposes -- delete or comment out for publish
+        //gameMaster.showToggleGameOver(); // for testing purposes -- delete or comment out for publish
 #if UNITY_ANDROID || UNITY_IOS
         googleAnalytics.LogEvent("Death", "Player Death", "Player dies", 1);
 #endif

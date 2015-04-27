@@ -55,6 +55,7 @@ public class GameMaster : MonoBehaviour {
     public float endTime;               // The time in seconds when the player dies
 
     private string versionString = "v 0.9";
+    private string weburl = "http://mkcpgames.dsxragnarok.com/";
 
     private int tipIndex = 0;
     private string[] gameplayTips = new string[]
@@ -677,6 +678,14 @@ public class GameMaster : MonoBehaviour {
 #endif
         Application.Quit ();
 	}
+
+    public void visitWebsite ()
+    {
+#if UNITY_ANDROID || UNITY_IOS
+        googleAnalytics.LogEvent("Button Click", "Visit Site", "Player clicked on Visit Site button", 1);
+#endif
+        Application.OpenURL(weburl);
+    }
 
     public bool isHitPauseButton (Vector3 position)
     {
