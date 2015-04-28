@@ -121,7 +121,7 @@ public class SpawnBirds : Entity {
 		if (birdType == BirdController.BirdType.RED) {
 			// Red birds became balloons. Have their speed behaviors slightly different
 			targetAcc = new Vector2(UnityEngine.Random.Range (-1.0f, 0.0f), UnityEngine.Random.Range (0.0f, 0.0f));
-			targetVel = new Vector2(UnityEngine.Random.Range (-6.0f, -4.5f), UnityEngine.Random.Range (3.5f, 4.5f));
+			targetVel = new Vector2(UnityEngine.Random.Range (-6.0f, -4.5f), UnityEngine.Random.Range (1.5f, 2.5f));
 			t = 3.0f;
 		}
 		Vector2 targetPos;

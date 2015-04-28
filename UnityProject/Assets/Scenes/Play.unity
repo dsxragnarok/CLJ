@@ -2314,7 +2314,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -5049,9 +5049,9 @@ MonoBehaviour:
   spawnInterval: 3
   spawnListCriterias:
   - obj: {fileID: 11426722, guid: e03b4fa0b6fe179489d5ca32b0d739a6, type: 2}
-    amount: 8
+    amount: 9
   - obj: {fileID: 11489904, guid: 060e38de3f9c28648b3a06cfd96faa52, type: 2}
-    amount: 2
+    amount: 1
   - obj: {fileID: 11496266, guid: b446c0aa4cad7844d9d04966ed8e2af5, type: 2}
     amount: 0
 --- !u!1 &2030708378
