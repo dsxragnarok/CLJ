@@ -100,6 +100,7 @@ public class SpawnBirds : Entity {
 		}
 
 		BirdController spawnPrefab = getRandomSpawnType ();
+		BirdController.BirdType birdType = spawnPrefab.Type;
 
 		// Obtain a random cloud
 		int idxPlatform = UnityEngine.Random.Range (0, targetPlatforms.Count);
@@ -116,9 +117,15 @@ public class SpawnBirds : Entity {
 		// Predict home position using desired velocity and acceleration and time
 		Vector2 targetAcc = new Vector2(UnityEngine.Random.Range (-3.5f, -2.5f), UnityEngine.Random.Range (-2.5f, -1.5f));
 		Vector2 targetVel = new Vector2(UnityEngine.Random.Range (-8.0f, -6.0f), UnityEngine.Random.Range (7.0f, 9.0f));
+		float t = 2.0f;
+		if (birdType == BirdController.BirdType.RED) {
+			// Red birds became balloons. Have their speed behaviors slightly different
+			targetAcc = new Vector2(UnityEngine.Random.Range (-1.0f, 0.0f), UnityEngine.Random.Range (0.0f, 0.0f));
+			targetVel = new Vector2(UnityEngine.Random.Range (-6.0f, -4.5f), UnityEngine.Random.Range (3.5f, 4.5f));
+			t = 3.0f;
+		}
 		Vector2 targetPos;
 
-		float t = 2.0f;
 		targetPos = targetDest + (new Vector2(-cloudSpeed, 0.0f) - targetVel) * t - targetAcc * t * t * 0.5f;
 	
 		// Instantiate bird with parameters
