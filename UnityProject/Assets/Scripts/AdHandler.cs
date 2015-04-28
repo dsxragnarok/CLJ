@@ -32,15 +32,23 @@ public class AdHandler : MonoBehaviour {
     }
 
     public void RequestBanner(AdPosition position)
-    {
-        interstitialCountDown = 0;
+	{
+		interstitialCountDown = 0;
+		Debug.Log("banner ad request");
         // Make sure the bannerAd isn't already active
         if (bannerAd != null)
-            return;
+			return;
+		Debug.Log("banner ad pass");
 
         bannerAd = new BannerView(PAUSE_BANNER_AD_ID, AdSize.Banner, position);
 
-        AdRequest request = new AdRequest.Builder().Build();
+		AdRequest request = new AdRequest.Builder()
+#if UNITY_IOS
+			.AddTestDevice(AdRequest.TestDeviceSimulator)
+			.AddTestDevice("616c27ce10cf4aa8bd807de44d18e496") // Calvin's IPhone
+#endif
+			.Build();
+
         bannerAd.LoadAd(request);
     }
 
@@ -54,12 +62,19 @@ public class AdHandler : MonoBehaviour {
     }
 
     public void RequestInterstitual()
-    {
+	{
+		Debug.Log("Interstitial ad request");
         if (interstitialAd != null)
-            return;
+			return;
+		Debug.Log("Interstitial ad pass");
 
         interstitialAd = new InterstitialAd(INTERSTITIAL_AD_ID);
-        AdRequest request = new AdRequest.Builder().Build();
+        AdRequest request = new AdRequest.Builder()
+#if UNITY_IOS
+			.AddTestDevice(AdRequest.TestDeviceSimulator)
+			.AddTestDevice("616c27ce10cf4aa8bd807de44d18e496") // Calvin's IPhone
+#endif
+			.Build();
         interstitialAd.LoadAd(request);
 
         interstitialAd.AdClosed += interstitialAd_AdClosed;
