@@ -55,6 +55,7 @@ public class GameMaster : MonoBehaviour {
     public float endTime;               // The time in seconds when the player dies
 
     private string versionString = "v 0.9";
+    private string weburl = "http://mkcpgames.dsxragnarok.com/";
 
     private int tipIndex = 0;
     private string[] gameplayTips = new string[]
@@ -188,6 +189,7 @@ public class GameMaster : MonoBehaviour {
 
 
 #if UNITY_IOS || UNITY_EDITOR
+            // These platforms don't use a quit button
             if (btn.tag == "QuitButton")
             {
                 btn.gameObject.SetActive(false);
@@ -205,7 +207,7 @@ public class GameMaster : MonoBehaviour {
         if (Application.loadedLevelName == "Main")
         {
             googleAnalytics.LogScreen("Main Menu Screen");
-            adManager.RequestBanner(AdPosition.BottomRight);
+            //adManager.RequestBanner(AdPosition.BottomRight);  // no ads on Main Menu ~ too much clutter
         }
         if (Application.loadedLevelName == "Play")
         {
@@ -223,6 +225,18 @@ public class GameMaster : MonoBehaviour {
 			Application.CaptureScreenshot ("Screenshot.png");
 		}
 #endif
+        if (Input.GetKeyDown (KeyCode.Escape))
+        {
+            if (creditsDialog != null && creditsDialog.activeSelf)
+            {
+                closeCredits();
+            }
+            else if ((Application.loadedLevelName == "Main" && !creditsDialog.activeSelf) ||
+                (Application.loadedLevelName == "Play" && (resultDialog.activeSelf || gameOverDialog.activeSelf)))
+            {
+                Application.Quit();
+            }
+        }
 	}
 
 	public void updateScore (int value) {
@@ -530,7 +544,8 @@ public class GameMaster : MonoBehaviour {
             else
             {
                 adManager.InterstitialCountDown += 1;
-                adManager.RequestBanner(AdPosition.Top);
+                adManager.ShowBanner();
+                //adManager.RequestBanner(AdPosition.Top);
             }
 
             googleAnalytics.LogScreen("Results Screen");
@@ -577,12 +592,17 @@ public class GameMaster : MonoBehaviour {
     }
 
 	public void togglePause () {
+        // Don't allow pause during game over
+        if (resultDialog.activeSelf || gameOverDialog.activeSelf)
+            return;
+
 		isPaused = !isPaused;
         Image pbImage = pauseButton.GetComponent<Image>();
         AudioSource musicSource = mainCamera.GetComponent<AudioSource>();
 		if (isPaused) {
 #if UNITY_ANDROID || UNITY_IOS
-            adManager.RequestBanner(AdPosition.Top);
+            adManager.ShowBanner();
+            //adManager.RequestBanner(AdPosition.Top);
             googleAnalytics.LogEvent("Button Click", "Pause Button", "Player paused the game", 1);
 #endif
 
@@ -593,7 +613,8 @@ public class GameMaster : MonoBehaviour {
         else
         {
 #if UNITY_ANDROID || UNITY_IOS
-            adManager.DestroyBanner();
+            adManager.HideBanner();
+            //adManager.DestroyBanner();
             googleAnalytics.LogEvent("Button Click", "Unpause Button", "Player unpaused the game", 1);
 #endif
             pbImage.sprite = pauseImage;
@@ -605,7 +626,8 @@ public class GameMaster : MonoBehaviour {
 	public void startGame()
     {
 #if UNITY_ANDROID || UNITY_IOS
-        adManager.DestroyBanner();
+        adManager.HideBanner();
+        //adManager.DestroyBanner();
         googleAnalytics.LogEvent("Button Click", "Play Button", "Player clicked play button", 1);
 #endif
         Application.LoadLevel ("Play");
@@ -615,7 +637,8 @@ public class GameMaster : MonoBehaviour {
     public void mainMenu()
     {
 #if UNITY_ANDROID || UNITY_IOS
-        adManager.DestroyBanner();
+        adManager.HideBanner();
+        //adManager.DestroyBanner();
         googleAnalytics.LogEvent("Button Click", "Main Menu Button", "Player clicked the Main Menu button", 1);
 #endif
         Application.LoadLevel ("Main");
@@ -624,7 +647,8 @@ public class GameMaster : MonoBehaviour {
 	public void restartGame ()
     {
 #if UNITY_ANDROID || UNITY_IOS
-        adManager.DestroyBanner();
+        adManager.HideBanner();
+        //adManager.DestroyBanner();
         googleAnalytics.LogEvent("Button Click", "Retry Button", "Player clicked the Retry button", 1);
 #endif
         // For restarts, grab all Entities in the scene and put them in the instancing manager for re-use
@@ -654,6 +678,14 @@ public class GameMaster : MonoBehaviour {
 #endif
         Application.Quit ();
 	}
+
+    public void visitWebsite ()
+    {
+#if UNITY_ANDROID || UNITY_IOS
+        googleAnalytics.LogEvent("Button Click", "Visit Site", "Player clicked on Visit Site button", 1);
+#endif
+        Application.OpenURL(weburl);
+    }
 
     public bool isHitPauseButton (Vector3 position)
     {
