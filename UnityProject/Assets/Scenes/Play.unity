@@ -832,7 +832,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .10353826, y: .583000004}
   m_AnchorMax: {x: .10353826, y: .583000004}
-  m_AnchoredPosition: {x: 2, y: 3}
+  m_AnchoredPosition: {x: 2, y: -52}
   m_SizeDelta: {x: 101, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &327040859
@@ -1364,7 +1364,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 516.199951, y: 0}
+  m_AnchoredPosition: {x: 263, y: 0}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &463420205
@@ -1387,7 +1387,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 100
-    m_Alignment: 3
+    m_Alignment: 5
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -2573,7 +2573,7 @@ RectTransform:
   m_RootOrder: 7
   m_AnchorMin: {x: .620504677, y: .431518435}
   m_AnchorMax: {x: .620504677, y: .431518435}
-  m_AnchoredPosition: {x: -6, y: 13}
+  m_AnchoredPosition: {x: -6, y: -55}
   m_SizeDelta: {x: 101, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &1095436505
@@ -2726,7 +2726,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 445, y: 0}
+  m_AnchoredPosition: {x: 260, y: 0}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1099328247
@@ -2749,7 +2749,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 100
-    m_Alignment: 3
+    m_Alignment: 5
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -3628,7 +3628,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .482551426, y: .875266492}
   m_AnchorMax: {x: .482551426, y: .875266492}
-  m_AnchoredPosition: {x: 10, y: 6.81999969}
+  m_AnchoredPosition: {x: 10, y: -24}
   m_SizeDelta: {x: 1242, y: 130.360001}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1480952573
@@ -3760,7 +3760,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 515, y: 0}
+  m_AnchoredPosition: {x: 262, y: 0}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1529598508
@@ -3783,7 +3783,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 100
-    m_Alignment: 3
+    m_Alignment: 5
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -4034,7 +4034,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .10353826, y: .583000004}
   m_AnchorMax: {x: .10353826, y: .583000004}
-  m_AnchoredPosition: {x: 2, y: 3.00003052}
+  m_AnchoredPosition: {x: 2, y: -52}
   m_SizeDelta: {x: 101, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &1575420126
@@ -4068,7 +4068,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: .10353826, y: .454764336}
   m_AnchorMax: {x: .10353826, y: .454764336}
-  m_AnchoredPosition: {x: 2, y: -7}
+  m_AnchoredPosition: {x: 2, y: -62}
   m_SizeDelta: {x: 101, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &1580245774 stripped
@@ -4334,7 +4334,7 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: .620504677, y: .57417053}
   m_AnchorMax: {x: .620504677, y: .57417053}
-  m_AnchoredPosition: {x: -5, y: 9}
+  m_AnchoredPosition: {x: -5, y: -59}
   m_SizeDelta: {x: 100, y: 102}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &1773943663
@@ -4637,7 +4637,7 @@ RectTransform:
   m_RootOrder: 6
   m_AnchorMin: {x: .10353826, y: .318000019}
   m_AnchorMax: {x: .10353826, y: .318000019}
-  m_AnchoredPosition: {x: 2, y: -148}
+  m_AnchoredPosition: {x: 2, y: -203}
   m_SizeDelta: {x: 101, y: 101}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &1897530730
@@ -5133,7 +5133,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 447, y: 0}
+  m_AnchoredPosition: {x: 262, y: 0}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &2046115687
@@ -5156,7 +5156,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 100
-    m_Alignment: 3
+    m_Alignment: 5
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
