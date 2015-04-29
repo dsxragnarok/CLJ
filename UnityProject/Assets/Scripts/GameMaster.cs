@@ -54,7 +54,7 @@ public class GameMaster : MonoBehaviour {
     public float startTime;             // The time in seconds after the player exits instruction screen
     public float endTime;               // The time in seconds when the player dies
 
-    private string versionString = "v 0.9";
+    //private string versionString = "v 0.9";
     private string weburl = "http://mkcpgames.dsxragnarok.com/";
 
     private int tipIndex = 0;
@@ -200,7 +200,7 @@ public class GameMaster : MonoBehaviour {
         GameObject versionDisplay = GameObject.FindGameObjectWithTag("VersionString");
         if (versionDisplay != null)
         {
-            versionDisplay.GetComponent<Text>().text = versionString;
+            versionDisplay.GetComponent<Text>().text = Application.version;//versionString;
         }
 #if UNITY_ANDROID || UNITY_IOS
         googleAnalytics.DispatchHits();
@@ -261,6 +261,17 @@ public class GameMaster : MonoBehaviour {
 		ftInstance.GetComponent<FloatingText>().BindToTarget(Player.gameObject);
 		ftInstance.GetComponent<Text>().text = value;
 	}
+
+    public void generateFloatingTextAt(Vector3 pos, string value, Color beginColor, Color endColor, GameObject bindTarget = null)
+    {
+        GameObject ftInstance = (GameObject)GameObject.Instantiate(floatingTextPrefab);
+        FloatingText ft = ftInstance.GetComponent<FloatingText>();
+        ft.startColor = beginColor;
+        ft.endColor = endColor;
+        if (bindTarget != null)
+            ft.BindToTarget(bindTarget);
+        ft.GetComponent<Text>().text = value;
+    }
 
     public void ToggleMute()
     {
@@ -398,7 +409,7 @@ public class GameMaster : MonoBehaviour {
 	public void showGameOver ()
     {
 #if UNITY_ANDROID || UNITY_IOS
-        adManager.ShowInterstitial();
+        //adManager.ShowInterstitial();
         googleAnalytics.LogScreen("Game Over");
 #endif
         resultDialog.SetActive(false);
@@ -535,9 +546,9 @@ public class GameMaster : MonoBehaviour {
 #endif
             }
 #if UNITY_ANDROID || UNITY_IOS
-            // android admob call
+            // android admob call -- NOTE: Interstitial ads are too annoying, only use banners - KP
             // we figure out if we should request a banner ad or interstitial based on how many times the player has been dead
-            if (playerData.totalDeath % AdHandler.INTERSTITIAL_FREQUENCY == 0)
+            /*if (playerData.totalDeath % AdHandler.INTERSTITIAL_FREQUENCY == 0)
             {
                 adManager.RequestInterstitual();
             }
@@ -546,7 +557,8 @@ public class GameMaster : MonoBehaviour {
                 adManager.InterstitialCountDown += 1;
                 adManager.ShowBanner();
                 //adManager.RequestBanner(AdPosition.Top);
-            }
+            }*/
+            adManager.ShowBanner();
 
             googleAnalytics.LogScreen("Results Screen");
             // Collect some stats for Google Analytics

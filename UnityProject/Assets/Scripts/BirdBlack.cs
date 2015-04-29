@@ -47,6 +47,8 @@ public class BirdBlack : BirdController {
 
 				//gameMaster.SoundEffects.PlaySoundClip("thump");
 				gameMaster.SoundEffects.PlaySoundClip("thump2");
+                gameMaster.generateFloatingTextAt(collider.transform.position, "WHAT THE PECK!?");
+                //gameMaster.generateFloatingTextAt(collider.transform.position, "WHAT THE PECK!?", Color.red, Color.yellow);
 			}
 		}
 	}

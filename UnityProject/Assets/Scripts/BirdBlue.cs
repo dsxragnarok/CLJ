@@ -53,6 +53,9 @@ public class BirdBlue : BirdController {
 				charController.StunIt (0.5f, 1);	
 				GetComponent<SpriteRenderer>().sprite = deadSprite;
 
+                //gameMaster.generateFloatingTextAt(collider.transform.position, "WHAT THE PECK!?", Color.red, Color.yellow, gameMaster.MainCamera.gameObject);
+                //gameMaster.generateFloatingTextAt(collider.transform.position, "WHAT THE PECK!?");
+
 				collected = true;
 				gameMaster.SoundEffects.PlaySoundClip("thump");
 			}
