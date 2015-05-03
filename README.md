@@ -5,7 +5,7 @@ Programmers: Kevin Phung, Calvin Phung
 Concept Art & Sprites: Minh Phung
 Music: Calvin Phung
 
-A simple infinite runner built in Unity and C#. 
+A simple 2d side-scroller infinite runner built in Unity and C#. 
 
 Background Sky Color: 
 H	193
